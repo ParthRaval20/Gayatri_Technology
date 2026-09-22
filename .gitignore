@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# User-excluded folders & documentation
+/UI_UX/
+/skills/
+/.agents/
+/.agent/
+AGENTS.md
+agents.md
