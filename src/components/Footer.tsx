@@ -31,6 +31,18 @@ export default function Footer() {
               Enterprise Web &amp; Software Architecture. We architect, build, and scale custom web
               platforms tailored to client business realities and high-growth objectives.
             </p>
+            <address className="not-italic text-xs text-[#E2E8F0]/75 space-y-1 pt-1 font-sans">
+              <p>102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
+              <p className="flex items-center gap-3">
+                <a href="tel:+919328437392" className="hover:text-[#47C56E] transition-colors font-medium">
+                  +91 93284 37392
+                </a>
+                <span>•</span>
+                <a href="mailto:info@gayatritechnology.in" className="hover:text-[#47C56E] transition-colors font-medium">
+                  info@gayatritechnology.in
+                </a>
+              </p>
+            </address>
             <div className="flex items-center gap-2.5 pt-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#47C56E] animate-pulse" />
               <span className="text-xs font-semibold text-[#86EFAC] font-mono">

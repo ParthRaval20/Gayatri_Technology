@@ -16,18 +16,45 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Gayatri Technology",
+  title: "Privacy Policy",
   description:
-    "Privacy Policy for Gayatri Technology. Learn how we handle client data, proprietary code, deployment credentials, domain records, and cloud hosting data retention.",
+    "Privacy Policy for Gayatri Technology. Learn how we handle client proprietary data, cloud credentials, domain records, and hosting data retention protocols.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Gayatri Technology",
+    description:
+      "Privacy Policy for Gayatri Technology. Learn how we handle client data, proprietary code, deployment credentials, domain records, and cloud hosting data retention.",
+    url: `${siteConfig.url}/privacy-policy`,
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Gayatri Technology",
+    description:
+      "Privacy Policy for Gayatri Technology. Learn how we handle client proprietary data, cloud credentials, and domain records.",
+  },
 };
 
 export default function PrivacyPolicyPage() {
   const lastUpdated = "September 22, 2026";
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Privacy Policy", path: "/privacy-policy" },
+  ]);
 
   return (
     <div className="flex min-h-screen flex-col bg-[#F8FAFC]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Navbar />
 
       <main className="flex-1 py-16 lg:py-20">

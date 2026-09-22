@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustValueStrip from "@/components/TrustValueStrip";
@@ -13,6 +14,15 @@ import ProcessSection from "@/components/ProcessSection";
 import CtaBanner from "@/components/CtaBanner";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Gayatri Technology | Custom Web Development & Enterprise Software Solutions",
+  description:
+    "We design and develop bespoke websites, high-performance web applications, and industrial ERP systems tailored to your business goals. Engineering excellence from Rajkot, Gujarat.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

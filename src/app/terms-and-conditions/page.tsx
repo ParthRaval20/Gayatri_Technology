@@ -12,18 +12,45 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | Gayatri Technology",
+  title: "Terms and Conditions",
   description:
     "Official Terms and Conditions of Service for Gayatri Technology. Details on development contracts, domain and hosting policies, payment cycles, and service suspension clauses.",
+  alternates: {
+    canonical: "/terms-and-conditions",
+  },
+  openGraph: {
+    title: "Terms and Conditions | Gayatri Technology",
+    description:
+      "Official Terms and Conditions of Service for Gayatri Technology. Details on development contracts, domain and hosting policies, payment cycles, and service suspension clauses.",
+    url: `${siteConfig.url}/terms-and-conditions`,
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms and Conditions | Gayatri Technology",
+    description:
+      "Official Terms and Conditions of Service for Gayatri Technology. Details on software contracts, hosting schedules, and service terms.",
+  },
 };
 
 export default function TermsAndConditionsPage() {
   const lastUpdated = "September 22, 2026";
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Terms and Conditions", path: "/terms-and-conditions" },
+  ]);
 
   return (
     <div className="flex min-h-screen flex-col bg-[#F8FAFC]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Navbar />
 
       <main className="flex-1 py-16 lg:py-20">

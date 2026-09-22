@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
+import { siteConfig, getOrganizationSchema } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,33 +24,69 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Gayatri Technology | Custom Web Development & Technology Solutions",
-  description:
-    "We design and develop custom websites and web applications tailored to your business requirements, goals, and customers. Zero-template enterprise architecture.",
-  keywords: [
-    "Gayatri Technology",
-    "Custom Web Development",
-    "Web Applications",
-    "Enterprise Software",
-    "E-Commerce Solutions",
-    "UI/UX Design",
-    "Noida Tech Company",
-    "Next.js Development"
-  ],
-  authors: [{ name: "Gayatri Technology" }],
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.defaultTitle,
+    template: siteConfig.titleTemplate,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: siteConfig.authors,
+  creator: siteConfig.creator,
+  publisher: siteConfig.publisher,
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Gayatri Technology | Custom Web Development & Technology Solutions",
-    description:
-      "Technology Built Around Your Business. Custom web development, portals, and cloud systems.",
-    url: "https://gayatritechnology.com",
-    siteName: "Gayatri Technology",
+    title: siteConfig.defaultTitle,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.defaultTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.defaultTitle,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/twitter-image`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
+  },
+  verification: {
+    google: "google57e6f733961f1ac3",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#47C56E",
+  themeColor: siteConfig.themeColor,
   width: "device-width",
   initialScale: 1,
 };
@@ -59,8 +96,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = getOrganizationSchema();
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${plusJakarta.variable} ${montserrat.variable} font-sans bg-surface text-on-surface antialiased overflow-x-hidden selection:bg-[#47C56E] selection:text-[#091C0F]`}
       >
@@ -69,3 +116,4 @@ export default function RootLayout({
     </html>
   );
 }
+
