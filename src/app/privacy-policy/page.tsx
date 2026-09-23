@@ -48,7 +48,7 @@ export default function PrivacyPolicyPage() {
   ]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#F8FAFC] overflow-x-clip w-full">
+    <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

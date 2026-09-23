@@ -202,7 +202,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer with Safe Area Inset Support */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-6 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] overflow-y-auto">
+        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-6 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] max-h-[85dvh] overflow-y-auto momentum-scroll">
           <nav className="flex flex-col space-y-1.5 sm:space-y-2">
             {navLinks.map((link) => {
               const isActive = pathname === "/" && activeSection === link.id;

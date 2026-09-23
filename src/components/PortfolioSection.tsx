@@ -524,7 +524,7 @@ export default function PortfolioSection() {
           onClick={closeScreenshotModal}
         >
           <div
-            className="relative bg-[#091C0F] border border-[#163820] rounded-2xl sm:rounded-3xl max-w-4xl w-full p-4 sm:p-6 md:p-8 text-white shadow-2xl overflow-hidden max-h-[92vh] sm:max-h-[95vh] flex flex-col"
+            className="relative bg-[#091C0F] border border-[#163820] rounded-2xl sm:rounded-3xl max-w-4xl w-full p-4 sm:p-6 md:p-8 text-white shadow-2xl overflow-hidden max-h-[92vh] max-h-[92dvh] sm:max-h-[95vh] sm:max-h-[95dvh] flex flex-col overscroll-contain"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -562,7 +562,7 @@ export default function PortfolioSection() {
             </div>
 
             {/* Modal Body: Device Frame + Information Panel */}
-            <div className="grid md:grid-cols-12 gap-5 sm:gap-6 items-center overflow-y-auto pr-1">
+            <div className="grid md:grid-cols-12 gap-5 sm:gap-6 items-center overflow-y-auto momentum-scroll overscroll-contain pr-1">
               {/* Phone Device Mockup Container */}
               <div className="md:col-span-5 flex justify-center py-2">
                 <div className="relative w-[200px] min-[400px]:w-[230px] sm:w-[250px] h-[400px] min-[400px]:h-[460px] sm:h-[500px] bg-black rounded-[32px] sm:rounded-[36px] p-2 sm:p-2.5 shadow-2xl border-4 border-slate-800 ring-1 ring-slate-700/50 shrink-0">

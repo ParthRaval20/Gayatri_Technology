@@ -156,7 +156,7 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Ramesh Sharma"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
 
@@ -170,7 +170,7 @@ export default function ContactSection() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="e.g. Acme Corp India"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="ramesh@acmecorp.com"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
 
@@ -200,7 +200,7 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
                 </div>
@@ -213,7 +213,7 @@ export default function ContactSection() {
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     >
                       <option>Custom Web Application</option>
                       <option>Business Website Development</option>
@@ -231,7 +231,7 @@ export default function ContactSection() {
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     >
                       <option>Under ₹25,000</option>
                       <option>₹25,000 – ₹50,000</option>
@@ -285,7 +285,7 @@ export default function ContactSection() {
                     value={formData.details}
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                     placeholder="Describe your current business problem, required modules, target users, or key objectives..."
-                    className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
                   />
                 </div>
 
