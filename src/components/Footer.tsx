@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Brand Summary Column */}
           <div className="sm:col-span-2 lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <BrandLogo className="h-9 sm:h-11 w-auto" isDarkBackground />
+              <BrandLogo className="h-9 w-[62px] sm:h-11 sm:w-[76px] shrink-0" isDarkBackground />
               <div className="flex flex-col">
                 <span className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-white font-[family-name:var(--font-montserrat)] leading-none">
                   GAYATRI

@@ -129,16 +129,16 @@ export default function Navbar() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-xs transition-all duration-200">
-      <div className="screen-container h-16 sm:h-20 flex justify-between items-center w-full pt-safe">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-xs transition-all duration-200 pt-safe">
+      <div className="screen-container h-16 sm:h-20 flex justify-between items-center w-full">
         {/* Brand */}
         <Link
           href={pathname === "/" ? "#hero" : "/#hero"}
           onClick={(e) => scrollToSection(e, "hero")}
           className="flex items-center gap-2 sm:gap-3.5 group cursor-pointer shrink-0"
         >
-          <BrandLogo className="h-9 sm:h-11 w-auto transition-transform group-hover:scale-105 duration-200" />
-          <div className="flex flex-col">
+          <BrandLogo className="h-9 w-[62px] sm:h-11 sm:w-[76px] transition-transform group-hover:scale-105 duration-200 shrink-0" />
+          <div className="flex flex-col shrink-0">
             <span className="text-base sm:text-xl font-extrabold uppercase tracking-tight text-[#091C0F] font-[family-name:var(--font-montserrat)] leading-none">
               GAYATRI
             </span>
@@ -188,7 +188,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile & Tablet Menu Button */}
-        <div className="lg:hidden flex items-center">
+        <div className="lg:hidden flex items-center shrink-0">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
