@@ -44,7 +44,7 @@ export default function TermsAndConditionsPage() {
   ]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#F8FAFC]">
+    <div className="flex min-h-screen flex-col bg-[#F8FAFC] overflow-x-clip w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -53,33 +53,33 @@ export default function TermsAndConditionsPage() {
       />
       <Navbar />
 
-      <main className="flex-1 py-16 lg:py-20">
-        <div className="max-w-4xl mx-auto px-6">
+      <main className="flex-1 py-12 sm:py-16 lg:py-20 screen-container">
+        <div className="max-w-4xl mx-auto">
           {/* Breadcrumb / Back link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs font-bold text-[#00875A] hover:text-[#47C56E] uppercase tracking-wider mb-8 group transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-bold text-[#00875A] hover:text-[#47C56E] uppercase tracking-wider mb-6 sm:mb-8 group transition-colors min-h-[44px]"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to Home</span>
           </Link>
 
           {/* Page Header */}
-          <div className="border-b border-[#E2E8F0] pb-8 mb-10">
+          <div className="border-b border-[#E2E8F0] pb-6 sm:pb-8 mb-8 sm:mb-10">
             <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
               LEGAL & SERVICE CONTRACT
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display mb-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display mb-3">
               Terms &amp; Conditions of Service
             </h1>
-            <p className="text-sm text-[#64748B]">
+            <p className="text-xs sm:text-sm text-[#64748B]">
               Last Updated: <span className="font-semibold text-[#091C0F]">{lastUpdated}</span> |
               Governing Gayatri Technology Client Engagements
             </p>
           </div>
 
           {/* CRITICAL CALLOUT: Domain & Hosting Suspension Notice */}
-          <div className="bg-amber-500/10 border-2 border-amber-500/40 rounded-2xl p-6 sm:p-8 mb-12 shadow-sm">
+          <div className="bg-amber-500/10 border-2 border-amber-500/40 rounded-2xl p-4 sm:p-8 mb-10 sm:mb-12 shadow-sm">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-700 flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-6 h-6" />

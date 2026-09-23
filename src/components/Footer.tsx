@@ -11,18 +11,18 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820]">
-      <div className="w-full py-16 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#163820]">
+    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-safe">
+      <div className="screen-container py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-[#163820]">
           {/* Brand Summary Column */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3.5">
-              <BrandLogo className="h-11 w-auto" isDarkBackground />
+          <div className="sm:col-span-2 lg:col-span-2 space-y-4">
+            <div className="flex items-center gap-2.5 sm:gap-3.5">
+              <BrandLogo className="h-9 sm:h-11 w-auto" isDarkBackground />
               <div className="flex flex-col">
-                <span className="text-xl font-extrabold uppercase tracking-tight text-white font-[family-name:var(--font-montserrat)] leading-none">
+                <span className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-white font-[family-name:var(--font-montserrat)] leading-none">
                   GAYATRI
                 </span>
-                <span className="text-[10px] font-medium tracking-[0.28em] uppercase text-[#86EFAC] mt-1 font-[family-name:var(--font-montserrat)] leading-none">
+                <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.22em] sm:tracking-[0.28em] uppercase text-[#86EFAC] mt-0.5 sm:mt-1 font-[family-name:var(--font-montserrat)] leading-none">
                   TECHNOLOGY
                 </span>
               </div>

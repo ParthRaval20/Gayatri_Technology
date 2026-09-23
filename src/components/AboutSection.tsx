@@ -53,16 +53,16 @@ const pipelineSteps = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 lg:py-24 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-14">
+    <section id="about" className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC]">
+      <div className="screen-container">
+        <div className="max-w-3xl mb-10 sm:mb-14">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             ABOUT GAYATRI TECHNOLOGY
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-4 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 sm:mb-4 font-display">
             Your Business. Your Requirements. Your Technology.
           </h2>
-          <p className="text-lg text-[#475569] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#475569] leading-relaxed">
             Every business is different. That&apos;s why we don&apos;t believe in one-size-fits-all websites.
             Gayatri Technology works closely with clients to understand their business, challenges,
             customers, and goals — then turns those requirements into practical digital solutions.
@@ -70,9 +70,9 @@ export default function AboutSection() {
         </div>
 
         {/* Pipeline Flowchart Container */}
-        <div className="bg-white rounded-2xl p-8 border border-[#E2E8F0] shadow-xs mb-10">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h3 className="text-xl font-bold text-[#091C0F] font-display">
+        <div className="bg-white rounded-2xl p-4 sm:p-8 border border-[#E2E8F0] shadow-xs mb-8 sm:mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
+            <h3 className="text-lg sm:text-xl font-bold text-[#091C0F] font-display">
               Requirement-to-Execution Pipeline
             </h3>
             <span className="text-xs font-bold px-3 py-1 bg-[#47C56E]/12 border border-[#47C56E]/25 text-[#00875A] rounded-full w-fit">
@@ -80,31 +80,31 @@ export default function AboutSection() {
             </span>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 min-[340px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {pipelineSteps.map((step, idx) => {
               const Icon = step.icon;
               return (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/60 hover:bg-[#F0FDF4] transition-all duration-200 flex flex-col justify-between group"
+                  className="p-3.5 sm:p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/60 hover:bg-[#F0FDF4] transition-all duration-200 flex flex-col justify-between group"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-bold text-[#00875A] tracking-wider">
+                    <span className="text-[10px] sm:text-[11px] font-bold text-[#00875A] tracking-wider">
                       {step.step}
                     </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E]/40 group-hover:bg-[#47C56E]" />
                   </div>
 
-                  <div className="my-4">
+                  <div className="my-3 sm:my-4">
                     <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-[#00875A] shadow-xs group-hover:scale-105 transition-transform mb-2">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <p className="text-sm font-semibold text-[#091C0F] font-display leading-snug">
+                    <p className="text-xs sm:text-sm font-semibold text-[#091C0F] font-display leading-snug">
                       {step.title}
                     </p>
                   </div>
 
-                  <span className="text-xs text-[#475569] leading-normal">
+                  <span className="text-[11px] sm:text-xs text-[#475569] leading-normal">
                     {step.desc}
                   </span>
                 </div>
@@ -116,7 +116,7 @@ export default function AboutSection() {
         <div>
           <Link
             href="#services"
-            className="inline-flex items-center gap-2 text-[#00875A] hover:text-[#47C56E] text-base font-bold group transition-colors"
+            className="inline-flex items-center gap-2 text-[#00875A] hover:text-[#47C56E] text-sm sm:text-base font-bold group transition-colors min-h-[44px]"
           >
             <span>Learn About Our Capabilities</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

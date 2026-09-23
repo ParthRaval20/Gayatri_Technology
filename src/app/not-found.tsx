@@ -17,33 +17,33 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#07170C] text-white">
+    <div className="flex min-h-screen flex-col bg-[#07170C] text-white overflow-x-clip w-full">
       <Navbar />
 
-      <main className="flex-1 flex items-center justify-center py-20 px-6">
-        <div className="max-w-2xl mx-auto text-center space-y-8">
+      <main className="flex-1 flex items-center justify-center py-16 sm:py-20 px-4 sm:px-6 screen-container">
+        <div className="max-w-2xl mx-auto text-center space-y-6 sm:space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#163820] text-[#86EFAC] text-xs font-semibold border border-[#47C56E]/30">
             <span>ERROR 404 • RESOURCE NOT LOCATED</span>
           </div>
 
-          <h1 className="text-6xl sm:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#47C56E] tracking-tight font-display">
+          <h1 className="text-5xl min-[400px]:text-6xl sm:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#47C56E] tracking-tight font-display">
             404
           </h1>
 
-          <div className="space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white font-display">
+          <div className="space-y-2 sm:space-y-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-display">
               Page Not Found
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+            <p className="text-slate-400 text-xs sm:text-sm md:text-base max-w-lg mx-auto leading-relaxed">
               The page or resource you are looking for has been relocated, renamed, or is temporarily unavailable. Let&apos;s get you back on track.
             </p>
           </div>
 
           {/* Action Links */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <div className="flex flex-col min-[480px]:flex-row items-stretch min-[480px]:items-center justify-center gap-3 sm:gap-4 pt-3 sm:pt-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#47C56E] hover:bg-[#3bb560] text-[#091C0F] text-sm font-bold transition-all shadow-lg shadow-[#47C56E]/20"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#47C56E] hover:bg-[#3bb560] text-[#091C0F] text-xs sm:text-sm font-bold transition-all shadow-lg shadow-[#47C56E]/20 min-h-[44px]"
             >
               <Home className="w-4 h-4" />
               <span>Back to Homepage</span>
@@ -51,7 +51,7 @@ export default function NotFound() {
 
             <Link
               href="/#portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-sm font-semibold border border-white/10 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold border border-white/10 transition-all min-h-[44px]"
             >
               <Briefcase className="w-4 h-4" />
               <span>Explore Projects</span>
@@ -59,7 +59,7 @@ export default function NotFound() {
 
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-sm font-medium border border-white/5 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs sm:text-sm font-medium border border-white/5 transition-all min-h-[44px]"
             >
               <Mail className="w-4 h-4" />
               <span>Contact Us</span>

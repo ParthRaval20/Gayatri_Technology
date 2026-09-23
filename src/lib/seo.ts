@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Gayatri Tech",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://gayatritechnology.vercel.app",
+    "https://gayatritechnology.in",
   defaultTitle:
     "Gayatri Technology | Custom Web Development & Enterprise Software Solutions",
   titleTemplate: "%s | Gayatri Technology",
@@ -23,7 +23,7 @@ export const siteConfig = {
     "UI/UX Design India",
     "Industrial Software Solutions",
   ],
-  authors: [{ name: "Gayatri Technology", url: "https://gayatritechnology.vercel.app" }],
+  authors: [{ name: "Gayatri Technology", url: "https://gayatritechnology.in" }],
   creator: "Gayatri Technology",
   publisher: "Gayatri Technology",
   themeColor: "#47C56E",

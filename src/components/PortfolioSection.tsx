@@ -214,30 +214,30 @@ export default function PortfolioSection() {
   }, [activeScreenshotIdx]);
 
   return (
-    <section id="portfolio" className="py-20 lg:py-24 bg-white border-y border-[#E2E8F0] relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
+    <section id="portfolio" className="py-16 sm:py-20 lg:py-24 bg-white border-y border-[#E2E8F0] relative">
+      <div className="screen-container">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14">
           <div>
             <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
               PROVEN RESULTS
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight font-display">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight font-display">
               Work That Solves Business Problems
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
+            <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-2 max-w-xl">
               Real-world digital platforms and custom mobile software engineered to streamline operations and drive measurable business growth.
             </p>
           </div>
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 text-[#00875A] hover:text-[#47C56E] font-bold text-sm mt-4 md:mt-0 group"
+            className="inline-flex items-center gap-2 text-[#00875A] hover:text-[#47C56E] font-bold text-xs sm:text-sm mt-4 md:mt-0 group min-h-[44px]"
           >
             <span>Discuss Your Project</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {caseStudies.map((item, idx) => (
             <div
               key={idx}
@@ -520,32 +520,32 @@ export default function PortfolioSection() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-app-title"
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 pt-safe pb-safe pl-safe pr-safe"
           onClick={closeScreenshotModal}
         >
           <div
-            className="relative bg-[#091C0F] border border-[#163820] rounded-3xl max-w-4xl w-full p-6 sm:p-8 text-white shadow-2xl overflow-hidden max-h-[95vh] flex flex-col"
+            className="relative bg-[#091C0F] border border-[#163820] rounded-2xl sm:rounded-3xl max-w-4xl w-full p-4 sm:p-6 md:p-8 text-white shadow-2xl overflow-hidden max-h-[92vh] sm:max-h-[95vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-[#163820] pb-4 mb-4 shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-[#163820] border border-[#225430] flex items-center justify-center text-[#86EFAC]">
-                  <Smartphone className="w-5 h-5" />
+            <div className="flex items-center justify-between border-b border-[#163820] pb-3 sm:pb-4 mb-3 sm:mb-4 shrink-0">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-xl bg-[#163820] border border-[#225430] flex items-center justify-center text-[#86EFAC] shrink-0">
+                  <Smartphone className="w-4 sm:w-5 h-4 sm:h-5" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 id="modal-app-title" className="font-bold text-lg font-display text-white">
+                  <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                    <h3 id="modal-app-title" className="font-bold text-sm sm:text-lg font-display text-white">
                       Gayatri Steel Digital Management Suite
                     </h3>
-                    <span className="text-[10px] bg-emerald-950 text-[#86EFAC] px-2 py-0.5 rounded-full border border-emerald-700 font-mono">
+                    <span className="text-[9px] sm:text-[10px] bg-emerald-950 text-[#86EFAC] px-1.5 sm:px-2 py-0.5 rounded-full border border-emerald-700 font-mono">
                       Mobile ERP
                     </span>
-                    <span className="text-[10px] bg-[#163820] text-slate-300 px-2 py-0.5 rounded-full border border-slate-700 font-medium">
+                    <span className="text-[9px] sm:text-[10px] bg-[#163820] text-slate-300 px-1.5 sm:px-2 py-0.5 rounded-full border border-slate-700 font-medium">
                       {appScreenshots[activeScreenshotIdx].category}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-[11px] sm:text-xs text-slate-400">
                     Screen {activeScreenshotIdx + 1} of {appScreenshots.length}:{" "}
                     {appScreenshots[activeScreenshotIdx].title}
                   </p>
@@ -554,7 +554,7 @@ export default function PortfolioSection() {
 
               <button
                 onClick={closeScreenshotModal}
-                className="w-8 h-8 rounded-full bg-[#163820] hover:bg-[#225430] text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full bg-[#163820] hover:bg-[#225430] text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer shrink-0 min-w-[36px] min-h-[36px]"
                 aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
@@ -562,17 +562,17 @@ export default function PortfolioSection() {
             </div>
 
             {/* Modal Body: Device Frame + Information Panel */}
-            <div className="grid md:grid-cols-12 gap-6 items-center overflow-y-auto pr-1">
+            <div className="grid md:grid-cols-12 gap-5 sm:gap-6 items-center overflow-y-auto pr-1">
               {/* Phone Device Mockup Container */}
               <div className="md:col-span-5 flex justify-center py-2">
-                <div className="relative w-[230px] sm:w-[250px] h-[460px] sm:h-[500px] bg-black rounded-[36px] p-2.5 shadow-2xl border-4 border-slate-800 ring-1 ring-slate-700/50 shrink-0">
+                <div className="relative w-[200px] min-[400px]:w-[230px] sm:w-[250px] h-[400px] min-[400px]:h-[460px] sm:h-[500px] bg-black rounded-[32px] sm:rounded-[36px] p-2 sm:p-2.5 shadow-2xl border-4 border-slate-800 ring-1 ring-slate-700/50 shrink-0">
                   {/* Speaker notch */}
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-20 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-slate-900 mr-1.5" />
-                    <div className="w-8 h-1 bg-slate-800 rounded-full" />
+                  <div className="absolute top-3.5 sm:top-4 left-1/2 -translate-x-1/2 w-14 sm:w-16 h-3.5 sm:h-4 bg-black rounded-full z-20 flex items-center justify-center">
+                    <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-slate-900 mr-1 sm:mr-1.5" />
+                    <div className="w-6 sm:w-8 h-1 bg-slate-800 rounded-full" />
                   </div>
 
-                  <div className="w-full h-full rounded-[26px] overflow-hidden bg-[#0A0A0A] relative">
+                  <div className="w-full h-full rounded-[24px] sm:rounded-[26px] overflow-hidden bg-[#0A0A0A] relative">
                     <Image
                       src={appScreenshots[activeScreenshotIdx].src}
                       alt={appScreenshots[activeScreenshotIdx].title}
@@ -586,51 +586,51 @@ export default function PortfolioSection() {
               </div>
 
               {/* Information & Feature Breakdown */}
-              <div className="md:col-span-7 flex flex-col justify-between h-full space-y-4">
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#163820] text-[#86EFAC] text-xs font-semibold">
-                    <Sparkles className="w-3.5 h-3.5" />
+              <div className="md:col-span-7 flex flex-col justify-between h-full space-y-3 sm:space-y-4">
+                <div className="space-y-2.5 sm:space-y-3">
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-[#163820] text-[#86EFAC] text-[11px] sm:text-xs font-semibold">
+                    <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                     <span>{appScreenshots[activeScreenshotIdx].subtitle}</span>
                   </div>
 
-                  <h4 className="text-xl sm:text-2xl font-bold text-white font-display">
+                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white font-display">
                     {appScreenshots[activeScreenshotIdx].title}
                   </h4>
 
-                  <p className="text-sm text-slate-300 leading-relaxed bg-[#0c2415] p-4 rounded-xl border border-[#1b4829]">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed bg-[#0c2415] p-3 sm:p-4 rounded-xl border border-[#1b4829]">
                     {appScreenshots[activeScreenshotIdx].feature}
                   </p>
 
                   {/* Highlights checklist */}
-                  <div className="space-y-2 pt-1 text-xs text-slate-300">
+                  <div className="space-y-1.5 sm:space-y-2 pt-1 text-[11px] sm:text-xs text-slate-300">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#47C56E] shrink-0" />
+                      <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
                       <span>5-Company isolated workspaces with GST security</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#47C56E] shrink-0" />
+                      <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
                       <span>Shape-aware auto weight calculation (Round, Flat, Pipe)</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#47C56E] shrink-0" />
+                      <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
                       <span>Paperless dispatch challans & AI conversational stock assistant</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#47C56E] shrink-0" />
+                      <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
                       <span>Full bilingual support in English & Gujarati (A/અ)</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Navigation and Thumbnails */}
-                <div className="pt-4 border-t border-[#163820] space-y-3">
+                <div className="pt-3 sm:pt-4 border-t border-[#163820] space-y-2.5 sm:space-y-3">
                   {/* Thumbnail Row (All 10 Screens) */}
-                  <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin">
+                  <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 scrollbar-thin">
                     {appScreenshots.map((scr, idx) => (
                       <button
                         key={idx}
                         onClick={() => setActiveScreenshotIdx(idx)}
-                        className={`w-11 h-16 rounded-lg overflow-hidden border-2 shrink-0 transition-all cursor-pointer relative ${
+                        className={`w-9 sm:w-11 h-14 sm:h-16 rounded-lg overflow-hidden border-2 shrink-0 transition-all cursor-pointer relative ${
                           activeScreenshotIdx === idx
                             ? "border-[#47C56E] scale-105 shadow-md shadow-emerald-900/50"
                             : "border-slate-700 opacity-60 hover:opacity-100"
@@ -644,7 +644,7 @@ export default function PortfolioSection() {
                           height={64}
                           className="w-full h-full object-cover"
                         />
-                        <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[8px] font-mono text-emerald-300 text-center">
+                        <span className="absolute bottom-0 inset-x-0 bg-black/80 text-[7px] sm:text-[8px] font-mono text-emerald-300 text-center">
                           {idx + 1}
                         </span>
                       </button>
@@ -655,19 +655,19 @@ export default function PortfolioSection() {
                   <div className="flex items-center justify-between">
                     <button
                       onClick={prevScreenshot}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#163820] hover:bg-[#225430] text-white text-xs font-semibold transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-[#163820] hover:bg-[#225430] text-white text-xs font-semibold transition-colors cursor-pointer min-h-[40px]"
                     >
                       <ChevronLeft className="w-4 h-4" />
                       <span>Previous</span>
                     </button>
 
-                    <span className="text-xs font-mono text-slate-400">
+                    <span className="text-[11px] sm:text-xs font-mono text-slate-400">
                       {activeScreenshotIdx + 1} / {appScreenshots.length}
                     </span>
 
                     <button
                       onClick={nextScreenshot}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#00875A] hover:bg-[#47C56E] hover:text-[#091C0F] text-white text-xs font-semibold transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-[#00875A] hover:bg-[#47C56E] hover:text-[#091C0F] text-white text-xs font-semibold transition-colors cursor-pointer min-h-[40px]"
                     >
                       <span>Next</span>
                       <ChevronRight className="w-4 h-4" />

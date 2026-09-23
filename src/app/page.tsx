@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#f8f9ff]">
+    <div className="flex min-h-screen flex-col bg-[#f8f9ff] overflow-x-clip w-full">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 w-full overflow-x-clip">
         <HeroSection />
         <TrustValueStrip />
         <AboutSection />

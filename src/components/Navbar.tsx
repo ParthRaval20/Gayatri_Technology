@@ -130,26 +130,26 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-xs transition-all duration-200">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center w-full">
+      <div className="screen-container h-16 sm:h-20 flex justify-between items-center w-full pt-safe">
         {/* Brand */}
         <Link
           href={pathname === "/" ? "#hero" : "/#hero"}
           onClick={(e) => scrollToSection(e, "hero")}
-          className="flex items-center gap-3.5 group cursor-pointer"
+          className="flex items-center gap-2 sm:gap-3.5 group cursor-pointer shrink-0"
         >
-          <BrandLogo className="h-11 w-auto transition-transform group-hover:scale-105 duration-200" />
+          <BrandLogo className="h-9 sm:h-11 w-auto transition-transform group-hover:scale-105 duration-200" />
           <div className="flex flex-col">
-            <span className="text-xl font-extrabold uppercase tracking-tight text-[#091C0F] font-[family-name:var(--font-montserrat)] leading-none">
+            <span className="text-base sm:text-xl font-extrabold uppercase tracking-tight text-[#091C0F] font-[family-name:var(--font-montserrat)] leading-none">
               GAYATRI
             </span>
-            <span className="text-[10px] font-medium tracking-[0.28em] uppercase text-[#00875A] mt-1 font-[family-name:var(--font-montserrat)] leading-none">
+            <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.22em] sm:tracking-[0.28em] uppercase text-[#00875A] mt-0.5 sm:mt-1 font-[family-name:var(--font-montserrat)] leading-none">
               TECHNOLOGY
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-7">
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-5 xl:space-x-7">
           {navLinks.map((link) => {
             const isActive = pathname === "/" && activeSection === link.id;
 
@@ -158,7 +158,7 @@ export default function Navbar() {
                 key={link.name}
                 href={pathname === "/" ? link.href : `/${link.href}`}
                 onClick={(e) => scrollToSection(e, link.id)}
-                className={`relative py-1 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+                className={`relative py-1 text-sm font-semibold transition-colors duration-200 cursor-pointer min-h-[44px] flex items-center ${
                   isActive ? "text-[#091C0F]" : "text-[#475569] hover:text-[#091C0F]"
                 }`}
               >
@@ -166,7 +166,7 @@ export default function Navbar() {
                 {/* Dynamic & Manual Active Underline */}
                 {isActive && (
                   <span
-                    className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#47C56E] rounded-full shadow-[0_1px_4px_rgba(71,197,110,0.5)] transition-all duration-300 animate-in fade-in zoom-in-95"
+                    className="absolute bottom-1 left-0 right-0 h-[2.5px] bg-[#47C56E] rounded-full shadow-[0_1px_4px_rgba(71,197,110,0.5)] transition-all duration-300 animate-in fade-in zoom-in-95"
                     aria-hidden="true"
                   />
                 )}
@@ -175,34 +175,24 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Trailing Action */}
-        <div className="hidden sm:flex items-center gap-4">
+        {/* Trailing Action (Desktop Only) */}
+        <div className="hidden lg:flex items-center gap-4">
           <Link
             href={pathname === "/" ? "#contact" : "/#contact"}
             onClick={(e) => scrollToSection(e, "contact")}
-            className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#3db863] shadow-md shadow-[#47C56E]/20 hover:shadow-lg hover:shadow-[#47C56E]/30 transition-all duration-200 active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#3db863] shadow-md shadow-[#47C56E]/20 hover:shadow-lg hover:shadow-[#47C56E]/30 transition-all duration-200 active:scale-95 cursor-pointer min-h-[44px]"
           >
             <Calendar className="w-4 h-4 text-[#091C0F]" />
             <span>Let&apos;s Talk</span>
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center gap-3">
-          <Link
-            href={pathname === "/" ? "#contact" : "/#contact"}
-            onClick={(e) => {
-              scrollToSection(e, "contact");
-              setMobileMenuOpen(false);
-            }}
-            className="sm:hidden inline-flex items-center gap-1.5 bg-[#47C56E] text-[#091C0F] px-3.5 py-1.5 rounded-full text-xs font-bold"
-          >
-            <span>Talk</span>
-          </Link>
+        {/* Mobile & Tablet Menu Button */}
+        <div className="lg:hidden flex items-center">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-[#091C0F] hover:bg-[#F0FDF4] transition-colors"
+            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-[#091C0F] hover:bg-[#F0FDF4] transition-colors"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -210,10 +200,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Safe Area Inset Support */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-6 py-5 shadow-lg animate-in slide-in-from-top duration-200">
-          <nav className="flex flex-col space-y-2">
+        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-6 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] overflow-y-auto">
+          <nav className="flex flex-col space-y-1.5 sm:space-y-2">
             {navLinks.map((link) => {
               const isActive = pathname === "/" && activeSection === link.id;
 
@@ -225,7 +215,7 @@ export default function Navbar() {
                     setMobileMenuOpen(false);
                     scrollToSection(e, link.id);
                   }}
-                  className={`flex items-center justify-between text-base font-semibold py-2.5 px-3 rounded-xl border border-transparent transition-colors ${
+                  className={`flex items-center justify-between text-base font-semibold py-3 px-3.5 rounded-xl border border-transparent transition-colors min-h-[48px] ${
                     isActive
                       ? "text-[#00875A] bg-[#F0FDF4] border-[#86EFAC]/50"
                       : "text-[#475569] hover:text-[#091C0F] hover:bg-slate-50"
@@ -245,14 +235,14 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="pt-3">
+            <div className="pt-3 pb-3">
               <Link
                 href={pathname === "/" ? "#contact" : "/#contact"}
                 onClick={(e) => {
                   setMobileMenuOpen(false);
                   scrollToSection(e, "contact");
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-[#47C56E] text-[#091C0F] py-3 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/20"
+                className="w-full flex items-center justify-center gap-2 bg-[#47C56E] text-[#091C0F] py-3.5 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/20 min-h-[48px]"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Let&apos;s Talk — Schedule Project Review</span>

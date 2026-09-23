@@ -89,6 +89,7 @@ export const viewport: Viewport = {
   themeColor: siteConfig.themeColor,
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -99,7 +100,7 @@ export default function RootLayout({
   const organizationSchema = getOrganizationSchema();
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-clip">
       <head>
         <script
           type="application/ld+json"
@@ -109,7 +110,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${plusJakarta.variable} ${montserrat.variable} font-sans bg-surface text-on-surface antialiased overflow-x-hidden selection:bg-[#47C56E] selection:text-[#091C0F]`}
+        className={`${inter.variable} ${plusJakarta.variable} ${montserrat.variable} font-sans bg-surface text-on-surface antialiased overflow-x-clip min-h-screen selection:bg-[#47C56E] selection:text-[#091C0F]`}
       >
         {children}
       </body>

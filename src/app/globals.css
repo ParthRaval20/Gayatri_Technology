@@ -59,6 +59,15 @@
 
 html {
   scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
 }
 
 body {
@@ -66,6 +75,112 @@ body {
   color: var(--color-on-surface);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  width: 100%;
+  min-width: 280px; /* Supports folded phones like Galaxy Z Fold cover screens */
+}
+
+/* Safe area inset utility classes for curved mobile screens, notches, and home indicator bars */
+.pt-safe {
+  padding-top: max(var(--sat), 0px);
+}
+
+.pb-safe {
+  padding-bottom: max(var(--sab), 0px);
+}
+
+.pl-safe {
+  padding-left: max(var(--sal), 0px);
+}
+
+.pr-safe {
+  padding-right: max(var(--sar), 0px);
+}
+
+.px-safe {
+  padding-left: max(1rem, var(--sal));
+  padding-right: max(1rem, var(--sar));
+}
+
+@media (min-width: 640px) {
+  .px-safe {
+    padding-left: max(1.5rem, var(--sal));
+    padding-right: max(1.5rem, var(--sar));
+  }
+}
+
+/* Universal Screen Container: Scaled seamlessly across mobile, laptop, 2K/4K desktop, and curved ultrawide */
+.screen-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(1rem, var(--sal));
+  padding-right: max(1rem, var(--sar));
+}
+
+@media (min-width: 640px) {
+  .screen-container {
+    padding-left: max(1.5rem, var(--sal));
+    padding-right: max(1.5rem, var(--sar));
+  }
+}
+
+@media (min-width: 1024px) {
+  .screen-container {
+    max-width: 80rem; /* 1280px */
+    padding-left: max(2rem, var(--sal));
+    padding-right: max(2rem, var(--sar));
+  }
+}
+
+@media (min-width: 1536px) {
+  .screen-container {
+    max-width: 88rem; /* 1408px for 1440p / 16" laptops */
+  }
+}
+
+@media (min-width: 1920px) {
+  .screen-container {
+    max-width: 96rem; /* 1536px for 4K / 2K displays */
+  }
+}
+
+/* PC Curved & Ultrawide Screens (21:9 & 32:9):
+   Prevent excessive horizontal text stretching to protect human reading focal arc */
+@media (min-aspect-ratio: 21/9) {
+  .screen-container {
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Foldable mobile dual-screen / split posture awareness */
+@media (horizontal-viewport-segments: 2) {
+  .foldable-split-grid {
+    display: grid;
+    grid-template-columns: env(viewport-segment-width 0 0) env(viewport-segment-width 1 0);
+    gap: env(viewport-segment-left 1 0);
+  }
+}
+
+/* Ultra-compact foldable cover screens (<340px) safety */
+@media (max-width: 350px) {
+  .hide-on-ultranarrow {
+    display: none !important;
+  }
+  .compact-stack {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
+
+/* Touch devices tap responsiveness */
+@media (pointer: coarse) {
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
 }
 
 .custom-grid-bg {
@@ -88,3 +203,4 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px -3px rgba(9, 28, 15, 0.06), 0 4px 6px -2px rgba(9, 28, 15, 0.03);
 }
+

@@ -85,34 +85,34 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-24 bg-white border-t border-[#E2E8F0]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-14">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#E2E8F0]">
+      <div className="screen-container">
+        <div className="max-w-3xl mb-10 sm:mb-14">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             REQUIREMENT SUBMISSION
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 font-display">
             Let&apos;s Build Something That Works for Your Business.
           </h2>
-          <p className="text-lg text-[#475569]">
+          <p className="text-base sm:text-lg text-[#475569]">
             Tell us what you need. Our team will understand your requirements and help you find the
             right digital solution.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Requirement Form Column */}
-          <div className="lg:col-span-7 bg-[#F8FAFC] p-8 rounded-3xl border border-[#E2E8F0] shadow-xs">
+          <div className="lg:col-span-7 bg-[#F8FAFC] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs">
             {submitted ? (
-              <div className="p-8 bg-white rounded-2xl border border-[#E2E8F0] text-center space-y-5 animate-in fade-in zoom-in duration-300">
-                <div className="w-16 h-16 rounded-full bg-[#47C56E]/15 text-[#00875A] mx-auto flex items-center justify-center">
-                  <CheckCircle2 className="w-10 h-10" />
+              <div className="p-5 sm:p-8 bg-white rounded-2xl border border-[#E2E8F0] text-center space-y-4 sm:space-y-5 animate-in fade-in zoom-in duration-300">
+                <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-[#47C56E]/15 text-[#00875A] mx-auto flex items-center justify-center">
+                  <CheckCircle2 className="w-8 sm:w-10 h-8 sm:h-10" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-[#091C0F] font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#091C0F] font-display">
                     Requirement Prepared &amp; Dispatched!
                   </h3>
-                  <p className="text-sm text-[#475569] mt-2 max-w-md mx-auto">
+                  <p className="text-xs sm:text-sm text-[#475569] mt-2 max-w-md mx-auto">
                     Thank you, <span className="font-semibold text-[#091C0F]">{formData.name}</span>.
                     Your requirement brief has been dispatched to{" "}
                     <strong className="text-[#00875A]">info@gayatritechnology.in</strong>.
@@ -124,7 +124,7 @@ export default function ContactSection() {
                   </p>
                 </div>
 
-                <div className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-xs text-left max-w-md mx-auto space-y-1 font-mono text-[#475569]">
+                <div className="p-3.5 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-xs text-left max-w-md mx-auto space-y-1 font-mono text-[#475569]">
                   <div className="font-bold text-[#00875A]">Reference ID: {refId}</div>
                   <div>Sent To: info@gayatritechnology.in</div>
                   <div>Service: {formData.service}</div>
@@ -136,7 +136,7 @@ export default function ContactSection() {
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#00875A] hover:text-[#47C56E] py-2 px-3 transition-colors"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#00875A] hover:text-[#47C56E] py-2.5 px-3.5 transition-colors min-h-[44px]"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                     <span>Submit Another Requirement</span>
@@ -144,10 +144,10 @@ export default function ContactSection() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                       Your Name *
                     </label>
                     <input
@@ -156,12 +156,12 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Ramesh Sharma"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                       Company Name *
                     </label>
                     <input
@@ -170,14 +170,14 @@ export default function ContactSection() {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="e.g. Acme Corp India"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                       Email Address *
                     </label>
                     <input
@@ -186,12 +186,12 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="ramesh@acmecorp.com"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                       Phone Number *
                     </label>
                     <input
@@ -200,20 +200,20 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                       Service Required *
                     </label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     >
                       <option>Custom Web Application</option>
                       <option>Business Website Development</option>
@@ -225,13 +225,13 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                       Budget Range
                     </label>
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     >
                       <option>Under ₹25,000</option>
                       <option>₹25,000 – ₹50,000</option>
@@ -243,10 +243,10 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                     Project Timeline
                   </label>
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 min-[340px]:grid-cols-3 gap-2 sm:gap-3">
                     {[
                       { id: "urgent", label: "Urgent (< 1 mo)" },
                       { id: "standard", label: "1 - 3 months" },
@@ -254,7 +254,7 @@ export default function ContactSection() {
                     ].map((item) => (
                       <label
                         key={item.id}
-                        className={`flex items-center gap-2 p-3 bg-white border rounded-xl cursor-pointer transition-all ${formData.timeline === item.id
+                        className={`flex items-center gap-2 p-2.5 sm:p-3 bg-white border rounded-xl cursor-pointer transition-all min-h-[44px] ${formData.timeline === item.id
                             ? "border-[#47C56E] bg-[#F0FDF4] ring-1 ring-[#47C56E]"
                             : "border-[#E2E8F0] hover:border-[#47C56E]/50"
                           }`}
@@ -276,7 +276,7 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#091C0F] mb-2">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
                     Project Requirement Details *
                   </label>
                   <textarea
@@ -285,7 +285,7 @@ export default function ContactSection() {
                     value={formData.details}
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                     placeholder="Describe your current business problem, required modules, target users, or key objectives..."
-                    className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
                   />
                 </div>
 

@@ -141,7 +141,7 @@ export default async function Image() {
             ))}
           </div>
           <span style={{ color: "#64748B", fontSize: "16px", fontWeight: "600" }}>
-            gayatritechnology.vercel.app
+            gayatritechnology.in
           </span>
         </div>
       </div>

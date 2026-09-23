@@ -29,42 +29,42 @@ const steps = [
 
 export default function CustomSolutionsSection() {
   return (
-    <section className="py-20 lg:py-24 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-14">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC]">
+      <div className="screen-container">
+        <div className="max-w-3xl mb-10 sm:mb-14">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             TAILORED ARCHITECTURE
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 font-display">
             Don&apos;t Fit Your Business Into a Template
           </h2>
-          <p className="text-lg text-[#475569]">
+          <p className="text-base sm:text-lg text-[#475569]">
             We build around your exact requirements, constraints, and growth ambitions.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {steps.map((item, idx) => {
             const TagIcon = item.tagIcon;
             return (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-2xl border border-[#E2E8F0] relative overflow-hidden shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all duration-200 flex flex-col justify-between"
+                className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] relative overflow-hidden shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
-                  <div className="text-4xl font-extrabold text-[#CBD5E1] mb-4 font-display">
+                  <div className="text-3xl sm:text-4xl font-extrabold text-[#CBD5E1] mb-3 sm:mb-4 font-display">
                     {item.num}
                   </div>
-                  <h3 className="text-2xl font-bold text-[#091C0F] mb-3 font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#091C0F] mb-2 sm:mb-3 font-display">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[#475569] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#E2E8F0] flex items-center text-xs font-bold text-[#00875A] gap-2">
-                  <TagIcon className="w-4 h-4 text-[#47C56E]" />
+                <div className="mt-6 sm:mt-8 pt-4 border-t border-[#E2E8F0] flex items-center text-xs font-bold text-[#00875A] gap-2">
+                  <TagIcon className="w-4 h-4 text-[#47C56E] shrink-0" />
                   <span>{item.tagLabel}</span>
                 </div>
               </div>
