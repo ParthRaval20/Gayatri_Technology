@@ -26,7 +26,7 @@ export default function CtaBanner() {
 
           <div className="flex flex-col min-[480px]:flex-row items-stretch min-[480px]:items-center gap-3 sm:gap-4 shrink-0 w-full lg:w-auto">
             <Link
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2.5 bg-[#47C56E] text-[#091C0F] px-6 sm:px-8 py-3.5 rounded-full text-sm sm:text-base font-bold hover:bg-[#3db863] transition-all active:scale-95 shadow-lg shadow-[#47C56E]/30 group min-h-[48px]"
             >
               <span>Start a Conversation</span>

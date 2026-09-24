@@ -19,9 +19,15 @@ export default function SolutionsBento() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {/* Mobile Swipe Hint */}
+        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+          <span>← Swipe horizontally to browse systems →</span>
+          <span className="font-mono text-slate-400 text-[11px]">6 Modules</span>
+        </div>
+
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {/* Bento Card A (Large Span 2 cols) */}
-          <div className="md:col-span-2 lg:col-span-2 bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between">
+          <div className="w-[88vw] max-w-[360px] sm:w-[360px] md:w-auto md:min-w-0 snap-center md:col-span-2 lg:col-span-2 bg-white p-5 sm:p-7 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between shrink-0 md:shrink h-auto">
             <div>
               <span className="px-3 sm:px-3.5 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/20 text-[#00875A] text-[11px] sm:text-xs font-bold">
                 Enterprise System
@@ -42,7 +48,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card B */}
-          <div className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-auto md:min-w-0 snap-center bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between shrink-0 md:shrink h-auto">
             <div>
               <span className="px-3 sm:px-3.5 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/20 text-[#00875A] text-[11px] sm:text-xs font-bold">
                 Conversion
@@ -60,7 +66,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card C */}
-          <div className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-auto md:min-w-0 snap-center bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between shrink-0 md:shrink h-auto">
             <div>
               <span className="px-3 sm:px-3.5 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/20 text-[#00875A] text-[11px] sm:text-xs font-bold">
                 Client Facing
@@ -78,7 +84,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card D */}
-          <div className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-auto md:min-w-0 snap-center bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between shrink-0 md:shrink h-auto">
             <div>
               <span className="px-3 sm:px-3.5 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/20 text-[#00875A] text-[11px] sm:text-xs font-bold">
                 Intelligence
@@ -96,13 +102,13 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card E */}
-          <div className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-auto md:min-w-0 snap-center bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between shrink-0 md:shrink h-auto">
             <div>
               <span className="px-3 sm:px-3.5 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/20 text-[#00875A] text-[11px] sm:text-xs font-bold">
                 Operations
               </span>
               <h3 className="text-lg sm:text-xl font-bold text-[#091C0F] mt-3 sm:mt-4 mb-2 font-display">
-                Booking & Reservation
+                Booking &amp; Reservation
               </h3>
               <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                 Real-time slot scheduling engines with SMS alerts, WhatsApp triggers, and payment gateway hold.
@@ -114,13 +120,13 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card F (Large Span 2 cols) */}
-          <div className="md:col-span-2 lg:col-span-2 bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between">
+          <div className="w-[88vw] max-w-[360px] sm:w-[360px] md:w-auto md:min-w-0 snap-center md:col-span-2 lg:col-span-2 bg-white p-5 sm:p-7 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all flex flex-col justify-between shrink-0 md:shrink h-auto">
             <div>
               <span className="px-3 sm:px-3.5 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/20 text-[#00875A] text-[11px] sm:text-xs font-bold">
-                Wholesale & Retail
+                Wholesale &amp; Retail
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-[#091C0F] mt-3 sm:mt-4 mb-2 font-display">
-                Scalable E-Commerce & B2B Portals
+                Scalable E-Commerce &amp; B2B Portals
               </h3>
               <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mb-4">
                 Custom digital storefronts supporting dynamic wholesale tier pricing, bulk order matrix

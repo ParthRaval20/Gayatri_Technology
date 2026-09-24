@@ -325,4 +325,14 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 }
 
+/* 8. No-scrollbar utility for mobile horizontal snap decks */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
 

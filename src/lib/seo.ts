@@ -88,10 +88,13 @@ export function getOrganizationSchema() {
         logo: {
           "@type": "ImageObject",
           "@id": `${baseUrl}/#logo`,
-          url: `${baseUrl}/gt-logo.png`,
+          url: `${baseUrl}/icon-512.png`,
+          contentUrl: `${baseUrl}/icon-512.png`,
+          width: "512",
+          height: "512",
           caption: siteConfig.name,
         },
-        image: `${baseUrl}/gt-logo.png`,
+        image: `${baseUrl}/icon-512.png`,
         description: siteConfig.description,
         email: siteConfig.contact.email,
         telephone: siteConfig.contact.telephone,
@@ -154,6 +157,7 @@ export function getOrganizationSchema() {
         url: baseUrl,
         name: siteConfig.name,
         description: siteConfig.description,
+        image: `${baseUrl}/icon-512.png`,
         publisher: {
           "@id": `${baseUrl}/#organization`,
         },

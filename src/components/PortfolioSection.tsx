@@ -229,7 +229,7 @@ export default function PortfolioSection() {
             </p>
           </div>
           <Link
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 text-[#00875A] hover:text-[#47C56E] font-bold text-xs sm:text-sm mt-4 md:mt-0 group min-h-[44px]"
           >
             <span>Discuss Your Project</span>
@@ -237,16 +237,22 @@ export default function PortfolioSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+        {/* Mobile Swipe Hint */}
+        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+          <span>← Swipe horizontally to view case studies →</span>
+          <span className="font-mono text-slate-400 text-[11px]">3 Deployments</span>
+        </div>
+
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {caseStudies.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-[#47C56E]/60 transition-all duration-300 group h-full"
+              className="w-[88vw] max-w-[360px] sm:w-[380px] md:w-auto md:min-w-0 snap-center bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-[#47C56E]/60 transition-all duration-300 group h-auto md:h-full shrink-0 md:shrink"
             >
               {/* Card Top Section (Grows equally) */}
               <div className="flex flex-col flex-1">
-                {/* 1. Monogram Header Bar (Fixed height: h-14) */}
-                <div className="h-14 bg-[#091C0F] px-5 border-b border-[#163820] flex items-center justify-between text-[#E2E8F0] shrink-0">
+                {/* 1. Monogram Header Bar */}
+                <div className="min-h-12 py-2.5 sm:py-0 sm:h-14 bg-[#091C0F] px-4 sm:px-5 border-b border-[#163820] flex items-center justify-between text-[#E2E8F0] shrink-0">
                   <div className="flex items-center gap-2">
                     {item.type === "web" ? (
                       <Globe className="w-3.5 h-3.5 text-[#86EFAC]" />
@@ -289,9 +295,9 @@ export default function PortfolioSection() {
                 </div>
 
                 {/* 2. Main Card Content */}
-                <div className="p-6 flex flex-col flex-1">
-                  {/* Sector & Badge Row (Fixed height: h-6) */}
-                  <div className="h-6 flex items-center justify-between gap-2 mb-2 shrink-0">
+                <div className="p-4 sm:p-6 flex flex-col flex-1">
+                  {/* Sector & Badge Row */}
+                  <div className="flex items-center justify-between gap-2 mb-2 shrink-0">
                     <span className="text-[11px] font-bold text-[#00875A] tracking-wider uppercase">
                       {item.sector}
                     </span>
@@ -300,9 +306,9 @@ export default function PortfolioSection() {
                     </span>
                   </div>
 
-                  {/* Title Row (Fixed height: h-12) */}
-                  <div className="h-12 flex items-center mb-2 shrink-0">
-                    <h3 className="text-xl font-bold text-[#091C0F] font-display group-hover:text-[#00875A] transition-colors leading-snug">
+                  {/* Title Row */}
+                  <div className="min-h-[44px] md:h-12 flex items-center mb-2 shrink-0">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#091C0F] font-display group-hover:text-[#00875A] transition-colors leading-snug">
                       {item.url ? (
                         <a
                           href={item.url}
@@ -318,62 +324,62 @@ export default function PortfolioSection() {
                     </h3>
                   </div>
 
-                  {/* Description (Fixed height: h-[68px] for clean 3 lines across all cards) */}
-                  <div className="h-[68px] flex items-start mb-4 shrink-0">
-                    <p className="text-sm text-[#475569] leading-relaxed">
+                  {/* Description */}
+                  <div className="min-h-[54px] md:min-h-[68px] flex items-start mb-4 shrink-0">
+                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
 
-                  {/* Metric Box (Fixed height: h-[88px], identical vertical placement) */}
-                  <div className="h-[88px] bg-white p-4 rounded-xl border border-[#E2E8F0] shadow-xs mb-4 flex flex-col justify-center shrink-0">
-                    <span className="text-2xl font-extrabold text-[#47C56E] font-display leading-tight">
+                  {/* Metric Box */}
+                  <div className="min-h-[76px] md:h-[88px] bg-white p-3 sm:p-4 rounded-xl border border-[#E2E8F0] shadow-xs mb-4 flex flex-col justify-center shrink-0">
+                    <span className="text-xl sm:text-2xl font-extrabold text-[#47C56E] font-display leading-tight">
                       {item.metric}
                     </span>
-                    <p className="text-xs text-[#475569] mt-0.5 font-medium">
+                    <p className="text-[11px] sm:text-xs text-[#475569] mt-0.5 font-medium leading-tight">
                       {item.metricLabel}
                     </p>
                   </div>
 
-                  {/* 3. Showcase / Feature Container (Equal height across all 3 cards: h-[176px]) */}
+                  {/* 3. Showcase / Feature Container */}
                   {idx === 0 && (
-                    <div className="h-[176px] bg-[#091C0F] rounded-xl p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
+                    <div className="min-h-[176px] h-auto bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0 gap-2.5">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                          <Globe className="w-3.5 h-3.5" />
-                          Live Steel Portal & Catalog
+                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px] sm:text-xs">
+                          <Globe className="w-3.5 h-3.5 shrink-0" />
+                          <span>Live Steel Portal &amp; Catalog</span>
                         </span>
                         <a
                           href="https://gayatri-steel.vercel.app/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[11px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1"
+                          className="text-[10px] sm:text-[11px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1 shrink-0"
                         >
-                          <span>gayatri-steel.vercel.app</span>
+                          <span>Live Site</span>
                           <ExternalLink className="w-3 h-3" />
                         </a>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-2 my-auto">
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">TOOL & ALLOY</span>
-                          <span className="truncate block font-medium">H13, D2, P20 Grades</span>
+                      <div className="grid grid-cols-2 gap-1.5 sm:gap-2 my-auto">
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">TOOL &amp; ALLOY</span>
+                          <span className="truncate block font-medium">H13, D2, P20</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">FACILITIES</span>
-                          <span className="truncate block font-medium">Rajkot & Jamnagar</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">FACILITIES</span>
+                          <span className="truncate block font-medium">Rajkot &amp; Jamnagar</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">INQUIRIES</span>
-                          <span className="truncate block font-medium">Instant Digital Specs</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">INQUIRIES</span>
+                          <span className="truncate block font-medium">Digital Specs</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">DEPLOYMENT</span>
-                          <span className="truncate block font-medium text-emerald-300">Vercel Production</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">DEPLOYMENT</span>
+                          <span className="truncate block font-medium text-emerald-300">Vercel Prod</span>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] sm:text-[11px] text-slate-400">
                         <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
                           Production Ready
@@ -384,43 +390,43 @@ export default function PortfolioSection() {
                   )}
 
                   {idx === 1 && (
-                    <div className="h-[176px] bg-[#091C0F] rounded-xl p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
+                    <div className="min-h-[176px] h-auto bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0 gap-2.5">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                          <Sparkles className="w-3.5 h-3.5" />
-                          AI & Creative Software Forge
+                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px] sm:text-xs">
+                          <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                          <span>AI &amp; Creative Studio</span>
                         </span>
                         <a
                           href="https://tdrstudio.vercel.app/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[11px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1"
+                          className="text-[10px] sm:text-[11px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1 shrink-0"
                         >
-                          <span>tdrstudio.vercel.app</span>
+                          <span>Live Site</span>
                           <ExternalLink className="w-3 h-3" />
                         </a>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-2 my-auto">
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">CINEMATIC 3D</span>
-                          <span className="truncate block font-medium">WebGL & Canvas FX</span>
+                      <div className="grid grid-cols-2 gap-1.5 sm:gap-2 my-auto">
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">CINEMATIC 3D</span>
+                          <span className="truncate block font-medium">WebGL &amp; Canvas FX</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">AI FORGE</span>
-                          <span className="truncate block font-medium">High-Speed LLM Apps</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">AI FORGE</span>
+                          <span className="truncate block font-medium">High-Speed Apps</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">STACK</span>
-                          <span className="truncate block font-medium">TypeScript & Vite</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">STACK</span>
+                          <span className="truncate block font-medium">TypeScript &amp; Vite</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">PERFORMANCE</span>
-                          <span className="truncate block font-medium text-emerald-300">Sub-Second Latency</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">PERFORMANCE</span>
+                          <span className="truncate block font-medium text-emerald-300">Sub-Second</span>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] sm:text-[11px] text-slate-400">
                         <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
                           Live Interactive Site
@@ -431,44 +437,44 @@ export default function PortfolioSection() {
                   )}
 
                   {idx === 2 && (
-                    <div className="h-[176px] bg-[#091C0F] rounded-xl p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
+                    <div className="min-h-[176px] h-auto bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0 gap-2.5">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                          <Smartphone className="w-3.5 h-3.5" />
-                          Mobile ERP Suite & AI
+                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px] sm:text-xs">
+                          <Smartphone className="w-3.5 h-3.5 shrink-0" />
+                          <span>Mobile ERP Suite &amp; AI</span>
                         </span>
                         <button
                           onClick={() => openScreenshotModal(0)}
-                          className="text-[11px] text-[#86EFAC] hover:underline font-medium cursor-pointer flex items-center gap-1"
+                          className="text-[10px] sm:text-[11px] text-[#86EFAC] hover:underline font-medium cursor-pointer flex items-center gap-1 shrink-0"
                         >
-                          <span>10 Screenshots</span>
+                          <span>10 Screens</span>
                           <ExternalLink className="w-3 h-3" />
                         </button>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-2 my-auto">
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">MULTI-TENANT</span>
+                      <div className="grid grid-cols-2 gap-1.5 sm:gap-2 my-auto">
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">MULTI-TENANT</span>
                           <span className="truncate block font-medium">5 Group Entities</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">STOCK SYNC</span>
-                          <span className="truncate block font-medium">Auto-Weight & Tally</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">STOCK SYNC</span>
+                          <span className="truncate block font-medium">Auto-Weight Tally</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">METALLURGY</span>
-                          <span className="truncate block font-medium">28+ Grades Database</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">METALLURGY</span>
+                          <span className="truncate block font-medium">28+ Grades DB</span>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[10px] block">SMART TOOLS</span>
-                          <span className="truncate block font-medium text-emerald-300">AI Advisor & Challan</span>
+                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                          <span className="text-emerald-400 font-semibold text-[9px] sm:text-[10px] block">SMART TOOLS</span>
+                          <span className="truncate block font-medium text-emerald-300">AI Advisor</span>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] sm:text-[11px] text-slate-400">
                         <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
-                          Bilingual (EN / ગુજરાતી)
+                          Bilingual (EN/GUJ)
                         </span>
                         <button
                           onClick={() => openScreenshotModal(0)}
@@ -483,9 +489,9 @@ export default function PortfolioSection() {
                 </div>
               </div>
 
-              {/* 4. Bottom Footer (Fixed height elements, identical baseline) */}
-              <div className="px-6 pb-6 pt-3 border-t border-[#E2E8F0]/70 flex flex-col gap-3 shrink-0">
-                <span className="h-8 flex items-center text-xs text-[#64748B] font-mono truncate">
+              {/* 4. Bottom Footer */}
+              <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-3 border-t border-[#E2E8F0]/70 flex flex-col gap-2.5 shrink-0">
+                <span className="min-h-5 sm:h-8 flex items-center text-[11px] sm:text-xs text-[#64748B] font-mono leading-tight">
                   {item.tech}
                 </span>
 
@@ -494,7 +500,7 @@ export default function PortfolioSection() {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors group/btn shadow-xs"
+                    className="h-10 sm:h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors group/btn shadow-xs"
                   >
                     <span>Visit Live Website</span>
                     <ExternalLink className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
@@ -502,10 +508,10 @@ export default function PortfolioSection() {
                 ) : (
                   <button
                     onClick={() => openScreenshotModal(0)}
-                    className="h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors shadow-xs cursor-pointer"
+                    className="h-10 sm:h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors shadow-xs cursor-pointer"
                   >
                     <Smartphone className="w-3.5 h-3.5 text-[#86EFAC]" />
-                    <span>Explore App UI & Screenshots (10)</span>
+                    <span>Explore App UI &amp; Screenshots (10)</span>
                   </button>
                 )}
               </div>

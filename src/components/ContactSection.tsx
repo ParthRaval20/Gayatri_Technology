@@ -85,9 +85,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#E2E8F0]">
+    <section id="contact" className="py-12 sm:py-16 lg:py-24 bg-white border-t border-[#E2E8F0]">
       <div className="screen-container">
-        <div className="max-w-3xl mb-10 sm:mb-14">
+        <div className="max-w-3xl mb-8 sm:mb-14">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             REQUIREMENT SUBMISSION
           </span>
@@ -308,73 +308,73 @@ export default function ContactSection() {
           </div>
 
           {/* Direct Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-5">
-            <div className="bg-[#F8FAFC] p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-4 hover:border-[#47C56E]/60 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
-                <Phone className="w-5 h-5" />
+          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
+            <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
+                <Phone className="w-4 sm:w-5 h-4 sm:h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#475569] uppercase tracking-wider block">
+                <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
                   Phone Consultation
                 </span>
                 <a
                   href="tel:+919328437392"
-                  className="text-lg font-bold text-[#091C0F] hover:text-[#00875A] transition-colors"
+                  className="text-base sm:text-lg font-bold text-[#091C0F] hover:text-[#00875A] transition-colors"
                 >
                   +91 93284 37392
                 </a>
-                <p className="text-xs text-[#475569] mt-1">
+                <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
                   Direct senior technical advisory line
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#F8FAFC] p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-4 hover:border-[#47C56E]/60 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
-                <Mail className="w-5 h-5" />
+            <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
+                <Mail className="w-4 sm:w-5 h-4 sm:h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#475569] uppercase tracking-wider block">
+                <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
                   Email Requirement
                 </span>
                 <a
                   href="mailto:info@gayatritechnology.in"
-                  className="text-lg font-bold text-[#091C0F] hover:text-[#00875A] transition-colors"
+                  className="text-base sm:text-lg font-bold text-[#091C0F] hover:text-[#00875A] transition-colors"
                 >
                   info@gayatritechnology.in
                 </a>
-                <p className="text-xs text-[#475569] mt-1">
+                <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
                   Typical reply in &lt; 2 business hours
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#F8FAFC] p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-4 hover:border-[#47C56E]/60 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
-                <MapPin className="w-5 h-5" />
+            <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
+                <MapPin className="w-4 sm:w-5 h-4 sm:h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#475569] uppercase tracking-wider block">
+                <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
                   Office Headquarters
                 </span>
-                <p className="text-base font-bold text-[#091C0F]">
-                  102 Dev Palce, Ankur Nagar, Rajkot 360004, Gujarat, India
+                <p className="text-sm sm:text-base font-bold text-[#091C0F]">
+                  102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India
                 </p>
               </div>
             </div>
 
-            <div className="bg-[#F8FAFC] p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-4 hover:border-[#47C56E]/60 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
-                <Clock className="w-5 h-5" />
+            <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
+                <Clock className="w-4 sm:w-5 h-4 sm:h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold text-[#475569] uppercase tracking-wider block">
+                <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
                   Business Operating Hours
                 </span>
-                <p className="text-base font-bold text-[#091C0F]">
+                <p className="text-sm sm:text-base font-bold text-[#091C0F]">
                   Mon - Sat: 9:30 AM - 7:00 PM IST
                 </p>
-                <p className="text-xs text-[#475569] mt-1">
+                <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
                   24/7 SLA ticket monitoring for active support clients
                 </p>
               </div>

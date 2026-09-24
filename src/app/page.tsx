@@ -2,17 +2,11 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustValueStrip from "@/components/TrustValueStrip";
-import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
-import CustomSolutionsSection from "@/components/CustomSolutionsSection";
-import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import SolutionsBento from "@/components/SolutionsBento";
-import IndustriesSection from "@/components/IndustriesSection";
-import TechStackSection from "@/components/TechStackSection";
 import PortfolioSection from "@/components/PortfolioSection";
-import ProcessSection from "@/components/ProcessSection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import CtaBanner from "@/components/CtaBanner";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -31,17 +25,11 @@ export default function Home() {
       <main className="flex-1 w-full overflow-x-hidden md:overflow-x-clip">
         <HeroSection />
         <TrustValueStrip />
-        <AboutSection />
         <ServicesSection />
-        <CustomSolutionsSection />
-        <WhyChooseUsSection />
         <SolutionsBento />
-        <IndustriesSection />
-        <TechStackSection />
         <PortfolioSection />
-        <ProcessSection />
+        <WhyChooseUsSection />
         <CtaBanner />
-        <ContactSection />
       </main>
       <Footer />
     </div>

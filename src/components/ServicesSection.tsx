@@ -67,13 +67,19 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+        {/* Mobile Swipe Hint */}
+        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+          <span>← Swipe horizontally to browse services →</span>
+          <span className="font-mono text-slate-400 text-[11px]">6 Services</span>
+        </div>
+
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
               <div
                 key={idx}
-                className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] hover:border-[#47C56E]/60 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
+                className="w-[85vw] max-w-[340px] sm:w-[340px] md:w-auto md:min-w-0 snap-center bg-white p-5 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#47C56E]/60 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group shrink-0 md:shrink h-auto"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5 sm:mb-6">
@@ -94,7 +100,7 @@ export default function ServicesSection() {
                 </div>
 
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="inline-flex items-center gap-1.5 text-[#00875A] text-xs sm:text-sm font-bold hover:gap-2.5 transition-all group-hover:text-[#47C56E] min-h-[44px]"
                 >
                   <span>Request Solution Brief</span>
@@ -103,6 +109,25 @@ export default function ServicesSection() {
               </div>
             );
           })}
+        </div>
+
+        {/* Explore All Services Action Bar */}
+        <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-2xl bg-[#FAFCFF] border border-[#E2E8F0] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
+          <div>
+            <h3 className="text-base sm:text-lg font-bold text-[#091C0F] font-display">
+              Need custom ERP systems, cloud DevOps, or industry-specific solutions?
+            </h3>
+            <p className="text-xs sm:text-sm text-[#475569] mt-1">
+              Explore our full deliverables list, technical stacks, and industrial verticals.
+            </p>
+          </div>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 bg-[#091C0F] hover:bg-[#163820] text-white px-6 py-3 rounded-full text-xs sm:text-sm font-bold transition-all shadow-md active:scale-95 shrink-0"
+          >
+            <span>Explore All Services &amp; Capabilities</span>
+            <ArrowRight className="w-4 h-4 text-[#47C56E]" />
+          </Link>
         </div>
       </div>
     </section>

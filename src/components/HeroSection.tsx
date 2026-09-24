@@ -17,14 +17,14 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-12 pb-20 lg:py-24 custom-grid-bg border-b border-[#E2E8F0]"
+      className="relative overflow-hidden pt-8 pb-12 sm:pt-12 sm:pb-16 lg:py-24 custom-grid-bg border-b border-[#E2E8F0]"
     >
       {/* Ambient background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(71,197,110,0.12),transparent_70%)] pointer-events-none -z-10" />
 
       <div className="screen-container grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Narrative Column */}
-        <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+        <div className="lg:col-span-7 space-y-4 sm:space-y-6">
           <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-[11px] sm:text-xs font-bold shadow-xs max-w-full">
             <span className="w-2 h-2 rounded-full bg-[#47C56E] animate-pulse shrink-0" />
             <span className="truncate">Bespoke Engineering • Business-First Technology</span>
@@ -38,14 +38,14 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[#475569] max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-[#475569] max-w-2xl leading-relaxed">
             We design and develop custom websites and web applications tailored to your business
             requirements, operational workflows, and customers.
           </p>
 
           <div className="flex flex-col min-[480px]:flex-row items-stretch min-[480px]:items-center gap-3 sm:gap-4 pt-2">
             <Link
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2.5 sm:gap-3 bg-[#47C56E] text-[#091C0F] px-6 sm:px-8 py-3.5 rounded-full text-sm sm:text-base font-bold shadow-md shadow-[#47C56E]/25 hover:bg-[#3db863] hover:shadow-lg hover:shadow-[#47C56E]/35 transition-all duration-200 active:scale-95 group min-h-[48px]"
             >
               <span>Start Your Project</span>
@@ -53,7 +53,7 @@ export default function HeroSection() {
             </Link>
 
             <Link
-              href="#services"
+              href="/services"
               className="inline-flex items-center justify-center gap-2 bg-white text-[#091C0F] border border-[#E2E8F0] px-6 sm:px-7 py-3.5 rounded-full text-sm sm:text-base font-bold hover:bg-[#F0FDF4] hover:border-[#47C56E]/50 transition-all duration-200 shadow-xs min-h-[48px]"
             >
               <Compass className="w-4 sm:w-5 h-4 sm:h-5 text-[#00875A]" />
@@ -71,7 +71,7 @@ export default function HeroSection() {
         <div className="lg:col-span-5 w-full">
           <div className="bg-[#091C0F] rounded-2xl p-4 sm:p-6 text-[#E2E8F0] shadow-2xl border border-[#47C56E]/25 relative overflow-hidden">
             {/* Terminal Window Chrome */}
-            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#163820] mb-4 sm:mb-5">
+            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#163820] mb-3 sm:mb-5">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-[#ba1a1a]" />
                 <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-[#f59e0b]" />
@@ -86,8 +86,8 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Live Code Snippet (Horizontal Scroll Safe on Foldables) */}
-            <div className="font-mono text-[11px] sm:text-xs text-[#E2E8F0]/90 space-y-1 bg-[#040C07] p-3 sm:p-4 rounded-xl border border-[#163820] mb-4 sm:mb-5 leading-relaxed overflow-x-auto">
+            {/* Live Code Snippet (Visible on sm+ screens, compact on mobile) */}
+            <div className="hidden sm:block font-mono text-[11px] sm:text-xs text-[#E2E8F0]/90 space-y-1 bg-[#040C07] p-3 sm:p-4 rounded-xl border border-[#163820] mb-4 sm:mb-5 leading-relaxed overflow-x-auto">
               <p>
                 <span className="text-[#86EFAC]">interface</span>{" "}
                 <span className="text-[#47C56E]">BusinessBlueprint</span> {"{"}

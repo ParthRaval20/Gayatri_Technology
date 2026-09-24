@@ -109,7 +109,10 @@ export default function WhyChooseUsSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {pillars.map((pillar, idx) => (
-                <div key={idx} className="flex gap-3 sm:gap-4">
+                <div
+                  key={idx}
+                  className={`flex gap-3 sm:gap-4 ${idx >= 4 ? "hidden sm:flex" : "flex"}`}
+                >
                   <span className="text-xs font-bold text-[#00875A] bg-[#47C56E]/12 px-2.5 py-1 rounded-md h-fit border border-[#47C56E]/25 shrink-0">
                     {pillar.num}
                   </span>
@@ -123,6 +126,15 @@ export default function WhyChooseUsSection() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-[#E2E8F0] flex sm:hidden justify-center">
+              <a
+                href="/about"
+                className="text-xs font-bold text-[#00875A] hover:text-[#47C56E] transition-colors"
+              >
+                Learn more about our standards &amp; culture in About Us →
+              </a>
             </div>
           </div>
         </div>

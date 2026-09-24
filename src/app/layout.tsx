@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { siteConfig, getOrganizationSchema } from "@/lib/seo";
+import MobileQuickBar from "@/components/MobileQuickBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -76,9 +77,19 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/icon.png",
-    shortcut: "/favicon.ico",
-    apple: "/icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: [
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   verification: {
     google: "google57e6f733961f1ac3",
@@ -114,6 +125,7 @@ export default function RootLayout({
         className={`${inter.variable} ${plusJakarta.variable} ${montserrat.variable} font-sans bg-surface text-on-surface antialiased overflow-x-hidden min-h-screen min-h-[100dvh] selection:bg-[#47C56E] selection:text-[#091C0F]`}
       >
         {children}
+        <MobileQuickBar />
       </body>
     </html>
   );

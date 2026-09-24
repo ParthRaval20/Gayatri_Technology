@@ -34,9 +34,9 @@ const stacks = [
 
 export default function TechStackSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC]">
+    <section className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFC]">
       <div className="screen-container">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             PRODUCTION TECH
           </span>
@@ -46,15 +46,19 @@ export default function TechStackSection() {
           <p className="text-base sm:text-lg text-[#475569]">
             Proven, enterprise-grade technologies chosen for durability, performance, and security.
           </p>
+          <div className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-[#00875A] sm:hidden">
+            <span>Swipe tech layers horizontally</span>
+            <span>→</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar pb-3 sm:pb-0 items-stretch">
           {stacks.map((stack, idx) => {
             const Icon = stack.icon;
             return (
               <div
                 key={idx}
-                className="bg-white p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs hover:border-[#47C56E]/60 transition-all flex flex-col justify-between"
+                className="w-[82vw] max-w-[320px] sm:w-auto shrink-0 sm:shrink snap-center sm:snap-align-none bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs hover:border-[#47C56E]/60 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-5">

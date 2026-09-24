@@ -37,9 +37,9 @@ const phases = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC]">
+    <section id="process" className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFC]">
       <div className="screen-container">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             OUR METHODOLOGY
           </span>
@@ -49,13 +49,17 @@ export default function ProcessSection() {
           <p className="text-base sm:text-lg text-[#475569]">
             A structured, predictable 6-phase engineering lifecycle.
           </p>
+          <div className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-[#00875A] md:hidden">
+            <span>Swipe methodology phases</span>
+            <span>→</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {phases.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white p-5 sm:p-7 rounded-2xl border border-[#E2E8F0] shadow-xs hover:border-[#47C56E]/60 hover:shadow-md transition-all duration-200"
+              className="w-[85vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white p-5 sm:p-7 rounded-2xl border border-[#E2E8F0] shadow-xs hover:border-[#47C56E]/60 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
             >
               <span className="text-xs font-bold text-[#00875A] font-mono tracking-wider">
                 {item.phase}

@@ -29,9 +29,9 @@ const steps = [
 
 export default function CustomSolutionsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC]">
+    <section className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFC]">
       <div className="screen-container">
-        <div className="max-w-3xl mb-10 sm:mb-14">
+        <div className="max-w-3xl mb-8 sm:mb-14">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             TAILORED ARCHITECTURE
           </span>
@@ -41,15 +41,19 @@ export default function CustomSolutionsSection() {
           <p className="text-base sm:text-lg text-[#475569]">
             We build around your exact requirements, constraints, and growth ambitions.
           </p>
+          <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-[#00875A] md:hidden">
+            <span>Swipe steps horizontally</span>
+            <span>→</span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-8 md:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {steps.map((item, idx) => {
             const TagIcon = item.tagIcon;
             return (
               <div
                 key={idx}
-                className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] relative overflow-hidden shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all duration-200 flex flex-col justify-between"
+                className="w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white p-5 sm:p-8 rounded-2xl border border-[#E2E8F0] relative overflow-hidden shadow-xs hover:shadow-md hover:border-[#47C56E]/60 transition-all duration-200 flex flex-col justify-between"
               >
                 <div>
                   <div className="text-3xl sm:text-4xl font-extrabold text-[#CBD5E1] mb-3 sm:mb-4 font-display">

@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-safe">
+    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-28 md:pb-safe">
       <div className="screen-container py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-[#163820]">
           {/* Brand Summary Column */}
@@ -58,27 +58,27 @@ export default function Footer() {
             </p>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
               <li>
-                <Link href="#services" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
                   Business Website Development
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
                   Custom Web Applications
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
                   E-Commerce Platforms
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
                   UI/UX Interface Design
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
                   Website Maintenance &amp; SLA
                 </Link>
               </li>
@@ -92,27 +92,27 @@ export default function Footer() {
             </p>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
               <li>
-                <Link href="#solutions" className="hover:text-[#47C56E] transition-colors">
-                  Custom Applications
+                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
+                  Custom ERP &amp; Operations
                 </Link>
               </li>
               <li>
-                <Link href="#solutions" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
                   CRM &amp; Client Portals
                 </Link>
               </li>
               <li>
-                <Link href="#solutions" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
                   Lead Gen Platforms
                 </Link>
               </li>
               <li>
-                <Link href="#solutions" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
                   Admin Dashboards
                 </Link>
               </li>
               <li>
-                <Link href="#industries" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#industries" className="hover:text-[#47C56E] transition-colors">
                   Industry Sectors
                 </Link>
               </li>
@@ -126,18 +126,23 @@ export default function Footer() {
             </p>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
               <li>
-                <Link href="#about" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/about" className="hover:text-[#47C56E] transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#portfolio" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/portfolio" className="hover:text-[#47C56E] transition-colors">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link href="#process" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/about#process" className="hover:text-[#47C56E] transition-colors">
                   Engineering Process
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#47C56E] transition-colors">
+                  Contact &amp; Quotes
                 </Link>
               </li>
               <li>
