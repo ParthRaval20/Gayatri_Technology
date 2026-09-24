@@ -156,6 +156,7 @@ export function getOrganizationSchema() {
         "@id": `${baseUrl}/#website`,
         url: baseUrl,
         name: siteConfig.name,
+        alternateName: ["Gayatri Tech", "Gayatri Technology Rajkot"],
         description: siteConfig.description,
         image: `${baseUrl}/icon-512.png`,
         publisher: {
