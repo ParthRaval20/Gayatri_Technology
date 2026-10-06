@@ -90,26 +90,26 @@ export default async function Image() {
           <h1
             style={{
               color: "#FFFFFF",
-              fontSize: "56px",
+              fontSize: "52px",
               fontWeight: "800",
               lineHeight: 1.15,
               letterSpacing: "-1px",
               margin: 0,
             }}
           >
-            Custom Web Development &amp;{" "}
-            <span style={{ color: "#47C56E" }}>Enterprise Software</span>
+            Software Built Around How Your{" "}
+            <span style={{ color: "#47C56E" }}>Business Works</span>
           </h1>
           <p
             style={{
               color: "#94A3B8",
-              fontSize: "24px",
+              fontSize: "22px",
               lineHeight: 1.4,
               margin: 0,
               maxWidth: "960px",
             }}
           >
-            Bespoke web applications, industrial ERP systems, and cloud architectures built with zero generic templates.
+            Custom websites, ERP systems, business applications and digital products for growing businesses. Rajkot, Gujarat.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: "flex", gap: "16px" }}>
-            {["Next.js & React", "Industrial ERP", "Bespoke SaaS", "Cloud & APIs"].map((tag) => (
+            {["Custom ERP", "Web Applications", "Mobile Tools", "Rajkot, Gujarat"].map((tag) => (
               <div
                 key={tag}
                 style={{

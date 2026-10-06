@@ -17,8 +17,8 @@ export default function ContactSection() {
     company: "",
     email: "",
     phone: "",
-    service: "Custom Web Application",
-    budget: "₹50,000 – ₹1,00,000",
+    service: "Custom Business Software",
+    budget: "Prefer to discuss based on scope",
     timeline: "standard",
     details: "",
   });
@@ -36,21 +36,21 @@ export default function ContactSection() {
 
     // Formatted mail subject and structured body
     const subject = encodeURIComponent(
-      `New Project Requirement [${generatedId}] - ${formData.company || formData.name}`
+      `Project Discussion [${generatedId}] - ${formData.company || formData.name}`
     );
 
     const body = encodeURIComponent(
-      `GAYATRI TECHNOLOGY - NEW CLIENT PROJECT REQUIREMENT\n` +
+      `GAYATRI TECHNOLOGY - NEW PROJECT INQUIRY\n` +
       `===================================================\n` +
-      `Reference ID     : ${generatedId}\n` +
-      `Client Name      : ${formData.name}\n` +
-      `Company / Org    : ${formData.company || "Not specified"}\n` +
-      `Email Address    : ${formData.email}\n` +
-      `Phone Number     : ${formData.phone || "Not provided"}\n` +
-      `Selected Service : ${formData.service}\n` +
-      `Budget Range     : ${formData.budget}\n` +
-      `Target Timeline  : ${formData.timeline}\n\n` +
-      `PROJECT REQUIREMENTS & BRIEF:\n` +
+      `Reference ID       : ${generatedId}\n` +
+      `Client Name        : ${formData.name}\n` +
+      `Company / Business : ${formData.company || "Not specified"}\n` +
+      `Phone / WhatsApp   : ${formData.phone}\n` +
+      `Email Address      : ${formData.email}\n` +
+      `What to Build      : ${formData.service}\n` +
+      `Budget Preference  : ${formData.budget}\n` +
+      `Timeline           : ${formData.timeline}\n\n` +
+      `WHAT IS NOT WORKING TODAY / PROJECT GOALS:\n` +
       `---------------------------------------------------\n` +
       `${formData.details}\n` +
       `===================================================\n` +
@@ -59,7 +59,6 @@ export default function ContactSection() {
 
     const mailtoUrl = `mailto:info@gayatritechnology.in?subject=${subject}&body=${body}`;
 
-    // Trigger user's email client with recipient info@gayatritechnology.in
     if (typeof window !== "undefined") {
       window.location.href = mailtoUrl;
     }
@@ -77,8 +76,8 @@ export default function ContactSection() {
       company: "",
       email: "",
       phone: "",
-      service: "Custom Web Application",
-      budget: "₹50,000 – ₹1,00,000",
+      service: "Custom Business Software",
+      budget: "Prefer to discuss based on scope",
       timeline: "standard",
       details: "",
     });
@@ -89,14 +88,13 @@ export default function ContactSection() {
       <div className="screen-container">
         <div className="max-w-3xl mb-8 sm:mb-14">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
-            REQUIREMENT SUBMISSION
+            DIRECT FOUNDER &amp; TEAM ACCESS
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 font-display">
-            Let&apos;s Build Something That Works for Your Business.
+            Have a business problem that software could solve?
           </h2>
           <p className="text-base sm:text-lg text-[#475569]">
-            Tell us what you need. Our team will understand your requirements and help you find the
-            right digital solution.
+            Tell us what you&apos;re trying to build or what isn&apos;t working today. We&apos;ll help you figure out what makes sense.
           </p>
         </div>
 
@@ -110,17 +108,16 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#091C0F] font-display">
-                    Requirement Prepared &amp; Dispatched!
+                    Thank you, {formData.name}!
                   </h3>
                   <p className="text-xs sm:text-sm text-[#475569] mt-2 max-w-md mx-auto">
-                    Thank you, <span className="font-semibold text-[#091C0F]">{formData.name}</span>.
-                    Your requirement brief has been dispatched to{" "}
+                    Your project details have been prepared for{" "}
                     <strong className="text-[#00875A]">info@gayatritechnology.in</strong>.
-                    Our technical lead will review your brief for{" "}
+                    Parth Raval and the engineering team will review your workflow for{" "}
                     <span className="font-semibold text-[#091C0F]">
-                      {formData.company || "your organization"}
+                      {formData.company || "your business"}
                     </span>{" "}
-                    and reach out within 2 business hours.
+                    and respond with practical next steps.
                   </p>
                 </div>
 
@@ -128,18 +125,27 @@ export default function ContactSection() {
                   <div className="font-bold text-[#00875A]">Reference ID: {refId}</div>
                   <div>Sent To: info@gayatritechnology.in</div>
                   <div>Service: {formData.service}</div>
-                  <div>Budget: {formData.budget}</div>
-                  <div>Timeline: {formData.timeline}</div>
+                  <div>Phone/WhatsApp: {formData.phone}</div>
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    href={`https://wa.me/919328437392?text=${encodeURIComponent(
+                      `Hi Parth, I just submitted an inquiry on the website [Ref: ${refId}]. My name is ${formData.name}.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#20ba59] transition-all min-h-[44px]"
+                  >
+                    <span>Follow Up on WhatsApp</span>
+                  </a>
                   <button
                     type="button"
                     onClick={handleReset}
                     className="inline-flex items-center gap-2 text-xs font-bold text-[#00875A] hover:text-[#47C56E] py-2.5 px-3.5 transition-colors min-h-[44px]"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
-                    <span>Submit Another Requirement</span>
+                    <span>Send Another Message</span>
                   </button>
                 </div>
               </div>
@@ -155,21 +161,20 @@ export default function ContactSection() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Ramesh Sharma"
+                      placeholder="e.g. Ramesh Patel"
                       className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
-                      Company Name *
+                      Company / Business Name
                     </label>
                     <input
                       type="text"
-                      required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="e.g. Acme Corp India"
+                      placeholder="e.g. Shree Ram Industries"
                       className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
@@ -178,21 +183,7 @@ export default function ContactSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="ramesh@acmecorp.com"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
-                      Phone Number *
+                      Phone / WhatsApp Number *
                     </label>
                     <input
                       type="tel"
@@ -203,106 +194,133 @@ export default function ContactSection() {
                       className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
                     />
                   </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
-                      Service Required *
-                    </label>
-                    <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
-                    >
-                      <option>Custom Web Application</option>
-                      <option>Business Website Development</option>
-                      <option>E-Commerce Development</option>
-                      <option>UI/UX Design</option>
-                      <option>Website Redesign</option>
-                      <option>Website Maintenance & Support</option>
-                    </select>
-                  </div>
 
                   <div>
                     <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
-                      Budget Range
+                      Email Address *
                     </label>
-                    <select
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="ramesh@shreeram.com"
                       className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
-                    >
-                      <option>Under ₹25,000</option>
-                      <option>₹25,000 – ₹50,000</option>
-                      <option>₹50,000 – ₹1,00,000</option>
-                      <option>₹1,00,000 – ₹5,00,000</option>
-                      <option>₹5,00,000+</option>
-                    </select>
+                    />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
-                    Project Timeline
+                    What do you want to build? *
                   </label>
-                  <div className="grid grid-cols-1 min-[340px]:grid-cols-3 gap-2 sm:gap-3">
-                    {[
-                      { id: "urgent", label: "Urgent (< 1 mo)" },
-                      { id: "standard", label: "1 - 3 months" },
-                      { id: "flexible", label: "Flexible" },
-                    ].map((item) => (
-                      <label
-                        key={item.id}
-                        className={`flex items-center gap-2 p-2.5 sm:p-3 bg-white border rounded-xl cursor-pointer transition-all min-h-[44px] ${formData.timeline === item.id
-                            ? "border-[#47C56E] bg-[#F0FDF4] ring-1 ring-[#47C56E]"
-                            : "border-[#E2E8F0] hover:border-[#47C56E]/50"
-                          }`}
-                      >
-                        <input
-                          type="radio"
-                          name="timeline"
-                          value={item.id}
-                          checked={formData.timeline === item.id}
-                          onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                          className="text-[#00875A] focus:ring-[#47C56E]"
-                        />
-                        <span className="text-xs font-semibold text-[#091C0F]">
-                          {item.label}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                  >
+                    <option>Custom Business Software</option>
+                    <option>ERP &amp; Operations System</option>
+                    <option>Custom Website or Web Application</option>
+                    <option>Mobile Application (Android / iOS)</option>
+                    <option>E-Commerce &amp; Ordering Portal</option>
+                    <option>Automation &amp; Internal Tools</option>
+                    <option>Not sure yet / Need technical guidance</option>
+                  </select>
                 </div>
 
                 <div>
                   <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
-                    Project Requirement Details *
+                    Tell us about the problem or requirement *
                   </label>
                   <textarea
                     required
                     rows={4}
                     value={formData.details}
                     onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                    placeholder="Describe your current business problem, required modules, target users, or key objectives..."
+                    placeholder="Tell us what isn't working today: e.g. same data entered multiple times in Excel, difficulty tracking inventory, orders lost in WhatsApp, or your existing software doesn't fit your workflow..."
                     className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full inline-flex justify-center items-center gap-2 bg-[#47C56E] text-[#091C0F] py-3.5 px-6 rounded-full text-base font-bold hover:bg-[#3db863] transition-all active:scale-95 shadow-md shadow-[#47C56E]/25 disabled:opacity-75"
-                >
-                  {isSubmitting ? (
-                    <span>Registering Requirement...</span>
-                  ) : (
-                    <>
-                      <span>Send Requirement</span>
-                      <Send className="w-4 h-4 text-[#091C0F]" />
-                    </>
-                  )}
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-1">
+                  <div>
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
+                      Budget Expectation <span className="text-[#64748B] font-normal">(Optional)</span>
+                    </label>
+                    <select
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      className="w-full bg-white border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-base sm:text-sm focus:border-[#47C56E] focus:ring-2 focus:ring-[#47C56E]/20 focus:outline-none transition-all min-h-[44px]"
+                    >
+                      <option>Prefer to discuss based on scope</option>
+                      <option>₹50,000 – ₹1,00,000</option>
+                      <option>₹1,00,000 – ₹2,50,000</option>
+                      <option>₹2,50,000 – ₹5,00,000</option>
+                      <option>₹5,00,000+</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs sm:text-sm font-semibold text-[#091C0F] mb-1.5 sm:mb-2">
+                      Target Timeline <span className="text-[#64748B] font-normal">(Optional)</span>
+                    </label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { id: "urgent", label: "Urgent" },
+                        { id: "standard", label: "1-3 mo" },
+                        { id: "flexible", label: "Flexible" },
+                      ].map((item) => (
+                        <label
+                          key={item.id}
+                          className={`flex items-center justify-center p-2.5 bg-white border rounded-xl cursor-pointer transition-all min-h-[44px] text-center ${
+                            formData.timeline === item.id
+                              ? "border-[#47C56E] bg-[#F0FDF4] ring-1 ring-[#47C56E]"
+                              : "border-[#E2E8F0] hover:border-[#47C56E]/50"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="timeline"
+                            value={item.id}
+                            checked={formData.timeline === item.id}
+                            onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                            className="sr-only"
+                          />
+                          <span className="text-xs font-semibold text-[#091C0F]">
+                            {item.label}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex-1 inline-flex justify-center items-center gap-2 bg-[#47C56E] text-[#091C0F] py-3.5 px-6 rounded-full text-base font-bold hover:bg-[#3db863] transition-all active:scale-95 shadow-md shadow-[#47C56E]/25 disabled:opacity-75 min-h-[48px]"
+                  >
+                    {isSubmitting ? (
+                      <span>Sending Your Information...</span>
+                    ) : (
+                      <>
+                        <span>Tell Us What You Need</span>
+                        <Send className="w-4 h-4 text-[#091C0F]" />
+                      </>
+                    )}
+                  </button>
+
+                  <a
+                    href="https://wa.me/919328437392"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex justify-center items-center gap-2 bg-[#25D366] text-white py-3.5 px-6 rounded-full text-sm font-bold hover:bg-[#20ba59] transition-all shadow-md shadow-[#25D366]/25 min-h-[48px]"
+                  >
+                    <span>Talk on WhatsApp</span>
+                  </a>
+                </div>
               </form>
             )}
           </div>
@@ -315,7 +333,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
-                  Phone Consultation
+                  Direct Phone Call
                 </span>
                 <a
                   href="tel:+919328437392"
@@ -324,7 +342,29 @@ export default function ContactSection() {
                   +91 93284 37392
                 </a>
                 <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
-                  Direct senior technical advisory line
+                  Direct conversation with founder &amp; engineering team
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#25D366] shrink-0 shadow-xs">
+                <Send className="w-4 sm:w-5 h-4 sm:h-5" />
+              </div>
+              <div>
+                <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
+                  Instant WhatsApp
+                </span>
+                <a
+                  href="https://wa.me/919328437392"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base sm:text-lg font-bold text-[#091C0F] hover:text-[#25D366] transition-colors"
+                >
+                  +91 93284 37392
+                </a>
+                <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
+                  Send a message, question, or voice note
                 </p>
               </div>
             </div>
@@ -335,7 +375,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
-                  Email Requirement
+                  Email Us
                 </span>
                 <a
                   href="mailto:info@gayatritechnology.in"
@@ -344,7 +384,7 @@ export default function ContactSection() {
                   info@gayatritechnology.in
                 </a>
                 <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
-                  Typical reply in &lt; 2 business hours
+                  Send your requirements, Excel sheets, or workflow notes
                 </p>
               </div>
             </div>
@@ -355,10 +395,13 @@ export default function ContactSection() {
               </div>
               <div>
                 <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
-                  Office Headquarters
+                  Office Location
                 </span>
                 <p className="text-sm sm:text-base font-bold text-[#091C0F]">
                   102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India
+                </p>
+                <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
+                  Rooted in Rajkot — serving businesses across Gujarat &amp; India
                 </p>
               </div>
             </div>
@@ -369,13 +412,13 @@ export default function ContactSection() {
               </div>
               <div>
                 <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
-                  Business Operating Hours
+                  Working Hours
                 </span>
                 <p className="text-sm sm:text-base font-bold text-[#091C0F]">
                   Mon - Sat: 9:30 AM - 7:00 PM IST
                 </p>
                 <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
-                  24/7 SLA ticket monitoring for active support clients
+                  Practical conversations, zero high-pressure sales talk
                 </p>
               </div>
             </div>

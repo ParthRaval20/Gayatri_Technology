@@ -123,7 +123,7 @@ export default function PrivacyPolicyPage() {
                 &quot;you&quot;) and visitors to our digital platforms.
               </p>
               <p>
-                As an enterprise software engineering and bespoke technology firm, we frequently handle
+                As a custom software engineering studio, we frequently handle
                 sensitive proprietary intellectual property, cloud configurations, API credentials, and internal
                 business logic. We treat all client assets with stringent cryptographic and procedural safeguards.
               </p>

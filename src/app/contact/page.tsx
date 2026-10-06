@@ -1,31 +1,22 @@
 import React from "react";
 import { Metadata } from "next";
-import {
-  Sparkles,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  ShieldCheck,
-  FileCheck,
-  CheckCircle2,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact Us & Project Inquiry | Gayatri Technology",
+  title: "Contact Us | Have a Business Problem Software Could Solve?",
   description:
-    "Get in touch with the Gayatri Technology engineering team. Request an architectural project consultation, schedule an operational review, or contact our Rajkot office.",
+    "Get in touch directly with Parth Raval and the Gayatri Technology software studio in Rajkot, Gujarat. Discuss your workflow, ERP requirements, or custom web application.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Gayatri Technology | Software & Web Architecture",
+    title: "Contact Gayatri Technology | Software Built Around Your Workflow",
     description:
-      "Schedule a project discovery call with our software architects. Prompt 24-hour turnaround on technical requirements and scope blueprints.",
+      "Tell us what you're trying to build or what isn't working today. Direct conversation with engineers who understand business problems.",
     url: `${siteConfig.url}/contact`,
     type: "website",
   },
@@ -33,30 +24,30 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Gayatri Technology",
     description:
-      "Request an architectural consultation or schedule an operational review with our senior engineers.",
+      "Direct technical consultation with Parth Raval and the Gayatri Technology engineering studio.",
   },
 };
 
 const onboardingSteps = [
   {
     step: "01",
-    title: "Requirement Submission",
-    desc: "Submit your project requirements, target timeline, and operational objectives via our portal.",
+    title: "Tell Us What You Need",
+    desc: "Share your current workflow, what tools you use today (Excel, paper, WhatsApp), and what isn't working.",
   },
   {
     step: "02",
-    title: "Architectural Review",
-    desc: "Our lead software engineers audit your technical requirements and formulate a preliminary scope within 24 hours.",
+    title: "Practical Discussion",
+    desc: "We review your actual process—not buzzwords—and discuss whether custom software makes business sense.",
   },
   {
     step: "03",
-    title: "Discovery & Blueprint",
-    desc: "We host a 30-minute discovery call to clarify database structures, integrations, and milestones.",
+    title: "Clear Plan & Scope",
+    desc: "We map out screens, features, timeline, and exact cost before writing a single line of code.",
   },
   {
     step: "04",
-    title: "Fixed Scope & Launch",
-    desc: "You receive an exact milestone-driven contract and engineering roadmap with zero hidden costs.",
+    title: "Direct Collaboration",
+    desc: "You work directly with the developers building your software until launch, handover, and beyond.",
   },
 ];
 
@@ -84,15 +75,15 @@ export default function ContactPage() {
           <div className="screen-container max-w-4xl mx-auto text-center space-y-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
-              <span>Direct Architect Response • 24-Hour Turnaround</span>
+              <span>Direct Founder &amp; Developer Access • Rajkot, Gujarat</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#091C0F] tracking-tight leading-tight font-display">
-              Let&apos;s Engineer Your Digital Platform
+              Have a Business Problem Software Could Solve?
             </h1>
 
             <p className="text-base sm:text-lg text-[#475569] max-w-2xl mx-auto leading-relaxed">
-              Have an upcoming website, enterprise web application, or custom ERP requirement? Fill out the project brief below to discuss your architecture.
+              Tell us what you&apos;re trying to build or what isn&apos;t working today. We will help you figure out what makes sense, whether that&apos;s a custom ERP, a web application, or a simple internal tool.
             </p>
           </div>
         </section>

@@ -27,15 +27,23 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-sm text-[#E2E8F0]/70 max-w-sm leading-relaxed">
-              Enterprise Web &amp; Software Architecture. We architect, build, and scale custom web
-              platforms tailored to client business realities and high-growth objectives.
+            <p className="text-sm text-[#E2E8F0]/80 max-w-sm leading-relaxed">
+              Custom software built around the way your business actually works. We engineer custom ERPs, business web applications, and mobile operational systems for growing companies.
             </p>
             <address className="not-italic text-xs text-[#E2E8F0]/75 space-y-1 pt-1 font-sans">
               <p>102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
-              <p className="flex items-center gap-3">
+              <p className="flex flex-wrap items-center gap-3 pt-1">
                 <a href="tel:+919328437392" className="hover:text-[#47C56E] transition-colors font-medium">
                   +91 93284 37392
+                </a>
+                <span>•</span>
+                <a
+                  href="https://wa.me/919328437392"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25D366] transition-colors font-medium text-[#86EFAC]"
+                >
+                  WhatsApp
                 </a>
                 <span>•</span>
                 <a href="mailto:info@gayatritechnology.in" className="hover:text-[#47C56E] transition-colors font-medium">
@@ -44,9 +52,9 @@ export default function Footer() {
               </p>
             </address>
             <div className="flex items-center gap-2.5 pt-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#47C56E] animate-pulse" />
-              <span className="text-xs font-semibold text-[#86EFAC] font-mono">
-                Zero-Template Architecture Guarantee
+              <span className="w-2 h-2 rounded-full bg-[#47C56E]" />
+              <span className="text-xs text-[#86EFAC] font-mono">
+                Founder-led engineering studio • Rajkot, Gujarat
               </span>
             </div>
           </div>
@@ -58,62 +66,72 @@ export default function Footer() {
             </p>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
               <li>
-                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
-                  Business Website Development
+                <Link href="/services#custom-software" className="hover:text-[#47C56E] transition-colors">
+                  Custom Business Software
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
-                  Custom Web Applications
+                <Link href="/services#erp-operations" className="hover:text-[#47C56E] transition-colors">
+                  ERP &amp; Operations Systems
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#websites-web-apps" className="hover:text-[#47C56E] transition-colors">
+                  Websites &amp; Web Applications
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#mobile-apps" className="hover:text-[#47C56E] transition-colors">
+                  Mobile Applications
+                </Link>
+              </li>
+              <li>
+                <Link href="/services#ecommerce" className="hover:text-[#47C56E] transition-colors">
                   E-Commerce Platforms
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
-                  UI/UX Interface Design
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-[#47C56E] transition-colors">
-                  Website Maintenance &amp; SLA
+                <Link href="/services#automation-ai" className="hover:text-[#47C56E] transition-colors">
+                  Automation &amp; Internal Tools
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Links Column 2: Solutions & Verticals */}
+          {/* Links Column 2: Practical Knowledge */}
           <div className="space-y-3">
             <p className="text-xs font-bold text-white uppercase tracking-wider font-mono">
-              Solutions
+              Knowledge
             </p>
             <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
               <li>
-                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
-                  Custom ERP &amp; Operations
+                <Link href="/knowledge/excel-to-erp" className="hover:text-[#47C56E] transition-colors">
+                  Excel to ERP Migration
                 </Link>
               </li>
               <li>
-                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
-                  CRM &amp; Client Portals
+                <Link href="/knowledge/custom-erp-vs-ready-made" className="hover:text-[#47C56E] transition-colors">
+                  Custom vs Ready-Made ERP
                 </Link>
               </li>
               <li>
-                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
-                  Lead Gen Platforms
+                <Link href="/knowledge/manufacturing-erp-essentials" className="hover:text-[#47C56E] transition-colors">
+                  Manufacturing ERP Essentials
                 </Link>
               </li>
               <li>
-                <Link href="/services#custom-solutions" className="hover:text-[#47C56E] transition-colors">
-                  Admin Dashboards
+                <Link href="/knowledge/whatsapp-excel-tally-integration" className="hover:text-[#47C56E] transition-colors">
+                  WhatsApp + Excel + Tally
                 </Link>
               </li>
               <li>
-                <Link href="/services#industries" className="hover:text-[#47C56E] transition-colors">
-                  Industry Sectors
+                <Link href="/knowledge/custom-software-cost-india" className="hover:text-[#47C56E] transition-colors">
+                  Software Cost in India
+                </Link>
+              </li>
+              <li>
+                <Link href="/knowledge" className="hover:text-[#86EFAC] font-semibold transition-colors">
+                  All Practical Guides &rarr;
                 </Link>
               </li>
             </ul>
@@ -127,23 +145,28 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
               <li>
                 <Link href="/about" className="hover:text-[#47C56E] transition-colors">
-                  About Us
+                  About Us &amp; Founder
                 </Link>
               </li>
               <li>
                 <Link href="/portfolio" className="hover:text-[#47C56E] transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/about#process" className="hover:text-[#47C56E] transition-colors">
-                  Engineering Process
+                  Our Work &amp; Case Studies
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#47C56E] transition-colors">
-                  Contact &amp; Quotes
+                  Tell Us What You Need
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/919328437392"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#25D366] text-[#86EFAC] font-medium transition-colors"
+                >
+                  Direct WhatsApp Chat
+                </a>
               </li>
               <li>
                 <Link href="/privacy-policy" className="hover:text-[#47C56E] transition-colors">
@@ -161,7 +184,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E2E8F0]/60">
-          <p>© {new Date().getFullYear()} Gayatri Technology. All rights reserved. Enterprise Web &amp; Software Architecture.</p>
+          <p>© {new Date().getFullYear()} Gayatri Technology. Custom software built around the way your business works. Rajkot, Gujarat.</p>
 
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-[#47C56E] transition-colors">

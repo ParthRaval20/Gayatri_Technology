@@ -14,7 +14,8 @@ interface NavLinkItem {
 const navLinks: NavLinkItem[] = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
+  { name: "Work", href: "/portfolio" },
+  { name: "Knowledge", href: "/knowledge" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -50,7 +51,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav aria-label="Main Navigation" className="hidden md:flex items-center space-x-6 lg:space-x-8">
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navLinks.map((link) => {
             const isActive = isLinkActive(link.href);
 
@@ -75,19 +76,29 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Trailing Action (Desktop Only) */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Trailing Actions (Desktop Only) */}
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://wa.me/919328437392"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-[#25D366]/40 text-[#128C7E] bg-[#25D366]/10 hover:bg-[#25D366]/20 text-xs font-bold transition-all min-h-[40px]"
+            title="Chat directly on WhatsApp"
+          >
+            <span>WhatsApp</span>
+          </a>
+
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-5 sm:px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#3db863] shadow-md shadow-[#47C56E]/20 hover:shadow-lg hover:shadow-[#47C56E]/30 transition-all duration-200 active:scale-95 cursor-pointer min-h-[44px]"
+            className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-5 py-2 rounded-full text-xs font-bold hover:bg-[#3db863] shadow-md shadow-[#47C56E]/20 hover:shadow-lg hover:shadow-[#47C56E]/30 transition-all duration-200 active:scale-95 cursor-pointer min-h-[40px]"
           >
-            <Calendar className="w-4 h-4 text-[#091C0F]" />
-            <span>Let&apos;s Talk</span>
+            <Calendar className="w-3.5 h-3.5 text-[#091C0F]" />
+            <span>Tell Us What You Need</span>
           </Link>
         </div>
 
         {/* Mobile & Tablet Menu Button */}
-        <div className="md:hidden flex items-center shrink-0">
+        <div className="lg:hidden flex items-center shrink-0">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -102,7 +113,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer with Safe Area Inset Support */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-6 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] max-h-[85dvh] overflow-y-auto momentum-scroll">
+        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-6 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] max-h-[85dvh] overflow-y-auto momentum-scroll">
           <nav className="flex flex-col space-y-1.5 sm:space-y-2">
             {navLinks.map((link) => {
               const isActive = isLinkActive(link.href);
@@ -132,14 +143,24 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="pt-3 pb-2">
+            <div className="pt-3 pb-2 space-y-2">
+              <a
+                href="https://wa.me/919328437392"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-full text-sm font-bold shadow-sm min-h-[48px]"
+              >
+                <span>Talk Directly on WhatsApp</span>
+              </a>
+
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 bg-[#47C56E] text-[#091C0F] py-3.5 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/20 min-h-[48px]"
+                className="w-full flex items-center justify-center gap-2 bg-[#47C56E] text-[#091C0F] py-3 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/20 min-h-[48px]"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Let&apos;s Talk — Schedule Project Review</span>
+                <span>Tell Us What You Need</span>
               </Link>
             </div>
           </nav>

@@ -1,10 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import { Metadata } from "next";
 import {
   Sparkles,
-  ArrowRight,
-  TrendingUp,
   ShieldCheck,
   Zap,
   Layers,
@@ -17,51 +14,51 @@ import CtaBanner from "@/components/CtaBanner";
 import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Case Studies | Real-World Enterprise Deployments",
+  title: "Our Work & Case Studies | Custom Software Built For Real Operations",
   description:
-    "Explore Gayatri Technology's production software case studies: Gayatri Steel ERP, The Divine Roar Studio, and Gayatri Steel Digital Suite with live metrics and architectural highlights.",
+    "Explore Gayatri Technology's production software case studies, including the Gayatri Steel mobile operations ERP suite, with real workflows, UI screens, and delivered features.",
   alternates: {
     canonical: "/portfolio",
   },
   openGraph: {
-    title: "Portfolio & Enterprise Case Studies | Gayatri Technology",
+    title: "Our Work & Case Studies | Gayatri Technology",
     description:
-      "Production case studies of bespoke industrial ERP platforms, creative digital suites, and real-time inventory systems engineered with zero generic templates.",
+      "Production case studies of custom business software, mobile ERP platforms, and operational tools built around how teams actually work.",
     url: `${siteConfig.url}/portfolio`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio & Case Studies | Gayatri Technology",
+    title: "Our Work & Case Studies | Gayatri Technology",
     description:
-      "Production enterprise deployments and real-time industrial software engineering.",
+      "Production case studies of custom business software and mobile operations systems.",
   },
 };
 
 const impactMetrics = [
   {
-    icon: Zap,
-    metric: "100%",
-    label: "Paperless Delivery Challans",
-    sub: "Automated GSTIN, PO & lorry transport logistics",
+    icon: Layers,
+    metric: "5",
+    label: "Group Companies Unified",
+    sub: "Switching between GST entities without re-login",
   },
   {
-    icon: TrendingUp,
-    metric: "45%",
-    label: "Faster Warehouse Lookups",
-    sub: "Instant grade search across 28+ tool steel alloys",
+    icon: Zap,
+    metric: "10",
+    label: "Dedicated Mobile Modules",
+    sub: "Challans, piece counter, stock advisor & weight calculator",
   },
   {
     icon: ShieldCheck,
-    metric: "99.98%",
-    label: "Production System Availability",
-    sub: "Multi-tenant group security with role isolation",
+    metric: "28+",
+    label: "Industrial Grades Indexed",
+    sub: "Chemical formulas, carbon ratios & physical tolerances",
   },
   {
     icon: Award,
-    metric: "0%",
-    label: "Generic Templates Used",
-    sub: "Every line of code crafted for client operational goals",
+    metric: "100%",
+    label: "Built For Actual Workflow",
+    sub: "Zero generic templates — engineered for factory floor & dispatch",
   },
 ];
 
@@ -89,15 +86,15 @@ export default function PortfolioPage() {
           <div className="screen-container max-w-4xl mx-auto text-center space-y-5">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
-              <span>Real Deployments • Verified Business Metrics</span>
+              <span>Real Work • Delivered Systems • Authentic Screenshots</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#091C0F] tracking-tight leading-tight font-display">
-              Enterprise Case Studies &amp; Production Software
+              Software Built For Real Operations
             </h1>
 
             <p className="text-base sm:text-lg text-[#475569] max-w-2xl mx-auto leading-relaxed">
-              We do not build generic prototypes. We architect, engineer, and deploy high-concurrency systems that handle real operations, real inventory, and real revenue.
+              We build custom software for businesses that have outgrown spreadsheets, WhatsApp groups, and disconnected tools. Explore what we built, the exact problem it solved, and the screens used every day.
             </p>
           </div>
         </section>
