@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Calendar, Menu, X, ArrowRight } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import { siteConfig } from "@/lib/seo";
-import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
 interface NavLinkItem {
   name: string;
@@ -115,7 +114,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer with Safe Area Inset Support */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-6 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] max-h-[85dvh] overflow-y-auto momentum-scroll">
+        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-8 sm:pb-10 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] max-h-[85dvh] overflow-y-auto momentum-scroll">
           <nav className="flex flex-col space-y-1.5 sm:space-y-2">
             {navLinks.map((link) => {
               const isActive = isLinkActive(link.href);
@@ -145,13 +144,13 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="pt-3 pb-2 space-y-2">
+            <div className="pt-3 pb-1 space-y-2.5">
               <a
-                href="https://wa.me/919328437392"
+                href={siteConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-full text-sm font-bold shadow-sm min-h-[48px]"
+                className="w-full flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-full text-sm font-bold shadow-sm min-h-[48px] hover:bg-[#20ba59] transition-all"
               >
                 <span>Talk Directly on WhatsApp</span>
               </a>
@@ -159,37 +158,11 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 bg-[#47C56E] text-[#091C0F] py-3 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/20 min-h-[48px]"
+                className="w-full flex items-center justify-center gap-2 bg-[#47C56E] text-[#091C0F] py-3 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/20 min-h-[48px] hover:bg-[#3db863] transition-all"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Tell Us What You Need</span>
               </Link>
-            </div>
-
-            {/* Social Channels in Drawer */}
-            <div className="pt-2 border-t border-[#E2E8F0] flex items-center justify-center gap-3">
-              <a
-                href={siteConfig.social.linkedin.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#E2E8F0] bg-slate-50 hover:bg-white text-xs font-semibold text-[#091C0F] hover:text-[#0077b5] transition-colors min-h-[40px]"
-                aria-label="Connect on LinkedIn"
-              >
-                <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href={siteConfig.social.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#E2E8F0] bg-slate-50 hover:bg-white text-xs font-semibold text-[#091C0F] hover:text-[#E1306C] transition-colors min-h-[40px]"
-                aria-label="Follow on Instagram"
-              >
-                <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
-                <span>Instagram</span>
-              </a>
             </div>
           </nav>
         </div>

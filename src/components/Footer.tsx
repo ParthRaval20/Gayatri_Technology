@@ -13,7 +13,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-28 md:pb-safe">
+    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-36 sm:pb-32 md:pb-28">
       <div className="screen-container py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-[#163820]">
           {/* Brand Summary Column */}
@@ -273,6 +273,9 @@ export default function Footer() {
             </button>
           </div>
         </div>
+
+        {/* Dedicated clearance spacer for mobile & floating quick bar across all devices */}
+        <div className="h-16 sm:h-12 w-full pointer-events-none" aria-hidden="true" />
       </div>
     </footer>
   );

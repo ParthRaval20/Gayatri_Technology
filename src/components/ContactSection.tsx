@@ -437,23 +437,23 @@ export default function ContactSection() {
                 <p className="text-xs text-[#475569] mt-0.5 sm:mt-1 mb-3">
                   Follow our engineering updates, software case studies, and architecture insights
                 </p>
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
                   <a
                     href={siteConfig.social.linkedin.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E2E8F0] hover:border-[#0077b5] text-xs font-bold text-[#091C0F] hover:text-[#0077b5] transition-colors shadow-2xs group"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-[#E2E8F0] hover:border-[#0077b5] text-xs sm:text-sm font-bold text-[#091C0F] hover:text-[#0077b5] transition-all shadow-2xs hover:shadow-xs active:scale-95 group min-h-[44px]"
                   >
-                    <LinkedinIcon className="w-3.5 h-3.5 text-[#0077b5] group-hover:scale-110 transition-transform" />
+                    <LinkedinIcon className="w-4 h-4 text-[#0077b5] group-hover:scale-110 transition-transform" />
                     <span>LinkedIn</span>
                   </a>
                   <a
                     href={siteConfig.social.instagram.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E2E8F0] hover:border-[#E1306C] text-xs font-bold text-[#091C0F] hover:text-[#E1306C] transition-colors shadow-2xs group"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-[#E2E8F0] hover:border-[#E1306C] text-xs sm:text-sm font-bold text-[#091C0F] hover:text-[#E1306C] transition-all shadow-2xs hover:shadow-xs active:scale-95 group min-h-[44px]"
                   >
-                    <InstagramIcon className="w-3.5 h-3.5 text-[#E1306C] group-hover:scale-110 transition-transform" />
+                    <InstagramIcon className="w-4 h-4 text-[#E1306C] group-hover:scale-110 transition-transform" />
                     <span>@{siteConfig.social.instagram.handle}</span>
                   </a>
                 </div>
