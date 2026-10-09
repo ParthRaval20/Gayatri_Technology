@@ -77,7 +77,7 @@ const industries = [
 
 export default function IndustriesSection() {
   return (
-    <section id="industries" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#E2E8F0]">
+    <section id="industries" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">

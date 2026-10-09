@@ -16,6 +16,7 @@ import Footer from "@/components/Footer";
 import CustomSolutionsSection from "@/components/CustomSolutionsSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import TechStackSection from "@/components/TechStackSection";
+import ProcessSection from "@/components/ProcessSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import CtaBanner from "@/components/CtaBanner";
 import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
@@ -231,7 +232,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Detailed Services Grid */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E2E8F0]">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E2E8F0] overflow-hidden">
           <div className="screen-container">
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-16">
               <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
@@ -331,6 +332,9 @@ export default function ServicesPage() {
 
         {/* Tech Stack */}
         <TechStackSection />
+
+        {/* Predictable Turnaround Sprints & Delivery Methodology */}
+        <ProcessSection />
 
         {/* FAQ Section */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white border-y border-[#E2E8F0]">

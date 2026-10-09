@@ -10,20 +10,22 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PortfolioSection from "@/components/PortfolioSection";
+import InteractiveArchitecture from "@/components/InteractiveArchitecture";
 import CtaBanner from "@/components/CtaBanner";
 import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { portfolioMetrics } from "@/lib/portfolio";
 
 export const metadata: Metadata = {
   title: "Our Work & Case Studies | Custom Software Built For Real Operations",
   description:
-    "Explore Gayatri Technology's production software case studies, including the Gayatri Steel mobile operations ERP suite, with real workflows, UI screens, and delivered features.",
+    "Explore Gayatri Technology's production software case studies, including the Gujarat Brahm Samaj ERP (v2.4.0) and Gayatri Steel mobile operations ERP suite, with real workflows, UI screens, and delivered features.",
   alternates: {
     canonical: "/portfolio",
   },
   openGraph: {
     title: "Our Work & Case Studies | Gayatri Technology",
     description:
-      "Production case studies of custom business software, mobile ERP platforms, and operational tools built around how teams actually work.",
+      "Production case studies of custom business software, institutional ERPs, mobile platforms, and operational tools built around how teams actually work.",
     url: `${siteConfig.url}/portfolio`,
     type: "website",
   },
@@ -35,32 +37,7 @@ export const metadata: Metadata = {
   },
 };
 
-const impactMetrics = [
-  {
-    icon: Layers,
-    metric: "5",
-    label: "Group Companies Unified",
-    sub: "Switching between GST entities without re-login",
-  },
-  {
-    icon: Zap,
-    metric: "10",
-    label: "Dedicated Mobile Modules",
-    sub: "Challans, piece counter, stock advisor & weight calculator",
-  },
-  {
-    icon: ShieldCheck,
-    metric: "28+",
-    label: "Industrial Grades Indexed",
-    sub: "Chemical formulas, carbon ratios & physical tolerances",
-  },
-  {
-    icon: Award,
-    metric: "100%",
-    label: "Built For Actual Workflow",
-    sub: "Zero generic templates — engineered for factory floor & dispatch",
-  },
-];
+const metricIcons = [Layers, Zap, ShieldCheck, Award];
 
 export default function PortfolioPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
@@ -94,7 +71,7 @@ export default function PortfolioPage() {
             </h1>
 
             <p className="text-base sm:text-lg text-[#475569] max-w-2xl mx-auto leading-relaxed">
-              We build custom software for businesses that have outgrown spreadsheets, WhatsApp groups, and disconnected tools. Explore what we built, the exact problem it solved, and the screens used every day.
+              We build custom software for businesses and institutions that have outgrown spreadsheets, WhatsApp groups, and disconnected paper binders. Explore what we built, the exact problem it solved, and the screens used every day.
             </p>
           </div>
         </section>
@@ -103,8 +80,8 @@ export default function PortfolioPage() {
         <section className="py-8 sm:py-12 bg-white border-b border-[#E2E8F0]">
           <div className="screen-container">
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-              {impactMetrics.map((item, idx) => {
-                const Icon = item.icon;
+              {portfolioMetrics.map((item, idx) => {
+                const Icon = metricIcons[idx % metricIcons.length];
                 return (
                   <div
                     key={idx}
@@ -133,6 +110,9 @@ export default function PortfolioPage() {
         <div className="bg-[#F8FAFC]">
           <PortfolioSection />
         </div>
+
+        {/* Interactive Architecture & Pipeline Explorer (Woyce.ai inspiration) */}
+        <InteractiveArchitecture />
 
         {/* CTA Banner */}
         <CtaBanner />

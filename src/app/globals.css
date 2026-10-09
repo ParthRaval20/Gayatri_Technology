@@ -64,13 +64,9 @@ html {
   -moz-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   color-scheme: light;
-  overflow-x: hidden;
-}
-
-@supports (overflow: clip) {
-  html {
-    overflow-x: clip;
-  }
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
 }
 
 :root {
@@ -87,16 +83,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   width: 100%;
+  max-width: 100vw;
   min-width: 280px; /* Supports folded phones like Galaxy Z Fold cover screens */
   -webkit-tap-highlight-color: transparent;
-}
-
-@supports (overflow: clip) {
-  body {
-    overflow-x: clip;
-  }
+  position: relative;
 }
 
 /* Safe area inset utility classes for curved mobile screens, notches, and home indicator bars */
@@ -306,13 +298,31 @@ input[type="search"]::-webkit-search-cancel-button {
   background-color: #94A3B8;
 }
 
-/* 6. Momentum scroll for iOS WebKit */
+/* 6. Momentum scroll for iOS WebKit & overscroll safety */
 .overflow-y-auto,
-.overflow-x-auto {
+.momentum-scroll {
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
 }
 
-/* 7. Accessibility: Respect prefers-reduced-motion across all browsers */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+  touch-action: pan-x pan-y;
+}
+
+/* 7. Typography word wrapping & layout safety across all browser engines */
+h1, h2, h3, h4, h5, h6, p, label {
+  overflow-wrap: break-word;
+}
+
+/* 8. Responsive images & SVGs cross-browser reset */
+img, svg {
+  vertical-align: middle;
+}
+
+/* 9. Accessibility: Respect prefers-reduced-motion across all browsers */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
@@ -325,13 +335,293 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 }
 
-/* 8. No-scrollbar utility for mobile horizontal snap decks */
+/* 10. No-scrollbar utility for mobile horizontal snap decks (WebKit & Gecko) */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Basic Micro-Animations & Smooth Visual Transitions (Chrome / Safari / Firefox)
+   ========================================================================== */
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(14px);
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(14px);
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes scaleIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.97);
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.97);
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes floatGentle {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+}
+
+@-webkit-keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+  }
+}
+
+.animate-fade-in {
+  -webkit-animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity;
+}
+
+.animate-fade-in-up {
+  -webkit-animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.animate-fade-in-down {
+  -webkit-animation: fadeInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.animate-scale-in {
+  -webkit-animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.animate-float-gentle {
+  -webkit-animation: floatGentle 4s ease-in-out infinite;
+  animation: floatGentle 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-pulse-subtle {
+  -webkit-animation: pulseSubtle 3s ease-in-out infinite;
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.delay-75 {
+  -webkit-animation-delay: 75ms;
+  animation-delay: 75ms;
+}
+
+.delay-150 {
+  -webkit-animation-delay: 150ms;
+  animation-delay: 150ms;
+}
+
+.delay-200 {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  -webkit-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+
+/* Card hover lift & glow with GPU acceleration across all browsers */
+.hover-lift {
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.hover-lift:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -4px rgba(9, 28, 15, 0.08), 0 4px 6px -2px rgba(9, 28, 15, 0.03);
+}
+
+/* Button sheen effect with cross-browser gradients */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black); /* Fix Safari overflow radius bug */
+}
+
+.btn-shimmer::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: -webkit-linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 80%
+  );
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 80%
+  );
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.6s ease;
+  transition: opacity 0.3s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-shimmer:hover::after {
+  opacity: 1;
+  -webkit-transform: rotate(25deg) translate(50%, 50%);
+  transform: rotate(25deg) translate(50%, 50%);
+}
+
+/* 9. Cross-Browser Backdrop Filter Fallback */
+@supports not ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+  header.sticky {
+    background-color: #FFFFFF !important;
+  }
+  dialog, [role="dialog"] {
+    background-color: rgba(9, 28, 15, 0.98) !important;
+  }
 }
 
 

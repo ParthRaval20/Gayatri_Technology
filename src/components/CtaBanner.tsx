@@ -11,7 +11,7 @@ export default function CtaBanner() {
       <div className="screen-container">
         <div className="bg-[#091C0F] text-[#E2E8F0] rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 border border-[#47C56E]/20">
           {/* Subtle Ambient Radial Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#47C56E]/15 rounded-full blur-3xl pointer-events-none -z-10" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#47C56E]/15 rounded-full blur-3xl pointer-events-none -z-10 animate-float-gentle" />
 
           <div className="max-w-2xl space-y-2">
             <span className="text-[#86EFAC] font-bold text-xs uppercase tracking-wider block font-mono">
@@ -49,7 +49,7 @@ export default function CtaBanner() {
           <div className="flex flex-col min-[480px]:flex-row items-stretch min-[480px]:items-center gap-3 sm:gap-4 shrink-0 w-full lg:w-auto">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#47C56E] text-[#091C0F] px-6 sm:px-8 py-3.5 rounded-full text-sm sm:text-base font-bold hover:bg-[#3db863] transition-all active:scale-95 shadow-lg shadow-[#47C56E]/30 group min-h-[48px]"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#47C56E] text-[#091C0F] px-6 sm:px-8 py-3.5 rounded-full text-sm sm:text-base font-bold hover:bg-[#3db863] transition-all active:scale-95 shadow-lg shadow-[#47C56E]/30 group min-h-[48px] btn-shimmer"
             >
               <span>Tell Us What You Need</span>
               <ArrowRight className="w-4 h-4 text-[#091C0F] group-hover:translate-x-1 transition-transform" />

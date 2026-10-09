@@ -7,7 +7,7 @@ export default function KnowledgePreviewSection() {
   const featuredArticles = articles.slice(0, 3);
 
   return (
-    <section className="py-14 sm:py-20 bg-white border-t border-[#E2E8F0]">
+    <section className="py-14 sm:py-20 bg-white border-t border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div className="max-w-2xl space-y-3">
@@ -42,7 +42,7 @@ export default function KnowledgePreviewSection() {
           {featuredArticles.map((article) => (
             <article
               key={article.slug}
-              className="w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center bg-[#FAFCFF] rounded-2xl border border-[#E2E8F0] p-6 hover:border-[#47C56E]/70 hover:shadow-sm transition-all group flex flex-col justify-between h-auto min-h-[360px]"
+              className="w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center bg-[#FAFCFF] rounded-2xl border border-[#E2E8F0] p-6 hover:border-[#47C56E]/70 hover:shadow-md hover:-translate-y-1 transition-all duration-250 group flex flex-col justify-between h-auto min-h-[360px]"
             >
               <div>
                 <div className="flex items-center justify-between text-xs text-[#64748B] mb-3">

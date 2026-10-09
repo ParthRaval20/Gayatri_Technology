@@ -9,7 +9,10 @@ import {
   CheckCircle2,
   Send,
   RotateCcw,
+  Share2,
 } from "lucide-react";
+import { siteConfig } from "@/lib/seo";
+import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -273,11 +276,10 @@ export default function ContactSection() {
                       ].map((item) => (
                         <label
                           key={item.id}
-                          className={`flex items-center justify-center p-2.5 bg-white border rounded-xl cursor-pointer transition-all min-h-[44px] text-center ${
-                            formData.timeline === item.id
+                          className={`flex items-center justify-center p-2.5 bg-white border rounded-xl cursor-pointer transition-all min-h-[44px] text-center ${formData.timeline === item.id
                               ? "border-[#47C56E] bg-[#F0FDF4] ring-1 ring-[#47C56E]"
                               : "border-[#E2E8F0] hover:border-[#47C56E]/50"
-                          }`}
+                            }`}
                         >
                           <input
                             type="radio"
@@ -420,6 +422,41 @@ export default function ContactSection() {
                 <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
                   Practical conversations, zero high-pressure sales talk
                 </p>
+              </div>
+            </div>
+
+            {/* Official Social Channels Card */}
+            <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
+                <Share2 className="w-4 sm:w-5 h-4 sm:h-5" />
+              </div>
+              <div className="flex-1">
+                <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
+                  Official Social Channels
+                </span>
+                <p className="text-xs text-[#475569] mt-0.5 sm:mt-1 mb-3">
+                  Follow our engineering updates, software case studies, and architecture insights
+                </p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href={siteConfig.social.linkedin.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E2E8F0] hover:border-[#0077b5] text-xs font-bold text-[#091C0F] hover:text-[#0077b5] transition-colors shadow-2xs group"
+                  >
+                    <LinkedinIcon className="w-3.5 h-3.5 text-[#0077b5] group-hover:scale-110 transition-transform" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href={siteConfig.social.instagram.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E2E8F0] hover:border-[#E1306C] text-xs font-bold text-[#091C0F] hover:text-[#E1306C] transition-colors shadow-2xs group"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5 text-[#E1306C] group-hover:scale-110 transition-transform" />
+                    <span>@{siteConfig.social.instagram.handle}</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

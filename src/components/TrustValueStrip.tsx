@@ -47,7 +47,7 @@ export default function TrustValueStrip() {
             return (
               <div
                 key={idx}
-                className={`flex flex-col items-center gap-2 p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/50 hover:bg-[#F0FDF4] transition-all duration-200 group ${
+                className={`flex flex-col items-center gap-2 p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/50 hover:bg-[#F0FDF4] hover:-translate-y-1 hover:shadow-xs transition-all duration-200 group ${
                   idx === 4 ? "min-[340px]:col-span-2 md:col-span-1" : ""
                 }`}
               >

@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import BrandLogo from "./BrandLogo";
+import { siteConfig } from "@/lib/seo";
+import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -56,6 +58,31 @@ export default function Footer() {
               <span className="text-xs text-[#86EFAC] font-mono">
                 Founder-led engineering studio • Rajkot, Gujarat
               </span>
+            </div>
+
+            {/* Official Social Channels */}
+            <div className="pt-2 flex flex-wrap items-center gap-2.5">
+              <a
+                href={siteConfig.social.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
+                aria-label="Follow Gayatri Technology on Instagram"
+              >
+                <InstagramIcon className="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform" />
+                <span className="font-mono text-[11px]">@{siteConfig.social.instagram.handle}</span>
+              </a>
+
+              <a
+                href={siteConfig.social.linkedin.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
+                aria-label="Connect with Gayatri Technology on LinkedIn"
+              >
+                <LinkedinIcon className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
+                <span className="font-mono text-[11px]">LinkedIn</span>
+              </a>
             </div>
           </div>
 
@@ -169,6 +196,28 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a
+                  href={siteConfig.social.linkedin.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#47C56E] transition-colors flex items-center gap-1.5"
+                >
+                  <LinkedinIcon className="w-3.5 h-3.5 text-sky-400" />
+                  <span>LinkedIn Profile</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.social.instagram.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#47C56E] transition-colors flex items-center gap-1.5"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
+                  <span>Instagram (@{siteConfig.social.instagram.handle})</span>
+                </a>
+              </li>
+              <li>
                 <Link href="/privacy-policy" className="hover:text-[#47C56E] transition-colors">
                   Privacy Policy
                 </Link>
@@ -186,7 +235,28 @@ export default function Footer() {
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E2E8F0]/60">
           <p>© {new Date().getFullYear()} Gayatri Technology. Custom software built around the way your business works. Rajkot, Gujarat.</p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5">
+            <a
+              href={siteConfig.social.linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#47C56E] transition-colors flex items-center gap-1"
+              title="LinkedIn"
+            >
+              <LinkedinIcon className="w-4 h-4 text-sky-400" />
+              <span className="sr-only">LinkedIn</span>
+            </a>
+            <a
+              href={siteConfig.social.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#47C56E] transition-colors flex items-center gap-1"
+              title="Instagram"
+            >
+              <InstagramIcon className="w-4 h-4 text-pink-400" />
+              <span className="sr-only">Instagram</span>
+            </a>
+            <span className="text-slate-700">|</span>
             <Link href="/privacy-policy" className="hover:text-[#47C56E] transition-colors">
               Privacy Policy
             </Link>

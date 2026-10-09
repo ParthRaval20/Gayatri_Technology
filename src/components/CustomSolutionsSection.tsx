@@ -29,7 +29,7 @@ const steps = [
 
 export default function CustomSolutionsSection() {
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFC]">
+    <section className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFC] overflow-hidden">
       <div className="screen-container">
         <div className="max-w-3xl mb-8 sm:mb-14">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">

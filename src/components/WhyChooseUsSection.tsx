@@ -119,7 +119,7 @@ export default function WhyChooseUsSection() {
               {principles.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-2.5 shadow-2xs hover:border-[#47C56E]/60 transition-all"
+                  className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-2.5 shadow-2xs hover:border-[#47C56E]/60 hover:-translate-y-1 hover:shadow-xs transition-all duration-200"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-[#00875A] bg-[#47C56E]/12 px-2.5 py-1 rounded-md border border-[#47C56E]/20">

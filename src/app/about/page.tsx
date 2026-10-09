@@ -14,6 +14,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
 import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { InstagramIcon, LinkedinIcon } from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
   title: "About Us | Founder-Led Software Studio in Rajkot, Gujarat",
@@ -219,17 +220,39 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3 text-xs">
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-3.5 h-3.5 text-[#00875A]" />
-                      <a href="tel:+919328437392" className="font-semibold text-[#091C0F] hover:text-[#00875A]">
-                        +91 93284 37392
-                      </a>
+                  <div className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] space-y-2.5 text-xs">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-3.5 h-3.5 text-[#00875A]" />
+                        <a href="tel:+919328437392" className="font-semibold text-[#091C0F] hover:text-[#00875A]">
+                          +91 93284 37392
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Mail className="w-3.5 h-3.5 text-[#00875A]" />
+                        <a href="mailto:info@gayatritechnology.in" className="font-semibold text-[#091C0F] hover:text-[#00875A]">
+                          info@gayatritechnology.in
+                        </a>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Mail className="w-3.5 h-3.5 text-[#00875A]" />
-                      <a href="mailto:info@gayatritechnology.in" className="font-semibold text-[#091C0F] hover:text-[#00875A]">
-                        info@gayatritechnology.in
+                    <div className="pt-2 border-t border-[#E2E8F0] flex flex-wrap items-center gap-2">
+                      <a
+                        href={siteConfig.social.linkedin.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#0077b5] text-[11px] font-bold text-[#091C0F] hover:text-[#0077b5] transition-colors"
+                      >
+                        <LinkedinIcon className="w-3 h-3 text-[#0077b5]" />
+                        <span>LinkedIn</span>
+                      </a>
+                      <a
+                        href={siteConfig.social.instagram.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#E1306C] text-[11px] font-bold text-[#091C0F] hover:text-[#E1306C] transition-colors"
+                      >
+                        <InstagramIcon className="w-3 h-3 text-[#E1306C]" />
+                        <span>@{siteConfig.social.instagram.handle}</span>
                       </a>
                     </div>
                   </div>
@@ -279,7 +302,7 @@ export default function AboutPage() {
         </section>
 
         {/* HOW WE WORK: 4 PRACTICAL PHASES */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E2E8F0]">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E2E8F0] overflow-hidden">
           <div className="screen-container">
             <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
               <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">

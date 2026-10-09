@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Calendar, Menu, X, ArrowRight } from "lucide-react";
 import BrandLogo from "./BrandLogo";
+import { siteConfig } from "@/lib/seo";
+import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
 interface NavLinkItem {
   name: string;
@@ -90,7 +92,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-5 py-2 rounded-full text-xs font-bold hover:bg-[#3db863] shadow-md shadow-[#47C56E]/20 hover:shadow-lg hover:shadow-[#47C56E]/30 transition-all duration-200 active:scale-95 cursor-pointer min-h-[40px]"
+            className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-5 py-2 rounded-full text-xs font-bold hover:bg-[#3db863] shadow-md shadow-[#47C56E]/20 hover:shadow-lg hover:shadow-[#47C56E]/30 transition-all duration-200 active:scale-95 cursor-pointer min-h-[40px] btn-shimmer"
           >
             <Calendar className="w-3.5 h-3.5 text-[#091C0F]" />
             <span>Tell Us What You Need</span>
@@ -162,6 +164,32 @@ export default function Navbar() {
                 <Calendar className="w-4 h-4" />
                 <span>Tell Us What You Need</span>
               </Link>
+            </div>
+
+            {/* Social Channels in Drawer */}
+            <div className="pt-2 border-t border-[#E2E8F0] flex items-center justify-center gap-3">
+              <a
+                href={siteConfig.social.linkedin.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#E2E8F0] bg-slate-50 hover:bg-white text-xs font-semibold text-[#091C0F] hover:text-[#0077b5] transition-colors min-h-[40px]"
+                aria-label="Connect on LinkedIn"
+              >
+                <LinkedinIcon className="w-4 h-4 text-[#0077b5]" />
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href={siteConfig.social.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#E2E8F0] bg-slate-50 hover:bg-white text-xs font-semibold text-[#091C0F] hover:text-[#E1306C] transition-colors min-h-[40px]"
+                aria-label="Follow on Instagram"
+              >
+                <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
+                <span>Instagram</span>
+              </a>
             </div>
           </nav>
         </div>

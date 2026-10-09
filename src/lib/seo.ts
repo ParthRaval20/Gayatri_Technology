@@ -27,6 +27,16 @@ export const siteConfig = {
   themeColor: "#47C56E",
   whatsappNumber: "+919328437392",
   whatsappUrl: "https://wa.me/919328437392?text=Hello%20Gayatri%20Technology%2C%20I%20would%20like%20to%20discuss%20a%20project%20for%20our%20business.",
+  social: {
+    instagram: {
+      handle: "gayatri.technology",
+      url: "https://www.instagram.com/gayatri.technology",
+    },
+    linkedin: {
+      handle: "gayatritechnology",
+      url: "https://www.linkedin.com/company/gayatritechnology/",
+    },
+  },
   contact: {
     telephone: "+91 93284 37392",
     email: "info@gayatritechnology.in",
@@ -101,6 +111,10 @@ export function getOrganizationSchema() {
         },
         image: `${baseUrl}/icon-512.png`,
         description: siteConfig.description,
+        sameAs: [
+          siteConfig.social.instagram.url,
+          siteConfig.social.linkedin.url,
+        ],
         founder: {
           "@type": "Person",
           name: "Parth Raval",
