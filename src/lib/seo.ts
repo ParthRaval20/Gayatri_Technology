@@ -103,13 +103,13 @@ export function getOrganizationSchema() {
         logo: {
           "@type": "ImageObject",
           "@id": `${baseUrl}/#logo`,
-          url: `${baseUrl}/icon-512.png`,
-          contentUrl: `${baseUrl}/icon-512.png`,
-          width: "512",
-          height: "512",
+          url: `${baseUrl}/gt-logo-full.png`,
+          contentUrl: `${baseUrl}/gt-logo-full.png`,
+          width: "1024",
+          height: "1024",
           caption: siteConfig.name,
         },
-        image: `${baseUrl}/icon-512.png`,
+        image: `${baseUrl}/opengraph-image.png`,
         description: siteConfig.description,
         sameAs: [
           siteConfig.social.instagram.url,
@@ -181,7 +181,7 @@ export function getOrganizationSchema() {
         name: siteConfig.name,
         alternateName: ["Gayatri Tech", "Gayatri Technology Rajkot"],
         description: siteConfig.description,
-        image: `${baseUrl}/icon-512.png`,
+        image: `${baseUrl}/opengraph-image.png`,
         publisher: {
           "@id": `${baseUrl}/#organization`,
         },

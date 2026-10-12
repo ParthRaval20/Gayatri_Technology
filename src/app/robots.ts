@@ -13,7 +13,16 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "Googlebot-Image",
-        allow: ["/", "/favicon.ico", "/icon*.png", "/apple-touch-icon.png", "/gt-logo*.png"],
+        allow: [
+          "/",
+          "/favicon.ico",
+          "/icon*.png",
+          "/apple-touch-icon.png",
+          "/gt-logo*.png",
+          "/opengraph-image*.png",
+          "/og-image*.png",
+          "/twitter-image*.png",
+        ],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

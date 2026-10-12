@@ -52,10 +52,11 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${siteConfig.url}/opengraph-image`,
+        url: `${siteConfig.url}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: siteConfig.defaultTitle,
+        type: "image/png",
       },
     ],
   },
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.defaultTitle,
     description: siteConfig.description,
-    images: [`${siteConfig.url}/twitter-image`],
+    images: [`${siteConfig.url}/twitter-image.png`],
   },
   robots: {
     index: true,
