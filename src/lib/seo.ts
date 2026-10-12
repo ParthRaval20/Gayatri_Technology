@@ -160,6 +160,87 @@ export function getOrganizationSchema() {
             name: "India",
           },
         ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "5.0",
+          reviewCount: "3",
+          bestRating: "5",
+          worstRating: "1",
+        },
+        review: [
+          {
+            "@type": "Review",
+            author: {
+              "@type": "Person",
+              name: "Kaushik Patel",
+              jobTitle: "Operations Partner & Dispatch Head",
+              worksFor: {
+                "@type": "Organization",
+                name: "Gayatri Steel Group",
+              },
+            },
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: "5",
+              bestRating: "5",
+            },
+            reviewBody:
+              "Our supervisors work on the stockyard floor with lorries waiting outside. The app calculates exact weights the moment diameter and length are selected, and delivery challans are done on phone in 20-30 seconds. Trucks don't wait in line anymore.",
+            itemReviewed: {
+              "@type": "SoftwareApplication",
+              name: "Gayatri Steel Mobile Operations Suite",
+              applicationCategory: "BusinessApplication",
+            },
+          },
+          {
+            "@type": "Review",
+            author: {
+              "@type": "Person",
+              name: "Vaibhav",
+              jobTitle: "Commercial & Sales Lead",
+              worksFor: {
+                "@type": "Organization",
+                name: "Gayatri Steel Group",
+              },
+            },
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: "5",
+              bestRating: "5",
+            },
+            reviewBody:
+              "All 28+ tool steel grades are neatly listed with DIN and AISI standards. Now clients browse chemical specs on their phones and send exact inquiries on WhatsApp with one click. Saves us hours of calls every day.",
+            itemReviewed: {
+              "@type": "WebApplication",
+              name: "Gayatri Steel Group Web Portal",
+              applicationCategory: "BusinessApplication",
+            },
+          },
+          {
+            "@type": "Review",
+            author: {
+              "@type": "Person",
+              name: "Vishnu",
+              jobTitle: "Trustee & General Secretary",
+              worksFor: {
+                "@type": "Organization",
+                name: "Shree Samast Gujarat Brahm Samaj",
+              },
+            },
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: "5",
+              bestRating: "5",
+            },
+            reviewBody:
+              "Entering a member, recording the ₹500 fee receipt, and printing an official photo ID card happens with one click in clean Gujarati. It runs right on our Idar office computer with zero monthly software fees.",
+            itemReviewed: {
+              "@type": "SoftwareApplication",
+              name: "Gujarat Brahm Samaj Management Suite",
+              applicationCategory: "BusinessApplication",
+            },
+          },
+        ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Gayatri Technology Core Software Services",
@@ -208,3 +289,111 @@ export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
     })),
   };
 }
+
+/**
+ * Builds Schema.org ItemList for Client Testimonials
+ */
+export function getTestimonialsSchema() {
+  const baseUrl = siteConfig.url;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Verified Client Reviews - Gayatri Technology",
+    description:
+      "Authentic testimonials and operational reviews from business partners and clients of Gayatri Technology.",
+    itemListElement: [
+      {
+        "@type": "Review",
+        position: 1,
+        author: {
+          "@type": "Person",
+          name: "Kaushik Patel",
+          jobTitle: "Operations Partner & Dispatch Head",
+          worksFor: {
+            "@type": "Organization",
+            name: "Gayatri Steel Group",
+          },
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody:
+          "Our supervisors work on the stockyard floor with lorries waiting outside. The app calculates exact weights the moment diameter and length are selected, and delivery challans are done on phone in 20-30 seconds. Trucks don't wait in line anymore.",
+        itemReviewed: {
+          "@type": "SoftwareApplication",
+          name: "Gayatri Steel Mobile Operations Suite",
+          applicationCategory: "BusinessApplication",
+          provider: {
+            "@type": "Organization",
+            name: siteConfig.name,
+            url: baseUrl,
+          },
+        },
+      },
+      {
+        "@type": "Review",
+        position: 2,
+        author: {
+          "@type": "Person",
+          name: "Vaibhav",
+          jobTitle: "Commercial & Sales Lead",
+          worksFor: {
+            "@type": "Organization",
+            name: "Gayatri Steel Group",
+          },
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody:
+          "All 28+ tool steel grades are neatly listed with DIN and AISI standards. Now clients browse chemical specs on their phones and send exact inquiries on WhatsApp with one click. Saves us hours of calls every day.",
+        itemReviewed: {
+          "@type": "WebApplication",
+          name: "Gayatri Steel Group Web Portal",
+          applicationCategory: "BusinessApplication",
+          provider: {
+            "@type": "Organization",
+            name: siteConfig.name,
+            url: baseUrl,
+          },
+        },
+      },
+      {
+        "@type": "Review",
+        position: 3,
+        author: {
+          "@type": "Person",
+          name: "Vishnu",
+          jobTitle: "Trustee & General Secretary",
+          worksFor: {
+            "@type": "Organization",
+            name: "Shree Samast Gujarat Brahm Samaj",
+          },
+        },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: "5",
+        },
+        reviewBody:
+          "Entering a member, recording the ₹500 fee receipt, and printing an official photo ID card happens with one click in clean Gujarati. It runs right on our Idar office computer with zero monthly software fees.",
+        itemReviewed: {
+          "@type": "SoftwareApplication",
+          name: "Gujarat Brahm Samaj Management Suite",
+          applicationCategory: "BusinessApplication",
+          provider: {
+            "@type": "Organization",
+            name: siteConfig.name,
+            url: baseUrl,
+          },
+        },
+      },
+    ],
+  };
+}
+

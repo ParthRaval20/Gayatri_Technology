@@ -13,8 +13,11 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   Sparkles,
   Monitor,
+  Star,
 } from "lucide-react";
 import {
   caseStudies,
@@ -25,6 +28,7 @@ import {
 
 export default function PortfolioSection() {
   const [selectedCategory, setSelectedCategory] = useState<"all" | "erp" | "web">("all");
+  const [expandedCode, setExpandedCode] = useState<string | null>(null);
   const [activeProjectScreenshots, setActiveProjectScreenshots] = useState<ProjectScreenshot[]>(gayatriAppScreenshots);
   const [activeProjectTitle, setActiveProjectTitle] = useState<string>("Gayatri Steel Operations Suite");
   const [activeProjectBadge, setActiveProjectBadge] = useState<string>("Mobile ERP");
@@ -34,10 +38,20 @@ export default function PortfolioSection() {
   const thumbnailContainerRef = React.useRef<HTMLDivElement>(null);
   const modalScrollRef = React.useRef<HTMLDivElement>(null);
 
+  const toggleExpandCode = (code: string) => {
+    setExpandedCode((prev) => (prev === code ? null : code));
+  };
+
   const filteredCaseStudies = caseStudies.filter((item) => {
     if (selectedCategory === "all") return true;
     return item.category === selectedCategory;
   });
+
+  const activeCaseStudy = caseStudies.find(
+    (item) =>
+      item.title.toLowerCase().includes(activeProjectTitle.toLowerCase().slice(0, 10)) ||
+      (item.screenshots && item.screenshots === activeProjectScreenshots)
+  );
 
   const openScreenshotModal = (
     screenshots: ProjectScreenshot[],
@@ -210,411 +224,545 @@ export default function PortfolioSection() {
         </div>
 
         {/* Case Studies Card Grid */}
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
-          {filteredCaseStudies.map((item, idx) => (
-            <div
-              key={idx}
-              className="w-[88vw] max-w-[360px] sm:w-[380px] md:w-auto md:min-w-0 snap-center bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-[#47C56E]/60 transition-all duration-300 group h-full shrink-0 md:shrink hover:-translate-y-1.5"
-            >
-              {/* Card Top Section */}
-              <div className="flex flex-col flex-1">
-                {/* 1. Header Bar with Strict Fixed Height */}
-                <div className="h-14 bg-[#091C0F] px-4 sm:px-5 border-b border-[#163820] flex items-center justify-between text-[#E2E8F0] shrink-0">
-                  <div className="flex items-center gap-2">
-                    {item.type === "web" ? (
-                      <Globe className="w-3.5 h-3.5 text-[#86EFAC]" />
-                    ) : item.type === "erp" ? (
-                      <Monitor className="w-3.5 h-3.5 text-[#86EFAC]" />
-                    ) : (
-                      <Smartphone className="w-3.5 h-3.5 text-[#86EFAC]" />
-                    )}
-                    <span className="text-xs font-mono text-[#86EFAC] tracking-wider font-semibold">
-                      {item.sysCode}
-                    </span>
-                  </div>
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-start">
+          {filteredCaseStudies.map((item, idx) => {
+            const isExpanded = expandedCode === item.sysCode;
 
-                  <div className="flex items-center gap-2">
-                    {item.isLive && (
-                      <span className="flex items-center gap-1.5 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#163820] text-[#86EFAC] border border-[#225430]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
-                        LIVE
+            return (
+              <article
+                key={idx}
+                onClick={() => toggleExpandCode(item.sysCode)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggleExpandCode(item.sysCode);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                className={`w-[88vw] max-w-[360px] sm:w-[380px] md:w-auto md:min-w-0 snap-center rounded-2xl border overflow-hidden flex flex-col justify-between transition-all duration-300 group shrink-0 md:shrink cursor-pointer select-none ${
+                  isExpanded
+                    ? "border-[#47C56E] shadow-xl ring-1 ring-[#47C56E]/40 bg-white min-h-[500px] sm:min-h-[515px]"
+                    : "bg-[#F8FAFC] border-[#E2E8F0] shadow-xs hover:border-[#47C56E]/60 hover:shadow-md hover:-translate-y-1 h-[500px] sm:h-[515px]"
+                }`}
+              >
+                {/* Card Top Section */}
+                <div className="flex flex-col flex-1">
+                  {/* 1. Header Bar with Strict Fixed Height */}
+                  <div className="h-13 sm:h-14 bg-[#091C0F] px-4 sm:px-5 border-b border-[#163820] flex items-center justify-between text-[#E2E8F0] shrink-0">
+                    <div className="flex items-center gap-2">
+                      {item.type === "web" ? (
+                        <Globe className="w-3.5 h-3.5 text-[#86EFAC]" />
+                      ) : item.type === "erp" ? (
+                        <Monitor className="w-3.5 h-3.5 text-[#86EFAC]" />
+                      ) : (
+                        <Smartphone className="w-3.5 h-3.5 text-[#86EFAC]" />
+                      )}
+                      <span className="text-xs font-mono text-[#86EFAC] tracking-wider font-semibold">
+                        {item.sysCode}
                       </span>
-                    )}
-                    {item.url && (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Open ${item.title}`}
-                        className="text-[#94A3B8] hover:text-[#47C56E] transition-colors p-1"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                    {item.screenshots && (
-                      <button
-                        onClick={() =>
-                          openScreenshotModal(
-                            item.screenshots || [],
-                            item.title,
-                            item.type === "erp" ? "Institutional ERP" : "Mobile ERP",
-                            0
-                          )
-                        }
-                        className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 hover:bg-emerald-900 transition-colors cursor-pointer"
-                      >
-                        <Eye className="w-3 h-3" />
-                        <span>{item.screenshots.length} Screens</span>
-                      </button>
-                    )}
-                  </div>
-                </div>
+                    </div>
 
-                {/* 2. Main Card Content */}
-                <div className="p-4 sm:p-5 flex flex-col flex-1 space-y-3.5">
-                  {/* Relationship & Sector */}
-                  <div className="flex items-center justify-between gap-2 h-6 shrink-0">
-                    <span className="text-[11px] font-bold text-[#00875A] tracking-wider uppercase font-mono">
-                      {item.relationship}
-                    </span>
-                    <span className="text-[10px] font-semibold text-slate-600 bg-white border border-[#E2E8F0] px-2 py-0.5 rounded shrink-0 truncate max-w-[170px]">
-                      {item.sector}
-                    </span>
-                  </div>
-
-                  {/* Title & Tagline Container */}
-                  <div className="h-[76px] sm:h-[80px] flex flex-col justify-start shrink-0">
-                    <h3 className="text-base sm:text-lg font-bold text-[#091C0F] font-display group-hover:text-[#00875A] transition-colors leading-snug line-clamp-1">
-                      {item.url ? (
+                    <div className="flex items-center gap-2">
+                      {item.isLive && (
+                        <span className="flex items-center gap-1.5 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#163820] text-[#86EFAC] border border-[#225430]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
+                          LIVE
+                        </span>
+                      )}
+                      {item.url && (
                         <a
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="hover:underline"
+                          aria-label={`Open ${item.title}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-[#94A3B8] hover:text-[#47C56E] transition-colors p-1"
                         >
-                          {item.title}
+                          <ExternalLink className="w-4 h-4" />
                         </a>
-                      ) : (
-                        item.title
                       )}
-                    </h3>
-                    <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed line-clamp-2">
-                      {item.tagline}
-                    </p>
+                      {item.screenshots && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openScreenshotModal(
+                              item.screenshots || [],
+                              item.title,
+                              item.type === "erp" ? "Institutional ERP" : "Mobile ERP",
+                              0
+                            );
+                          }}
+                          className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 hover:bg-emerald-900 transition-colors cursor-pointer"
+                        >
+                          <Eye className="w-3 h-3" />
+                          <span>{item.screenshots.length} Screens</span>
+                        </button>
+                      )}
+                    </div>
                   </div>
 
-                  {/* The Problem & What We Built */}
-                  <div className="bg-white p-3.5 rounded-xl border border-[#E2E8F0] flex flex-col justify-between h-[165px] text-xs shadow-2xs shrink-0">
+                  {/* 2. Main Card Content */}
+                  <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600 block">
-                        The Problem:
-                      </span>
-                      <p className="text-[#475569] leading-relaxed mt-0.5 line-clamp-2 text-xs">
-                        {item.problem}
-                      </p>
-                    </div>
-                    <div className="pt-2 border-t border-[#E2E8F0]">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#00875A] block">
-                        What We Built:
-                      </span>
-                      <p className="text-[#334155] leading-relaxed mt-0.5 line-clamp-2 text-xs font-medium">
-                        {item.whatWeBuilt}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Delivered Functionality Box */}
-                  <div className="bg-[#F0FDF4] p-3 rounded-xl border border-[#86EFAC]/40 text-xs h-[72px] flex flex-col justify-center shrink-0">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#00875A] block">
-                      Delivered Functionality:
-                    </span>
-                    <p className="text-[#091C0F] font-medium leading-snug mt-0.5 line-clamp-2 text-[11px] sm:text-xs">
-                      {item.deliveredFunctionality}
-                    </p>
-                  </div>
-
-                  {/* 3. Showcase Container - Strict 192px Height Across All Cards */}
-                  {item.sysCode === "GAYATRI-STEEL-APP" && (
-                    <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
-                      <div className="flex items-center justify-between text-xs h-6">
-                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
-                          <Smartphone className="w-3.5 h-3.5 shrink-0" />
-                          <span>Mobile ERP Suite &amp; Operations</span>
+                      {/* Relationship & Sector */}
+                      <div className="flex items-center justify-between gap-2 h-5 shrink-0 mb-1.5">
+                        <span className="text-[11px] font-bold text-[#00875A] tracking-wider uppercase font-mono">
+                          {item.relationship}
                         </span>
-                        <button
-                          onClick={() =>
-                            openScreenshotModal(
-                              gayatriAppScreenshots,
-                              item.title,
-                              "Mobile ERP",
-                              0
-                            )
-                          }
-                          className="text-[10px] text-[#86EFAC] hover:underline font-medium cursor-pointer flex items-center gap-1 shrink-0"
-                        >
-                          <span>10 Screens</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </button>
+                        <span className="text-[10px] font-semibold text-slate-600 bg-white border border-[#E2E8F0] px-2 py-0.5 rounded shrink-0 truncate max-w-[170px]">
+                          {item.sector}
+                        </span>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-1.5 my-auto">
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">MULTI-TENANT</span>
-                          <span className="truncate block font-medium">5 Group Entities</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">STOCK SYNC</span>
-                          <span className="truncate block font-medium">Auto-Weight Tally</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">METALLURGY</span>
-                          <span className="truncate block font-medium">28+ Grades DB</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">DISPATCH</span>
-                          <span className="truncate block font-medium text-emerald-300">Digital Challans</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
-                        <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
-                          Shop-Floor Ready
-                        </span>
-                        <button
-                          onClick={() =>
-                            openScreenshotModal(
-                              gayatriAppScreenshots,
-                              item.title,
-                              "Mobile ERP",
-                              0
-                            )
-                          }
-                          className="text-emerald-400 hover:text-[#86EFAC] font-medium transition-colors cursor-pointer flex items-center gap-1"
-                        >
-                          <span>View Gallery (10)</span>
-                          <ArrowRight className="w-3 h-3" />
-                        </button>
+                      {/* Title & Tagline Container */}
+                      <div className="min-h-[64px] sm:min-h-[68px] shrink-0 mb-2 flex flex-col justify-start">
+                        <h3 className="text-base sm:text-lg font-bold text-[#091C0F] font-display group-hover:text-[#00875A] transition-colors leading-snug line-clamp-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed line-clamp-2">
+                          {item.tagline}
+                        </p>
                       </div>
                     </div>
-                  )}
 
-                  {item.sysCode === "BRAHM-SAMAJ-ERP" && (
-                    <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
-                      <div className="flex items-center justify-between text-xs h-6">
-                        <span className="text-amber-400 font-semibold flex items-center gap-1.5 text-[11px]">
-                          <Monitor className="w-3.5 h-3.5 shrink-0" />
-                          <span>Brahm Samaj ERP Portal</span>
-                        </span>
-                        <button
-                          onClick={() =>
-                            openScreenshotModal(
-                              brahmSamajScreenshots,
-                              item.title,
-                              "Institutional ERP",
-                              0
-                            )
-                          }
-                          className="text-[10px] text-amber-300 hover:underline font-medium cursor-pointer flex items-center gap-1 shrink-0"
-                        >
-                          <span>{item.screenshots?.length || 3} Screens</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </button>
-                      </div>
+                    {/* Collapsed State: Short Preview */}
+                    {!isExpanded ? (
+                      <div className="space-y-3 pt-1 flex flex-col justify-between flex-1">
+                        {/* 2 Quick Highlight Metrics */}
+                        {item.highlightMetrics && item.highlightMetrics.length > 0 && (
+                          <div className="grid grid-cols-2 gap-2 shrink-0">
+                            {item.highlightMetrics.slice(0, 2).map((m, mIdx) => (
+                              <div
+                                key={mIdx}
+                                className="bg-white rounded-lg p-2.5 border border-[#E2E8F0] text-center shadow-2xs flex flex-col justify-center"
+                              >
+                                <span className="block text-xs sm:text-sm font-extrabold text-[#091C0F] font-mono leading-tight">
+                                  {m.value}
+                                </span>
+                                <span className="block text-[9px] text-slate-500 font-medium leading-tight mt-1 truncate">
+                                  {m.label}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
 
-                      <div className="grid grid-cols-2 gap-1.5 my-auto">
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-amber-400 font-semibold text-[9px] block">DASHBOARD</span>
-                          <span className="truncate block font-medium">Executive Board</span>
+                        {/* Delivered Functionality Box */}
+                        <div className="bg-[#F0FDF4] p-3 rounded-xl border border-[#86EFAC]/40 text-xs min-h-[76px] flex flex-col justify-center shrink-0">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#00875A] block mb-0.5">
+                            Key Outcome:
+                          </span>
+                          <p className="text-[#091C0F] font-medium leading-relaxed line-clamp-2 text-[11px] sm:text-xs">
+                            {item.deliveredFunctionality}
+                          </p>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-amber-400 font-semibold text-[9px] block">CENSUS FORMS</span>
-                          <span className="truncate block font-medium">Form GBS Series</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-amber-400 font-semibold text-[9px] block">PDF ENGINE</span>
-                          <span className="truncate block font-medium">Photo ID Print</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-amber-400 font-semibold text-[9px] block">VERIFICATION</span>
-                          <span className="truncate block font-medium text-amber-300">Gayatri Tech Dev</span>
-                        </div>
-                      </div>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
-                        <span className="flex items-center gap-1.5 text-amber-400 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
-                          Online &bull; v1.0 Live
-                        </span>
-                        <button
-                          onClick={() =>
-                            openScreenshotModal(
-                              brahmSamajScreenshots,
-                              item.title,
-                              "Institutional ERP",
-                              0
-                            )
-                          }
-                          className="text-amber-400 hover:text-amber-300 font-medium transition-colors cursor-pointer flex items-center gap-1"
-                        >
-                          <span>Inspect UI ({item.screenshots?.length || 3})</span>
-                          <ArrowRight className="w-3 h-3" />
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {item.sysCode === "GAYATRI-STEEL-WEB" && (
-                    <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
-                      <div className="flex items-center justify-between text-xs h-6">
-                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
-                          <Globe className="w-3.5 h-3.5 shrink-0" />
-                          <span>Live Steel Portal &amp; Catalog</span>
-                        </span>
-                        <a
-                          href="https://gayatri-steel.vercel.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[10px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1 shrink-0"
-                        >
-                          <span>Live Site</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-1.5 my-auto">
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">TOOL &amp; ALLOY</span>
-                          <span className="truncate block font-medium">H13, D2, P20</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">FACILITIES</span>
-                          <span className="truncate block font-medium">Rajkot &amp; Jamnagar</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">INQUIRIES</span>
-                          <span className="truncate block font-medium">Digital Specs</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">DEPLOYMENT</span>
-                          <span className="truncate block font-medium text-emerald-300">Vercel Prod</span>
+                        {/* Tech Badges Preview */}
+                        <div className="flex flex-wrap gap-1.5 min-h-[26px] items-center shrink-0">
+                          {item.techBadges.slice(0, 3).map((badge, bIdx) => (
+                            <span
+                              key={bIdx}
+                              className="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-[#E2E8F0]/70 text-[#334155]"
+                            >
+                              {badge}
+                            </span>
+                          ))}
+                          {item.techBadges.length > 3 && (
+                            <span className="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">
+                              +{item.techBadges.length - 3} more
+                            </span>
+                          )}
                         </div>
                       </div>
-
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
-                        <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
-                          Production Ready
-                        </span>
-                        <span>Multi-Facility Sync</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {item.sysCode === "TDR-STUDIO-FORGE" && (
-                    <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
-                      <div className="flex items-center justify-between text-xs h-6">
-                        <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
-                          <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                          <span>Creative Digital Studio</span>
-                        </span>
-                        <a
-                          href="https://tdrstudio.vercel.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[10px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1 shrink-0"
-                        >
-                          <span>Live Site</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-1.5 my-auto">
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">CINEMATIC 3D</span>
-                          <span className="truncate block font-medium">WebGL &amp; Canvas</span>
+                    ) : (
+                      /* Expanded State: Full Story Breakdown */
+                      <div className="space-y-3.5 pt-1 animate-in fade-in duration-200">
+                        {/* The Problem & What We Built */}
+                        <div className="bg-white p-3.5 rounded-xl border border-[#E2E8F0] flex flex-col justify-between text-xs shadow-2xs">
+                          <div className="mb-2">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600 block">
+                              The Problem:
+                            </span>
+                            <p className="text-[#475569] leading-relaxed mt-0.5 text-xs">
+                              {item.problem}
+                            </p>
+                          </div>
+                          <div className="pt-2 border-t border-[#E2E8F0]">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#00875A] block">
+                              What We Built:
+                            </span>
+                            <p className="text-[#334155] leading-relaxed mt-0.5 text-xs font-medium">
+                              {item.whatWeBuilt}
+                            </p>
+                          </div>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">AI PRODUCTION</span>
-                          <span className="truncate block font-medium">Storytelling</span>
+
+                        {/* Delivered Functionality Box */}
+                        <div className="bg-[#F0FDF4] p-3 rounded-xl border border-[#86EFAC]/40 text-xs">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#00875A] block">
+                            Delivered Functionality:
+                          </span>
+                          <p className="text-[#091C0F] font-medium leading-snug mt-0.5 text-[11px] sm:text-xs">
+                            {item.deliveredFunctionality}
+                          </p>
                         </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">TECH STACK</span>
-                          <span className="truncate block font-medium">React &amp; Vite</span>
-                        </div>
-                        <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
-                          <span className="text-emerald-400 font-semibold text-[9px] block">PERFORMANCE</span>
-                          <span className="truncate block font-medium text-emerald-300">Sub-Second Load</span>
+
+                        {/* Showcase Container - Project Specific Features */}
+                        {item.sysCode === "GAYATRI-STEEL-APP" && (
+                          <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
+                            <div className="flex items-center justify-between text-xs h-6">
+                              <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
+                                <Smartphone className="w-3.5 h-3.5 shrink-0" />
+                                <span>Mobile ERP Suite &amp; Operations</span>
+                              </span>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  openScreenshotModal(
+                                    gayatriAppScreenshots,
+                                    item.title,
+                                    "Mobile ERP",
+                                    0
+                                  );
+                                }}
+                                className="text-[10px] text-[#86EFAC] hover:underline font-medium cursor-pointer flex items-center gap-1 shrink-0"
+                              >
+                                <span>10 Screens</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </button>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-1.5 my-auto">
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">MULTI-TENANT</span>
+                                <span className="truncate block font-medium">5 Group Entities</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">STOCK SYNC</span>
+                                <span className="truncate block font-medium">Auto-Weight Tally</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">METALLURGY</span>
+                                <span className="truncate block font-medium">28+ Grades DB</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">DISPATCH</span>
+                                <span className="truncate block font-medium text-emerald-300">Digital Challans</span>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
+                              <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
+                                Shop-Floor Ready
+                              </span>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  openScreenshotModal(
+                                    gayatriAppScreenshots,
+                                    item.title,
+                                    "Mobile ERP",
+                                    0
+                                  );
+                                }}
+                                className="text-emerald-400 hover:text-[#86EFAC] font-medium transition-colors cursor-pointer flex items-center gap-1"
+                              >
+                                <span>View Gallery (10)</span>
+                                <ArrowRight className="w-3 h-3" />
+                              </button>
+                            </div>
+                          </div>
+                        )}
+
+                        {item.sysCode === "BRAHM-SAMAJ-ERP" && (
+                          <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
+                            <div className="flex items-center justify-between text-xs h-6">
+                              <span className="text-amber-400 font-semibold flex items-center gap-1.5 text-[11px]">
+                                <Monitor className="w-3.5 h-3.5 shrink-0" />
+                                <span>Brahm Samaj ERP Portal</span>
+                              </span>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  openScreenshotModal(
+                                    brahmSamajScreenshots,
+                                    item.title,
+                                    "Institutional ERP",
+                                    0
+                                  );
+                                }}
+                                className="text-[10px] text-amber-300 hover:underline font-medium cursor-pointer flex items-center gap-1 shrink-0"
+                              >
+                                <span>{item.screenshots?.length || 3} Screens</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </button>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-1.5 my-auto">
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-amber-400 font-semibold text-[9px] block">DASHBOARD</span>
+                                <span className="truncate block font-medium">Executive Board</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-amber-400 font-semibold text-[9px] block">CENSUS FORMS</span>
+                                <span className="truncate block font-medium">Form GBS Series</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-amber-400 font-semibold text-[9px] block">PDF ENGINE</span>
+                                <span className="truncate block font-medium">Photo ID Print</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-amber-400 font-semibold text-[9px] block">VERIFICATION</span>
+                                <span className="truncate block font-medium text-amber-300">Gayatri Tech Dev</span>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
+                              <span className="flex items-center gap-1.5 text-amber-400 font-medium">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
+                                Online &bull; v1.0 Live
+                              </span>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  openScreenshotModal(
+                                    brahmSamajScreenshots,
+                                    item.title,
+                                    "Institutional ERP",
+                                    0
+                                  );
+                                }}
+                                className="text-amber-400 hover:text-amber-300 font-medium transition-colors cursor-pointer flex items-center gap-1"
+                              >
+                                <span>Inspect UI ({item.screenshots?.length || 3})</span>
+                                <ArrowRight className="w-3 h-3" />
+                              </button>
+                            </div>
+                          </div>
+                        )}
+
+                        {item.sysCode === "GAYATRI-STEEL-WEB" && (
+                          <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
+                            <div className="flex items-center justify-between text-xs h-6">
+                              <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
+                                <Globe className="w-3.5 h-3.5 shrink-0" />
+                                <span>Live Steel Portal &amp; Catalog</span>
+                              </span>
+                              <a
+                                href="https://gayatri-steel.vercel.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="text-[10px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1 shrink-0"
+                              >
+                                <span>Live Site</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-1.5 my-auto">
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">TOOL &amp; ALLOY</span>
+                                <span className="truncate block font-medium">H13, D2, P20</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">FACILITIES</span>
+                                <span className="truncate block font-medium">Rajkot &amp; Jamnagar</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">INQUIRIES</span>
+                                <span className="truncate block font-medium">Digital Specs</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">DEPLOYMENT</span>
+                                <span className="truncate block font-medium text-emerald-300">Vercel Prod</span>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
+                              <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
+                                Production Ready
+                              </span>
+                              <span>Multi-Facility Sync</span>
+                            </div>
+                          </div>
+                        )}
+
+                        {item.sysCode === "TDR-STUDIO-FORGE" && (
+                          <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
+                            <div className="flex items-center justify-between text-xs h-6">
+                              <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
+                                <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                                <span>Creative Digital Studio</span>
+                              </span>
+                              <a
+                                href="https://tdrstudio.vercel.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="text-[10px] text-[#86EFAC] hover:underline font-medium flex items-center gap-1 shrink-0"
+                              >
+                                <span>Live Site</span>
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-1.5 my-auto">
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">CINEMATIC 3D</span>
+                                <span className="truncate block font-medium">WebGL &amp; Canvas</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">AI PRODUCTION</span>
+                                <span className="truncate block font-medium">Storytelling</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">TECH STACK</span>
+                                <span className="truncate block font-medium">React &amp; Vite</span>
+                              </div>
+                              <div className="bg-[#122e1a] border border-[#1c4d29] rounded-lg p-2 text-[10px] sm:text-[11px] text-slate-200">
+                                <span className="text-emerald-400 font-semibold text-[9px] block">PERFORMANCE</span>
+                                <span className="truncate block font-medium text-emerald-300">Sub-Second Load</span>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
+                              <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
+                                Live Platform
+                              </span>
+                              <span>Creative Agency</span>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* All 4 Highlight Metrics */}
+                        {item.highlightMetrics && (
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-1">
+                            {item.highlightMetrics.map((m, mIdx) => (
+                              <div
+                                key={mIdx}
+                                className="bg-white rounded-lg p-2 border border-[#E2E8F0] text-center shadow-2xs"
+                              >
+                                <span className="block text-xs sm:text-sm font-extrabold text-[#091C0F] font-mono leading-tight">
+                                  {m.value}
+                                </span>
+                                <span className="block text-[9px] text-slate-500 font-medium leading-tight mt-0.5">
+                                  {m.label}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Client Feedback Quote snippet */}
+                        {item.testimonial && (
+                          <div className="bg-[#F8FAFC] p-3 rounded-xl border border-[#E2E8F0] text-xs">
+                            <div className="flex items-center justify-between mb-1.5">
+                              <div className="flex items-center gap-1.5">
+                                <span className="font-bold text-[#091C0F] text-xs">{item.testimonial.name}</span>
+                                <span className="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
+                                  Verified Client
+                                </span>
+                              </div>
+                              <div className="flex text-amber-400">
+                                {[...Array(item.testimonial.rating)].map((_, i) => (
+                                  <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                                ))}
+                              </div>
+                            </div>
+                            <p className="text-[#334155] italic text-[11px] leading-relaxed">
+                              &ldquo;{item.testimonial.quote}&rdquo;
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Micro-Badges Row */}
+                        <div className="flex flex-wrap gap-1 pt-1">
+                          {item.techBadges.map((badge, bIdx) => (
+                            <span
+                              key={bIdx}
+                              className="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-[#E2E8F0]/70 text-[#334155]"
+                            >
+                              {badge}
+                            </span>
+                          ))}
                         </div>
                       </div>
-
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-[10px] text-slate-400 h-6">
-                        <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#47C56E] animate-pulse"></span>
-                          Live Platform
-                        </span>
-                        <span>Creative Agency</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Micro-Badges Row (Woyce.ai inspiration) */}
-                  <div className="flex flex-wrap gap-1 pt-1 h-6 overflow-hidden">
-                    {item.techBadges.map((badge, bIdx) => (
-                      <span
-                        key={bIdx}
-                        className="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-[#E2E8F0]/70 text-[#334155]"
-                      >
-                        {badge}
-                      </span>
-                    ))}
+                    )}
                   </div>
                 </div>
-              </div>
 
-              {/* 4. Bottom Footer */}
-              <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-[#E2E8F0]/70 flex flex-col justify-between h-[92px] shrink-0">
-                <span className="h-5 flex items-center text-[11px] text-[#64748B] font-mono leading-tight truncate">
-                  {item.tech}
-                </span>
-
-                {item.url ? (
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors group/btn shadow-xs"
-                  >
-                    <span>Visit Live Website</span>
-                    <ExternalLink className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                  </a>
-                ) : (
-                  <button
-                    onClick={() =>
-                      openScreenshotModal(
-                        item.screenshots || [],
-                        item.title,
-                        item.type === "erp" ? "Institutional ERP v2.4.0" : "Mobile ERP",
-                        0
-                      )
-                    }
-                    className="h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors shadow-xs cursor-pointer"
-                  >
-                    {item.type === "erp" ? (
-                      <Monitor className="w-3.5 h-3.5 text-amber-300" />
-                    ) : (
-                      <Smartphone className="w-3.5 h-3.5 text-[#86EFAC]" />
-                    )}
-                    <span>
-                      {item.type === "erp"
-                        ? `Explore ERP Screens (${item.screenshots?.length || 2})`
-                        : `Explore App UI (${item.screenshots?.length || 10})`}
+                {/* 3. Bottom Footer & Toggle Strip */}
+                <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 border-t border-[#E2E8F0]/80 flex flex-col justify-between shrink-0 bg-[#F8FAFC]/90">
+                  <div className="flex items-center justify-between text-[11px] text-[#64748B] font-mono leading-tight mb-3">
+                    <span className="truncate max-w-[55%] font-medium">{item.tech}</span>
+                    <span className="text-[#00875A] font-sans font-bold text-xs shrink-0 flex items-center gap-1 hover:text-[#091C0F] transition-colors">
+                      {isExpanded ? (
+                        <>
+                          <span>Show less</span>
+                          <ChevronUp className="w-3.5 h-3.5" />
+                        </>
+                      ) : (
+                        <>
+                          <span>Expand details</span>
+                          <ChevronDown className="w-3.5 h-3.5" />
+                        </>
+                      )}
                     </span>
-                  </button>
-                )}
-              </div>
-            </div>
-          ))}
+                  </div>
+
+                  {/* Primary CTA */}
+                  <div onClick={(e) => e.stopPropagation()}>
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-10 sm:h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors group/btn shadow-xs"
+                      >
+                        <span>Visit Live Website</span>
+                        <ExternalLink className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          openScreenshotModal(
+                            item.screenshots || [],
+                            item.title,
+                            item.type === "erp" ? "Institutional ERP v2.4.0" : "Mobile ERP",
+                            0
+                          )
+                        }
+                        className="h-10 sm:h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-[#091C0F] hover:bg-[#00875A] text-white text-xs font-semibold tracking-wide transition-colors shadow-xs cursor-pointer"
+                      >
+                        {item.type === "erp" ? (
+                          <Monitor className="w-3.5 h-3.5 text-amber-300" />
+                        ) : (
+                          <Smartphone className="w-3.5 h-3.5 text-[#86EFAC]" />
+                        )}
+                        <span>
+                          {item.type === "erp"
+                            ? `Explore ERP Screens (${item.screenshots?.length || 2})`
+                            : `Explore App UI (${item.screenshots?.length || 10})`}
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 
@@ -834,6 +982,24 @@ export default function PortfolioSection() {
                       <span>Direct Founder Architecture</span>
                     </div>
                   </div>
+
+                  {/* Verified Client Feedback Callout */}
+                  {activeCaseStudy?.testimonial && (
+                    <div className="bg-[#122e1a] rounded-xl p-3 sm:p-3.5 border border-[#225430] space-y-1.5 shadow-2xs">
+                      <div className="flex items-center justify-between text-xs flex-wrap gap-1">
+                        <div className="flex items-center gap-1.5 text-[#86EFAC] font-bold">
+                          <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 shrink-0" />
+                          <span>Client Feedback: {activeCaseStudy.testimonial.name}</span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-medium">
+                          {activeCaseStudy.testimonial.role.split(",")[0]}
+                        </span>
+                      </div>
+                      <p className="text-[11px] sm:text-xs text-slate-300 italic leading-relaxed">
+                        &ldquo;{activeCaseStudy.testimonial.quote}&rdquo;
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Navigation and Thumbnails */}

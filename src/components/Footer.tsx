@@ -13,13 +13,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-36 sm:pb-32 md:pb-28">
-      <div className="screen-container py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-[#163820]">
+    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-20 sm:pb-6">
+      <div className="screen-container pt-8 sm:pt-10 pb-4 sm:pb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 pb-6 sm:pb-7 border-b border-[#163820]">
           {/* Brand Summary Column */}
-          <div className="sm:col-span-2 lg:col-span-2 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-2 space-y-3.5">
             <div className="flex items-center gap-2.5 sm:gap-3.5">
-              <BrandLogo className="h-9 w-[62px] sm:h-11 sm:w-[76px] shrink-0" isDarkBackground />
+              <BrandLogo className="h-9 w-[62px] sm:h-10 sm:w-[70px] shrink-0" isDarkBackground />
               <div className="flex flex-col">
                 <span className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-white font-[family-name:var(--font-montserrat)] leading-none">
                   GAYATRI
@@ -29,12 +29,12 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-sm text-[#E2E8F0]/80 max-w-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#E2E8F0]/80 max-w-sm leading-relaxed">
               Custom software built around the way your business actually works. We engineer custom ERPs, business web applications, and mobile operational systems for growing companies.
             </p>
-            <address className="not-italic text-xs text-[#E2E8F0]/75 space-y-1 pt-1 font-sans">
+            <address className="not-italic text-xs text-[#E2E8F0]/75 space-y-1 pt-0.5 font-sans">
               <p>102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
-              <p className="flex flex-wrap items-center gap-3 pt-1">
+              <p className="flex flex-wrap items-center gap-3 pt-0.5">
                 <a href="tel:+919328437392" className="hover:text-[#47C56E] transition-colors font-medium">
                   +91 93284 37392
                 </a>
@@ -53,7 +53,7 @@ export default function Footer() {
                 </a>
               </p>
             </address>
-            <div className="flex items-center gap-2.5 pt-2">
+            <div className="flex items-center gap-2.5 pt-1">
               <span className="w-2 h-2 rounded-full bg-[#47C56E]" />
               <span className="text-xs text-[#86EFAC] font-mono">
                 Founder-led engineering studio • Rajkot, Gujarat
@@ -61,15 +61,15 @@ export default function Footer() {
             </div>
 
             {/* Official Social Channels */}
-            <div className="pt-2 flex flex-wrap items-center gap-2.5">
+            <div className="pt-1 flex flex-wrap items-center gap-2">
               <a
                 href={siteConfig.social.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
                 aria-label="Follow Gayatri Technology on Instagram"
               >
-                <InstagramIcon className="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform" />
+                <InstagramIcon className="w-3.5 h-3.5 text-pink-400 group-hover:scale-110 transition-transform" />
                 <span className="font-mono text-[11px]">@{siteConfig.social.instagram.handle}</span>
               </a>
 
@@ -77,21 +77,21 @@ export default function Footer() {
                 href={siteConfig.social.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
                 aria-label="Connect with Gayatri Technology on LinkedIn"
               >
-                <LinkedinIcon className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
+                <LinkedinIcon className="w-3.5 h-3.5 text-sky-400 group-hover:scale-110 transition-transform" />
                 <span className="font-mono text-[11px]">LinkedIn</span>
               </a>
             </div>
           </div>
 
           {/* Links Column 1: Services */}
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <p className="text-xs font-bold text-white uppercase tracking-wider font-mono">
               Services
             </p>
-            <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-[#E2E8F0]/70">
               <li>
                 <Link href="/services#custom-software" className="hover:text-[#47C56E] transition-colors">
                   Custom Business Software
@@ -126,11 +126,11 @@ export default function Footer() {
           </div>
 
           {/* Links Column 2: Practical Knowledge */}
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <p className="text-xs font-bold text-white uppercase tracking-wider font-mono">
               Knowledge
             </p>
-            <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-[#E2E8F0]/70">
               <li>
                 <Link href="/knowledge/excel-to-erp" className="hover:text-[#47C56E] transition-colors">
                   Excel to ERP Migration
@@ -165,11 +165,11 @@ export default function Footer() {
           </div>
 
           {/* Links Column 3: Company */}
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <p className="text-xs font-bold text-white uppercase tracking-wider font-mono">
               Company
             </p>
-            <ul className="space-y-2 text-sm text-[#E2E8F0]/70">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-[#E2E8F0]/70">
               <li>
                 <Link href="/about" className="hover:text-[#47C56E] transition-colors">
                   About Us &amp; Founder
@@ -178,6 +178,11 @@ export default function Footer() {
               <li>
                 <Link href="/portfolio" className="hover:text-[#47C56E] transition-colors">
                   Our Work &amp; Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/#testimonials" className="hover:text-[#47C56E] transition-colors">
+                  Client Testimonials
                 </Link>
               </li>
               <li>
@@ -232,10 +237,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E2E8F0]/60">
+        <div className="pt-4 sm:pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-[#E2E8F0]/60">
           <p>© {new Date().getFullYear()} Gayatri Technology. Custom software built around the way your business works. Rajkot, Gujarat.</p>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4 sm:gap-5">
             <a
               href={siteConfig.social.linkedin.url}
               target="_blank"
@@ -273,9 +278,6 @@ export default function Footer() {
             </button>
           </div>
         </div>
-
-        {/* Dedicated clearance spacer for mobile & floating quick bar across all devices */}
-        <div className="h-16 sm:h-12 w-full pointer-events-none" aria-hidden="true" />
       </div>
     </footer>
   );

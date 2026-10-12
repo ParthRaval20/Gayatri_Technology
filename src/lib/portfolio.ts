@@ -42,6 +42,13 @@ export interface CaseStudy {
     value: string;
     label: string;
   }[];
+  testimonial?: {
+    name: string;
+    fullName: string;
+    role: string;
+    quote: string;
+    rating: number;
+  };
 }
 
 export const gayatriAppScreenshots: ProjectScreenshot[] = [
@@ -192,6 +199,14 @@ export const caseStudies: CaseStudy[] = [
       { value: "<30s", label: "Challan Generation" },
       { value: "0", label: "Handwritten Errors" },
     ],
+    testimonial: {
+      name: "Kaushik",
+      fullName: "Kaushik",
+      role: "Operations Partner & Dispatch Head, Gayatri Steel Group",
+      quote:
+        "Our supervisors calculate bar weights and generate delivery challans on their phones in 20-30 seconds. Trucks don't wait in line anymore.",
+      rating: 5,
+    },
   },
   {
     sysCode: "BRAHM-SAMAJ-ERP",
@@ -227,6 +242,14 @@ export const caseStudies: CaseStudy[] = [
       { value: "Bilingual", label: "Gujarati & English" },
       { value: "0", label: "Cloud Lock-in Dependencies" },
     ],
+    testimonial: {
+      name: "Vishnu",
+      fullName: "Vishnu",
+      role: "Trustee & General Secretary, Shree Samast Gujarat Brahm Samaj",
+      quote:
+        "Entering a member, recording the ₹500 receipt, and printing an official photo ID card happens in under a minute in Gujarati right on our office computer.",
+      rating: 5,
+    },
   },
   {
     sysCode: "GAYATRI-STEEL-WEB",
@@ -261,6 +284,14 @@ export const caseStudies: CaseStudy[] = [
       { value: "100%", label: "Mobile Responsive" },
       { value: "<1s", label: "Page Load Time" },
     ],
+    testimonial: {
+      name: "Vaibhav",
+      fullName: "Vaibhav",
+      role: "Commercial & Sales Lead, Gayatri Steel Group",
+      quote:
+        "Buyers browse 28+ grades with chemical specs on their phones and send exact inquiries on WhatsApp with one click. Saves us hours of phone calls every day.",
+      rating: 5,
+    },
   },
   {
     sysCode: "TDR-STUDIO-FORGE",

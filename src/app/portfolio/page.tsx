@@ -10,9 +10,10 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PortfolioSection from "@/components/PortfolioSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import InteractiveArchitecture from "@/components/InteractiveArchitecture";
 import CtaBanner from "@/components/CtaBanner";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { siteConfig, getBreadcrumbSchema, getTestimonialsSchema } from "@/lib/seo";
 import { portfolioMetrics } from "@/lib/portfolio";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function PortfolioPage() {
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
   ]);
+  const testimonialsSchema = getTestimonialsSchema();
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
@@ -51,6 +53,12 @@ export default function PortfolioPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(testimonialsSchema),
         }}
       />
       <Navbar />
@@ -110,6 +118,12 @@ export default function PortfolioPage() {
         <div className="bg-[#F8FAFC]">
           <PortfolioSection />
         </div>
+
+        {/* Client Testimonials Section */}
+        <TestimonialsSection
+          title="What Our Clients Say About These Systems"
+          subtitle="Direct feedback from the operators, commercial executives, and trust administrators who rely on our delivered software every day."
+        />
 
         {/* Interactive Architecture & Pipeline Explorer (Woyce.ai inspiration) */}
         <InteractiveArchitecture />
