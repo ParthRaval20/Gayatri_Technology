@@ -3,6 +3,8 @@ import { Inter, Plus_Jakarta_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { siteConfig, getOrganizationSchema } from "@/lib/seo";
 import MobileQuickBar from "@/components/MobileQuickBar";
+import ScrollObserver from "@/components/ScrollObserver";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -125,7 +127,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plusJakarta.variable} ${montserrat.variable} font-sans bg-surface text-on-surface antialiased overflow-x-hidden min-h-screen min-h-[100dvh] selection:bg-[#47C56E] selection:text-[#091C0F]`}
       >
+        <ScrollObserver />
         {children}
+        <BackToTopButton />
         <MobileQuickBar />
       </body>
     </html>

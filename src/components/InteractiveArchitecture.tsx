@@ -221,7 +221,7 @@ export default function InteractiveArchitecture() {
 
       <div className="screen-container">
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 sm:mb-12">
+        <div className="max-w-3xl mb-10 sm:mb-12 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-2xs mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
             <span className="font-mono uppercase tracking-wider">System Architecture &amp; Workflow Inspection</span>
@@ -235,13 +235,13 @@ export default function InteractiveArchitecture() {
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="flex sm:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-2.5 px-1">
+        <div className="flex sm:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-2.5 px-1 scroll-reveal">
           <span>← Swipe tabs to switch systems →</span>
           <span className="font-mono text-slate-400 text-[11px]">3 Systems</span>
         </div>
 
         {/* Interactive Tab Switcher */}
-        <div className="flex overflow-x-auto sm:flex-wrap items-center gap-2 sm:gap-3 p-1.5 bg-[#E2E8F0]/60 rounded-2xl mb-8 max-w-full sm:max-w-fit border border-[#CBD5E1]/60 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-1.5">
+        <div className="flex overflow-x-auto sm:flex-wrap items-center gap-2 sm:gap-3 p-1.5 bg-[#E2E8F0]/60 rounded-2xl mb-8 max-w-full sm:max-w-fit border border-[#CBD5E1]/60 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-1.5 scroll-reveal delay-100">
           {architectureSystems.map((sys) => {
             const isActive = activeTab === sys.id;
             return (
@@ -269,7 +269,7 @@ export default function InteractiveArchitecture() {
         </div>
 
         {/* Active Architecture Display Canvas */}
-        <div key={activeTab} className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-sm overflow-hidden animate-scale-in">
+        <div key={activeTab} className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-sm overflow-hidden animate-scale-in scroll-reveal delay-150">
           {/* Top Banner Meta */}
           <div className="p-6 sm:p-8 bg-[#091C0F] text-white border-b border-[#163820]">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">

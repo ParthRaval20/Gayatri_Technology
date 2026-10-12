@@ -90,10 +90,13 @@ export default function PortfolioPage() {
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {portfolioMetrics.map((item, idx) => {
                 const Icon = metricIcons[idx % metricIcons.length];
+                const delayClass =
+                  idx === 0 ? "delay-100" : idx === 1 ? "delay-150" : idx === 2 ? "delay-200" : "delay-250";
+
                 return (
                   <div
                     key={idx}
-                    className="p-3.5 sm:p-6 rounded-2xl bg-[#FAFCFF] border border-[#E2E8F0] text-center flex flex-col items-center justify-center space-y-1.5 sm:space-y-2 hover:border-[#47C56E]/60 transition-all shadow-xs"
+                    className={`p-3.5 sm:p-6 rounded-2xl bg-[#FAFCFF] border border-[#E2E8F0] text-center flex flex-col items-center justify-center space-y-1.5 sm:space-y-2 hover:border-[#47C56E]/60 transition-all shadow-xs scroll-reveal ${delayClass}`}
                   >
                     <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] mb-0.5 sm:mb-1">
                       <Icon className="w-4 sm:w-5 h-4 sm:h-5" />

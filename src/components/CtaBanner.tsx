@@ -9,7 +9,7 @@ export default function CtaBanner() {
   return (
     <section className="py-12 sm:py-16 bg-[#F8FAFC]">
       <div className="screen-container">
-        <div className="bg-[#091C0F] text-[#E2E8F0] rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 border border-[#47C56E]/20">
+        <div className="bg-[#091C0F] text-[#E2E8F0] rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 border border-[#47C56E]/20 scroll-reveal-scale">
           {/* Subtle Ambient Radial Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#47C56E]/15 rounded-full blur-3xl pointer-events-none -z-10 animate-float-gentle" />
 

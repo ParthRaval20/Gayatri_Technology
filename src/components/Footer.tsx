@@ -2,15 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUp } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import { siteConfig } from "@/lib/seo";
 import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-20 sm:pb-6">
@@ -268,14 +264,6 @@ export default function Footer() {
             <Link href="/terms-and-conditions" className="hover:text-[#47C56E] transition-colors">
               Terms of Service
             </Link>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="hover:text-[#47C56E] transition-colors flex items-center gap-1 cursor-pointer"
-            >
-              <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-[#47C56E]" />
-            </button>
           </div>
         </div>
       </div>

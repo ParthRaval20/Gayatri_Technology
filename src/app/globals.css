@@ -626,5 +626,116 @@ img, svg {
   }
 }
 
+/* ==========================================================================
+   10. Scroll-Driven Reveal Animations (Smooth & Slow Content Appearance)
+   ========================================================================== */
+
+/* Standard smooth reveal: glides up 30px and fades in slowly */
+html.has-scroll-reveal .scroll-reveal:not([data-revealed="true"]):not(.revealed) {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+  transform: translateY(30px);
+  -webkit-transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+html.has-scroll-reveal .scroll-reveal[data-revealed="true"],
+html.has-scroll-reveal .scroll-reveal.revealed {
+  opacity: 1 !important;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* Extra slow smooth reveal for prominent hero elements or major headers */
+html.has-scroll-reveal .scroll-reveal-slow:not([data-revealed="true"]):not(.revealed) {
+  opacity: 0;
+  -webkit-transform: translateY(36px);
+  transform: translateY(36px);
+  -webkit-transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1), transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+html.has-scroll-reveal .scroll-reveal-slow[data-revealed="true"],
+html.has-scroll-reveal .scroll-reveal-slow.revealed {
+  opacity: 1 !important;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* Subtle scale-in reveal for featured bento tiles and banners */
+html.has-scroll-reveal .scroll-reveal-scale:not([data-revealed="true"]):not(.revealed) {
+  opacity: 0;
+  -webkit-transform: scale(0.96) translateY(24px);
+  transform: scale(0.96) translateY(24px);
+  -webkit-transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+html.has-scroll-reveal .scroll-reveal-scale[data-revealed="true"],
+html.has-scroll-reveal .scroll-reveal-scale.revealed {
+  opacity: 1 !important;
+  -webkit-transform: scale(1) translateY(0);
+  transform: scale(1) translateY(0);
+}
+
+/* Stagger delay classes for multi-card rows */
+html.has-scroll-reveal .scroll-reveal.delay-100,
+html.has-scroll-reveal .scroll-reveal-scale.delay-100 {
+  -webkit-transition-delay: 100ms;
+  transition-delay: 100ms;
+}
+
+html.has-scroll-reveal .scroll-reveal.delay-150,
+html.has-scroll-reveal .scroll-reveal-scale.delay-150 {
+  -webkit-transition-delay: 150ms;
+  transition-delay: 150ms;
+}
+
+html.has-scroll-reveal .scroll-reveal.delay-200,
+html.has-scroll-reveal .scroll-reveal-scale.delay-200 {
+  -webkit-transition-delay: 200ms;
+  transition-delay: 200ms;
+}
+
+html.has-scroll-reveal .scroll-reveal.delay-300,
+html.has-scroll-reveal .scroll-reveal-scale.delay-300 {
+  -webkit-transition-delay: 300ms;
+  transition-delay: 300ms;
+}
+
+html.has-scroll-reveal .scroll-reveal.delay-400,
+html.has-scroll-reveal .scroll-reveal-scale.delay-400 {
+  -webkit-transition-delay: 400ms;
+  transition-delay: 400ms;
+}
+
+html.has-scroll-reveal .scroll-reveal.delay-500,
+html.has-scroll-reveal .scroll-reveal-scale.delay-500 {
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+}
+
+/* Accessibility: Immediately reveal with no transition if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html.has-scroll-reveal .scroll-reveal,
+  html.has-scroll-reveal .scroll-reveal-slow,
+  html.has-scroll-reveal .scroll-reveal-scale {
+    opacity: 1 !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+
 
 

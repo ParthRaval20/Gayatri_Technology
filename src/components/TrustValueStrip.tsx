@@ -35,7 +35,7 @@ export default function TrustValueStrip() {
   return (
     <section className="bg-white py-6 sm:py-8 border-b border-[#E2E8F0] shadow-xs">
       <div className="screen-container">
-        <div className="text-center mb-5 sm:mb-6">
+        <div className="text-center mb-5 sm:mb-6 scroll-reveal">
           <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#091C0F] tracking-tight font-display">
             Why growing businesses choose to work with us
           </h2>
@@ -44,10 +44,11 @@ export default function TrustValueStrip() {
         <div className="grid grid-cols-1 min-[340px]:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 md:gap-5 text-center">
           {valueProps.map((item, idx) => {
             const Icon = item.icon;
+            const delayClass = idx === 1 ? "delay-100" : idx === 2 ? "delay-200" : idx === 3 ? "delay-300" : idx === 4 ? "delay-400" : "";
             return (
               <div
                 key={idx}
-                className={`flex flex-col items-center gap-2 p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/50 hover:bg-[#F0FDF4] hover:-translate-y-1 hover:shadow-xs transition-all duration-200 group ${
+                className={`scroll-reveal ${delayClass} flex flex-col items-center gap-2 p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/50 hover:bg-[#F0FDF4] hover:-translate-y-1 hover:shadow-xs transition-all duration-200 group ${
                   idx === 4 ? "min-[340px]:col-span-2 md:col-span-1" : ""
                 }`}
               >

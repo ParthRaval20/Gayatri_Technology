@@ -120,7 +120,7 @@ export default function TestimonialsSection({
 
       <div className="screen-container">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-14 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
             <span>Verified Client Feedback • Real Deployments</span>
@@ -162,7 +162,7 @@ export default function TestimonialsSection({
         </div>
 
         {/* Filter Navigation Tabs */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-2 mb-6 sm:mb-12 -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-2 mb-6 sm:mb-12 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-reveal delay-100">
           <button
             type="button"
             onClick={() => handleFilterChange("all")}
@@ -226,7 +226,7 @@ export default function TestimonialsSection({
         </div>
 
         {/* Mobile Swipe Hint & Count Indicator */}
-        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1 scroll-reveal">
           <span>← Swipe horizontally to read reviews →</span>
           <span className="font-mono text-slate-500 text-[11px]">
             {activeIdx + 1} of {filteredTestimonials.length}
@@ -237,7 +237,7 @@ export default function TestimonialsSection({
         <div
           ref={sliderRef}
           onScroll={handleScroll}
-          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-start"
+          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-start scroll-reveal delay-150"
         >
           {filteredTestimonials.map((item: Testimonial) => {
             const isExpanded = expandedId === item.id;
@@ -446,7 +446,7 @@ export default function TestimonialsSection({
         )}
 
         {/* Bottom Banner with Direct Callout */}
-        <div className="mt-12 sm:mt-16 bg-[#091C0F] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-[#163820]">
+        <div className="mt-12 sm:mt-16 bg-[#091C0F] rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-[#163820] scroll-reveal-scale delay-150">
           <div className="space-y-1.5 text-center md:text-left max-w-xl">
             <span className="text-xs font-mono uppercase tracking-wider text-[#86EFAC] font-semibold">
               Practical Software • Zero Fluff

@@ -153,7 +153,7 @@ export default function PortfolioSection() {
     <section id="portfolio" className="py-16 sm:py-20 lg:py-24 bg-white border-y border-[#E2E8F0] relative overflow-hidden">
       <div className="screen-container">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 scroll-reveal">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-2xs mb-2">
               <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
@@ -177,7 +177,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Filter Tabs & Category Bar (Woyce.ai inspiration) */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#E2E8F0]">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#E2E8F0] scroll-reveal delay-100">
           <div className="flex overflow-x-auto sm:flex-wrap items-center gap-1.5 sm:gap-2 p-1 bg-[#F1F5F9] rounded-xl border border-[#E2E8F0] no-scrollbar max-w-full">
             <button
               onClick={() => setSelectedCategory("all")}
@@ -218,13 +218,13 @@ export default function PortfolioSection() {
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1 scroll-reveal">
           <span>← Swipe horizontally to view case studies →</span>
           <span className="font-mono text-slate-400 text-[11px]">{filteredCaseStudies.length} Deployments</span>
         </div>
 
         {/* Case Studies Card Grid */}
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-start">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-start scroll-reveal delay-150">
           {filteredCaseStudies.map((item, idx) => {
             const isExpanded = expandedCode === item.sysCode;
 

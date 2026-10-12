@@ -17,7 +17,7 @@ export default function SolutionsBento() {
   return (
     <section id="solutions" className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC] overflow-hidden">
       <div className="screen-container">
-        <div className="max-w-3xl mb-10 sm:mb-14">
+        <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             WORKFLOW MODULES
           </span>
@@ -31,14 +31,14 @@ export default function SolutionsBento() {
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1 scroll-reveal">
           <span>Swipe horizontally to browse systems</span>
           <span>→</span>
         </div>
 
         <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {/* Bento Card A: Multi-Warehouse Inventory (Span 2 cols) */}
-          <div className="w-[88vw] max-w-[360px] sm:w-[360px] md:w-full md:max-w-none md:min-w-0 snap-center md:col-span-2 lg:col-span-2 bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group">
+          <div className="w-[88vw] max-w-[360px] sm:w-[360px] md:w-full md:max-w-none md:min-w-0 snap-center md:col-span-2 lg:col-span-2 bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group scroll-reveal delay-100">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors shrink-0">
@@ -83,7 +83,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card B: Paperless Delivery Challans */}
-          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group scroll-reveal delay-150">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors shrink-0">
@@ -123,7 +123,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card C: Industrial Calculators */}
-          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group scroll-reveal delay-200">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors shrink-0">
@@ -163,7 +163,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card D: Multi-Company Group Switcher */}
-          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group scroll-reveal delay-150">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors shrink-0">
@@ -203,7 +203,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card E: Customer Self-Service Portals */}
-          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group">
+          <div className="w-[85vw] max-w-[340px] sm:w-[320px] md:w-full md:max-w-none md:min-w-0 snap-center bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group scroll-reveal delay-200">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors shrink-0">
@@ -243,7 +243,7 @@ export default function SolutionsBento() {
           </div>
 
           {/* Bento Card F: B2B Wholesale & Ordering (Span 2 cols) */}
-          <div className="w-[88vw] max-w-[360px] sm:w-[360px] md:w-full md:max-w-none md:min-w-0 snap-center md:col-span-2 lg:col-span-2 bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group">
+          <div className="w-[88vw] max-w-[360px] sm:w-[360px] md:w-full md:max-w-none md:min-w-0 snap-center md:col-span-2 lg:col-span-2 bg-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs hover:shadow-lg hover:border-[#47C56E]/60 hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between shrink-0 md:shrink h-auto group scroll-reveal delay-300">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors shrink-0">

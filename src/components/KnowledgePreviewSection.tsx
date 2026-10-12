@@ -9,7 +9,7 @@ export default function KnowledgePreviewSection() {
   return (
     <section className="py-14 sm:py-20 bg-white border-t border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14 scroll-reveal">
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-xs">
               <BookOpen className="w-3.5 h-3.5 text-[#00875A]" />
@@ -33,17 +33,20 @@ export default function KnowledgePreviewSection() {
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1 scroll-reveal">
           <span>← Swipe horizontally to browse guides →</span>
           <span className="font-mono text-slate-400 text-[11px]">3 Practical Guides</span>
         </div>
 
         <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
-          {featuredArticles.map((article) => (
-            <article
-              key={article.slug}
-              className="w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center bg-[#FAFCFF] rounded-2xl border border-[#E2E8F0] p-6 hover:border-[#47C56E]/70 hover:shadow-md hover:-translate-y-1 transition-all duration-250 group flex flex-col justify-between h-auto min-h-[360px]"
-            >
+          {featuredArticles.map((article, idx) => {
+            const delayClass = idx === 0 ? "delay-100" : idx === 1 ? "delay-200" : "delay-300";
+
+            return (
+              <article
+                key={article.slug}
+                className={`w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center bg-[#FAFCFF] rounded-2xl border border-[#E2E8F0] p-6 hover:border-[#47C56E]/70 hover:shadow-md hover:-translate-y-1 transition-all duration-250 group flex flex-col justify-between h-auto min-h-[360px] scroll-reveal ${delayClass}`}
+              >
               <div>
                 <div className="flex items-center justify-between text-xs text-[#64748B] mb-3">
                   <span className="font-mono font-bold text-[#00875A] bg-[#47C56E]/12 px-2.5 py-0.5 rounded-md">
@@ -84,7 +87,8 @@ export default function KnowledgePreviewSection() {
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

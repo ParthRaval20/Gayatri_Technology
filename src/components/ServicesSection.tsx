@@ -73,7 +73,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-16 sm:py-20 lg:py-24 bg-white border-y border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 scroll-reveal">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             WHAT WE BUILD
           </span>
@@ -95,10 +95,11 @@ export default function ServicesSection() {
         <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {services.map((service, idx) => {
             const Icon = service.icon;
+            const staggerDelay = idx % 3 === 1 ? "delay-100" : idx % 3 === 2 ? "delay-200" : "";
             return (
               <div
                 key={idx}
-                className="w-[85vw] max-w-[340px] sm:w-[340px] md:w-auto md:min-w-0 snap-center bg-white p-5 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#47C56E]/60 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group shrink-0 md:shrink h-auto"
+                className={`scroll-reveal ${staggerDelay} w-[85vw] max-w-[340px] sm:w-[340px] md:w-auto md:min-w-0 snap-center bg-white p-5 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-[#47C56E]/60 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group shrink-0 md:shrink h-auto`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

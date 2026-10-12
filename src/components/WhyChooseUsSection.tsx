@@ -40,7 +40,7 @@ export default function WhyChooseUsSection() {
       <div className="screen-container">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Founder Accountability Card */}
-          <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-sm space-y-6">
+          <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-sm space-y-6 scroll-reveal">
             <div className="border-b border-[#E2E8F0] pb-4">
               <span className="text-xs font-bold text-[#00875A] uppercase tracking-wider block font-display">
                 FOUNDER COMMITMENT
@@ -103,7 +103,7 @@ export default function WhyChooseUsSection() {
 
           {/* Right Column: 4 Practical Principles */}
           <div className="lg:col-span-7 space-y-6">
-            <div>
+            <div className="scroll-reveal delay-100">
               <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
                 HOW WE OPERATE
               </span>
@@ -116,28 +116,39 @@ export default function WhyChooseUsSection() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              {principles.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-2.5 shadow-2xs hover:border-[#47C56E]/60 hover:-translate-y-1 hover:shadow-xs transition-all duration-200"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-[#00875A] bg-[#47C56E]/12 px-2.5 py-1 rounded-md border border-[#47C56E]/20">
-                      {item.num}
-                    </span>
-                    <CheckCircle2 className="w-4 h-4 text-[#47C56E]" />
+              {principles.map((item, idx) => {
+                const delayClass =
+                  idx === 0
+                    ? "delay-100"
+                    : idx === 1
+                    ? "delay-150"
+                    : idx === 2
+                    ? "delay-200"
+                    : "delay-250";
+
+                return (
+                  <div
+                    key={idx}
+                    className={`p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-2.5 shadow-2xs hover:border-[#47C56E]/60 hover:-translate-y-1 hover:shadow-xs transition-all duration-200 scroll-reveal ${delayClass}`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold text-[#00875A] bg-[#47C56E]/12 px-2.5 py-1 rounded-md border border-[#47C56E]/20">
+                        {item.num}
+                      </span>
+                      <CheckCircle2 className="w-4 h-4 text-[#47C56E]" />
+                    </div>
+                    <h3 className="text-base font-bold text-[#091C0F] font-display">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="text-base font-bold text-[#091C0F] font-display">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
-            <div className="pt-2 flex items-center gap-3 text-xs text-[#64748B]">
+            <div className="pt-2 flex items-center gap-3 text-xs text-[#64748B] scroll-reveal delay-300">
               <ShieldCheck className="w-4 h-4 text-[#00875A] shrink-0" />
               <span>Full source code handover &bull; No proprietary lock-in &bull; Direct founder oversight</span>
             </div>

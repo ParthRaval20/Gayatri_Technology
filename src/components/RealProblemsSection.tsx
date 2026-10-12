@@ -71,7 +71,7 @@ export default function RealProblemsSection() {
     <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 scroll-reveal">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             REAL BUSINESS REALITIES
           </span>
@@ -94,10 +94,11 @@ export default function RealProblemsSection() {
         <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {problems.map((item, idx) => {
             const Icon = item.icon;
+            const staggerDelay = idx % 4 === 1 ? "delay-100" : idx % 4 === 2 ? "delay-200" : idx % 4 === 3 ? "delay-300" : "";
             return (
               <div
                 key={idx}
-                className="w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center p-5 sm:p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/60 hover:bg-[#F0FDF4]/50 hover:-translate-y-1 hover:shadow-sm transition-all duration-200 flex flex-col justify-between group shadow-2xs h-auto"
+                className={`scroll-reveal ${staggerDelay} w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center p-5 sm:p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/60 hover:bg-[#F0FDF4]/50 hover:-translate-y-1 hover:shadow-sm transition-all duration-200 flex flex-col justify-between group shadow-2xs h-auto`}
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#00875A] mb-3.5 shadow-2xs group-hover:scale-105 group-hover:border-[#47C56E]/40 transition-transform">
