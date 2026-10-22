@@ -14,7 +14,6 @@ import {
   Monitor,
   Building2,
   MapPin,
-  Calendar,
   ChevronLeft,
   ChevronRight,
   ChevronDown,
