@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 export const siteConfig = {
   name: "Gayatri Technology",
   shortName: "Gayatri Tech",
@@ -84,6 +86,79 @@ export const siteConfig = {
     },
   ],
 };
+
+export const defaultOpenGraphImages = [
+  {
+    url: `${siteConfig.url}/opengraph-image.png`,
+    width: 1200,
+    height: 630,
+    alt: siteConfig.defaultTitle,
+    type: "image/png",
+  },
+  {
+    url: `${siteConfig.url}/og-image-square.png`,
+    width: 800,
+    height: 800,
+    alt: `${siteConfig.name} Logo`,
+    type: "image/png",
+  },
+];
+
+export const defaultTwitterImages = [`${siteConfig.url}/twitter-image.png`];
+
+export interface PageMetadataOptions {
+  title: string;
+  description: string;
+  path: string;
+  type?: "website" | "article";
+  authors?: string[];
+  openGraphTitle?: string;
+  openGraphDescription?: string;
+}
+
+/**
+ * Standardized metadata builder ensuring uniform canonical tags, Open Graph tags,
+ * and high-resolution logo preview images across all subpages.
+ */
+export function createPageMetadata({
+  title,
+  description,
+  path,
+  type = "website",
+  authors,
+  openGraphTitle,
+  openGraphDescription,
+}: PageMetadataOptions): Metadata {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const canonicalUrl =
+    normalizedPath === "/" ? siteConfig.url : `${siteConfig.url}${normalizedPath}`;
+  const ogTitle = openGraphTitle || title;
+  const ogDesc = openGraphDescription || description;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: normalizedPath,
+    },
+    openGraph: {
+      title: ogTitle,
+      description: ogDesc,
+      url: canonicalUrl,
+      siteName: siteConfig.name,
+      locale: "en_US",
+      type,
+      ...(authors && authors.length > 0 ? { authors } : {}),
+      images: defaultOpenGraphImages,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDesc,
+      images: defaultTwitterImages,
+    },
+  };
+}
 
 /**
  * Builds standard Schema.org Organization and LocalBusiness structured data

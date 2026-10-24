@@ -4,29 +4,17 @@ import { Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact Us | Have a Business Problem Software Could Solve?",
   description:
     "Get in touch directly with Parth Raval and the Gayatri Technology software studio in Rajkot, Gujarat. Discuss your workflow, ERP requirements, or custom web application.",
-  alternates: {
-    canonical: "/contact",
-  },
-  openGraph: {
-    title: "Contact Gayatri Technology | Software Built Around Your Workflow",
-    description:
-      "Tell us what you're trying to build or what isn't working today. Direct conversation with engineers who understand business problems.",
-    url: `${siteConfig.url}/contact`,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Gayatri Technology",
-    description:
-      "Direct technical consultation with Parth Raval and the Gayatri Technology engineering studio.",
-  },
-};
+  path: "/contact",
+  openGraphTitle: "Contact Gayatri Technology | Software Built Around Your Workflow",
+  openGraphDescription:
+    "Tell us what you're trying to build or what isn't working today. Direct conversation with engineers who understand business problems.",
+});
 
 const onboardingSteps = [
   {

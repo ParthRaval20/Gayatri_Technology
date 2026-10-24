@@ -19,29 +19,17 @@ import TechStackSection from "@/components/TechStackSection";
 import ProcessSection from "@/components/ProcessSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import CtaBanner from "@/components/CtaBanner";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Services & Capabilities | Custom Business Software & ERP Systems",
   description:
     "We build custom business software, ERP systems, web applications, mobile tools, and B2B portals for growing businesses in Rajkot, Gujarat and beyond.",
-  alternates: {
-    canonical: "/services",
-  },
-  openGraph: {
-    title: "Services & Capabilities | Gayatri Technology",
-    description:
-      "Custom business software, ERP systems, web applications, and mobile tools built around your actual workflow.",
-    url: `${siteConfig.url}/services`,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Services | Gayatri Technology",
-    description:
-      "Custom business software and ERP systems built around how your business works.",
-  },
-};
+  path: "/services",
+  openGraphTitle: "Services & Capabilities | Gayatri Technology",
+  openGraphDescription:
+    "Custom business software, ERP systems, web applications, and mobile tools built around your actual workflow.",
+});
 
 const detailedServices = [
   {

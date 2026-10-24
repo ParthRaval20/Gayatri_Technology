@@ -12,29 +12,15 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms and Conditions",
+export const metadata: Metadata = createPageMetadata({
+  title: "Terms and Conditions | Gayatri Technology",
   description:
     "Official Terms and Conditions of Service for Gayatri Technology. Details on development contracts, domain and hosting policies, payment cycles, and service suspension clauses.",
-  alternates: {
-    canonical: "/terms-and-conditions",
-  },
-  openGraph: {
-    title: "Terms and Conditions | Gayatri Technology",
-    description:
-      "Official Terms and Conditions of Service for Gayatri Technology. Details on development contracts, domain and hosting policies, payment cycles, and service suspension clauses.",
-    url: `${siteConfig.url}/terms-and-conditions`,
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Terms and Conditions | Gayatri Technology",
-    description:
-      "Official Terms and Conditions of Service for Gayatri Technology. Details on software contracts, hosting schedules, and service terms.",
-  },
-};
+  path: "/terms-and-conditions",
+  type: "article",
+});
 
 export default function TermsAndConditionsPage() {
   const lastUpdated = "September 22, 2026";

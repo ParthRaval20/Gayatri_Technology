@@ -13,30 +13,18 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { siteConfig, getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import { InstagramIcon, LinkedinIcon } from "@/components/SocialIcons";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "About Us | Founder-Led Software Studio in Rajkot, Gujarat",
   description:
     "Gayatri Technology was founded by Parth Raval in Rajkot, Gujarat on a simple idea: businesses should not have to change the way they work just because their software doesn't fit them.",
-  alternates: {
-    canonical: "/about",
-  },
-  openGraph: {
-    title: "About Gayatri Technology | Founder-Led Software Studio",
-    description:
-      "Custom software built around the way your business works. Founded in Rajkot, Gujarat.",
-    url: `${siteConfig.url}/about`,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Gayatri Technology",
-    description:
-      "Software built around the way your business actually works. Rajkot, Gujarat.",
-  },
-};
+  path: "/about",
+  openGraphTitle: "About Gayatri Technology | Founder-Led Software Studio",
+  openGraphDescription:
+    "Custom software built around the way your business works. Founded in Rajkot, Gujarat.",
+});
 
 const principles = [
   {

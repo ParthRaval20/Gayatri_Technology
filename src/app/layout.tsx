@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
-import { siteConfig, getOrganizationSchema } from "@/lib/seo";
+import { siteConfig, getOrganizationSchema, defaultOpenGraphImages, defaultTwitterImages } from "@/lib/seo";
 import MobileQuickBar from "@/components/MobileQuickBar";
 import ScrollObserver from "@/components/ScrollObserver";
 import BackToTopButton from "@/components/BackToTopButton";
@@ -52,21 +52,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: `${siteConfig.url}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.defaultTitle,
-        type: "image/png",
-      },
-    ],
+    images: defaultOpenGraphImages,
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.defaultTitle,
     description: siteConfig.description,
-    images: [`${siteConfig.url}/twitter-image.png`],
+    images: defaultTwitterImages,
   },
   robots: {
     index: true,

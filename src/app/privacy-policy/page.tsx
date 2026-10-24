@@ -16,29 +16,15 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
+export const metadata: Metadata = createPageMetadata({
+  title: "Privacy Policy | Gayatri Technology",
   description:
     "Privacy Policy for Gayatri Technology. Learn how we handle client proprietary data, cloud credentials, domain records, and hosting data retention protocols.",
-  alternates: {
-    canonical: "/privacy-policy",
-  },
-  openGraph: {
-    title: "Privacy Policy | Gayatri Technology",
-    description:
-      "Privacy Policy for Gayatri Technology. Learn how we handle client data, proprietary code, deployment credentials, domain records, and cloud hosting data retention.",
-    url: `${siteConfig.url}/privacy-policy`,
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Privacy Policy | Gayatri Technology",
-    description:
-      "Privacy Policy for Gayatri Technology. Learn how we handle client proprietary data, cloud credentials, and domain records.",
-  },
-};
+  path: "/privacy-policy",
+  type: "article",
+});
 
 export default function PrivacyPolicyPage() {
   const lastUpdated = "September 22, 2026";

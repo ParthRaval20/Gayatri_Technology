@@ -12,29 +12,17 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articles } from "@/lib/knowledge";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Knowledge & Practical Guides | Gayatri Technology",
   description:
     "Practical guides and engineering insights on moving from Excel to ERP, custom vs off-the-shelf software, manufacturing operations, and software costs in India.",
-  alternates: {
-    canonical: "/knowledge",
-  },
-  openGraph: {
-    title: "Knowledge & Practical Guides | Gayatri Technology",
-    description:
-      "Actionable engineering insights for business owners: Excel to ERP migration, custom software costs, shop-floor manufacturing ERP, and WhatsApp workflow automation.",
-    url: `${siteConfig.url}/knowledge`,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Knowledge & Practical Guides | Gayatri Technology",
-    description:
-      "Actionable software engineering guides for growing businesses.",
-  },
-};
+  path: "/knowledge",
+  openGraphTitle: "Knowledge & Practical Guides | Gayatri Technology",
+  openGraphDescription:
+    "Actionable engineering insights for business owners: Excel to ERP migration, custom software costs, shop-floor manufacturing ERP, and WhatsApp workflow automation.",
+});
 
 export default function KnowledgePage() {
   const breadcrumbSchema = getBreadcrumbSchema([

@@ -14,7 +14,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
 import { articles, getArticleBySlug } from "@/lib/knowledge";
-import { siteConfig, getBreadcrumbSchema } from "@/lib/seo";
+import { siteConfig, getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -36,25 +36,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  return {
+  return createPageMetadata({
     title: `${article.title} | Gayatri Technology`,
     description: article.excerpt,
-    alternates: {
-      canonical: `/knowledge/${article.slug}`,
-    },
-    openGraph: {
-      title: `${article.title} | Gayatri Technology`,
-      description: article.excerpt,
-      url: `${siteConfig.url}/knowledge/${article.slug}`,
-      type: "article",
-      authors: [article.author.name],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: article.title,
-      description: article.excerpt,
-    },
-  };
+    path: `/knowledge/${article.slug}`,
+    type: "article",
+    authors: [article.author.name],
+  });
 }
 
 export default async function ArticleDetailPage({ params }: PageProps) {

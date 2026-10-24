@@ -13,30 +13,18 @@ import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import InteractiveArchitecture from "@/components/InteractiveArchitecture";
 import CtaBanner from "@/components/CtaBanner";
-import { siteConfig, getBreadcrumbSchema, getTestimonialsSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, getTestimonialsSchema, createPageMetadata } from "@/lib/seo";
 import { portfolioMetrics } from "@/lib/portfolio";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Our Work & Case Studies | Custom Software Built For Real Operations",
   description:
     "Explore Gayatri Technology's production software case studies, including the Gujarat Brahm Samaj ERP (v2.4.0) and Gayatri Steel mobile operations ERP suite, with real workflows, UI screens, and delivered features.",
-  alternates: {
-    canonical: "/portfolio",
-  },
-  openGraph: {
-    title: "Our Work & Case Studies | Gayatri Technology",
-    description:
-      "Production case studies of custom business software, institutional ERPs, mobile platforms, and operational tools built around how teams actually work.",
-    url: `${siteConfig.url}/portfolio`,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Our Work & Case Studies | Gayatri Technology",
-    description:
-      "Production case studies of custom business software and mobile operations systems.",
-  },
-};
+  path: "/portfolio",
+  openGraphTitle: "Our Work & Case Studies | Gayatri Technology",
+  openGraphDescription:
+    "Production case studies of custom business software, institutional ERPs, mobile platforms, and operational tools built around how teams actually work.",
+});
 
 const metricIcons = [Layers, Zap, ShieldCheck, Award];
 
