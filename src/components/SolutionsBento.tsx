@@ -132,7 +132,7 @@ export default function SolutionsBento() {
         </div>
 
         {/* Horizontal Tab Bar */}
-        <div className="flex overflow-x-auto sm:flex-wrap items-center gap-2 sm:gap-2.5 p-1.5 bg-[#E2E8F0]/70 rounded-2xl mb-6 sm:mb-8 max-w-full sm:max-w-fit border border-[#CBD5E1]/60 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-1.5 scroll-reveal delay-100">
+        <div className="flex overflow-x-auto no-scrollbar gap-2 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap mb-6 sm:mb-8 scroll-reveal delay-100">
           {modules.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -140,13 +140,13 @@ export default function SolutionsBento() {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 min-h-[44px] ${
+                className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 whitespace-nowrap min-h-[44px] ${
                   isActive
                     ? "bg-[#091C0F] text-white shadow-md shadow-black/10"
-                    : "text-[#475569] hover:text-[#091C0F] hover:bg-white/80"
+                    : "text-[#475569] bg-white border border-[#CBD5E1]/60 hover:text-[#091C0F] hover:bg-slate-50"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? "text-[#86EFAC]" : "text-slate-500"}`} />
+                <Icon className={`w-4 h-4 shrink-0 ${isActive ? "text-[#86EFAC]" : "text-slate-500"}`} />
                 <span>{item.tabLabel}</span>
               </button>
             );

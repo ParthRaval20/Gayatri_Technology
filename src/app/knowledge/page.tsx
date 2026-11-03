@@ -63,17 +63,17 @@ export default function KnowledgePage() {
 
         {/* Founder Context Bar */}
         <section className="bg-white py-4 sm:py-5 border-b border-[#E2E8F0]">
-          <div className="screen-container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#475569]">
+          <div className="screen-container flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-[#475569]">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#091C0F] text-[#86EFAC] font-bold flex items-center justify-center font-mono text-xs">
+              <div className="w-8 h-8 rounded-lg bg-[#091C0F] text-[#86EFAC] font-bold flex items-center justify-center font-mono text-xs shrink-0">
                 GT
               </div>
               <div>
                 <span className="font-bold text-[#091C0F] block">Curated by Parth Raval</span>
-                <span className="text-[#64748B]">Founder &amp; Lead Engineer, Gayatri Technology (Rajkot)</span>
+                <span className="text-[#64748B] text-[11px] sm:text-xs">Founder &amp; Lead Engineer, Gayatri Technology (Rajkot)</span>
               </div>
             </div>
-            <div className="inline-flex items-center gap-2 text-[#00875A] font-semibold">
+            <div className="inline-flex items-center gap-2 text-[#00875A] font-semibold bg-[#F0FDF4] px-3 py-1.5 rounded-full border border-[#86EFAC]/40 text-xs shrink-0">
               <BookOpen className="w-4 h-4" />
               <span>{articles.length} In-Depth Operations Playbooks</span>
             </div>
@@ -111,7 +111,7 @@ export default function KnowledgePage() {
                     {featuredArticle.excerpt}
                   </p>
 
-                  <div className="pt-2">
+                  <div className="hidden lg:block pt-2">
                     <Link
                       href={`/knowledge/${featuredArticle.slug}`}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs"
@@ -134,6 +134,16 @@ export default function KnowledgePage() {
                       </li>
                     ))}
                   </ul>
+
+                  <div className="lg:hidden pt-3 border-t border-[#E2E8F0]">
+                    <Link
+                      href={`/knowledge/${featuredArticle.slug}`}
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs min-h-[44px]"
+                    >
+                      <span>Read Featured Guide</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#47C56E]" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

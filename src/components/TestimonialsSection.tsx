@@ -169,7 +169,7 @@ export default function TestimonialsSection({
         </div>
 
         {/* Filter Navigation Tabs */}
-        <div className="flex items-center justify-start gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-2 mb-6 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-reveal delay-100">
+        <div className="flex items-center justify-start gap-2 sm:gap-3 overflow-x-auto no-scrollbar pb-2 mb-6 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scroll-reveal delay-100">
           <button
             type="button"
             onClick={() => handleFilterChange("all")}

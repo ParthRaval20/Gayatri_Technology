@@ -26,8 +26,8 @@ export const articles: Article[] = [
     excerpt:
       "Excel is the world's most popular business tool, but there is a tipping point where formulas break, data gets entered twice, and dispatch slows down. Here is how to know when to switch.",
     category: "Operations & ERP",
-    publishedDate: "July 14, 2026",
-    readingTime: "6 min read",
+    publishedDate: "May 18, 2026",
+    readingTime: "5 min read",
     author: {
       name: "Parth Raval",
       role: "Founder & Lead Engineer, Gayatri Technology",
@@ -82,7 +82,7 @@ export const articles: Article[] = [
     excerpt:
       "Ready-made software promises quick deployment, but often forces your team into rigid foreign workflows and per-user monthly bills. Compare costs, adoption rates, and real-world trade-offs.",
     category: "Software Strategy",
-    publishedDate: "August 2, 2026",
+    publishedDate: "June 24, 2026",
     readingTime: "7 min read",
     author: {
       name: "Parth Raval",
@@ -129,8 +129,8 @@ export const articles: Article[] = [
     excerpt:
       "Factory management is not an academic exercise. Here are the core modules a manufacturing ERP needs—from shape-aware weight calculations to paperless delivery challans.",
     category: "Operations & ERP",
-    publishedDate: "August 28, 2026",
-    readingTime: "8 min read",
+    publishedDate: "July 30, 2026",
+    readingTime: "9 min read",
     author: {
       name: "Parth Raval",
       role: "Founder & Lead Engineer, Gayatri Technology",
@@ -177,7 +177,7 @@ export const articles: Article[] = [
     excerpt:
       "Most Indian businesses run on a combination of WhatsApp for communication, Excel for stock, and Tally for billing. Here is when and how to connect them into a single coherent workflow.",
     category: "Operations & ERP",
-    publishedDate: "September 19, 2026",
+    publishedDate: "August 22, 2026",
     readingTime: "6 min read",
     author: {
       name: "Parth Raval",
@@ -224,8 +224,8 @@ export const articles: Article[] = [
     excerpt:
       "From ₹50,000 simple portals to multi-lakh custom ERP suites: understand what actually drives software costs and the questions you must ask before hiring a software studio.",
     category: "Cost & Planning",
-    publishedDate: "October 11, 2026",
-    readingTime: "7 min read",
+    publishedDate: "October 14, 2026",
+    readingTime: "8 min read",
     author: {
       name: "Parth Raval",
       role: "Founder & Lead Engineer, Gayatri Technology",

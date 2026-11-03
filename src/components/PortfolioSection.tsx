@@ -27,7 +27,11 @@ import {
   ProjectScreenshot,
 } from "@/lib/portfolio";
 
-export default function PortfolioSection() {
+interface PortfolioSectionProps {
+  hideHeader?: boolean;
+}
+
+export default function PortfolioSection({ hideHeader = false }: PortfolioSectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<"all" | "erp" | "web">("all");
   const [expandedCode, setExpandedCode] = useState<string | null>(null);
   const [activeProjectScreenshots, setActiveProjectScreenshots] = useState<ProjectScreenshot[]>(gayatriAppScreenshots);
@@ -42,6 +46,30 @@ export default function PortfolioSection() {
   const toggleExpandCode = (code: string) => {
     setExpandedCode((prev) => (prev === code ? null : code));
   };
+
+  // Sync category filter & project expand with URL query params if present (e.g. from sector card clicks)
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const filterParam = params.get("filter");
+    if (filterParam === "erp" || filterParam === "web" || filterParam === "all") {
+      setSelectedCategory(filterParam);
+    }
+    const projectParam = params.get("project");
+    if (projectParam) {
+      const match = caseStudies.find(
+        (c) =>
+          c.sysCode.toLowerCase() === projectParam.toLowerCase() ||
+          c.sysCode.toLowerCase().includes(projectParam.toLowerCase())
+      );
+      if (match) {
+        setExpandedCode(match.sysCode);
+        if (match.category !== "all") {
+          setSelectedCategory(match.category);
+        }
+      }
+    }
+  }, []);
 
   const filteredCaseStudies = caseStudies.filter((item) => {
     if (selectedCategory === "all") return true;
@@ -154,35 +182,37 @@ export default function PortfolioSection() {
     <section id="portfolio" className="py-16 sm:py-20 lg:py-24 bg-white border-y border-[#E2E8F0] relative overflow-hidden">
       <div className="screen-container">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 scroll-reveal">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#091C0F] text-white text-xs font-semibold shadow-2xs mb-2">
-              <Terminal className="w-3.5 h-3.5 text-[#86EFAC]" />
-              <span className="font-mono uppercase tracking-wider text-[11px]">PRODUCTION SYSTEMS</span>
+        {!hideHeader && (
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 scroll-reveal">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#091C0F] text-white text-xs font-semibold shadow-2xs mb-2">
+                <Terminal className="w-3.5 h-3.5 text-[#86EFAC]" />
+                <span className="font-mono uppercase tracking-wider text-[11px]">PRODUCTION SYSTEMS</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight font-display">
+                Real Work That Solves Business Problems
+              </h2>
+              <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-2 max-w-xl">
+                Authentic software and web platforms built for businesses in Gujarat. Inspect actual screens,
+                problem breakdowns, and delivered functionality.
+              </p>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight font-display">
-              Real Work That Solves Business Problems
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-2 max-w-xl">
-              Authentic software and web platforms built for businesses in Gujarat. Inspect actual screens,
-              problem breakdowns, and delivered functionality.
-            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-[#00875A] hover:text-[#47C56E] font-bold text-xs sm:text-sm mt-4 md:mt-0 group min-h-[44px]"
+            >
+              <span>Discuss Your Project</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 text-[#00875A] hover:text-[#47C56E] font-bold text-xs sm:text-sm mt-4 md:mt-0 group min-h-[44px]"
-          >
-            <span>Discuss Your Project</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
+        )}
 
-        {/* Filter Tabs & Category Bar (Woyce.ai inspiration) */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-[#E2E8F0] scroll-reveal delay-100">
+        {/* Sticky Filter Tabs & Category Bar */}
+        <div className="sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur-md py-3 -mx-4 px-4 sm:mx-0 sm:px-0 mb-8 border-b border-[#E2E8F0] shadow-xs flex flex-wrap items-center justify-between gap-3 transition-all">
           <div className="flex overflow-x-auto sm:flex-wrap items-center gap-1.5 sm:gap-2 p-1 bg-[#F1F5F9] rounded-xl border border-[#E2E8F0] no-scrollbar max-w-full">
             <button
               onClick={() => setSelectedCategory("all")}
-              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 min-h-[36px] ${
                 selectedCategory === "all"
                   ? "bg-[#091C0F] text-white shadow-xs"
                   : "text-slate-600 hover:text-[#091C0F]"
@@ -192,7 +222,7 @@ export default function PortfolioSection() {
             </button>
             <button
               onClick={() => setSelectedCategory("erp")}
-              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 min-h-[36px] ${
                 selectedCategory === "erp"
                   ? "bg-[#091C0F] text-white shadow-xs"
                   : "text-slate-600 hover:text-[#091C0F]"
@@ -202,7 +232,7 @@ export default function PortfolioSection() {
             </button>
             <button
               onClick={() => setSelectedCategory("web")}
-              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shrink-0 min-h-[36px] ${
                 selectedCategory === "web"
                   ? "bg-[#091C0F] text-white shadow-xs"
                   : "text-slate-600 hover:text-[#091C0F]"
@@ -261,7 +291,7 @@ export default function PortfolioSection() {
                         <Smartphone className="w-3.5 h-3.5 text-[#86EFAC]" />
                       )}
                       <span className="text-xs font-mono text-[#86EFAC] tracking-wider font-semibold">
-                        {item.title.split(" ")[0]} {item.type.toUpperCase()}
+                        {item.shortLabel || item.title.split(" ")[0]} {item.type.toUpperCase()}
                       </span>
                     </div>
 
@@ -277,7 +307,7 @@ export default function PortfolioSection() {
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Open ${item.title}`}
+                          aria-label="Visit live website"
                           onClick={(e) => e.stopPropagation()}
                           className="text-[#94A3B8] hover:text-[#47C56E] transition-colors p-1"
                         >
@@ -679,7 +709,7 @@ export default function PortfolioSection() {
                               </div>
                             </div>
                             <p className="text-[#334155] italic text-[11px] leading-relaxed">
-                              &ldquo;{item.testimonial.quote}&rdquo;
+                              &ldquo;{item.testimonial.quote.trim()}&rdquo;
                             </p>
                           </div>
                         )}
@@ -703,13 +733,9 @@ export default function PortfolioSection() {
                 {/* 3. Bottom Footer & Toggle Strip */}
                 <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 border-t border-[#E2E8F0]/80 flex flex-col justify-between shrink-0 bg-[#F8FAFC]/90">
                   <div className="flex items-center justify-between text-[11px] text-[#64748B] font-mono leading-tight mb-3">
-                    <div className="flex items-center gap-1.5 truncate max-w-[65%]">
-                      {item.techBadges.slice(0, 3).map((badge, bIdx) => (
-                        <span key={bIdx} className="px-1.5 py-0.5 rounded bg-slate-200/80 text-slate-700 text-[10px] font-mono font-medium">
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold">
+                      {item.relationship}
+                    </span>
                     <span className="text-[#00875A] font-sans font-bold text-xs shrink-0 flex items-center gap-1 hover:text-[#091C0F] transition-colors">
                       {isExpanded ? (
                         <>
@@ -1000,7 +1026,7 @@ export default function PortfolioSection() {
                         </span>
                       </div>
                       <p className="text-[11px] sm:text-xs text-slate-300 italic leading-relaxed">
-                        &ldquo;{activeCaseStudy.testimonial.quote}&rdquo;
+                        &ldquo;{activeCaseStudy.testimonial.quote.trim()}&rdquo;
                       </p>
                     </div>
                   )}

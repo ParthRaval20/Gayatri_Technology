@@ -10,6 +10,8 @@ import {
   Send,
   RotateCcw,
   Share2,
+  MessageSquare,
+  ArrowRight,
 } from "lucide-react";
 import { siteConfig } from "@/lib/seo";
 import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
@@ -114,6 +116,26 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Requirement Form Column */}
           <div className="lg:col-span-7 bg-[#F8FAFC] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs">
+            {/* Mobile-Only Quick Connect Strip */}
+            <div className="grid grid-cols-2 gap-3 lg:hidden mb-6">
+              <a
+                href="tel:+919328437392"
+                className="inline-flex items-center justify-center gap-1.5 bg-white text-[#091C0F] border border-[#CBD5E1] p-3 rounded-xl text-xs font-bold shadow-2xs hover:border-[#091C0F] transition-all min-h-[44px] text-center"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#00875A] shrink-0" />
+                <span className="truncate">📞 Call +91 93284 37392</span>
+              </a>
+              <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 bg-[#25D366] text-white p-3 rounded-xl text-xs font-bold shadow-xs hover:bg-[#20ba59] transition-all min-h-[44px] text-center"
+              >
+                <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+                <span className="truncate">💬 WhatsApp Voice Note</span>
+              </a>
+            </div>
+
             {submitted ? (
               <div className="p-5 sm:p-8 bg-white rounded-2xl border border-[#E2E8F0] text-center space-y-4 sm:space-y-5 animate-in fade-in zoom-in duration-300">
                 <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-[#47C56E]/15 text-[#00875A] mx-auto flex items-center justify-center">
@@ -318,8 +340,8 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
                       <span>Sending Your Information...</span>
                     ) : (
                       <>
-                        <span>Tell Us What You Need</span>
-                        <Send className="w-4 h-4 text-[#091C0F]" />
+                        <span>Send Project Inquiry &rarr;</span>
+                        <ArrowRight className="w-4 h-4 text-[#091C0F]" />
                       </>
                     )}
                   </button>

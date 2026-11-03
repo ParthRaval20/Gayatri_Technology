@@ -223,19 +223,12 @@ export default function ServicesPage() {
         </section>
 
         {/* Detailed Services Grid (With Buyer-Relevant Delivery Specs) */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0] overflow-hidden">
+        <section className="py-10 sm:py-14 lg:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0] overflow-hidden">
           <div className="screen-container">
-            <div className="max-w-2xl mb-8 sm:mb-14">
-              <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
-                ENGINEERING VERTICALS
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#091C0F] tracking-tight font-display">
-                Tailored Services, Zero Compromises
-              </h2>
-              <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-[#00875A] md:hidden">
-                <span>Swipe horizontally to view all verticals</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
+            {/* Mobile swipe helper */}
+            <div className="mb-4 flex items-center justify-between text-xs font-semibold text-[#00875A] md:hidden px-1">
+              <span>← Swipe to inspect all 6 solutions →</span>
+              <span className="font-mono text-slate-400 text-[11px]">6 Services</span>
             </div>
 
             <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-4 md:pb-0 items-stretch">
@@ -245,7 +238,7 @@ export default function ServicesPage() {
                   <div
                     key={service.id}
                     id={service.id}
-                    className="w-[88vw] max-w-[360px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white rounded-2xl p-6 sm:p-7 border border-[#E2E8F0] hover:border-[#47C56E]/70 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
+                    className="w-[88vw] max-w-[360px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white rounded-2xl p-5 sm:p-7 sm:p-8 border border-[#E2E8F0] hover:border-[#47C56E]/70 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-5">
@@ -285,15 +278,15 @@ export default function ServicesPage() {
                     </div>
 
                     <div className="pt-3 border-t border-[#E2E8F0] space-y-3">
-                      {/* Buyer-Relevant Delivery Specs replacing filler tech tags */}
-                      <div className="p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] font-mono text-[#334155] space-y-1">
-                        <div className="font-semibold text-[#091C0F] flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 text-[#00875A]" />
-                          <span>{service.deliverySpec}</span>
+                      {/* Buyer-Relevant Delivery Specs on single compact 2-column row */}
+                      <div className="grid grid-cols-2 gap-2 text-xs p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] font-mono text-[#334155]">
+                        <div className="font-semibold text-[#091C0F] flex items-center gap-1.5 min-w-0">
+                          <Clock className="w-3.5 h-3.5 text-[#00875A] shrink-0" />
+                          <span className="truncate">{service.deliverySpec.replace("Typical Delivery: ", "")}</span>
                         </div>
-                        <div className="text-slate-500 flex items-center gap-1.5">
-                          <Layers className="w-3.5 h-3.5 text-slate-400" />
-                          <span className="truncate">{service.platform}</span>
+                        <div className="text-slate-500 flex items-center gap-1.5 min-w-0 justify-end">
+                          <Layers className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <span className="truncate">{service.platform.replace("Platform: ", "")}</span>
                         </div>
                       </div>
 

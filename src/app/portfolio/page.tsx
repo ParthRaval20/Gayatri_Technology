@@ -59,7 +59,7 @@ export default function PortfolioPage() {
               </div>
 
               {/* Inline 4 Summary Metrics Bar */}
-              <div className="lg:col-span-5 grid grid-cols-2 gap-2.5 sm:gap-3">
+              <div className="lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-3.5">
                 <div className="p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-left">
                   <span className="text-xl min-[360px]:text-2xl font-extrabold text-[#091C0F] font-mono">4</span>
                   <p className="text-[11px] min-[360px]:text-xs font-bold text-[#091C0F] mt-0.5 truncate">Production Deployments</p>
@@ -87,7 +87,7 @@ export default function PortfolioPage() {
 
         {/* Main Portfolio Interactive Section (Screenshots visible above the fold) */}
         <div className="bg-[#F8FAFC]">
-          <PortfolioSection />
+          <PortfolioSection hideHeader={true} />
         </div>
 
         {/* Interactive Architecture & Pipeline Explorer (Promoted directly below project cards) */}

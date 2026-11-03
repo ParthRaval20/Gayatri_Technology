@@ -11,6 +11,7 @@ import {
   Mail,
 } from "lucide-react";
 import { siteConfig } from "@/lib/seo";
+import FounderPhoto from "./FounderPhoto";
 
 const compactPrinciples = [
   {
@@ -68,9 +69,7 @@ export default function WhyChooseUsSection() {
             {/* Signed Footer */}
             <div className="pt-4 border-t border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3 sm:gap-3.5">
-                <div className="w-11 sm:w-12 h-11 sm:h-12 rounded-2xl bg-[#091C0F] text-[#86EFAC] font-display font-black flex items-center justify-center text-sm sm:text-base border-2 border-[#47C56E]/40 shadow-xs shrink-0">
-                  PR
-                </div>
+                <FounderPhoto size="sm" />
                 <div>
                   <h4 className="text-base font-bold text-[#091C0F] font-display">Parth Raval</h4>
                   <p className="text-xs text-[#00875A] font-semibold">Founder &amp; Lead Software Engineer</p>

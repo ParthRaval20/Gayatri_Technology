@@ -240,23 +240,23 @@ export default function InteractiveArchitecture() {
         </div>
 
         {/* Interactive Tab Switcher */}
-        <div className="flex overflow-x-auto sm:flex-wrap items-center gap-2 sm:gap-3 p-1.5 bg-[#E2E8F0]/60 rounded-2xl mb-8 max-w-full sm:max-w-fit border border-[#CBD5E1]/60 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-1.5 scroll-reveal delay-100">
+        <div className="flex overflow-x-auto no-scrollbar items-center gap-2 sm:gap-3 p-1.5 bg-[#E2E8F0]/60 rounded-2xl mb-8 -mx-4 px-4 sm:mx-0 sm:px-1.5 sm:flex-wrap max-w-full sm:max-w-fit border border-[#CBD5E1]/60 scroll-reveal delay-100">
           {architectureSystems.map((sys) => {
             const isActive = activeTab === sys.id;
             return (
               <button
                 key={sys.id}
                 onClick={() => setActiveTab(sys.id)}
-                className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 ${
+                className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 whitespace-nowrap min-h-[44px] ${
                   isActive
                     ? "bg-[#091C0F] text-white shadow-md shadow-emerald-950/20"
                     : "text-[#475569] hover:text-[#091C0F] hover:bg-white/70"
                 }`}
               >
                 <span className={`w-2 h-2 rounded-full ${isActive ? "bg-[#47C56E]" : "bg-slate-400"}`} />
-                <span className="font-display">{sys.title.split("&")[0]}</span>
+                <span className="font-display">{sys.title.split("&")[0].trim()}</span>
                 <span
-                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
+                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full hidden sm:inline ${
                     isActive ? "bg-[#163820] text-[#86EFAC]" : "bg-slate-200 text-slate-600"
                   }`}
                 >
@@ -311,13 +311,13 @@ export default function InteractiveArchitecture() {
             </div>
 
             {/* Micro Specs Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-slate-800">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-slate-800">
               {currentSystem.specs.map((spec, i) => (
                 <div key={i} className="p-2.5 sm:p-3 rounded-xl bg-[#0F2916] border border-[#1b4829]">
                   <span className="text-[9px] min-[360px]:text-[10px] font-mono text-slate-400 block uppercase truncate">
                     {spec.label}
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 block truncate">
+                  <span className="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 block break-words sm:truncate">
                     {spec.value}
                   </span>
                 </div>

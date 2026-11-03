@@ -18,6 +18,7 @@ import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
 import { siteConfig, getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import { InstagramIcon, LinkedinIcon } from "@/components/SocialIcons";
+import FounderPhoto from "@/components/FounderPhoto";
 
 export const metadata: Metadata = createPageMetadata({
   title: "About Us | Founder-Led Software Studio in Rajkot, Gujarat",
@@ -113,7 +114,7 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="pt-4 flex flex-col min-[420px]:flex-row gap-3">
+                <div className="pt-4 hidden lg:flex flex-row gap-3">
                   <Link
                     href="/contact"
                     className="inline-flex items-center justify-center gap-2 bg-[#091C0F] hover:bg-[#163820] text-white px-6 py-3 rounded-full text-xs font-bold transition-all shadow-md min-h-[44px]"
@@ -147,9 +148,7 @@ export default function AboutPage() {
 
                   {/* Founder Profile Identity */}
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-[#091C0F] text-[#86EFAC] font-display font-black text-2xl flex items-center justify-center shrink-0 border-2 border-[#47C56E]/40 shadow-sm">
-                      PR
-                    </div>
+                    <FounderPhoto size="md" />
                     <div>
                       <h2 className="text-xl font-bold text-[#091C0F] font-display">
                         Parth Raval

@@ -35,7 +35,7 @@ const industries: IndustryItem[] = [
     ],
     desc: "Built for factory and yard environments where staff need fast, rugged inputs rather than confusing multi-step forms.",
     ctaText: "See Our Manufacturing ERP Work",
-    ctaHref: "/portfolio",
+    ctaHref: "/portfolio?filter=erp#portfolio",
   },
   {
     icon: Boxes,
@@ -147,11 +147,11 @@ export default function IndustriesSection() {
                     {item.desc}
                   </p>
 
-                  <div className="space-y-2 pt-3 border-t border-[#E2E8F0] mb-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-[#E2E8F0] mb-5">
                     {item.focus.map((bullet, bIdx) => (
-                      <div key={bIdx} className="flex items-start gap-2 text-xs text-[#334155]">
+                      <div key={bIdx} className="flex items-start gap-1.5 text-xs text-[#334155] bg-white sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border sm:border-0 border-slate-200/60">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#00875A] shrink-0 mt-0.5" />
-                        <span>{bullet}</span>
+                        <span className="leading-tight">{bullet}</span>
                       </div>
                     ))}
                   </div>

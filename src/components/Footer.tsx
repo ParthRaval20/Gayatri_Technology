@@ -9,7 +9,7 @@ import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 export default function Footer() {
 
   return (
-    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-24 sm:pb-8">
+    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-32 sm:pb-12">
       <div className="screen-container pt-8 sm:pt-10 pb-4 sm:pb-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 pb-6 sm:pb-7 border-b border-[#163820]">
           {/* Brand Summary Column */}
@@ -66,7 +66,7 @@ export default function Footer() {
                 aria-label="Follow Gayatri Technology on Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5 text-pink-400 group-hover:scale-110 transition-transform" />
-                <span className="font-mono text-[11px]">@{siteConfig.social.instagram.handle}</span>
+                <span className="font-mono text-[11px]">@{siteConfig.social.instagram.handle.trim()}</span>
               </a>
 
               <a
@@ -215,7 +215,7 @@ export default function Footer() {
                   className="hover:text-[#47C56E] transition-colors flex items-center gap-1.5"
                 >
                   <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
-                  <span>Instagram (@{siteConfig.social.instagram.handle})</span>
+                  <span>Instagram (@{siteConfig.social.instagram.handle.trim()})</span>
                 </a>
               </li>
               <li>

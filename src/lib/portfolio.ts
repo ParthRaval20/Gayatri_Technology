@@ -24,6 +24,7 @@ export interface CaseStudy {
   relationship: ProjectRelationship;
   sector: ProjectSector;
   title: string;
+  shortLabel?: string;
   tagline: string;
   problem: string;
   existingWorkflow: string;
@@ -171,6 +172,7 @@ export const caseStudies: CaseStudy[] = [
     relationship: "Client Project",
     sector: "ENTERPRISE MOBILITY & ERP",
     title: "Gayatri Steel Mobile Operations Suite",
+    shortLabel: "GAYATRI STEEL",
     tagline: "10-Module Operations System for 5 Group Companies",
     problem:
       "Tracking stock across 5 sister entities with handwritten registers and WhatsApp chats caused stock count mismatches and delayed vehicle dispatches.",
@@ -213,6 +215,7 @@ export const caseStudies: CaseStudy[] = [
     relationship: "Client Project",
     sector: "INSTITUTIONAL & TRUST ERP",
     title: "Gujarat Brahm Samaj Management Suite",
+    shortLabel: "BRAHM SAMAJ",
     tagline: "Member Registration, ID Generation & Chapter Management ERP (v2.4.0)",
     problem:
       "Managing hundreds of trust members across Sabarkantha & North Gujarat with loose paper forms and cardboard folders caused lost member records, missing fee receipts, and weeks of delay generating official identity cards.",
@@ -256,6 +259,7 @@ export const caseStudies: CaseStudy[] = [
     relationship: "Client Project",
     sector: "METALS & MANUFACTURING",
     title: "Gayatri Steel Group Web Portal",
+    shortLabel: "GAYATRI STEEL",
     tagline: "Commercial Web Platform & Technical Steel Grade Catalog",
     problem:
       "Buyers called sales representatives repeatedly just to check available tool steel grades, chemical compositions, and facility locations across Rajkot and Jamnagar.",
@@ -298,6 +302,7 @@ export const caseStudies: CaseStudy[] = [
     relationship: "Client Project",
     sector: "CREATIVE & DIGITAL PRODUCTION",
     title: "The Divine Roar Studio",
+    shortLabel: "DIVINE ROAR",
     tagline: "High-Performance Interactive Agency Web Platform",
     problem:
       "A creative media studio needed an authoritative web platform showcasing high-fidelity production work without heavy loading delays or mobile stutters.",
