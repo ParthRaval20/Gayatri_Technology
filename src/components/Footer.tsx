@@ -9,7 +9,7 @@ import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 export default function Footer() {
 
   return (
-    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-20 sm:pb-6">
+    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-24 sm:pb-8">
       <div className="screen-container pt-8 sm:pt-10 pb-4 sm:pb-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 pb-6 sm:pb-7 border-b border-[#163820]">
           {/* Brand Summary Column */}
@@ -30,24 +30,24 @@ export default function Footer() {
             </p>
             <address className="not-italic text-xs text-[#E2E8F0]/75 space-y-1 pt-0.5 font-sans">
               <p>102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
-              <p className="flex flex-wrap items-center gap-3 pt-0.5">
-                <a href="tel:+919328437392" className="hover:text-[#47C56E] transition-colors font-medium">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
+                <a href="tel:+919328437392" className="hover:text-[#47C56E] transition-colors font-medium py-1">
                   +91 93284 37392
                 </a>
-                <span>•</span>
+                <span className="text-slate-600">•</span>
                 <a
                   href="https://wa.me/919328437392"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#25D366] transition-colors font-medium text-[#86EFAC]"
+                  className="hover:text-[#25D366] transition-colors font-medium text-[#86EFAC] py-1"
                 >
                   WhatsApp
                 </a>
-                <span>•</span>
-                <a href="mailto:info@gayatritechnology.in" className="hover:text-[#47C56E] transition-colors font-medium">
+                <span className="text-slate-600">•</span>
+                <a href="mailto:info@gayatritechnology.in" className="hover:text-[#47C56E] transition-colors font-medium py-1">
                   info@gayatritechnology.in
                 </a>
-              </p>
+              </div>
             </address>
             <div className="flex items-center gap-2.5 pt-1">
               <span className="w-2 h-2 rounded-full bg-[#47C56E]" />

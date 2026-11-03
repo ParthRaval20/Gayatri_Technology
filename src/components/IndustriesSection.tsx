@@ -12,10 +12,20 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const industries = [
+interface IndustryItem {
+  icon: React.ElementType;
+  name: string;
+  tagline: string;
+  focus: string[];
+  desc: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const industries: IndustryItem[] = [
   {
     icon: Factory,
-    name: "Manufacturing",
+    name: "Manufacturing & Metals",
     tagline: "Metals, Engineering, Fabrication & Industrial Goods",
     focus: [
       "Shape-aware piece & tonnage inventory",
@@ -24,6 +34,8 @@ const industries = [
       "Multi-facility sync (e.g. Rajkot & Jamnagar)",
     ],
     desc: "Built for factory and yard environments where staff need fast, rugged inputs rather than confusing multi-step forms.",
+    ctaText: "See Our Manufacturing ERP Work",
+    ctaHref: "/portfolio",
   },
   {
     icon: Boxes,
@@ -36,11 +48,13 @@ const industries = [
       "Customer ledger statements & balance lookups",
     ],
     desc: "Replaces chaotic telephone orders and memory-based price lists with structured catalogs connected to warehouse stock.",
+    ctaText: "Discuss Your Inventory & Dispatch Setup",
+    ctaHref: "/contact",
   },
   {
     icon: Truck,
-    name: "Logistics & Transport",
-    tagline: "Freight Dispatchers & Delivery Operations",
+    name: "Multi-Branch Operations",
+    tagline: "Depots, Stockyards & Transit Operations",
     focus: [
       "Driver, lorry, and carrier transport documentation",
       "Automated GSTIN, PO, and delivery challan PDFs",
@@ -48,11 +62,13 @@ const industries = [
       "Tare weight and batch consignment verification",
     ],
     desc: "Accelerates turnaround time at the gate by generating error-free transit papers in under 30 seconds.",
+    ctaText: "Discuss Multi-Branch Sync",
+    ctaHref: "/contact",
   },
   {
     icon: Briefcase,
-    name: "Service & Trade Businesses",
-    tagline: "Agencies, Contractors & Professional Firms",
+    name: "Service & Trade",
+    tagline: "Contractors, Commercial Suppliers & Specialized Trade",
     focus: [
       "Client inquiry tracking & quotation vault",
       "Internal multi-step approval workflows",
@@ -60,6 +76,8 @@ const industries = [
       "Operational executive telemetry dashboards",
     ],
     desc: "Brings messy email threads and disconnected spreadsheets into one clear operational dashboard.",
+    ctaText: "Automate Your Quotations & Billing",
+    ctaHref: "/contact",
   },
   {
     icon: Rocket,
@@ -72,6 +90,8 @@ const industries = [
       "Rock-solid database schemas that scale gracefully",
     ],
     desc: "We build prototypes and MVPs with production-grade engineering so you don't have to throw away code when traffic grows.",
+    ctaText: "Scope Your MVP or Product Build",
+    ctaHref: "/contact",
   },
 ];
 
@@ -79,11 +99,11 @@ export default function IndustriesSection() {
   return (
     <section id="industries" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
+        <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
+          <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
             BUSINESS SECTORS
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight mb-3 font-display">
             Where we have genuine domain experience
           </h2>
           <p className="text-base sm:text-lg text-[#475569]">
@@ -138,10 +158,10 @@ export default function IndustriesSection() {
                 </div>
 
                 <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00875A] hover:text-[#47C56E] group-hover:gap-2.5 transition-all"
+                  href={item.ctaHref}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00875A] hover:text-[#091C0F] group-hover:gap-2.5 transition-all pt-2"
                 >
-                  <span>Discuss Your {item.name} Workflow</span>
+                  <span>{item.ctaText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -152,4 +172,3 @@ export default function IndustriesSection() {
     </section>
   );
 }
-

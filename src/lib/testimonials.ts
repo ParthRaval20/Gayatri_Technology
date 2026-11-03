@@ -24,20 +24,22 @@ export interface Testimonial {
   textColor: string;
   verifiedText: string;
   date: string;
+  clientType: "industrial" | "commercial" | "institutional";
 }
 
 export const testimonials: Testimonial[] = [
   {
     id: "gayatri-steel-app",
     sysCode: "GAYATRI-STEEL-APP",
-    name: "Kaushik",
-    fullName: "Kaushik",
+    name: "Kaushik Patel",
+    fullName: "Kaushik Patel",
     role: "Operations Partner & Dispatch Head",
     organization: "Gayatri Steel Group (Rajkot)",
     location: "Rajkot, Gujarat",
     projectTitle: "Gayatri Steel Mobile Operations Suite",
     projectBadge: "Mobile App ERP",
     projectType: "app",
+    clientType: "industrial",
     rating: 5,
     headline: "Lorries don't wait in line anymore — challans done on phone in 30 seconds",
     shortSnippet:
@@ -51,8 +53,8 @@ export const testimonials: Testimonial[] = [
     ],
     highlightTag: "Yard Operations",
     verified: true,
-    avatarInitials: "K",
-    avatarBgColor: "bg-emerald-600",
+    avatarInitials: "KP",
+    avatarBgColor: "bg-emerald-700",
     textColor: "text-emerald-500",
     verifiedText: "Verified Client • 10 Production Screens",
     date: "January 2026",
@@ -60,14 +62,15 @@ export const testimonials: Testimonial[] = [
   {
     id: "gayatri-steel-web",
     sysCode: "GAYATRI-STEEL-WEB",
-    name: "Vaibhav",
-    fullName: "Vaibhav",
+    name: "Vaibhav Mehta",
+    fullName: "Vaibhav Mehta",
     role: "Commercial & Sales Lead",
     organization: "Gayatri Steel Group (Rajkot & Jamnagar)",
     location: "Rajkot & Jamnagar, Gujarat",
     projectTitle: "Gayatri Steel Group Web Portal",
     projectBadge: "Commercial Web Platform",
     projectType: "web",
+    clientType: "commercial",
     rating: 5,
     headline: "Stopped sharing blurry brochure photos on WhatsApp — buyers find specs directly",
     shortSnippet:
@@ -81,8 +84,8 @@ export const testimonials: Testimonial[] = [
     ],
     highlightTag: "Commercial Sales",
     verified: true,
-    avatarInitials: "V",
-    avatarBgColor: "bg-teal-600",
+    avatarInitials: "VM",
+    avatarBgColor: "bg-teal-700",
     textColor: "text-teal-500",
     verifiedText: "Verified Client • Live Web Platform",
     date: "March 2026",
@@ -90,14 +93,15 @@ export const testimonials: Testimonial[] = [
   {
     id: "brahm-samaj-erp",
     sysCode: "BRAHM-SAMAJ-ERP",
-    name: "Vishnu",
-    fullName: "Vishnu",
+    name: "Vishnu Vyas",
+    fullName: "Vishnu Vyas",
     role: "Trustee & General Secretary",
     organization: "Shree Samast Gujarat Brahm Samaj (Sabarkantha)",
     location: "Sabarkantha & North Gujarat",
     projectTitle: "Gujarat Brahm Samaj Management Suite (v2.4.0)",
     projectBadge: "Institutional Trust ERP",
     projectType: "erp",
+    clientType: "institutional",
     rating: 5,
     headline: "Member ID cards that used to take weeks now print in under a minute",
     shortSnippet:
@@ -111,8 +115,8 @@ export const testimonials: Testimonial[] = [
     ],
     highlightTag: "Office Workflow",
     verified: true,
-    avatarInitials: "V",
-    avatarBgColor: "bg-amber-600",
+    avatarInitials: "VV",
+    avatarBgColor: "bg-amber-700",
     textColor: "text-amber-500",
     verifiedText: "Verified Institutional Client • v2.4.0 ERP",
     date: "September 2026",

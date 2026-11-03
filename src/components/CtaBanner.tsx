@@ -9,7 +9,7 @@ export default function CtaBanner() {
   return (
     <section className="py-12 sm:py-16 bg-[#F8FAFC]">
       <div className="screen-container">
-        <div className="bg-[#091C0F] text-[#E2E8F0] rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 border border-[#47C56E]/20 scroll-reveal-scale">
+        <div className="bg-[#091C0F] text-[#E2E8F0] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 border border-[#47C56E]/20 scroll-reveal-scale">
           {/* Subtle Ambient Radial Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#47C56E]/15 rounded-full blur-3xl pointer-events-none -z-10 animate-float-gentle" />
 
@@ -25,7 +25,7 @@ export default function CtaBanner() {
               you figure out what makes sense.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-slate-300">
+            <div className="flex flex-col min-[480px]:flex-row min-[480px]:items-center gap-2 min-[480px]:gap-4 pt-2 text-xs text-slate-300">
               <a
                 href={`tel:${siteConfig.contact.telephone.replace(/\s+/g, "")}`}
                 className="hover:text-[#47C56E] transition-colors flex items-center gap-1.5"
@@ -33,7 +33,7 @@ export default function CtaBanner() {
                 <Phone className="w-3.5 h-3.5 text-[#47C56E]" />
                 <span>{siteConfig.contact.telephone}</span>
               </a>
-              <span>&bull;</span>
+              <span className="hidden min-[480px]:inline text-slate-500">&bull;</span>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
                 className="hover:text-[#47C56E] transition-colors flex items-center gap-1.5"
@@ -41,7 +41,7 @@ export default function CtaBanner() {
                 <Mail className="w-3.5 h-3.5 text-[#47C56E]" />
                 <span>{siteConfig.contact.email}</span>
               </a>
-              <span>&bull;</span>
+              <span className="hidden min-[480px]:inline text-slate-500">&bull;</span>
               <span>Rajkot, Gujarat</span>
             </div>
           </div>

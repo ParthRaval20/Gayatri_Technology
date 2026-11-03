@@ -7,7 +7,7 @@ import {
   Clock,
   CheckCircle2,
   MessageSquare,
-  Sparkles,
+  Terminal,
   ArrowRight,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return createPageMetadata({
-    title: `${article.title} | Gayatri Technology`,
+    title: article.title,
     description: article.excerpt,
     path: `/knowledge/${article.slug}`,
     type: "article",
@@ -125,17 +125,17 @@ export default async function ArticleDetailPage({ params }: PageProps) {
               <span className="text-xs text-[#64748B]">{article.publishedDate}</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display mb-4 leading-tight">
+            <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display mb-4 leading-tight">
               {article.title}
             </h1>
 
-            <p className="text-base sm:text-xl text-[#00875A] font-medium leading-relaxed mb-6 font-display">
+            <p className="text-sm sm:text-lg text-[#00875A] font-medium leading-relaxed mb-6 font-display">
               {article.subtitle}
             </p>
 
             <div className="flex items-center justify-between pt-4 border-t border-[#F1F5F9] text-xs text-[#64748B]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#091C0F] text-[#47C56E] font-bold flex items-center justify-center font-mono">
+                <div className="w-10 h-10 rounded-full bg-[#091C0F] text-[#47C56E] font-bold flex items-center justify-center font-mono shrink-0">
                   PR
                 </div>
                 <div>
@@ -152,7 +152,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-[#20ba59] transition-all"
+                className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-[#20ba59] transition-all min-h-[40px]"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>Discuss on WhatsApp</span>
@@ -161,9 +161,9 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           </header>
 
           {/* Key Takeaways Callout Box */}
-          <div className="bg-[#F0FDF4] border-2 border-[#86EFAC] rounded-2xl p-6 sm:p-8 mb-10 sm:mb-12 shadow-xs">
+          <div className="bg-[#F0FDF4] border-2 border-[#86EFAC] rounded-2xl p-4 sm:p-6 sm:p-8 mb-8 sm:mb-12 shadow-xs">
             <div className="flex items-center gap-2.5 mb-3">
-              <Sparkles className="w-5 h-5 text-[#00875A]" />
+              <Terminal className="w-5 h-5 text-[#00875A]" />
               <h2 className="text-sm font-bold uppercase tracking-wider text-[#00875A] font-mono">
                 Key Takeaways for Business Owners
               </h2>
@@ -211,14 +211,14 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           </div>
 
           {/* Founder Quote & Reflection */}
-          <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs space-y-4">
-            <h3 className="text-lg font-bold text-[#091C0F] font-display">
+          <div className="mt-10 sm:mt-16 p-4 sm:p-6 sm:p-8 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-[#091C0F] font-display">
               A Personal Note from Parth Raval
             </h3>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed italic">
               &quot;We see many business owners in Rajkot and Gujarat get burned by massive software promises that end up gathering dust because they don&apos;t fit the daily routine of the people on the floor. Start small, solve the real operational bottleneck first, and let your software grow with your workflow.&quot;
             </p>
-            <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-[#F1F5F9]">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-[#F1F5F9]">
               <span className="text-xs text-[#64748B]">
                 Have a unique operational process? We can audit your current workflow.
               </span>
@@ -228,7 +228,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-[#20ba59] transition-all"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-2.5 rounded-full text-xs font-bold hover:bg-[#20ba59] transition-all min-h-[44px]"
               >
                 <span>Ask on WhatsApp</span>
               </a>

@@ -14,7 +14,11 @@ import {
 import { siteConfig } from "@/lib/seo";
 import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  isPageHeading?: boolean;
+}
+
+export default function ContactSection({ isPageHeading = true }: ContactSectionProps) {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -90,12 +94,18 @@ export default function ContactSection() {
     <section id="contact" className="py-12 sm:py-16 lg:py-24 bg-white border-t border-[#E2E8F0]">
       <div className="screen-container">
         <div className="max-w-3xl mb-8 sm:mb-14">
-          <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
+          <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
             DIRECT FOUNDER &amp; TEAM ACCESS
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight mb-3 font-display">
-            Have a business problem that software could solve?
-          </h2>
+          {isPageHeading ? (
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight mb-3 font-display">
+              Have a business problem that software could solve?
+            </h1>
+          ) : (
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight mb-3 font-display">
+              Have a business problem that software could solve?
+            </h2>
+          )}
           <p className="text-base sm:text-lg text-[#475569]">
             Tell us what you&apos;re trying to build or what isn&apos;t working today. We&apos;ll help you figure out what makes sense.
           </p>
@@ -422,6 +432,50 @@ export default function ContactSection() {
                 <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
                   Practical conversations, zero high-pressure sales talk
                 </p>
+              </div>
+            </div>
+
+            {/* What happens after you reach out timeline */}
+            <div className="bg-[#091C0F] text-white p-5 sm:p-6 rounded-2xl border border-[#163820] shadow-md space-y-4">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#86EFAC] font-bold block">
+                What happens after you reach out:
+              </span>
+              <div className="space-y-3.5 text-xs">
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-[#163820] text-[#86EFAC] font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-[#225430]">
+                    1
+                  </span>
+                  <div>
+                    <h4 className="font-bold text-white text-xs">Same-day engineer response</h4>
+                    <p className="text-slate-300 text-[11px] mt-0.5 leading-relaxed">
+                      Directly from Parth Raval, never a commission salesperson or outsourced agent.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-[#163820] text-[#86EFAC] font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-[#225430]">
+                    2
+                  </span>
+                  <div>
+                    <h4 className="font-bold text-white text-xs">15-minute workflow review</h4>
+                    <p className="text-slate-300 text-[11px] mt-0.5 leading-relaxed">
+                      On WhatsApp, phone, or in-person at your Rajkot/Saurashtra facility to audit sheets and challans.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <span className="w-5 h-5 rounded-full bg-[#163820] text-[#86EFAC] font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-[#225430]">
+                    3
+                  </span>
+                  <div>
+                    <h4 className="font-bold text-white text-xs">Fixed-scope roadmap &amp; quote</h4>
+                    <p className="text-slate-300 text-[11px] mt-0.5 leading-relaxed">
+                      Clear milestone schedule, transparent cost breakdown, and 100% source code ownership.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 

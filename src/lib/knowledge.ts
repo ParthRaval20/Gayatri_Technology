@@ -26,7 +26,7 @@ export const articles: Article[] = [
     excerpt:
       "Excel is the world's most popular business tool, but there is a tipping point where formulas break, data gets entered twice, and dispatch slows down. Here is how to know when to switch.",
     category: "Operations & ERP",
-    publishedDate: "October 2026",
+    publishedDate: "July 14, 2026",
     readingTime: "6 min read",
     author: {
       name: "Parth Raval",
@@ -77,12 +77,12 @@ export const articles: Article[] = [
   },
   {
     slug: "custom-erp-vs-ready-made",
-    title: "Custom ERP vs Ready-Made ERP: What Actually Works for Growing Businesses?",
+    title: "Custom ERP vs. Ready-Made SaaS: Why Per-User Licensing Hurts Growing Factories",
     subtitle: "Why 60% of generic off-the-shelf software implementations get abandoned, and how to choose correctly.",
     excerpt:
       "Ready-made software promises quick deployment, but often forces your team into rigid foreign workflows and per-user monthly bills. Compare costs, adoption rates, and real-world trade-offs.",
     category: "Software Strategy",
-    publishedDate: "October 2026",
+    publishedDate: "August 2, 2026",
     readingTime: "7 min read",
     author: {
       name: "Parth Raval",
@@ -124,12 +124,12 @@ export const articles: Article[] = [
   },
   {
     slug: "manufacturing-erp-essentials",
-    title: "What Should a Manufacturing ERP Actually Manage on the Ground?",
+    title: "Inside a Shop-Floor ERP: From Shape-Aware Weight Math to 30-Second Challans",
     subtitle: "A practical breakdown of factory-floor modules that actually move metal and reduce production waste.",
     excerpt:
       "Factory management is not an academic exercise. Here are the core modules a manufacturing ERP needs—from shape-aware weight calculations to paperless delivery challans.",
     category: "Operations & ERP",
-    publishedDate: "October 2026",
+    publishedDate: "August 28, 2026",
     readingTime: "8 min read",
     author: {
       name: "Parth Raval",
@@ -172,12 +172,12 @@ export const articles: Article[] = [
   },
   {
     slug: "whatsapp-excel-tally-integration",
-    title: "WhatsApp + Excel + Tally: When Should These Become One System?",
+    title: "The 'WhatsApp + Excel + Tally' Trap: Fixing What Happens Before Accounting",
     subtitle: "How growing Indian businesses bridge the chaotic gap between sales chats, inventory sheets, and accounting.",
     excerpt:
       "Most Indian businesses run on a combination of WhatsApp for communication, Excel for stock, and Tally for billing. Here is when and how to connect them into a single coherent workflow.",
     category: "Operations & ERP",
-    publishedDate: "October 2026",
+    publishedDate: "September 19, 2026",
     readingTime: "6 min read",
     author: {
       name: "Parth Raval",
@@ -224,7 +224,7 @@ export const articles: Article[] = [
     excerpt:
       "From ₹50,000 simple portals to multi-lakh custom ERP suites: understand what actually drives software costs and the questions you must ask before hiring a software studio.",
     category: "Cost & Planning",
-    publishedDate: "October 2026",
+    publishedDate: "October 11, 2026",
     readingTime: "7 min read",
     author: {
       name: "Parth Raval",

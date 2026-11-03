@@ -1,150 +1,176 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
-  Copy,
-  Layers,
   FileSpreadsheet,
-  Building,
   MessageCircle,
-  Clock,
-  ArrowRight,
-  GitFork,
+  Building2,
+  FileCheck2,
+  XCircle,
   CheckCircle2,
-  AlertCircle,
 } from "lucide-react";
 
-const problems = [
+interface ComparisonRow {
+  title: string;
+  icon: React.ElementType;
+  before: {
+    tool: string;
+    description: string;
+  };
+  after: {
+    system: string;
+    description: string;
+  };
+}
+
+const comparisonRows: ComparisonRow[] = [
   {
-    icon: Copy,
-    title: "Same data entered multiple times",
-    desc: "Your team creates an order in a diary, re-enters it into Excel for stock, and types it again for accounting or billing.",
-    solution: "One single entry that flows automatically across your whole operation.",
-  },
-  {
-    icon: Layers,
-    title: "Inventory difficult to track accurately",
-    desc: "Nobody is 100% sure what is physically in the warehouse vs. what has already been promised or dispatched.",
-    solution: "Live piece-by-piece and batch inventory visible to your whole team in real time.",
-  },
-  {
+    title: "Double Entry & Copying Data",
     icon: FileSpreadsheet,
-    title: "Manual reports take days to compile",
-    desc: "At the end of every week or month, business owners wait for staff to manually combine multiple spreadsheets.",
-    solution: "Automated, instant reports showing stock, dispatches, and pending balances.",
+    before: {
+      tool: "Handwritten Diary & Excel Sheets",
+      description:
+        "Staff write orders in pocket notebooks, re-type them into an inventory spreadsheet, and copy them once more for billing or dispatch.",
+    },
+    after: {
+      system: "Unified Operational Core",
+      description:
+        "One single touchpoint on phone or PC updates live stock, reserves pieces, and generates GST delivery challans automatically.",
+    },
   },
   {
-    icon: Building,
-    title: "Multiple branches running separate systems",
-    desc: "Your Rajkot facility, Jamnagar depot, and head office have isolated records with zero automatic sync.",
-    solution: "Centralized multi-company and multi-branch software accessible securely from any device.",
-  },
-  {
-    icon: Clock,
-    title: "Customers constantly asking for updates",
-    desc: "Clients call and message repeatedly to ask: 'Is my order ready? Has the lorry left? What is the challan number?'",
-    solution: "Instant digital challans and automated status tracking dispatched straight to WhatsApp.",
-  },
-  {
-    icon: GitFork,
-    title: "Existing software doesn't fit your workflow",
-    desc: "Off-the-shelf software forces you to change the way you run your business, requiring confusing manual workarounds.",
-    solution: "Custom software engineered around the exact steps your team already follows.",
-  },
-  {
+    title: "WhatsApp Chaos & Client Inquiries",
     icon: MessageCircle,
-    title: "Critical processes depend entirely on WhatsApp",
-    desc: "Photos of challans, stock inquiries, and payment proofs get lost in chaotic chat histories.",
-    solution: "Organized digital records that link WhatsApp directly to your core operational system.",
+    before: {
+      tool: "Scattered WhatsApp Chats & Calls",
+      description:
+        "Photos of bills, dimension scribbles, and lorry details get buried in group chats. Customers call repeatedly to check order status.",
+    },
+    after: {
+      system: "Automated WhatsApp API Triggers",
+      description:
+        "Customers automatically receive a clean branded message with vehicle number and live download link for their PDF delivery challan.",
+    },
   },
   {
-    icon: AlertCircle,
-    title: "Teams constantly copy data between tools",
-    desc: "Valuable working hours are wasted copying data back and forth between spreadsheets, PDFs, and accounting tools.",
-    solution: "Connected workflows that eliminate manual data transfer and costly human errors.",
+    title: "Inventory Tracking & Multi-Branch Sync",
+    icon: Building2,
+    before: {
+      tool: "Disconnected Files Across Godowns",
+      description:
+        "Stock counts in Rajkot and Jamnagar differ from physical yard piles. Promised material gets double-allocated or delayed at the gate.",
+    },
+    after: {
+      system: "Live Multi-Branch Inventory",
+      description:
+        "Real-time piece counters, low-stock warnings, and isolated company ledgers across all sister entities on one single screen.",
+    },
+  },
+  {
+    title: "Manual Reports & Rigid Off-the-Shelf Tools",
+    icon: FileCheck2,
+    before: {
+      tool: "3-Day Month-End Excel Consolidation",
+      description:
+        "Off-the-shelf ERPs demand 20 irrelevant fields, forcing staff to abandon the software and spend days manually stitching spreadsheets.",
+    },
+    after: {
+      system: "Fast, Tailored Floor Systems",
+      description:
+        "Touch-friendly screens built for actual operators. Instant automated reports on tonnage, dispatches, and balances in 1 click.",
+    },
   },
 ];
 
 export default function RealProblemsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-[#E2E8F0] overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#FAFCFF] border-b border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 scroll-reveal">
-          <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
-            REAL BUSINESS REALITIES
+        <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
+          <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+            OPERATIONAL REALITIES &bull; BEFORE VS. AFTER
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight leading-tight font-display mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display mb-3">
             Has your business outgrown Excel, WhatsApp and disconnected tools?
           </h2>
           <p className="text-base sm:text-lg text-[#475569] leading-relaxed">
-            Most growing businesses don&apos;t fail because of sales. They slow down because manual,
+            Most growing businesses don&apos;t slow down because of sales. They slow down because manual,
             disconnected systems break down when order volumes increase.
           </p>
         </div>
 
-        {/* Mobile Swipe Hint */}
-        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
-          <span>← Swipe horizontally to browse problems →</span>
-          <span className="font-mono text-slate-400 text-[11px]">8 Realities</span>
-        </div>
-
-        {/* Problem Matrix Grid (Swipeable on Mobile, 4-Col Grid on Desktop) */}
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
-          {problems.map((item, idx) => {
-            const Icon = item.icon;
-            const staggerDelay = idx % 4 === 1 ? "delay-100" : idx % 4 === 2 ? "delay-200" : idx % 4 === 3 ? "delay-300" : "";
-            return (
-              <div
-                key={idx}
-                className={`scroll-reveal ${staggerDelay} w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center p-5 sm:p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/60 hover:bg-[#F0FDF4]/50 hover:-translate-y-1 hover:shadow-sm transition-all duration-200 flex flex-col justify-between group shadow-2xs h-auto`}
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#00875A] mb-3.5 shadow-2xs group-hover:scale-105 group-hover:border-[#47C56E]/40 transition-transform">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-base font-bold text-[#091C0F] mb-2 font-display leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed mb-4">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#E2E8F0] flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#00875A] shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-[#091C0F] leading-tight">
-                    {item.solution}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Transition Bridge */}
-        <div className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-2xl bg-[#091C0F] text-white border border-[#163820] flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1.5 text-center md:text-left">
-            <span className="text-xs font-mono font-bold text-[#86EFAC] uppercase tracking-wider block">
-              THE GAYATRI TECHNOLOGY APPROACH
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
-              We turn those workflows into software your team can actually use.
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
-              No bloated manuals. No months of painful training. We design interfaces so intuitive
-              that warehouse staff and busy business owners can run them from a phone in seconds.
-            </p>
+        {/* 2-Column Split Ledger Comparison Table */}
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs overflow-hidden">
+          {/* Table Header */}
+          <div className="hidden md:grid md:grid-cols-12 bg-[#091C0F] text-white py-3.5 px-6 sm:px-8 text-xs font-mono font-bold tracking-wider uppercase border-b border-[#163820]">
+            <div className="col-span-5 text-rose-300 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-rose-400" />
+              <span>How It Runs Today (Excel + WhatsApp + Diary)</span>
+            </div>
+            <div className="col-span-2 text-center text-slate-400">
+              Workflow Friction
+            </div>
+            <div className="col-span-5 text-[#86EFAC] flex items-center gap-2 justify-end">
+              <span className="w-2 h-2 rounded-full bg-[#47C56E]" />
+              <span>How It Runs On A Custom Engineered System</span>
+            </div>
           </div>
 
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2.5 bg-[#47C56E] text-[#091C0F] px-6 py-3.5 rounded-full text-sm font-bold shadow-md hover:bg-[#3db863] transition-all shrink-0 active:scale-95"
-          >
-            <span>Tell Us What Isn&apos;t Working</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          {/* Comparison Rows */}
+          <div className="divide-y divide-[#E2E8F0]">
+            {comparisonRows.map((row, idx) => {
+              const Icon = row.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-4 sm:p-7 md:py-6 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-5 md:gap-6 items-stretch md:items-center hover:bg-slate-50/70 transition-colors"
+                >
+                  {/* Center: Workflow Pillar Badge (Rendered First on Mobile for Instant Context) */}
+                  <div className="order-1 md:order-2 md:col-span-2 flex flex-row md:flex-col items-center justify-start md:justify-center text-left md:text-center gap-2.5 md:gap-0 pb-1 md:py-0 border-b md:border-b-0 md:border-x border-slate-100 md:px-2">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#F0FDF4] border border-[#86EFAC]/60 flex items-center justify-center text-[#00875A] shrink-0 md:mb-1.5 shadow-2xs">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs sm:text-[11px] font-bold text-[#091C0F] font-display">
+                      {row.title}
+                    </span>
+                  </div>
+
+                  {/* Left: How It Runs Today (Muted Red/Slate) */}
+                  <div className="order-2 md:order-1 md:col-span-5 space-y-1.5 bg-rose-50/60 md:bg-transparent p-3.5 sm:p-4 md:p-0 rounded-xl border border-rose-100 md:border-0">
+                    <div className="flex items-center gap-2 text-rose-800 md:text-slate-700">
+                      <XCircle className="w-4 h-4 text-rose-500 shrink-0" />
+                      <span className="md:hidden text-[9px] font-mono font-bold uppercase tracking-wider text-rose-700 bg-rose-200/60 px-1.5 py-0.5 rounded">
+                        BEFORE
+                      </span>
+                      <span className="text-xs font-bold font-mono uppercase tracking-wide truncate">
+                        {row.before.tool}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed pl-6">
+                      {row.before.description}
+                    </p>
+                  </div>
+
+                  {/* Right: How It Runs on Unified System (Crisp Dark/Green) */}
+                  <div className="order-3 md:order-3 md:col-span-5 space-y-1.5 bg-emerald-50/70 md:bg-transparent p-3.5 sm:p-4 md:p-0 rounded-xl border border-emerald-100 md:border-0">
+                    <div className="flex items-center gap-2 text-[#00875A]">
+                      <CheckCircle2 className="w-4 h-4 text-[#00875A] shrink-0" />
+                      <span className="md:hidden text-[9px] font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-200/60 px-1.5 py-0.5 rounded">
+                        AFTER
+                      </span>
+                      <span className="text-xs font-bold font-mono uppercase tracking-wide truncate">
+                        {row.after.system}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-[#091C0F] font-medium leading-relaxed pl-6">
+                      {row.after.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -5,9 +5,8 @@ import {
   BookOpen,
   Clock,
   ArrowRight,
-  CheckCircle2,
-  Sparkles,
   MessageSquare,
+  Terminal,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,11 +14,11 @@ import { articles } from "@/lib/knowledge";
 import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Knowledge & Practical Guides | Gayatri Technology",
+  title: "Practical Engineering Guides",
   description:
     "Practical guides and engineering insights on moving from Excel to ERP, custom vs off-the-shelf software, manufacturing operations, and software costs in India.",
   path: "/knowledge",
-  openGraphTitle: "Knowledge & Practical Guides | Gayatri Technology",
+  openGraphTitle: "Practical Engineering Guides | Gayatri Technology",
   openGraphDescription:
     "Actionable engineering insights for business owners: Excel to ERP migration, custom software costs, shop-floor manufacturing ERP, and WhatsApp workflow automation.",
 });
@@ -29,6 +28,10 @@ export default function KnowledgePage() {
     { name: "Home", path: "/" },
     { name: "Knowledge", path: "/knowledge" },
   ]);
+
+  const featuredArticle =
+    articles.find((a) => a.slug === "whatsapp-excel-tally-integration") || articles[0];
+  const gridArticles = articles.filter((a) => a.slug !== featuredArticle.slug);
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
@@ -41,114 +44,149 @@ export default function KnowledgePage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Page Hero */}
-        <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-18 lg:py-24 custom-grid-bg border-b border-[#E2E8F0]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(71,197,110,0.12),transparent_70%)] pointer-events-none -z-10" />
-
-          <div className="screen-container max-w-4xl mx-auto text-center space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
-              <span>Practical Guides • Zero AI Fluff • Written By Builders</span>
+        {/* Compact Left-Aligned Architectural Header (No pill badge, no faint grid background) */}
+        <section className="pt-8 pb-10 sm:pt-14 sm:pb-16 bg-white border-b border-[#E2E8F0]">
+          <div className="screen-container">
+            <div className="max-w-4xl space-y-3">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#00875A]">
+                FIELD NOTES ON ERP, EXCEL &amp; OPERATIONS
+              </span>
+              <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display leading-[1.14]">
+                Practical Engineering Guides for Growing Businesses
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg text-[#475569] max-w-2xl leading-relaxed pt-1">
+                Actionable guides on how to evaluate custom software, when to replace Excel, and how shop-floor operations work on the ground.
+              </p>
             </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#091C0F] tracking-tight leading-tight font-display">
-              Practical Insights for Growing Businesses
-            </h1>
-
-            <p className="text-base sm:text-lg text-[#475569] max-w-2xl mx-auto leading-relaxed">
-              No generic buzzwords or high-level corporate fluff. Actionable guides on how to evaluate custom software, when to replace Excel, and how real operations work on the ground.
-            </p>
           </div>
         </section>
 
-        {/* Founder Context Strip */}
-        <section className="bg-white py-6 border-b border-[#E2E8F0]">
-          <div className="screen-container max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#475569]">
+        {/* Founder Context Bar */}
+        <section className="bg-white py-4 sm:py-5 border-b border-[#E2E8F0]">
+          <div className="screen-container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#475569]">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#091C0F] text-[#47C56E] font-bold flex items-center justify-center font-mono">
-                PR
+              <div className="w-8 h-8 rounded-lg bg-[#091C0F] text-[#86EFAC] font-bold flex items-center justify-center font-mono text-xs">
+                GT
               </div>
               <div>
                 <span className="font-bold text-[#091C0F] block">Curated by Parth Raval</span>
-                <span className="text-[#64748B]">Founder &amp; Software Lead, Gayatri Technology (Rajkot)</span>
+                <span className="text-[#64748B]">Founder &amp; Lead Engineer, Gayatri Technology (Rajkot)</span>
               </div>
             </div>
             <div className="inline-flex items-center gap-2 text-[#00875A] font-semibold">
               <BookOpen className="w-4 h-4" />
-              <span>{articles.length} Comprehensive In-Depth Guides</span>
+              <span>{articles.length} In-Depth Operations Playbooks</span>
             </div>
           </div>
         </section>
 
-        {/* Articles Grid */}
+        {/* Articles Section: Full-Width Featured Guide + 2x2 Grid */}
         <section className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC]">
-          <div className="screen-container max-w-5xl mx-auto space-y-8">
-            <div className="grid gap-6 md:gap-8">
-              {articles.map((article) => (
-                <article
-                  key={article.slug}
-                  className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 hover:border-[#47C56E]/60 hover:shadow-md transition-all group relative"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div className="screen-container space-y-8 sm:space-y-10">
+            {/* 1. Full-Width 2-Column Featured Article */}
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] p-6 sm:p-10 hover:border-[#47C56E]/70 shadow-sm hover:shadow-md transition-all group">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7 space-y-3.5">
+                  <div className="flex items-center gap-3 flex-wrap">
                     <span className="px-3 py-1 rounded-full text-xs font-bold font-mono bg-[#47C56E]/12 text-[#00875A]">
-                      {article.category}
+                      FEATURED PLAYBOOK
                     </span>
-                    <div className="flex items-center gap-3 text-xs text-[#64748B]">
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" />
-                        {article.readingTime}
-                      </span>
-                      <span>•</span>
-                      <span>{article.publishedDate}</span>
-                    </div>
+                    <span className="text-xs text-slate-500 font-mono flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" />
+                      {featuredArticle.readingTime}
+                    </span>
+                    <span className="text-xs text-slate-400">•</span>
+                    <span className="text-xs text-slate-500 font-mono">
+                      {featuredArticle.publishedDate}
+                    </span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#091C0F] font-display group-hover:text-[#00875A] transition-colors mb-2">
-                    <Link href={`/knowledge/${article.slug}`} className="focus:outline-none">
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      {article.title}
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#091C0F] font-display group-hover:text-[#00875A] transition-colors leading-snug">
+                    <Link href={`/knowledge/${featuredArticle.slug}`}>
+                      {featuredArticle.title}
                     </Link>
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-[#00875A] font-semibold mb-3">
-                    {article.subtitle}
+                  <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+                    {featuredArticle.excerpt}
                   </p>
 
-                  <p className="text-sm sm:text-base text-[#475569] leading-relaxed mb-6">
-                    {article.excerpt}
-                  </p>
+                  <div className="pt-2">
+                    <Link
+                      href={`/knowledge/${featuredArticle.slug}`}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs"
+                    >
+                      <span>Read Featured Guide</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#47C56E]" />
+                    </Link>
+                  </div>
+                </div>
 
-                  {/* Key Takeaways Snapshot */}
-                  <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 mb-6">
-                    <span className="text-xs font-bold text-[#091C0F] uppercase tracking-wider block mb-2 font-mono">
-                      Key Highlights:
-                    </span>
-                    <ul className="grid sm:grid-cols-2 gap-2 text-xs text-[#475569]">
-                      {article.keyTakeaways.slice(0, 2).map((takeaway, tIdx) => (
-                        <li key={tIdx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-[#00875A] shrink-0 mt-0.5" />
-                          <span>{takeaway}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="lg:col-span-5 bg-[#F8FAFC] p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] space-y-3">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#00875A] font-bold block">
+                    Core Operational Takeaways:
+                  </span>
+                  <ul className="space-y-2 text-xs text-[#475569]">
+                    {featuredArticle.keyTakeaways.slice(0, 3).map((takeaway, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-[#00875A] font-bold text-sm leading-none shrink-0">•</span>
+                        <span>{takeaway}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. 2x2 Grid Below for Remaining 4 Guides */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              {gridArticles.map((article) => (
+                <article
+                  key={article.slug}
+                  className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 hover:border-[#47C56E]/60 hover:shadow-md transition-all group flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono bg-[#47C56E]/12 text-[#00875A]">
+                        {article.category}
+                      </span>
+                      <div className="flex items-center gap-2 text-xs text-[#64748B] font-mono">
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5" />
+                          {article.readingTime}
+                        </span>
+                        <span>•</span>
+                        <span>{article.publishedDate}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold text-[#091C0F] font-display group-hover:text-[#00875A] transition-colors leading-snug">
+                      <Link href={`/knowledge/${article.slug}`}>
+                        {article.title}
+                      </Link>
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed line-clamp-3">
+                      {article.excerpt}
+                    </p>
                   </div>
 
-                  <div className="flex items-center justify-between pt-2 border-t border-[#F1F5F9] text-xs font-bold">
-                    <span className="text-[#64748B]">
-                      By {article.author.name}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-[#00875A] group-hover:text-[#47C56E] group-hover:translate-x-1 transition-all">
+                  <div className="pt-4 mt-4 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-bold">
+                    <Link
+                      href={`/knowledge/${article.slug}`}
+                      className="inline-flex items-center gap-1.5 text-[#00875A] hover:text-[#091C0F] transition-colors"
+                    >
                       <span>Read Complete Guide</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
                 </article>
               ))}
             </div>
 
             {/* Direct WhatsApp Ask CTA */}
-            <div className="bg-gradient-to-br from-[#091C0F] to-[#12381B] text-white p-8 sm:p-10 rounded-3xl shadow-lg border border-[#1b4324] text-center space-y-4">
-              <span className="px-3 py-1 rounded-full text-xs font-bold font-mono bg-[#47C56E]/20 text-[#86EFAC] inline-block">
+            <div className="bg-[#091C0F] text-white p-8 sm:p-10 rounded-2xl sm:rounded-3xl shadow-lg border border-[#163820] text-center space-y-4">
+              <span className="px-3 py-1 rounded-full text-xs font-bold font-mono bg-[#163820] text-[#86EFAC] border border-[#225430] inline-block">
                 FOUNDER-TO-FOUNDER CONVERSATION
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">

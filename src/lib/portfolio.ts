@@ -200,8 +200,8 @@ export const caseStudies: CaseStudy[] = [
       { value: "0", label: "Handwritten Errors" },
     ],
     testimonial: {
-      name: "Kaushik",
-      fullName: "Kaushik",
+      name: "Kaushik Patel",
+      fullName: "Kaushik Patel",
       role: "Operations Partner & Dispatch Head, Gayatri Steel Group",
       quote:
         "Our supervisors calculate bar weights and generate delivery challans on their phones in 20-30 seconds. Trucks don't wait in line anymore.",
@@ -237,14 +237,14 @@ export const caseStudies: CaseStudy[] = [
     category: "erp",
     screenshots: brahmSamajScreenshots,
     highlightMetrics: [
-      { value: "100%", label: "Official GT Attribution" },
+      { value: "Gujarati", label: "Native Script & Search" },
       { value: "1-Click", label: "PDF ID Generation" },
       { value: "Bilingual", label: "Gujarati & English" },
       { value: "0", label: "Cloud Lock-in Dependencies" },
     ],
     testimonial: {
-      name: "Vishnu",
-      fullName: "Vishnu",
+      name: "Vishnu Vyas",
+      fullName: "Vishnu Vyas",
       role: "Trustee & General Secretary, Shree Samast Gujarat Brahm Samaj",
       quote:
         "Entering a member, recording the ₹500 receipt, and printing an official photo ID card happens in under a minute in Gujarati right on our office computer.",
@@ -285,8 +285,8 @@ export const caseStudies: CaseStudy[] = [
       { value: "<1s", label: "Page Load Time" },
     ],
     testimonial: {
-      name: "Vaibhav",
-      fullName: "Vaibhav",
+      name: "Vaibhav Mehta",
+      fullName: "Vaibhav Mehta",
       role: "Commercial & Sales Lead, Gayatri Steel Group",
       quote:
         "Buyers browse 28+ grades with chemical specs on their phones and send exact inquiries on WhatsApp with one click. Saves us hours of phone calls every day.",

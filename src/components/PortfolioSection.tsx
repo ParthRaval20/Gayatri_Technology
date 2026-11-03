@@ -15,7 +15,8 @@ import {
   ChevronRight,
   ChevronDown,
   ChevronUp,
-  Sparkles,
+  Terminal,
+  Layers,
   Monitor,
   Star,
 } from "lucide-react";
@@ -155,9 +156,9 @@ export default function PortfolioSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 scroll-reveal">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-2xs mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
-              <span className="font-mono uppercase tracking-wider">REAL WORK &bull; ZERO FABRICATIONS</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#091C0F] text-white text-xs font-semibold shadow-2xs mb-2">
+              <Terminal className="w-3.5 h-3.5 text-[#86EFAC]" />
+              <span className="font-mono uppercase tracking-wider text-[11px]">PRODUCTION SYSTEMS</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#091C0F] tracking-tight font-display">
               Real Work That Solves Business Problems
@@ -260,7 +261,7 @@ export default function PortfolioSection() {
                         <Smartphone className="w-3.5 h-3.5 text-[#86EFAC]" />
                       )}
                       <span className="text-xs font-mono text-[#86EFAC] tracking-wider font-semibold">
-                        {item.sysCode}
+                        {item.title.split(" ")[0]} {item.type.toUpperCase()}
                       </span>
                     </div>
 
@@ -307,12 +308,9 @@ export default function PortfolioSection() {
                   {/* 2. Main Card Content */}
                   <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
                     <div>
-                      {/* Relationship & Sector */}
+                      {/* Sector Tag */}
                       <div className="flex items-center justify-between gap-2 h-5 shrink-0 mb-1.5">
-                        <span className="text-[11px] font-bold text-[#00875A] tracking-wider uppercase font-mono">
-                          {item.relationship}
-                        </span>
-                        <span className="text-[10px] font-semibold text-slate-600 bg-white border border-[#E2E8F0] px-2 py-0.5 rounded shrink-0 truncate max-w-[170px]">
+                        <span className="text-[10px] font-semibold text-[#00875A] bg-[#47C56E]/10 border border-[#47C56E]/20 px-2 py-0.5 rounded-full shrink-0">
                           {item.sector}
                         </span>
                       </div>
@@ -601,7 +599,7 @@ export default function PortfolioSection() {
                           <div className="h-[192px] bg-[#091C0F] rounded-xl p-3 sm:p-3.5 border border-[#163820] flex flex-col justify-between shrink-0">
                             <div className="flex items-center justify-between text-xs h-6">
                               <span className="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
-                                <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                                <Layers className="w-3.5 h-3.5 shrink-0" />
                                 <span>Creative Digital Studio</span>
                               </span>
                               <a
@@ -705,7 +703,13 @@ export default function PortfolioSection() {
                 {/* 3. Bottom Footer & Toggle Strip */}
                 <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 border-t border-[#E2E8F0]/80 flex flex-col justify-between shrink-0 bg-[#F8FAFC]/90">
                   <div className="flex items-center justify-between text-[11px] text-[#64748B] font-mono leading-tight mb-3">
-                    <span className="truncate max-w-[55%] font-medium">{item.tech}</span>
+                    <div className="flex items-center gap-1.5 truncate max-w-[65%]">
+                      {item.techBadges.slice(0, 3).map((badge, bIdx) => (
+                        <span key={bIdx} className="px-1.5 py-0.5 rounded bg-slate-200/80 text-slate-700 text-[10px] font-mono font-medium">
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
                     <span className="text-[#00875A] font-sans font-bold text-xs shrink-0 flex items-center gap-1 hover:text-[#091C0F] transition-colors">
                       {isExpanded ? (
                         <>
@@ -951,7 +955,7 @@ export default function PortfolioSection() {
               >
                 <div className="space-y-2 sm:space-y-3">
                   <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-[#163820] text-[#86EFAC] text-[11px] sm:text-xs font-semibold">
-                    <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+                    <Layers className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                     <span>{activeProjectScreenshots[activeScreenshotIdx]?.subtitle}</span>
                   </div>
 
@@ -967,19 +971,19 @@ export default function PortfolioSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 pt-1 text-[11px] sm:text-xs text-slate-300">
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
-                      <span>Production Verified Deployment</span>
+                      <span>Active Production Deployment</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
-                      <span>Zero Generic Templates</span>
+                      <span>Tailored Shop-Floor Workflow</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
-                      <span>Engineered For Real Operators</span>
+                      <span>Sub-second Response Times</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <ShieldCheck className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#47C56E] shrink-0" />
-                      <span>Direct Founder Architecture</span>
+                      <span>Direct Lead Engineer Architecture</span>
                     </div>
                   </div>
 

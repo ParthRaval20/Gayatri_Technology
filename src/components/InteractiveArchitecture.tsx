@@ -10,10 +10,9 @@ import {
   ShieldCheck,
   Zap,
   ArrowRight,
-  Sparkles,
+  Terminal,
   Building2,
   Users,
-  CheckCircle2,
 } from "lucide-react";
 
 interface WorkflowStep {
@@ -146,7 +145,7 @@ const architectureSystems: ArchitectureSystem[] = [
       },
     ],
     highlightBox: {
-      title: "Verified Gayatri Technology Production Development",
+      title: "Data Sovereignty & Direct Attribution",
       description:
         "The software includes official footer verification ('Software Developed by Gayatri Technology') and features an offline backup & restore engine ensuring complete autonomy, zero recurring cloud rent, and total data sovereignty.",
       tags: ["Official GT Attribution", "Offline Autonomy", "Emergency Blood Donor Match"],
@@ -200,7 +199,7 @@ const architectureSystems: ArchitectureSystem[] = [
       },
     ],
     highlightBox: {
-      title: "Zero Sales Friction",
+      title: "Commercial Speed & Direct RFQs",
       description:
         "Buyers no longer call asking 'Do you have P20 in stock? What is the hardness?'. They review the exact chemistry online and send an inquiry with their exact dimensions in 2 taps.",
       tags: ["Sub-second Loading", "Direct WhatsApp Inquiries", "Edge Prerendered"],
@@ -222,8 +221,8 @@ export default function InteractiveArchitecture() {
       <div className="screen-container">
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-12 scroll-reveal">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-2xs mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#091C0F] text-white text-xs font-semibold shadow-2xs mb-3">
+            <Terminal className="w-3.5 h-3.5 text-[#86EFAC]" />
             <span className="font-mono uppercase tracking-wider">System Architecture &amp; Workflow Inspection</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display">
@@ -271,21 +270,21 @@ export default function InteractiveArchitecture() {
         {/* Active Architecture Display Canvas */}
         <div key={activeTab} className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-sm overflow-hidden animate-scale-in scroll-reveal delay-150">
           {/* Top Banner Meta */}
-          <div className="p-6 sm:p-8 bg-[#091C0F] text-white border-b border-[#163820]">
+          <div className="p-4 sm:p-6 sm:p-8 bg-[#091C0F] text-white border-b border-[#163820]">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
               <div className="space-y-2">
-                <div className="flex items-center gap-2.5 flex-wrap">
-                  <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#163820] text-[#86EFAC] border border-[#225430] font-bold">
+                <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+                  <span className="text-[11px] sm:text-xs font-mono px-2 sm:px-2.5 py-0.5 sm:py-1 rounded bg-[#163820] text-[#86EFAC] border border-[#225430] font-bold">
                     {currentSystem.sysCode}
                   </span>
-                  <span className="text-xs font-semibold text-slate-300 bg-white/10 px-2.5 py-1 rounded">
+                  <span className="text-[11px] sm:text-xs font-semibold text-slate-300 bg-white/10 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded">
                     {currentSystem.sector}
                   </span>
-                  <span className="text-xs font-bold text-[#47C56E]">
+                  <span className="text-[11px] sm:text-xs font-bold text-[#47C56E]">
                     Client: {currentSystem.client}
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-bold font-display text-white">
                   {currentSystem.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
@@ -295,14 +294,14 @@ export default function InteractiveArchitecture() {
 
               {/* Technology Badges */}
               <div className="flex flex-wrap lg:flex-col lg:items-end gap-1.5 shrink-0">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#86EFAC] font-bold mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#86EFAC] font-bold mb-0.5 sm:mb-1">
                   Engineered With:
                 </span>
                 <div className="flex flex-wrap gap-1.5 max-w-xs">
                   {currentSystem.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-[#163820] text-[#86EFAC] border border-[#225430]"
+                      className="text-[10px] sm:text-[11px] font-mono px-2 sm:px-2.5 py-0.5 rounded-md bg-[#163820] text-[#86EFAC] border border-[#225430]"
                     >
                       {tech}
                     </span>
@@ -312,10 +311,10 @@ export default function InteractiveArchitecture() {
             </div>
 
             {/* Micro Specs Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 pt-6 border-t border-slate-800">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-slate-800">
               {currentSystem.specs.map((spec, i) => (
-                <div key={i} className="p-3 rounded-xl bg-[#0F2916] border border-[#1b4829]">
-                  <span className="text-[10px] font-mono text-slate-400 block uppercase">
+                <div key={i} className="p-2.5 sm:p-3 rounded-xl bg-[#0F2916] border border-[#1b4829]">
+                  <span className="text-[9px] min-[360px]:text-[10px] font-mono text-slate-400 block uppercase truncate">
                     {spec.label}
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 block truncate">
@@ -327,7 +326,7 @@ export default function InteractiveArchitecture() {
           </div>
 
           {/* 4-Step Interactive Pipeline Flow */}
-          <div className="p-6 sm:p-8 space-y-6">
+          <div className="p-4 sm:p-6 sm:p-8 space-y-6">
             <div>
               <span className="text-xs font-bold text-[#00875A] uppercase tracking-wider block font-mono">
                 DATA PIPELINE EXECUTION
@@ -364,11 +363,6 @@ export default function InteractiveArchitecture() {
                       <p className="text-xs text-[#475569] leading-relaxed mt-2">
                         {step.desc}
                       </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-[#E2E8F0]/70 flex items-center text-[11px] text-[#00875A] font-semibold gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Verified In Production</span>
                     </div>
                   </div>
                 );

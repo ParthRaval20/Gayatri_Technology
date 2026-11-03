@@ -1,12 +1,5 @@
 import React from "react";
 import { Metadata } from "next";
-import {
-  Sparkles,
-  ShieldCheck,
-  Zap,
-  Layers,
-  Award,
-} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PortfolioSection from "@/components/PortfolioSection";
@@ -14,19 +7,16 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import InteractiveArchitecture from "@/components/InteractiveArchitecture";
 import CtaBanner from "@/components/CtaBanner";
 import { getBreadcrumbSchema, getTestimonialsSchema, createPageMetadata } from "@/lib/seo";
-import { portfolioMetrics } from "@/lib/portfolio";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Our Work & Case Studies | Custom Software Built For Real Operations",
+  title: "Production Systems & Architecture Case Studies",
   description:
     "Explore Gayatri Technology's production software case studies, including the Gujarat Brahm Samaj ERP (v2.4.0) and Gayatri Steel mobile operations ERP suite, with real workflows, UI screens, and delivered features.",
   path: "/portfolio",
-  openGraphTitle: "Our Work & Case Studies | Gayatri Technology",
+  openGraphTitle: "Production Systems & Architecture Case Studies | Gayatri Technology",
   openGraphDescription:
     "Production case studies of custom business software, institutional ERPs, mobile platforms, and operational tools built around how teams actually work.",
 });
-
-const metricIcons = [Layers, Zap, ShieldCheck, Award];
 
 export default function PortfolioPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
@@ -52,72 +42,62 @@ export default function PortfolioPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Page Hero */}
-        <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-18 lg:py-24 custom-grid-bg border-b border-[#E2E8F0]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(71,197,110,0.12),transparent_70%)] pointer-events-none -z-10" />
-
-          <div className="screen-container max-w-4xl mx-auto text-center space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#00875A]" />
-              <span>Real Work • Delivered Systems • Authentic Screenshots</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#091C0F] tracking-tight leading-tight font-display">
-              Software Built For Real Operations
-            </h1>
-
-            <p className="text-base sm:text-lg text-[#475569] max-w-2xl mx-auto leading-relaxed">
-              We build custom software for businesses and institutions that have outgrown spreadsheets, WhatsApp groups, and disconnected paper binders. Explore what we built, the exact problem it solved, and the screens used every day.
-            </p>
-          </div>
-        </section>
-
-        {/* Quantifiable Impact Metrics */}
-        <section className="py-8 sm:py-12 bg-white border-b border-[#E2E8F0]">
+        {/* Compact Architectural Header with Inline Metrics */}
+        <section className="pt-8 pb-10 sm:pt-12 sm:pb-14 bg-white border-b border-[#E2E8F0]">
           <div className="screen-container">
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-              {portfolioMetrics.map((item, idx) => {
-                const Icon = metricIcons[idx % metricIcons.length];
-                const delayClass =
-                  idx === 0 ? "delay-100" : idx === 1 ? "delay-150" : idx === 2 ? "delay-200" : "delay-250";
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-3">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#00875A]">
+                  PRODUCTION CASE STUDIES &bull; RAJKOT &amp; GUJARAT
+                </span>
+                <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display leading-[1.15]">
+                  Production Systems &amp; Architecture Case Studies
+                </h1>
+                <p className="text-sm sm:text-base text-[#475569] max-w-2xl leading-relaxed">
+                  Real operational systems engineered for factory stockyards, community trust administration, and industrial sales teams. Inspect delivered UIs, mathematical engines, and live architectures.
+                </p>
+              </div>
 
-                return (
-                  <div
-                    key={idx}
-                    className={`p-3.5 sm:p-6 rounded-2xl bg-[#FAFCFF] border border-[#E2E8F0] text-center flex flex-col items-center justify-center space-y-1.5 sm:space-y-2 hover:border-[#47C56E]/60 transition-all shadow-xs scroll-reveal ${delayClass}`}
-                  >
-                    <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] mb-0.5 sm:mb-1">
-                      <Icon className="w-4 sm:w-5 h-4 sm:h-5" />
-                    </div>
-                    <span className="text-2xl sm:text-4xl font-extrabold text-[#091C0F] font-mono tracking-tight">
-                      {item.metric}
-                    </span>
-                    <span className="text-xs sm:text-sm font-bold text-[#091C0F] font-display">
-                      {item.label}
-                    </span>
-                    <span className="text-[11px] sm:text-xs text-[#64748B] max-w-[220px] hidden min-[360px]:block">
-                      {item.sub}
-                    </span>
-                  </div>
-                );
-              })}
+              {/* Inline 4 Summary Metrics Bar */}
+              <div className="lg:col-span-5 grid grid-cols-2 gap-2.5 sm:gap-3">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-left">
+                  <span className="text-xl min-[360px]:text-2xl font-extrabold text-[#091C0F] font-mono">4</span>
+                  <p className="text-[11px] min-[360px]:text-xs font-bold text-[#091C0F] mt-0.5 truncate">Production Deployments</p>
+                  <p className="text-[9px] min-[360px]:text-[10px] text-slate-500 truncate">ERPs &amp; commercial portals</p>
+                </div>
+                <div className="p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-left">
+                  <span className="text-xl min-[360px]:text-2xl font-extrabold text-[#091C0F] font-mono">12+</span>
+                  <p className="text-[11px] min-[360px]:text-xs font-bold text-[#091C0F] mt-0.5 truncate">Production Screens</p>
+                  <p className="text-[9px] min-[360px]:text-[10px] text-slate-500 truncate">Live operational interfaces</p>
+                </div>
+                <div className="p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-left">
+                  <span className="text-xl min-[360px]:text-2xl font-extrabold text-[#091C0F] font-mono">28+</span>
+                  <p className="text-[11px] min-[360px]:text-xs font-bold text-[#091C0F] mt-0.5 truncate">Alloy Standards</p>
+                  <p className="text-[9px] min-[360px]:text-[10px] text-slate-500 truncate">Calculated metallurgical grades</p>
+                </div>
+                <div className="p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-left">
+                  <span className="text-xl min-[360px]:text-2xl font-extrabold text-[#00875A] font-mono">&lt;15ms</span>
+                  <p className="text-[11px] min-[360px]:text-xs font-bold text-[#091C0F] mt-0.5 truncate">Math Engine Latency</p>
+                  <p className="text-[9px] min-[360px]:text-[10px] text-slate-500 truncate">Shape-aware weight formulas</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Main Portfolio Interactive Section */}
+        {/* Main Portfolio Interactive Section (Screenshots visible above the fold) */}
         <div className="bg-[#F8FAFC]">
           <PortfolioSection />
         </div>
+
+        {/* Interactive Architecture & Pipeline Explorer (Promoted directly below project cards) */}
+        <InteractiveArchitecture />
 
         {/* Client Testimonials Section */}
         <TestimonialsSection
           title="What Our Clients Say About These Systems"
           subtitle="Direct feedback from the operators, commercial executives, and trust administrators who rely on our delivered software every day."
         />
-
-        {/* Interactive Architecture & Pipeline Explorer (Woyce.ai inspiration) */}
-        <InteractiveArchitecture />
 
         {/* CTA Banner */}
         <CtaBanner />

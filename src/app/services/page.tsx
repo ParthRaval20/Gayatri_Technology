@@ -10,10 +10,11 @@ import {
   ArrowRight,
   Cpu,
   Smartphone,
+  Clock,
+  Layers,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CustomSolutionsSection from "@/components/CustomSolutionsSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import TechStackSection from "@/components/TechStackSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -31,7 +32,22 @@ export const metadata: Metadata = createPageMetadata({
     "Custom business software, ERP systems, web applications, and mobile tools built around your actual workflow.",
 });
 
-const detailedServices = [
+interface ServiceVertical {
+  id: string;
+  icon: React.ElementType;
+  title: string;
+  tag: string;
+  badge: string;
+  whoNeedsIt: string;
+  problem: string;
+  whatWeBuild: string;
+  useCase: string;
+  deliverables: string[];
+  deliverySpec: string;
+  platform: string;
+}
+
+const detailedServices: ServiceVertical[] = [
   {
     id: "custom-software",
     icon: Terminal,
@@ -48,7 +64,8 @@ const detailedServices = [
       "Automated operational reporting and export to PDF/Excel",
       "Direct WhatsApp and email notification triggers",
     ],
-    tech: ["Next.js", "React", "Python", "FastAPI", "PostgreSQL"],
+    deliverySpec: "Typical Delivery: 4–6 Weeks",
+    platform: "Platform: Responsive Web & Cloud Console",
   },
   {
     id: "erp-operations",
@@ -66,7 +83,8 @@ const detailedServices = [
       "Digital delivery challans with customer GSTIN and lorry details",
       "Customer ledger statements and pending payment tracking",
     ],
-    tech: ["React Native", "Next.js", "Python", "PostgreSQL"],
+    deliverySpec: "Typical Delivery: 6–8 Weeks",
+    platform: "Platform: Android Mobile + Web ERP",
   },
   {
     id: "websites-web-apps",
@@ -84,7 +102,8 @@ const detailedServices = [
       "Structured SEO schema and local business search optimization",
       "Direct integration with WhatsApp and inquiry notification emails",
     ],
-    tech: ["Next.js", "React", "Tailwind CSS", "Semantic HTML5"],
+    deliverySpec: "Typical Delivery: 2–4 Weeks",
+    platform: "Platform: Next.js SSG / SSR Web",
   },
   {
     id: "mobile-apps",
@@ -102,7 +121,8 @@ const detailedServices = [
       "Camera barcode and document scanning support",
       "Instant PDF challan generation and sharing",
     ],
-    tech: ["React Native", "TypeScript", "REST APIs"],
+    deliverySpec: "Typical Delivery: 4–8 Weeks",
+    platform: "Platform: Android & iOS Mobile",
   },
   {
     id: "ecommerce-b2b",
@@ -120,7 +140,8 @@ const detailedServices = [
       "Automated tax and GST invoice generation",
       "Integrated payment gateways (UPI, Netbanking, Cards)",
     ],
-    tech: ["Next.js", "PostgreSQL", "Razorpay", "Cloud Webhooks"],
+    deliverySpec: "Typical Delivery: 4–6 Weeks",
+    platform: "Platform: Responsive Web & Dealer Portal",
   },
   {
     id: "automation-ai",
@@ -138,7 +159,8 @@ const detailedServices = [
       "Intelligent stock query and purchasing advisor bots",
       "Custom webhook connectors for third-party tools",
     ],
-    tech: ["Python", "FastAPI", "WhatsApp Cloud API", "Background Tasks"],
+    deliverySpec: "Typical Delivery: 2–3 Weeks",
+    platform: "Platform: Background Engines & WhatsApp Cloud API",
   },
 ];
 
@@ -182,54 +204,35 @@ export default function ServicesPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Page Hero */}
-        <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-18 lg:py-20 custom-grid-bg border-b border-[#E2E8F0]">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(71,197,110,0.12),transparent_70%)] pointer-events-none -z-10" />
-
-          <div className="screen-container max-w-4xl mx-auto text-center space-y-4 sm:space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#47C56E]/12 border border-[#47C56E]/30 text-[#00875A] text-xs font-bold shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#47C56E] shrink-0" />
-              <span>Full-Lifecycle Software Development • Rajkot, Gujarat</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#091C0F] tracking-tight leading-tight font-display">
-              Software built around your actual business workflow
-            </h1>
-
-            <p className="text-base sm:text-lg text-[#475569] max-w-2xl mx-auto leading-relaxed">
-              We build custom applications, industrial ERP systems, and web platforms designed to
-              replace scattered spreadsheets and save hours of manual work every day.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-7 py-3.5 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/25 hover:bg-[#3db863] transition-all active:scale-95"
-              >
-                <span>Tell Us What You Need</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center gap-2 bg-white text-[#091C0F] border border-[#E2E8F0] px-6 py-3.5 rounded-full text-sm font-bold hover:bg-[#F0FDF4] transition-colors"
-              >
-                <span>See Our Real Work</span>
-              </Link>
+        {/* Compact Architectural Header (No pill badge, no duplicated buttons, left-aligned) */}
+        <section className="pt-8 pb-10 sm:pt-14 sm:pb-16 bg-white border-b border-[#E2E8F0]">
+          <div className="screen-container">
+            <div className="max-w-4xl space-y-3">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#00875A]">
+                ENGINEERING CAPABILITIES &amp; DELIVERY LIFECYCLE
+              </span>
+              <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display leading-[1.14]">
+                Custom software systems engineered for factory floors, godowns, and growing teams.
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg text-[#475569] max-w-2xl leading-relaxed pt-1">
+                We build custom applications, industrial ERP systems, and web platforms designed to
+                replace scattered spreadsheets and save hours of manual work every day.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Detailed Services Grid */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E2E8F0] overflow-hidden">
+        {/* Detailed Services Grid (With Buyer-Relevant Delivery Specs) */}
+        <section className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0] overflow-hidden">
           <div className="screen-container">
-            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-16">
+            <div className="max-w-2xl mb-8 sm:mb-14">
               <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
                 ENGINEERING VERTICALS
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#091C0F] tracking-tight font-display">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#091C0F] tracking-tight font-display">
                 Tailored Services, Zero Compromises
               </h2>
-              <div className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold text-[#00875A] md:hidden">
+              <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-[#00875A] md:hidden">
                 <span>Swipe horizontally to view all verticals</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
@@ -242,11 +245,11 @@ export default function ServicesPage() {
                   <div
                     key={service.id}
                     id={service.id}
-                    className="w-[88vw] max-w-[360px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-[#FAFCFF] rounded-2xl p-6 sm:p-8 border border-[#E2E8F0] hover:border-[#47C56E]/70 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
+                    className="w-[88vw] max-w-[360px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white rounded-2xl p-6 sm:p-7 border border-[#E2E8F0] hover:border-[#47C56E]/70 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="w-12 h-12 rounded-xl bg-[#47C56E]/12 flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors duration-200">
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-12 h-12 rounded-xl bg-[#091C0F] text-[#86EFAC] flex items-center justify-center transition-colors duration-200">
                           <Icon className="w-6 h-6" />
                         </div>
                         <span className="text-[11px] font-bold text-[#00875A] bg-[#47C56E]/10 border border-[#47C56E]/20 px-2.5 py-1 rounded-full">
@@ -266,14 +269,14 @@ export default function ServicesPage() {
                         <strong className="text-[#091C0F]">Problem:</strong> {service.problem}
                       </p>
 
-                      <div className="border-t border-[#E2E8F0] pt-4 mb-6">
-                        <p className="text-xs font-bold text-[#091C0F] uppercase tracking-wider mb-3 font-mono">
+                      <div className="border-t border-[#E2E8F0] pt-4 mb-5">
+                        <p className="text-xs font-bold text-[#091C0F] uppercase tracking-wider mb-2.5 font-mono">
                           Key Deliverables:
                         </p>
                         <ul className="space-y-2 text-xs text-[#475569]">
                           {service.deliverables.map((item, i) => (
                             <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-[#47C56E] shrink-0 mt-0.5" />
+                              <CheckCircle2 className="w-4 h-4 text-[#00875A] shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -281,24 +284,25 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <div>
-                      <div className="flex flex-wrap gap-1.5 mb-6">
-                        {service.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="text-[11px] font-medium bg-white text-[#334155] border border-[#E2E8F0] px-2 py-0.5 rounded-md"
-                          >
-                            {t}
-                          </span>
-                        ))}
+                    <div className="pt-3 border-t border-[#E2E8F0] space-y-3">
+                      {/* Buyer-Relevant Delivery Specs replacing filler tech tags */}
+                      <div className="p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] font-mono text-[#334155] space-y-1">
+                        <div className="font-semibold text-[#091C0F] flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5 text-[#00875A]" />
+                          <span>{service.deliverySpec}</span>
+                        </div>
+                        <div className="text-slate-500 flex items-center gap-1.5">
+                          <Layers className="w-3.5 h-3.5 text-slate-400" />
+                          <span className="truncate">{service.platform}</span>
+                        </div>
                       </div>
 
                       <Link
                         href="/contact"
-                        className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-[#E2E8F0] group-hover:border-[#47C56E] text-[#091C0F] group-hover:text-[#00875A] text-xs font-bold transition-all"
+                        className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs min-h-[44px]"
                       >
                         <span>Discuss This Solution</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-3.5 h-3.5 text-[#47C56E]" />
                       </Link>
                     </div>
                   </div>
@@ -308,26 +312,21 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Custom Solutions Breakdown */}
-        <div id="custom-solutions">
-          <CustomSolutionsSection />
-        </div>
-
         {/* Industry Verticals */}
         <div id="industries">
           <IndustriesSection />
         </div>
 
+        {/* Predictable Turnaround Sprints & Delivery Methodology (Promoted above Stack) */}
+        <ProcessSection />
+
         {/* Tech Stack */}
         <TechStackSection />
-
-        {/* Predictable Turnaround Sprints & Delivery Methodology */}
-        <ProcessSection />
 
         {/* FAQ Section */}
         <section className="py-12 sm:py-16 lg:py-20 bg-white border-y border-[#E2E8F0]">
           <div className="screen-container max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="mb-10">
               <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
                 CLARITY &amp; STANDARDS
               </span>

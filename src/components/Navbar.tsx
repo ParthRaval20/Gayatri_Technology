@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Calendar, Menu, X, ArrowRight } from "lucide-react";
+import { Calendar, Menu, X, ArrowRight, Phone } from "lucide-react";
 import BrandLogo from "./BrandLogo";
 import { siteConfig } from "@/lib/seo";
 
@@ -38,14 +38,14 @@ export default function Navbar() {
         {/* Brand */}
         <Link
           href="/"
-          className="flex items-center gap-2 sm:gap-3.5 group cursor-pointer shrink-0"
+          className="flex items-center gap-1.5 min-[360px]:gap-2 sm:gap-3.5 group cursor-pointer shrink-0"
         >
-          <BrandLogo className="h-9 w-[62px] sm:h-11 sm:w-[76px] transition-transform group-hover:scale-105 duration-200 shrink-0" />
+          <BrandLogo className="h-8 w-[56px] min-[360px]:h-9 min-[360px]:w-[62px] sm:h-11 sm:w-[76px] transition-transform group-hover:scale-105 duration-200 shrink-0" />
           <div className="flex flex-col shrink-0">
-            <span className="text-base sm:text-xl font-extrabold uppercase tracking-tight text-[#091C0F] font-[family-name:var(--font-montserrat)] leading-none">
+            <span className="text-sm min-[360px]:text-base sm:text-xl font-extrabold uppercase tracking-tight text-[#091C0F] font-[family-name:var(--font-montserrat)] leading-none">
               GAYATRI
             </span>
-            <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.22em] sm:tracking-[0.28em] uppercase text-[#00875A] mt-0.5 sm:mt-1 font-[family-name:var(--font-montserrat)] leading-none">
+            <span className="text-[8px] min-[360px]:text-[9px] sm:text-[10px] font-medium tracking-[0.20em] min-[360px]:tracking-[0.22em] sm:tracking-[0.28em] uppercase text-[#00875A] mt-0.5 sm:mt-1 font-[family-name:var(--font-montserrat)] leading-none">
               TECHNOLOGY
             </span>
           </div>
@@ -77,24 +77,23 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Trailing Actions (Desktop Only) */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Trailing Actions (Desktop Only) - One clean phone line + one solid CTA button */}
+        <div className="hidden lg:flex items-center gap-5">
           <a
-            href="https://wa.me/919328437392"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-[#25D366]/40 text-[#128C7E] bg-[#25D366]/10 hover:bg-[#25D366]/20 text-xs font-bold transition-all min-h-[40px]"
-            title="Chat directly on WhatsApp"
+            href="tel:+919328437392"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-[#091C0F] transition-colors"
+            title="Call +91 93284 37392"
           >
-            <span>WhatsApp</span>
+            <Phone className="w-3.5 h-3.5 text-[#00875A]" />
+            <span>+91 93284 37392</span>
           </a>
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#47C56E] text-[#091C0F] px-5 py-2 rounded-full text-xs font-bold hover:bg-[#3db863] shadow-md shadow-[#47C56E]/20 hover:shadow-lg hover:shadow-[#47C56E]/30 transition-all duration-200 active:scale-95 cursor-pointer min-h-[40px] btn-shimmer"
+            className="inline-flex items-center gap-2 bg-[#091C0F] hover:bg-[#163820] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-md shadow-black/10 transition-all duration-200 active:scale-95 cursor-pointer min-h-[40px]"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#091C0F]" />
             <span>Tell Us What You Need</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#47C56E]" />
           </Link>
         </div>
 
@@ -112,9 +111,18 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Drawer Backdrop */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 top-16 sm:top-20 bg-black/40 backdrop-blur-xs z-40 lg:hidden animate-fade-in"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Drawer with Safe Area Inset Support */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-8 sm:pb-10 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] max-h-[85dvh] overflow-y-auto momentum-scroll">
+        <div className="lg:hidden relative z-50 bg-white border-b border-[#E2E8F0] px-4 sm:px-6 pt-4 pb-8 sm:pb-10 pb-safe shadow-lg animate-in slide-in-from-top duration-200 max-h-[85vh] max-h-[85dvh] overflow-y-auto momentum-scroll">
           <nav className="flex flex-col space-y-1.5 sm:space-y-2">
             {navLinks.map((link) => {
               const isActive = isLinkActive(link.href);
@@ -146,6 +154,15 @@ export default function Navbar() {
             })}
             <div className="pt-3 pb-1 space-y-2.5">
               <a
+                href={`tel:${siteConfig.contact.telephone.replace(/\s+/g, "")}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] text-[#091C0F] py-3 rounded-full text-sm font-bold min-h-[48px] hover:bg-[#F0FDF4] transition-all"
+              >
+                <Phone className="w-4 h-4 text-[#00875A]" />
+                <span>Call +91 93284 37392</span>
+              </a>
+
+              <a
                 href={siteConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -158,9 +175,9 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 bg-[#47C56E] text-[#091C0F] py-3 rounded-full text-sm font-bold shadow-md shadow-[#47C56E]/20 min-h-[48px] hover:bg-[#3db863] transition-all"
+                className="w-full flex items-center justify-center gap-2 bg-[#091C0F] text-white py-3 rounded-full text-sm font-bold shadow-md min-h-[48px] hover:bg-[#163820] transition-all"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4 text-[#47C56E]" />
                 <span>Tell Us What You Need</span>
               </Link>
             </div>
