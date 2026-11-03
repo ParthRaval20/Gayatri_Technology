@@ -33,10 +33,10 @@ const valueProps = [
 
 export default function TrustValueStrip() {
   return (
-    <section className="bg-white py-6 sm:py-8 border-b border-[#E2E8F0] shadow-xs">
+    <section className="bg-paper py-6 sm:py-8 border-b border-rule shadow-xs">
       <div className="screen-container">
         <div className="text-center mb-5 sm:mb-6 scroll-reveal">
-          <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#091C0F] tracking-tight font-display">
+          <h2 className="text-base sm:text-lg md:text-xl font-bold text-ink tracking-tight font-display">
             Why growing businesses choose to work with us
           </h2>
         </div>
@@ -48,18 +48,18 @@ export default function TrustValueStrip() {
             return (
               <div
                 key={idx}
-                className={`scroll-reveal ${delayClass} flex flex-col items-center gap-2 p-3 sm:p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/50 hover:bg-[#F0FDF4] hover:-translate-y-1 hover:shadow-xs transition-all duration-200 group ${
+                className={`scroll-reveal ${delayClass} flex flex-col items-center gap-2 p-3 sm:p-3.5 rounded-xl bg-paper-2 border border-rule hover:border-accent-light/50 hover:bg-emerald-50/50 hover:-translate-y-0.5 transition-colors motion-safe:transition-transform motion-reduce:transform-none duration-200 group ${
                   idx === 4 ? "min-[340px]:col-span-2 md:col-span-1" : ""
                 }`}
               >
-                <div className="w-9 h-9 rounded-lg bg-white border border-[#E2E8F0] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] flex items-center justify-center text-[#00875A] transition-colors shrink-0 shadow-2xs">
-                  <Icon className="w-4.5 h-4.5 group-hover:scale-110 transition-transform" />
+                <div className="w-9 h-9 rounded-lg bg-paper border border-rule group-hover:bg-accent-light group-hover:text-ink flex items-center justify-center text-accent transition-colors shrink-0 shadow-2xs">
+                  <Icon className="w-4.5 h-4.5 group-hover:scale-105 motion-safe:transition-transform motion-reduce:scale-none" />
                 </div>
                 <div className="space-y-0.5">
-                  <span className="text-xs sm:text-sm font-bold text-[#091C0F] block font-display leading-tight">
+                  <span className="text-xs sm:text-sm font-bold text-ink block font-display leading-tight">
                     {item.label}
                   </span>
-                  <span className="text-[11px] text-[#64748B] block leading-tight">
+                  <span className="text-[11px] text-muted block leading-tight">
                     {item.desc}
                   </span>
                 </div>

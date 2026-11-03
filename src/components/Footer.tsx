@@ -7,52 +7,51 @@ import { siteConfig } from "@/lib/seo";
 import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
 export default function Footer() {
-
   return (
-    <footer className="bg-[#091C0F] text-[#E2E8F0] border-t border-[#163820] pb-32 sm:pb-12">
+    <footer className="bg-ink text-rule border-t border-rule-dark pb-32 sm:pb-12">
       <div className="screen-container pt-8 sm:pt-10 pb-4 sm:pb-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 pb-6 sm:pb-7 border-b border-[#163820]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 pb-6 sm:pb-7 border-b border-rule-dark">
           {/* Brand Summary Column */}
           <div className="sm:col-span-2 lg:col-span-2 space-y-3.5">
             <div className="flex items-center gap-2.5 sm:gap-3.5">
               <BrandLogo className="h-9 w-[62px] sm:h-10 sm:w-[70px] shrink-0" isDarkBackground />
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-white font-[family-name:var(--font-montserrat)] leading-none">
-                  GAYATRI
+                <span className="text-lg sm:text-xl font-bold tracking-tight text-white font-display leading-none">
+                  Gayatri
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.22em] sm:tracking-[0.28em] uppercase text-[#86EFAC] mt-0.5 sm:mt-1 font-[family-name:var(--font-montserrat)] leading-none">
-                  TECHNOLOGY
+                <span className="text-[10px] sm:text-[11px] font-medium text-accent-mint mt-0.5 sm:mt-1 font-display leading-none">
+                  Technology
                 </span>
               </div>
             </div>
-            <p className="text-xs sm:text-sm text-[#E2E8F0]/80 max-w-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 max-w-sm leading-relaxed">
               Custom software built around the way your business actually works. We engineer custom ERPs, business web applications, and mobile operational systems for growing companies.
             </p>
-            <address className="not-italic text-xs text-[#E2E8F0]/75 space-y-1 pt-0.5 font-sans">
+            <address className="not-italic text-xs text-slate-300 space-y-1 pt-0.5 font-sans">
               <p>102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
-                <a href="tel:+919328437392" className="hover:text-[#47C56E] transition-colors font-medium py-1">
+                <a href="tel:+919328437392" className="hover:text-accent-light transition-colors font-medium py-1 focus-visible:outline-2 focus-visible:outline-accent">
                   +91 93284 37392
                 </a>
-                <span className="text-slate-600">•</span>
+                <span className="text-slate-600">|</span>
                 <a
                   href="https://wa.me/919328437392"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#25D366] transition-colors font-medium text-[#86EFAC] py-1"
+                  className="hover:text-emerald-400 transition-colors font-medium text-accent-mint py-1 focus-visible:outline-2 focus-visible:outline-accent"
                 >
                   WhatsApp
                 </a>
-                <span className="text-slate-600">•</span>
-                <a href="mailto:info@gayatritechnology.in" className="hover:text-[#47C56E] transition-colors font-medium py-1">
+                <span className="text-slate-600">|</span>
+                <a href="mailto:info@gayatritechnology.in" className="hover:text-accent-light transition-colors font-medium py-1 focus-visible:outline-2 focus-visible:outline-accent">
                   info@gayatritechnology.in
                 </a>
               </div>
             </address>
             <div className="flex items-center gap-2.5 pt-1">
-              <span className="w-2 h-2 rounded-full bg-[#47C56E]" />
-              <span className="text-xs text-[#86EFAC] font-mono">
-                Founder-led engineering studio • Rajkot, Gujarat
+              <span className="w-2 h-2 rounded-full bg-accent-light" />
+              <span className="text-xs text-accent-mint font-sans">
+                Founder-led engineering studio &mdash; Rajkot, Gujarat
               </span>
             </div>
 
@@ -62,59 +61,59 @@ export default function Footer() {
                 href={siteConfig.social.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950 hover:bg-emerald-900 border border-emerald-800 text-xs font-semibold text-slate-200 hover:text-white transition-colors shadow-2xs group"
                 aria-label="Follow Gayatri Technology on Instagram"
               >
-                <InstagramIcon className="w-3.5 h-3.5 text-pink-400 group-hover:scale-110 transition-transform" />
-                <span className="font-mono text-[11px]">@{siteConfig.social.instagram.handle.trim()}</span>
+                <InstagramIcon className="w-3.5 h-3.5 text-pink-400 group-hover:scale-105 motion-safe:transition-transform" />
+                <span className="text-[11px]">@{siteConfig.social.instagram.handle.trim()}</span>
               </a>
 
               <a
                 href={siteConfig.social.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#122e1a] hover:bg-[#1c4d29] border border-[#225430] text-xs font-semibold text-slate-200 hover:text-white transition-all shadow-2xs group"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950 hover:bg-emerald-900 border border-emerald-800 text-xs font-semibold text-slate-200 hover:text-white transition-colors shadow-2xs group"
                 aria-label="Connect with Gayatri Technology on LinkedIn"
               >
-                <LinkedinIcon className="w-3.5 h-3.5 text-sky-400 group-hover:scale-110 transition-transform" />
-                <span className="font-mono text-[11px]">LinkedIn</span>
+                <LinkedinIcon className="w-3.5 h-3.5 text-sky-400 group-hover:scale-105 motion-safe:transition-transform" />
+                <span className="text-[11px]">LinkedIn</span>
               </a>
             </div>
           </div>
 
           {/* Links Column 1: Services */}
           <div className="space-y-2.5">
-            <p className="text-xs font-bold text-white uppercase tracking-wider font-mono">
+            <p className="text-xs font-semibold text-white">
               Services
             </p>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-[#E2E8F0]/70">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-slate-300">
               <li>
-                <Link href="/services#custom-software" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#custom-software" className="hover:text-accent-light transition-colors">
                   Custom Business Software
                 </Link>
               </li>
               <li>
-                <Link href="/services#erp-operations" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#erp-operations" className="hover:text-accent-light transition-colors">
                   ERP &amp; Operations Systems
                 </Link>
               </li>
               <li>
-                <Link href="/services#websites-web-apps" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#websites-web-apps" className="hover:text-accent-light transition-colors">
                   Websites &amp; Web Applications
                 </Link>
               </li>
               <li>
-                <Link href="/services#mobile-apps" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#mobile-apps" className="hover:text-accent-light transition-colors">
                   Mobile Applications
                 </Link>
               </li>
               <li>
-                <Link href="/services#ecommerce" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#ecommerce" className="hover:text-accent-light transition-colors">
                   E-Commerce Platforms
                 </Link>
               </li>
               <li>
-                <Link href="/services#automation-ai" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/services#automation-ai" className="hover:text-accent-light transition-colors">
                   Automation &amp; Internal Tools
                 </Link>
               </li>
@@ -123,38 +122,38 @@ export default function Footer() {
 
           {/* Links Column 2: Practical Knowledge */}
           <div className="space-y-2.5">
-            <p className="text-xs font-bold text-white uppercase tracking-wider font-mono">
+            <p className="text-xs font-semibold text-white">
               Knowledge
             </p>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-[#E2E8F0]/70">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-slate-300">
               <li>
-                <Link href="/knowledge/excel-to-erp" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/knowledge/excel-to-erp" className="hover:text-accent-light transition-colors">
                   Excel to ERP Migration
                 </Link>
               </li>
               <li>
-                <Link href="/knowledge/custom-erp-vs-ready-made" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/knowledge/custom-erp-vs-ready-made" className="hover:text-accent-light transition-colors">
                   Custom vs Ready-Made ERP
                 </Link>
               </li>
               <li>
-                <Link href="/knowledge/manufacturing-erp-essentials" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/knowledge/manufacturing-erp-essentials" className="hover:text-accent-light transition-colors">
                   Manufacturing ERP Essentials
                 </Link>
               </li>
               <li>
-                <Link href="/knowledge/whatsapp-excel-tally-integration" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/knowledge/whatsapp-excel-tally-integration" className="hover:text-accent-light transition-colors">
                   WhatsApp + Excel + Tally
                 </Link>
               </li>
               <li>
-                <Link href="/knowledge/custom-software-cost-india" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/knowledge/custom-software-cost-india" className="hover:text-accent-light transition-colors">
                   Software Cost in India
                 </Link>
               </li>
               <li>
-                <Link href="/knowledge" className="hover:text-[#86EFAC] font-semibold transition-colors">
-                  All Practical Guides &rarr;
+                <Link href="/knowledge" className="hover:text-accent-mint font-semibold transition-colors">
+                  All Practical Guides
                 </Link>
               </li>
             </ul>
@@ -162,27 +161,27 @@ export default function Footer() {
 
           {/* Links Column 3: Company */}
           <div className="space-y-2.5">
-            <p className="text-xs font-bold text-white uppercase tracking-wider font-mono">
+            <p className="text-xs font-semibold text-white">
               Company
             </p>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-[#E2E8F0]/70">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-slate-300">
               <li>
-                <Link href="/about" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/about" className="hover:text-accent-light transition-colors">
                   About Us &amp; Founder
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/portfolio" className="hover:text-accent-light transition-colors">
                   Our Work &amp; Case Studies
                 </Link>
               </li>
               <li>
-                <Link href="/#testimonials" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/#testimonials" className="hover:text-accent-light transition-colors">
                   Client Testimonials
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/contact" className="hover:text-accent-light transition-colors">
                   Tell Us What You Need
                 </Link>
               </li>
@@ -191,7 +190,7 @@ export default function Footer() {
                   href="https://wa.me/919328437392"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#25D366] text-[#86EFAC] font-medium transition-colors"
+                  className="hover:text-emerald-400 text-accent-mint font-medium transition-colors"
                 >
                   Direct WhatsApp Chat
                 </a>
@@ -201,7 +200,7 @@ export default function Footer() {
                   href={siteConfig.social.linkedin.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#47C56E] transition-colors flex items-center gap-1.5"
+                  className="hover:text-accent-light transition-colors flex items-center gap-1.5"
                 >
                   <LinkedinIcon className="w-3.5 h-3.5 text-sky-400" />
                   <span>LinkedIn Profile</span>
@@ -212,19 +211,19 @@ export default function Footer() {
                   href={siteConfig.social.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#47C56E] transition-colors flex items-center gap-1.5"
+                  className="hover:text-accent-light transition-colors flex items-center gap-1.5"
                 >
                   <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
                   <span>Instagram (@{siteConfig.social.instagram.handle.trim()})</span>
                 </a>
               </li>
               <li>
-                <Link href="/privacy-policy" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/privacy-policy" className="hover:text-accent-light transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-and-conditions" className="hover:text-[#47C56E] transition-colors">
+                <Link href="/terms-and-conditions" className="hover:text-accent-light transition-colors">
                   Terms of Service
                 </Link>
               </li>
@@ -233,7 +232,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-4 sm:pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-[#E2E8F0]/60">
+        <div className="pt-4 sm:pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} Gayatri Technology. Custom software built around the way your business works. Rajkot, Gujarat.</p>
 
           <div className="flex items-center gap-4 sm:gap-5">
@@ -241,7 +240,7 @@ export default function Footer() {
               href={siteConfig.social.linkedin.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#47C56E] transition-colors flex items-center gap-1"
+              className="hover:text-accent-light transition-colors flex items-center gap-1"
               title="LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4 text-sky-400" />
@@ -251,17 +250,17 @@ export default function Footer() {
               href={siteConfig.social.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#47C56E] transition-colors flex items-center gap-1"
+              className="hover:text-accent-light transition-colors flex items-center gap-1"
               title="Instagram"
             >
               <InstagramIcon className="w-4 h-4 text-pink-400" />
               <span className="sr-only">Instagram</span>
             </a>
             <span className="text-slate-700">|</span>
-            <Link href="/privacy-policy" className="hover:text-[#47C56E] transition-colors">
+            <Link href="/privacy-policy" className="hover:text-accent-light transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms-and-conditions" className="hover:text-[#47C56E] transition-colors">
+            <Link href="/terms-and-conditions" className="hover:text-accent-light transition-colors">
               Terms of Service
             </Link>
           </div>

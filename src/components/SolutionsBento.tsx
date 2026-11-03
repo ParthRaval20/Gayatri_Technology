@@ -110,25 +110,25 @@ export default function SolutionsBento() {
   const currentModule = modules.find((m) => m.id === activeTab) || modules[0];
 
   return (
-    <section id="solutions" className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] overflow-hidden">
+    <section id="solutions" className="py-16 sm:py-20 lg:py-24 bg-paper-2 border-b border-rule overflow-hidden">
       <div className="screen-container">
         {/* Section Header */}
         <div className="max-w-3xl mb-6 sm:mb-12 scroll-reveal">
-          <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
-            INTERACTIVE SYSTEM SHOWCASE
+          <span className="text-accent font-semibold text-xs block mb-2">
+            Interactive system showcase
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight mb-3 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink tracking-tight mb-3 font-display">
             Workflow modules engineered to eliminate daily headaches
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-[#475569]">
+          <p className="text-sm sm:text-base md:text-lg text-muted">
             Select a module below to inspect real production screens and the operational bottlenecks they solve.
           </p>
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="flex sm:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-2.5 px-1">
-          <span>← Swipe to switch modules →</span>
-          <span className="font-mono text-slate-400 text-[11px]">5 Modules</span>
+        <div className="flex sm:hidden items-center justify-between text-xs text-accent font-semibold mb-2.5 px-1">
+          <span>&larr; Swipe to switch modules &rarr;</span>
+          <span className="text-slate-400 text-[11px]">5 modules</span>
         </div>
 
         {/* Horizontal Tab Bar */}
@@ -140,13 +140,13 @@ export default function SolutionsBento() {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 whitespace-nowrap min-h-[44px] ${
+                className={`flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer shrink-0 whitespace-nowrap min-h-[44px] ${
                   isActive
-                    ? "bg-[#091C0F] text-white shadow-md shadow-black/10"
-                    : "text-[#475569] bg-white border border-[#CBD5E1]/60 hover:text-[#091C0F] hover:bg-slate-50"
+                    ? "bg-ink text-white shadow-md shadow-black/10"
+                    : "text-muted bg-paper border border-rule hover:text-ink hover:bg-slate-50"
                 }`}
               >
-                <Icon className={`w-4 h-4 shrink-0 ${isActive ? "text-[#86EFAC]" : "text-slate-500"}`} />
+                <Icon className={`w-4 h-4 shrink-0 ${isActive ? "text-accent-mint" : "text-slate-500"}`} />
                 <span>{item.tabLabel}</span>
               </button>
             );
@@ -156,12 +156,12 @@ export default function SolutionsBento() {
         {/* Tab Showcase Card: 1 Real Screenshot + 3 Bullet Points */}
         <div
           key={activeTab}
-          className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-sm p-4 sm:p-7 md:p-10 animate-fade-in"
+          className="bg-paper rounded-2xl sm:rounded-3xl border border-rule shadow-sm p-4 sm:p-7 md:p-10 motion-safe:animate-fade-in motion-reduce:animate-none"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Left Column: Real UI Screenshot in Phone Frame */}
             <div className="lg:col-span-5 flex justify-center py-2 sm:py-0">
-              <div className="relative w-[185px] min-[360px]:w-[210px] min-[400px]:w-[230px] sm:w-[250px] bg-black rounded-[28px] sm:rounded-[32px] p-2 sm:p-2.5 shadow-2xl border-4 border-slate-800 select-none">
+              <div className="relative w-[185px] min-[360px]:w-[210px] min-[400px]:w-[230px] sm:w-[250px] bg-black rounded-[28px] sm:rounded-[32px] p-2 sm:p-2.5 border-4 border-slate-800 select-none">
                 {/* Speaker notch */}
                 <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 w-12 sm:w-14 h-2.5 sm:h-3 bg-black rounded-full z-20" />
 
@@ -181,10 +181,10 @@ export default function SolutionsBento() {
             {/* Right Column: Title + 3 Clear Bullet Points + Operational Impact */}
             <div className="lg:col-span-7 space-y-4 sm:space-y-5">
               <div className="space-y-1 sm:space-y-1.5">
-                <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#00875A]">
-                  PRODUCTION SCREEN &bull; {currentModule.tabLabel.toUpperCase()}
+                <span className="text-xs font-semibold text-accent block">
+                  Production screen: {currentModule.tabLabel}
                 </span>
-                <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-[#091C0F] font-display leading-snug">
+                <h3 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-ink font-display leading-snug">
                   {currentModule.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 font-medium">
@@ -195,19 +195,19 @@ export default function SolutionsBento() {
               {/* 3 Bullet Points */}
               <div className="space-y-2.5 sm:space-y-3 pt-1">
                 {currentModule.bullets.map((bullet, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-[#334155]">
-                    <CheckCircle2 className="w-4 h-4 text-[#00875A] shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{bullet}</span>
                   </div>
                 ))}
               </div>
 
               {/* Operational Impact Box */}
-              <div className="p-3.5 sm:p-4 rounded-xl bg-[#F0FDF4] border border-[#86EFAC]/60 space-y-1">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00875A] block">
-                  MEASURED ON-FLOOR IMPACT
+              <div className="p-3.5 sm:p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-1">
+                <span className="text-[11px] font-semibold text-accent block">
+                  Measured on-floor impact
                 </span>
-                <p className="text-xs sm:text-sm font-semibold text-[#091C0F]">
+                <p className="text-xs sm:text-sm font-semibold text-ink">
                   {currentModule.operationalImpact}
                 </p>
               </div>
@@ -216,17 +216,17 @@ export default function SolutionsBento() {
               <div className="pt-2 flex flex-col min-[420px]:flex-row min-[420px]:items-center gap-2.5 sm:gap-4">
                 <Link
                   href="/portfolio?project=gayatri-steel-app#case-studies"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-ink hover:bg-slate-900 text-white text-xs font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent shadow-xs min-h-[44px]"
                 >
-                  <Eye className="w-3.5 h-3.5 text-[#47C56E]" />
+                  <Eye className="w-3.5 h-3.5 text-accent-light" />
                   <span>Inspect All 10 Screens</span>
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-xs font-bold text-[#00875A] hover:text-[#091C0F] inline-flex items-center justify-center min-[420px]:justify-start gap-1 transition-colors min-h-[44px]"
+                  className="text-xs font-bold text-accent hover:text-ink inline-flex items-center justify-center min-[420px]:justify-start gap-1 transition-colors focus-visible:outline-2 focus-visible:outline-accent min-h-[44px]"
                 >
                   <span>Discuss Your Custom Setup</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
             </div>

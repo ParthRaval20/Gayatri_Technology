@@ -94,11 +94,11 @@ export default function TestimonialsSection({
   const getProjectIcon = (type: "app" | "web" | "erp") => {
     switch (type) {
       case "app":
-        return <Smartphone className="w-4 h-4 text-[#00875A]" />;
+        return <Smartphone className="w-4 h-4 text-accent" />;
       case "web":
-        return <Globe className="w-4 h-4 text-[#00875A]" />;
+        return <Globe className="w-4 h-4 text-accent" />;
       case "erp":
-        return <Monitor className="w-4 h-4 text-[#00875A]" />;
+        return <Monitor className="w-4 h-4 text-accent" />;
     }
   };
 
@@ -113,7 +113,7 @@ export default function TestimonialsSection({
     if (item.id === "gayatri-steel-app") {
       return (
         <div className="w-10 h-10 rounded-xl bg-emerald-950 text-emerald-300 border border-emerald-800/80 flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
-          <Factory className="w-5 h-5 text-[#86EFAC]" />
+          <Factory className="w-5 h-5 text-accent-mint" />
         </div>
       );
     }
@@ -128,41 +128,40 @@ export default function TestimonialsSection({
     <section
       id={id}
       aria-labelledby="testimonials-heading"
-      className={`relative py-16 sm:py-24 bg-white border-b border-[#E2E8F0] overflow-hidden ${className}`}
+      className={`relative py-16 sm:py-24 bg-paper border-b border-rule overflow-hidden ${className}`}
     >
       <div className="screen-container">
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#091C0F] text-white text-xs font-semibold shadow-2xs mb-3">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#86EFAC]" />
-            <span className="font-mono uppercase tracking-wider text-[11px]">Production Verified Client Feedback</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ink text-white text-xs font-semibold shadow-2xs mb-3">
+            <ShieldCheck className="w-3.5 h-3.5 text-accent-mint" />
+            <span className="text-[11px] font-medium">Production verified client feedback</span>
           </div>
 
           <h2
             id="testimonials-heading"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight leading-tight font-display"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink tracking-tight leading-tight font-display"
           >
             {title}
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg text-[#475569] max-w-2xl mt-3 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-muted max-w-2xl mt-3 leading-relaxed">
             {subtitle}
           </p>
 
           {/* Social Proof Trust Bar */}
-          <div className="pt-4 flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-semibold text-[#334155]">
+          <div className="pt-4 flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-semibold text-slate-700">
             <div className="flex items-center gap-1.5">
               <div className="flex text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span className="font-bold text-[#091C0F] text-sm">5.0</span>
-              <span className="text-slate-500 font-normal">Average Rating</span>
+              <span className="font-bold text-ink text-sm">5.0</span>
+              <span className="text-muted font-normal">Average Rating</span>
             </div>
-            <div className="text-slate-300">•</div>
             <div className="flex items-center gap-1.5 text-slate-600">
-              <CheckCircle2 className="w-4 h-4 text-[#00875A]" />
+              <CheckCircle2 className="w-4 h-4 text-accent" />
               <span>Production Systems Running Daily</span>
             </div>
           </div>
@@ -173,10 +172,10 @@ export default function TestimonialsSection({
           <button
             type="button"
             onClick={() => handleFilterChange("all")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "all"
-                ? "bg-[#091C0F] text-white border-[#091C0F] shadow-sm"
-                : "bg-[#FAFCFF] text-[#475569] border-[#E2E8F0] hover:text-[#091C0F] hover:border-slate-300"
+                ? "bg-ink text-white border-ink shadow-sm"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
             }`}
           >
             <span>All Case Reviews</span>
@@ -192,43 +191,43 @@ export default function TestimonialsSection({
           <button
             type="button"
             onClick={() => handleFilterChange("gayatri-steel-app")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "gayatri-steel-app"
-                ? "bg-[#091C0F] text-white border-[#091C0F] shadow-sm"
-                : "bg-[#FAFCFF] text-[#475569] border-[#E2E8F0] hover:text-[#091C0F] hover:border-slate-300"
+                ? "bg-ink text-white border-ink shadow-sm"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
             }`}
           >
             <Smartphone className="w-3.5 h-3.5 text-emerald-500" />
             <span>Gayatri Steel App</span>
-            <span className="text-[11px] font-mono text-slate-400 hidden sm:inline">(Kaushik Patel)</span>
+            <span className="text-[11px] text-slate-400 hidden sm:inline">(Kaushik Patel)</span>
           </button>
 
           <button
             type="button"
             onClick={() => handleFilterChange("gayatri-steel-web")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "gayatri-steel-web"
-                ? "bg-[#091C0F] text-white border-[#091C0F] shadow-sm"
-                : "bg-[#FAFCFF] text-[#475569] border-[#E2E8F0] hover:text-[#091C0F] hover:border-slate-300"
+                ? "bg-ink text-white border-ink shadow-sm"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
             }`}
           >
             <Globe className="w-3.5 h-3.5 text-teal-500" />
             <span>Gayatri Steel Web</span>
-            <span className="text-[11px] font-mono text-slate-400 hidden sm:inline">(Vaibhav Mehta)</span>
+            <span className="text-[11px] text-slate-400 hidden sm:inline">(Vaibhav Mehta)</span>
           </button>
 
           <button
             type="button"
             onClick={() => handleFilterChange("brahm-samaj-erp")}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "brahm-samaj-erp"
-                ? "bg-[#091C0F] text-white border-[#091C0F] shadow-sm"
-                : "bg-[#FAFCFF] text-[#475569] border-[#E2E8F0] hover:text-[#091C0F] hover:border-slate-300"
+                ? "bg-ink text-white border-ink shadow-sm"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
             }`}
           >
             <Monitor className="w-3.5 h-3.5 text-amber-500" />
             <span>Brahm Samaj ERP</span>
-            <span className="text-[11px] font-mono text-slate-400 hidden sm:inline">(Vishnu Vyas)</span>
+            <span className="text-[11px] text-slate-400 hidden sm:inline">(Vishnu Vyas)</span>
           </button>
         </div>
 
@@ -254,17 +253,17 @@ export default function TestimonialsSection({
                     toggleExpand(item.id);
                   }
                 }}
-                className={`w-[88vw] max-w-[360px] sm:w-[380px] md:w-auto md:min-w-0 snap-center rounded-2xl sm:rounded-3xl border p-5 sm:p-7 flex flex-col justify-between transition-all duration-300 group shrink-0 md:shrink cursor-pointer shadow-xs select-none ${
+                className={`w-[88vw] max-w-[360px] sm:w-[380px] md:w-auto md:min-w-0 snap-center rounded-2xl sm:rounded-3xl border p-5 sm:p-7 flex flex-col justify-between transition-colors motion-safe:transition-transform duration-300 group shrink-0 md:shrink cursor-pointer shadow-xs select-none focus-visible:outline-2 focus-visible:outline-accent ${
                   isExpanded
-                    ? "bg-white border-[#47C56E] shadow-xl ring-1 ring-[#47C56E]/40"
-                    : "bg-[#FAFCFF] border-[#E2E8F0] hover:border-[#47C56E]/60 hover:shadow-md hover:-translate-y-1"
+                    ? "bg-paper border-accent-light shadow-xl ring-1 ring-accent-light/40"
+                    : "bg-paper-2 border-rule hover:border-accent-light/60 hover:shadow-md hover:-translate-y-1"
                 }`}
               >
                 <div className="relative z-10 flex flex-col flex-1 justify-between">
                   <div>
                     {/* Top Meta: Badge & Rating */}
                     <div className="flex items-center justify-between gap-2 flex-wrap mb-3">
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#E2E8F0] text-[11px] font-bold text-[#091C0F] shadow-2xs">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-paper border border-rule text-[11px] font-bold text-ink shadow-2xs">
                         {getProjectIcon(item.projectType)}
                         <span>{item.projectBadge}</span>
                       </div>
@@ -285,11 +284,11 @@ export default function TestimonialsSection({
 
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <span className="font-extrabold text-sm sm:text-base text-[#091C0F] leading-tight truncate">
+                          <span className="font-extrabold text-sm sm:text-base text-ink leading-tight truncate">
                             {item.fullName}
                           </span>
                         </div>
-                        <p className="text-[11px] font-semibold text-[#00875A] truncate leading-tight mt-0.5">
+                        <p className="text-[11px] font-semibold text-accent truncate leading-tight mt-0.5">
                           {item.role}
                         </p>
                         <p className="text-[10px] text-slate-500 truncate leading-tight flex items-center gap-1 mt-0.5">
@@ -300,21 +299,21 @@ export default function TestimonialsSection({
                     </div>
 
                     {/* Headline without extra inner spacing */}
-                    <h3 className="text-xs sm:text-sm font-bold text-[#091C0F] font-display tracking-tight leading-snug mb-2.5">
+                    <h3 className="text-xs sm:text-sm font-bold text-ink font-display tracking-tight leading-snug mb-2.5">
                       &ldquo;{item.headline.trim()}&rdquo;
                     </h3>
 
                     {/* Collapsed Snippet */}
                     {!isExpanded && (
-                      <p className="text-[11px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 italic mb-2">
+                      <p className="text-[11px] sm:text-xs text-muted leading-relaxed line-clamp-3 italic mb-2">
                         &ldquo;{item.shortSnippet.trim()}&rdquo;
                       </p>
                     )}
                   </div>
 
                   {isExpanded && (
-                    <div className="space-y-3 pt-3 border-t border-[#E2E8F0] mt-2 animate-in fade-in duration-200">
-                      <blockquote className="text-xs sm:text-sm text-[#334155] leading-relaxed italic border-l-2 border-[#47C56E] pl-2.5 py-0.5">
+                    <div className="space-y-3 pt-3 border-t border-rule mt-2 animate-in fade-in duration-200">
+                      <blockquote className="text-xs sm:text-sm text-ink-2 leading-relaxed italic border-l-2 border-accent-light pl-2.5 py-0.5">
                         &ldquo;{item.quote.trim()}&rdquo;
                       </blockquote>
 
@@ -323,9 +322,9 @@ export default function TestimonialsSection({
                         {item.impactMetrics.map((metric, mIdx) => (
                           <div
                             key={mIdx}
-                            className="bg-white rounded-lg p-1.5 sm:p-2 border border-[#E2E8F0] text-center shadow-2xs"
+                            className="bg-paper rounded-lg p-1.5 sm:p-2 border border-rule text-center shadow-2xs"
                           >
-                            <span className="block text-xs sm:text-sm font-extrabold text-[#091C0F] font-mono leading-tight">
+                            <span className="block text-xs sm:text-sm font-extrabold text-ink font-mono leading-tight">
                               {metric.value}
                             </span>
                             <span className="block text-[9px] text-slate-500 font-medium leading-tight mt-0.5">
@@ -336,7 +335,7 @@ export default function TestimonialsSection({
                       </div>
 
                       {/* Location & Verification footer */}
-                      <div className="flex items-center justify-between text-[10px] text-slate-500 pt-1.5 border-t border-dashed border-[#E2E8F0]">
+                      <div className="flex items-center justify-between text-[10px] text-slate-500 pt-1.5 border-t border-dashed border-rule">
                         <span className="flex items-center gap-1 font-medium text-emerald-700">
                           <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                           <span>{item.verifiedText}</span>
@@ -351,10 +350,10 @@ export default function TestimonialsSection({
                       <div className="pt-0.5" onClick={(e) => e.stopPropagation()}>
                         <Link
                           href={`/portfolio?project=${item.sysCode.toLowerCase()}#case-studies`}
-                          className="inline-flex items-center gap-1 text-xs font-bold text-[#00875A] hover:text-[#091C0F] transition-colors group/link cursor-pointer min-h-[30px]"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-accent hover:text-ink transition-colors group/link cursor-pointer min-h-[30px] focus-visible:outline-2 focus-visible:outline-accent"
                         >
                           <span>View Case Study &amp; Screens</span>
-                          <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-1" />
+                          <ArrowRight className="w-3 h-3 motion-safe:transition-transform group-hover/link:translate-x-1" />
                         </Link>
                       </div>
                     </div>
@@ -362,15 +361,15 @@ export default function TestimonialsSection({
                 </div>
 
                 {/* Bottom Toggle Bar */}
-                <div className="relative z-10 pt-3 mt-3 border-t border-[#E2E8F0]/80 flex items-center justify-between text-[11px] font-bold text-[#00875A] group-hover:text-[#091C0F] transition-colors">
+                <div className="relative z-10 pt-3 mt-3 border-t border-rule/80 flex items-center justify-between text-[11px] font-bold text-accent group-hover:text-ink transition-colors">
                   <span className="flex items-center gap-1">
                     {isExpanded ? "Show less" : "Read full review"}
                   </span>
                   <span
                     className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${
                       isExpanded
-                        ? "bg-[#091C0F] text-white"
-                        : "bg-emerald-50 text-[#00875A] group-hover:bg-emerald-100"
+                        ? "bg-ink text-white"
+                        : "bg-emerald-50 text-accent group-hover:bg-emerald-100"
                     }`}
                   >
                     {isExpanded ? (
@@ -394,9 +393,9 @@ export default function TestimonialsSection({
                   key={idx}
                   type="button"
                   onClick={() => scrollToIdx(idx)}
-                  className={`transition-all duration-200 cursor-pointer ${
+                  className={`transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     activeIdx === idx
-                      ? "w-6 h-2 bg-[#00875A] rounded-full"
+                      ? "w-6 h-2 bg-accent rounded-full"
                       : "w-2 h-2 bg-slate-300 hover:bg-slate-400 rounded-full"
                   }`}
                   aria-label={`Go to review ${idx + 1}`}

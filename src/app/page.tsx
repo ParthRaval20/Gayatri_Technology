@@ -26,7 +26,7 @@ export default function Home() {
   const testimonialsSchema = getTestimonialsSchema();
 
   return (
-    <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#f8f9ff] overflow-x-hidden md:overflow-x-clip w-full">
+    <div className="flex min-h-screen min-h-[100dvh] flex-col bg-paper overflow-x-clip w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -34,7 +34,7 @@ export default function Home() {
         }}
       />
       <Navbar />
-      <main className="flex-1 w-full overflow-x-hidden md:overflow-x-clip">
+      <main className="flex-1 w-full overflow-x-clip">
         <HeroSection />
         <TrustValueStrip />
         <RealProblemsSection />
