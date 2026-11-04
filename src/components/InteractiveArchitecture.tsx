@@ -228,19 +228,19 @@ export default function InteractiveArchitecture() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display">
             How Our Systems Actually Work Under the Hood
           </h2>
-          <p className="text-sm sm:text-base text-[#475569] mt-3 leading-relaxed">
+          <p className="text-sm sm:text-base text-muted mt-3 leading-relaxed">
             We don&apos;t just design screens. We engineer end-to-end data pipelines that connect shop-floor workers, office administrators, and customers without bottlenecks.
           </p>
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="flex sm:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-2.5 px-1 scroll-reveal">
+        <div className="flex sm:hidden items-center justify-between text-xs text-accent font-semibold mb-2.5 px-1 scroll-reveal">
           <span>← Swipe tabs to switch systems →</span>
-          <span className="font-mono text-slate-400 text-[11px]">3 Systems</span>
+          <span className="font-mono text-muted text-[11px]">3 Systems</span>
         </div>
 
         {/* Interactive Tab Switcher */}
-        <div className="flex overflow-x-auto no-scrollbar items-center gap-2 sm:gap-3 p-1.5 bg-[#E2E8F0]/60 rounded-2xl mb-8 -mx-4 px-4 sm:mx-0 sm:px-1.5 sm:flex-wrap max-w-full sm:max-w-fit border border-[#CBD5E1]/60 scroll-reveal delay-100">
+        <div className="flex overflow-x-auto no-scrollbar items-center gap-2 sm:gap-3 p-1.5 bg-paper-2 rounded-2xl mb-8 -mx-4 px-4 sm:mx-0 sm:px-1.5 sm:flex-wrap max-w-full sm:max-w-fit border border-rule scroll-reveal delay-100">
           {architectureSystems.map((sys) => {
             const isActive = activeTab === sys.id;
             return (
@@ -249,15 +249,15 @@ export default function InteractiveArchitecture() {
                 onClick={() => setActiveTab(sys.id)}
                 className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer shrink-0 whitespace-nowrap min-h-[44px] ${
                   isActive
-                    ? "bg-[#091C0F] text-white shadow-md shadow-emerald-950/20"
-                    : "text-[#475569] hover:text-[#091C0F] hover:bg-white/70"
+                    ? "bg-ink text-white shadow-md shadow-emerald-950/20"
+                    : "text-ink-2 hover:text-ink hover:bg-paper"
                 }`}
               >
-                <span className={`w-2 h-2 rounded-full ${isActive ? "bg-[#47C56E]" : "bg-slate-400"}`} />
+                <span className={`w-2 h-2 rounded-full ${isActive ? "bg-accent-light" : "bg-muted"}`} />
                 <span className="font-display">{sys.title.split("&")[0].trim()}</span>
                 <span
                   className={`text-[10px] font-mono px-2 py-0.5 rounded-full hidden sm:inline ${
-                    isActive ? "bg-[#163820] text-[#86EFAC]" : "bg-slate-200 text-slate-600"
+                    isActive ? "bg-accent/20 text-accent-mint" : "bg-paper-3 text-ink-2"
                   }`}
                 >
                   {sys.sysCode}
@@ -268,40 +268,40 @@ export default function InteractiveArchitecture() {
         </div>
 
         {/* Active Architecture Display Canvas */}
-        <div key={activeTab} className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-sm overflow-hidden animate-scale-in scroll-reveal delay-150">
+        <div key={activeTab} className="bg-paper rounded-2xl sm:rounded-3xl border border-rule shadow-sm overflow-hidden animate-scale-in scroll-reveal delay-150">
           {/* Top Banner Meta */}
-          <div className="p-4 sm:p-6 sm:p-8 bg-[#091C0F] text-white border-b border-[#163820]">
+          <div className="p-4 sm:p-6 sm:p-8 bg-ink text-white border-b border-rule-dark">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
               <div className="space-y-2">
                 <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
-                  <span className="text-[11px] sm:text-xs font-mono px-2 sm:px-2.5 py-0.5 sm:py-1 rounded bg-[#163820] text-[#86EFAC] border border-[#225430] font-bold">
+                  <span className="text-[11px] sm:text-xs font-mono px-2 sm:px-2.5 py-0.5 sm:py-1 rounded bg-accent/20 text-accent-mint border border-accent/30 font-bold">
                     {currentSystem.sysCode}
                   </span>
-                  <span className="text-[11px] sm:text-xs font-semibold text-slate-300 bg-white/10 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded">
+                  <span className="text-[11px] sm:text-xs font-semibold text-paper-2 bg-white/10 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded">
                     {currentSystem.sector}
                   </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-[#47C56E]">
+                  <span className="text-[11px] sm:text-xs font-bold text-accent-light">
                     Client: {currentSystem.client}
                   </span>
                 </div>
                 <h3 className="text-lg sm:text-2xl md:text-3xl font-bold font-display text-white">
                   {currentSystem.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
+                <p className="text-xs sm:text-sm text-paper-2 max-w-3xl leading-relaxed">
                   {currentSystem.overview}
                 </p>
               </div>
 
               {/* Technology Badges */}
               <div className="flex flex-wrap lg:flex-col lg:items-end gap-1.5 shrink-0">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#86EFAC] font-bold mb-0.5 sm:mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-accent-mint font-bold mb-0.5 sm:mb-1">
                   Engineered With:
                 </span>
                 <div className="flex flex-wrap gap-1.5 max-w-xs">
                   {currentSystem.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-[10px] sm:text-[11px] font-mono px-2 sm:px-2.5 py-0.5 rounded-md bg-[#163820] text-[#86EFAC] border border-[#225430]"
+                      className="text-[10px] sm:text-[11px] font-mono px-2 sm:px-2.5 py-0.5 rounded-md bg-accent/20 text-accent-mint border border-accent/30"
                     >
                       {tech}
                     </span>
@@ -311,13 +311,13 @@ export default function InteractiveArchitecture() {
             </div>
 
             {/* Micro Specs Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-slate-800">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-rule-dark">
               {currentSystem.specs.map((spec, i) => (
-                <div key={i} className="p-2.5 sm:p-3 rounded-xl bg-[#0F2916] border border-[#1b4829]">
-                  <span className="text-[9px] min-[360px]:text-[10px] font-mono text-slate-400 block uppercase truncate">
+                <div key={i} className="p-2.5 sm:p-3 rounded-xl bg-paper-dark border border-rule-dark">
+                  <span className="text-[10px] font-mono text-paper-2 block uppercase truncate">
                     {spec.label}
                   </span>
-                  <span className="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 block break-words sm:truncate">
+                  <span className="text-xs sm:text-sm font-bold text-white font-mono mt-0.5 block break-words sm:truncate tabular-nums">
                     {spec.value}
                   </span>
                 </div>

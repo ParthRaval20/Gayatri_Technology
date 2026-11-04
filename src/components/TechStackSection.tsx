@@ -32,9 +32,9 @@ const stacks = [
 
 export default function TechStackSection() {
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-[#F8FAFC]">
+    <section className="scroll-section py-12 sm:py-16 lg:py-24 bg-[#F8FAFC]">
       <div className="screen-container">
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14 scroll-reveal">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-display">
             OUR USUAL STACK
           </span>
@@ -50,10 +50,11 @@ export default function TechStackSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stacks.map((stack, idx) => {
             const Icon = stack.icon;
+            const delayClass = (idx % 4 === 1) ? "delay-75" : (idx % 4 === 2) ? "delay-150" : (idx % 4 === 3) ? "delay-225" : "";
             return (
               <div
                 key={idx}
-                className="bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-2xs hover:border-[#47C56E]/60 transition-all flex flex-col justify-between space-y-4"
+                className={`scroll-popup ${delayClass} bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-2xs hover:border-[#47C56E]/60 transition-all flex flex-col justify-between space-y-4`}
               >
                 <div>
                   <div className="flex items-center gap-2.5 sm:gap-3 mb-3">

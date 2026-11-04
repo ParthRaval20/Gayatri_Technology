@@ -97,7 +97,7 @@ const industries: IndustryItem[] = [
 
 export default function IndustriesSection() {
   return (
-    <section id="industries" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-[#E2E8F0] overflow-hidden">
+    <section id="industries" className="scroll-section py-16 sm:py-20 lg:py-24 bg-white border-t border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
         <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
@@ -113,44 +113,45 @@ export default function IndustriesSection() {
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="flex md:hidden items-center justify-between text-xs text-[#00875A] font-semibold mb-3 px-1">
+        <div className="flex md:hidden items-center justify-between text-xs text-accent font-semibold mb-3 px-1 scroll-reveal">
           <span>← Swipe horizontally across sectors →</span>
-          <span className="font-mono text-slate-400 text-[11px]">5 Sectors</span>
+          <span className="font-mono text-muted text-[11px]">5 Sectors</span>
         </div>
 
         <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {industries.map((item, idx) => {
             const Icon = item.icon;
+            const delayClass = (idx % 3 === 1) ? "delay-100" : (idx % 3 === 2) ? "delay-200" : "";
             return (
               <div
                 key={idx}
-                className={`w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center p-6 sm:p-7 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#47C56E]/60 transition-all duration-200 flex flex-col justify-between group shadow-2xs h-auto ${
+                className={`scroll-popup ${delayClass} w-[85vw] max-w-[340px] md:w-auto shrink-0 md:shrink snap-center p-6 sm:p-7 rounded-2xl bg-paper-2 border border-rule hover:border-accent-light/60 transition-all duration-200 flex flex-col justify-between group shadow-2xs h-auto ${
                   idx === 4 ? "md:col-span-2 lg:col-span-1" : ""
                 }`}
               >
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#00875A] group-hover:bg-[#47C56E] group-hover:text-[#091C0F] transition-colors shrink-0 shadow-2xs">
+                    <div className="w-11 h-11 rounded-xl bg-paper border border-rule flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors shrink-0 shadow-2xs">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-[#091C0F] font-display">
+                      <h3 className="text-base sm:text-lg font-bold text-ink font-display">
                         {item.name}
                       </h3>
-                      <p className="text-xs text-slate-500 font-medium">
+                      <p className="text-xs text-muted font-medium">
                         {item.tagline}
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-ink-2 leading-relaxed mb-4">
                     {item.desc}
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-[#E2E8F0] mb-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-rule mb-5">
                     {item.focus.map((bullet, bIdx) => (
-                      <div key={bIdx} className="flex items-start gap-1.5 text-xs text-[#334155] bg-white sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border sm:border-0 border-slate-200/60">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00875A] shrink-0 mt-0.5" />
+                      <div key={bIdx} className="flex items-start gap-1.5 text-xs text-ink-2 bg-paper sm:bg-transparent p-1.5 sm:p-0 rounded-lg sm:rounded-none border sm:border-0 border-rule">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" />
                         <span className="leading-tight">{bullet}</span>
                       </div>
                     ))}
@@ -159,7 +160,7 @@ export default function IndustriesSection() {
 
                 <Link
                   href={item.ctaHref}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00875A] hover:text-[#091C0F] group-hover:gap-2.5 transition-all pt-2"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:text-ink group-hover:gap-2.5 transition-all pt-2 focus-visible:outline-2 focus-visible:outline-accent"
                 >
                   <span>{item.ctaText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />

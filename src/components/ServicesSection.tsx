@@ -7,9 +7,6 @@ import {
   Smartphone,
   Globe,
   ArrowRight,
-  Boxes,
-  Cpu,
-  ShoppingBag,
 } from "lucide-react";
 
 interface Pillar {
@@ -57,17 +54,17 @@ const pillars: Pillar[] = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-16 sm:py-20 lg:py-24 bg-paper border-b border-rule overflow-hidden">
+    <section id="services" className="scroll-section py-16 sm:py-20 lg:py-24 bg-paper border-b border-rule overflow-hidden">
       <div className="screen-container">
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
-          <span className="text-accent font-semibold text-xs block mb-2">
-            Core engineering capabilities
+          <span className="text-accent font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+            WHAT WE ENGINEER &bull; 6 CORE DISCIPLINES
           </span>
-          <h2 className="text-2xl min-[360px]:text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink tracking-tight mb-3 font-display">
+          <h2 className="text-[length:var(--text-section)] tracking-[var(--tracking-display)] leading-[1.12] font-extrabold text-ink mb-3 font-display">
             Three pillars engineered for industrial workflows
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted">
+          <p className="text-[length:var(--text-lead)] text-ink-2">
             We don&apos;t build generic software. Every system is built around the exact physical steps,
             measurements, and customer communications your team handles every day.
           </p>
@@ -77,22 +74,23 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 items-stretch">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
+            const delayClass = idx === 1 ? "delay-100" : idx === 2 ? "delay-200" : "";
             return (
               <div
                 key={idx}
-                className="bg-paper-2 rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-rule hover:border-accent-light/70 shadow-xs hover:shadow-md hover:-translate-y-1 transition-colors motion-safe:transition-transform duration-200 flex flex-col justify-between group"
+                className={`scroll-reveal-card ${delayClass} bg-paper-2 rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-rule hover:border-accent-light/70 shadow-xs hover:shadow-md hover:-translate-y-1 transition-colors motion-safe:transition-transform duration-200 flex flex-col justify-between group`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4 sm:mb-5">
                     <div className="w-11 sm:w-12 h-11 sm:h-12 rounded-xl bg-ink text-accent-mint flex items-center justify-center shadow-xs group-hover:scale-105 motion-safe:transition-transform">
                       <Icon className="w-5 sm:w-6 h-5 sm:h-6" />
                     </div>
-                    <span className="text-[10px] font-semibold text-accent bg-accent/10 border border-accent/20 px-2.5 py-1 rounded-full">
+                    <span className="text-[11px] font-semibold text-accent bg-accent/10 border border-accent/20 px-2.5 py-1 rounded-full font-mono">
                       {pillar.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-2xl font-bold text-ink font-display mb-2.5 sm:mb-3">
+                  <h3 className="text-[length:var(--text-title)] font-bold text-ink font-display mb-2.5 sm:mb-3">
                     {pillar.title}
                   </h3>
 

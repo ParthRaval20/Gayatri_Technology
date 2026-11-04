@@ -128,39 +128,38 @@ export default function TestimonialsSection({
     <section
       id={id}
       aria-labelledby="testimonials-heading"
-      className={`relative py-16 sm:py-24 bg-paper border-b border-rule overflow-hidden ${className}`}
+      className={`scroll-section relative py-16 sm:py-24 bg-paper border-b border-rule overflow-hidden ${className}`}
     >
       <div className="screen-container">
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ink text-white text-xs font-semibold shadow-2xs mb-3">
-            <ShieldCheck className="w-3.5 h-3.5 text-accent-mint" />
-            <span className="text-[11px] font-medium">Production verified client feedback</span>
-          </div>
+          <span className="text-accent font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+            FIELD EVIDENCE &bull; WHAT OUR CLIENTS SAY
+          </span>
 
           <h2
             id="testimonials-heading"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink tracking-tight leading-tight font-display"
+            className="text-[length:var(--text-section)] tracking-[var(--tracking-display)] leading-[1.12] font-extrabold text-ink tracking-tight font-display"
           >
             {title}
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg text-muted max-w-2xl mt-3 leading-relaxed">
+          <p className="text-[length:var(--text-lead)] text-ink-2 max-w-2xl mt-3 leading-relaxed">
             {subtitle}
           </p>
 
           {/* Social Proof Trust Bar */}
-          <div className="pt-4 flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-semibold text-slate-700">
+          <div className="pt-4 flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-semibold text-ink-2">
             <div className="flex items-center gap-1.5">
               <div className="flex text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span className="font-bold text-ink text-sm">5.0</span>
+              <span className="font-bold text-ink text-sm font-mono tabular-nums">5.0</span>
               <span className="text-muted font-normal">Average Rating</span>
             </div>
-            <div className="flex items-center gap-1.5 text-slate-600">
+            <div className="flex items-center gap-1.5 text-muted">
               <CheckCircle2 className="w-4 h-4 text-accent" />
               <span>Production Systems Running Daily</span>
             </div>
@@ -175,13 +174,13 @@ export default function TestimonialsSection({
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "all"
                 ? "bg-ink text-white border-ink shadow-sm"
-                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-accent-light/50"
             }`}
           >
             <span>All Case Reviews</span>
             <span
-              className={`px-1.5 py-0.5 rounded-full text-[10px] font-mono ${
-                activeFilter === "all" ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"
+              className={`px-1.5 py-0.5 rounded-full text-[10px] font-mono tabular-nums ${
+                activeFilter === "all" ? "bg-white/20 text-white" : "bg-paper-3 text-ink-2"
               }`}
             >
               3
@@ -194,12 +193,12 @@ export default function TestimonialsSection({
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "gayatri-steel-app"
                 ? "bg-ink text-white border-ink shadow-sm"
-                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-accent-light/50"
             }`}
           >
-            <Smartphone className="w-3.5 h-3.5 text-emerald-500" />
+            <Smartphone className="w-3.5 h-3.5 text-accent" />
             <span>Gayatri Steel App</span>
-            <span className="text-[11px] text-slate-400 hidden sm:inline">(Kaushik Patel)</span>
+            <span className="text-[11px] text-muted hidden sm:inline">(Kaushik Patel)</span>
           </button>
 
           <button
@@ -208,12 +207,12 @@ export default function TestimonialsSection({
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "gayatri-steel-web"
                 ? "bg-ink text-white border-ink shadow-sm"
-                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-accent-light/50"
             }`}
           >
-            <Globe className="w-3.5 h-3.5 text-teal-500" />
+            <Globe className="w-3.5 h-3.5 text-accent" />
             <span>Gayatri Steel Web</span>
-            <span className="text-[11px] text-slate-400 hidden sm:inline">(Vaibhav Mehta)</span>
+            <span className="text-[11px] text-muted hidden sm:inline">(Vaibhav Mehta)</span>
           </button>
 
           <button
@@ -222,12 +221,12 @@ export default function TestimonialsSection({
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent cursor-pointer whitespace-nowrap min-h-[44px] flex items-center gap-2 border shrink-0 ${
               activeFilter === "brahm-samaj-erp"
                 ? "bg-ink text-white border-ink shadow-sm"
-                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-slate-300"
+                : "bg-paper-2 text-muted border-rule hover:text-ink hover:border-accent-light/50"
             }`}
           >
             <Monitor className="w-3.5 h-3.5 text-amber-500" />
             <span>Brahm Samaj ERP</span>
-            <span className="text-[11px] text-slate-400 hidden sm:inline">(Vishnu Vyas)</span>
+            <span className="text-[11px] text-muted hidden sm:inline">(Vishnu Vyas)</span>
           </button>
         </div>
 

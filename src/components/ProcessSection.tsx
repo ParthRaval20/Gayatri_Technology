@@ -65,10 +65,10 @@ const phases: Phase[] = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="scroll-mt-20 md:scroll-mt-24 py-16 sm:py-20 lg:py-24 bg-[#F8FAFC] border-y border-[#E2E8F0] overflow-hidden">
+    <section id="process" className="scroll-section scroll-mt-20 md:scroll-mt-24 py-16 sm:py-20 lg:py-24 bg-[#F8FAFC] border-y border-[#E2E8F0] overflow-hidden">
       <div className="screen-container">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 scroll-reveal">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#091C0F] text-white text-xs font-semibold shadow-2xs mb-3">
             <Clock className="w-3.5 h-3.5 text-[#86EFAC]" />
             <span className="font-mono uppercase tracking-wider text-[11px]">8-Week Delivery Methodology</span>
@@ -89,10 +89,11 @@ export default function ProcessSection() {
         <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
           {phases.map((item, idx) => {
             const Icon = item.icon;
+            const delayClass = idx === 1 ? "delay-75" : idx === 2 ? "delay-150" : idx === 3 ? "delay-225" : idx === 4 ? "delay-300" : "";
             return (
               <div
                 key={idx}
-                className="w-[85vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] border-l-2 border-l-[#00875A] pl-4 ml-2 sm:ml-0 sm:border-l-[#E2E8F0] shadow-xs hover:border-[#47C56E]/60 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                className={`scroll-popup ${delayClass} w-[85vw] max-w-[320px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white p-5 sm:p-6 rounded-2xl border border-[#E2E8F0] border-l-2 border-l-[#00875A] pl-4 ml-2 sm:ml-0 sm:border-l-[#E2E8F0] shadow-xs hover:border-[#47C56E]/60 hover:shadow-md transition-all duration-200 flex flex-col justify-between`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">

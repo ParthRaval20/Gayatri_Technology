@@ -7,51 +7,44 @@
 @import "./base.css" layer(base);
 
 @theme {
-  --color-primary: #47C56E;
-  --color-on-primary: #091C0F;
-  --color-primary-container: #091C0F;
-  --color-on-primary-container: #86EFAC;
-  --color-primary-fixed: #DCFCE7;
+  --color-primary: var(--color-accent-light);
+  --color-on-primary: var(--color-ink);
+  --color-primary-container: var(--color-ink);
+  --color-on-primary-container: var(--color-accent-mint);
+  --color-primary-fixed: var(--color-accent-subtle);
   --color-primary-fixed-dim: #BBF7D0;
-  --color-on-primary-fixed: #091C0F;
-  --color-on-primary-fixed-variant: #166534;
+  --color-on-primary-fixed: var(--color-ink);
+  --color-on-primary-fixed-variant: var(--color-accent);
 
-  --color-secondary: #00BC7D;
+  --color-secondary: var(--color-accent);
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #47C56E;
-  --color-on-secondary-container: #091C0F;
-  --color-secondary-fixed: #D1FAE5;
-  --color-secondary-fixed-dim: #A7F3D0;
-  --color-on-secondary-fixed: #064E3B;
-  --color-on-secondary-fixed-variant: #047857;
+  --color-secondary-container: var(--color-accent-light);
+  --color-on-secondary-container: var(--color-ink);
+  --color-secondary-fixed: var(--color-accent-subtle);
 
-  --color-tertiary: #091C0F;
+  --color-tertiary: var(--color-ink);
   --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #0B130E;
-  --color-on-tertiary-container: #47C56E;
-  --color-tertiary-fixed: #E8F5E9;
-  --color-tertiary-fixed-dim: #C8E6C9;
-  --color-on-tertiary-fixed: #0B130E;
-  --color-on-tertiary-fixed-variant: #1B5E20;
+  --color-tertiary-container: var(--color-ink);
+  --color-on-tertiary-container: var(--color-accent-light);
 
-  --color-surface: #F8FAFC;
-  --color-surface-dim: #E2E8F0;
-  --color-surface-bright: #FFFFFF;
-  --color-surface-container-lowest: #FFFFFF;
-  --color-surface-container-low: #F8FAFC;
-  --color-surface-container: #EFF4F1;
-  --color-surface-container-high: #E2E8F0;
+  --color-surface: var(--color-paper-2);
+  --color-surface-dim: var(--color-rule);
+  --color-surface-bright: var(--color-paper);
+  --color-surface-container-lowest: var(--color-paper);
+  --color-surface-container-low: var(--color-paper-2);
+  --color-surface-container: var(--color-paper-3);
+  --color-surface-container-high: var(--color-rule);
   --color-surface-container-highest: #CBD5E1;
-  --color-surface-variant: #EFF4F1;
-  --color-on-surface: #091C0F;
-  --color-on-surface-variant: #475569;
-  --color-inverse-surface: #091C0F;
-  --color-inverse-on-surface: #E2E8F0;
-  --color-outline: #62748E;
-  --color-outline-variant: #E2E8F0;
-  --color-surface-tint: #47C56E;
-  --color-background: #F8FAFC;
-  --color-on-background: #091C0F;
+  --color-surface-variant: var(--color-paper-3);
+  --color-on-surface: var(--color-ink);
+  --color-on-surface-variant: var(--color-ink-2);
+  --color-inverse-surface: var(--color-ink);
+  --color-inverse-on-surface: var(--color-rule);
+  --color-outline: var(--color-muted);
+  --color-outline-variant: var(--color-rule);
+  --color-surface-tint: var(--color-accent-light);
+  --color-background: var(--color-paper-2);
+  --color-on-background: var(--color-ink);
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
@@ -67,6 +60,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -279,29 +273,39 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* 5. Cross-Browser Custom Scrollbars (Firefox & WebKit) */
-* {
+html,
+.overflow-y-auto,
+.overflow-x-auto {
   scrollbar-width: thin;
-  scrollbar-color: #CBD5E1 transparent;
+  scrollbar-color: var(--color-rule) transparent;
 }
 
-::-webkit-scrollbar {
+html::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track,
+.overflow-y-auto::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track {
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #CBD5E1;
+html::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background-color: var(--color-rule);
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #94A3B8;
+html::-webkit-scrollbar-thumb:hover,
+.overflow-y-auto::-webkit-scrollbar-thumb:hover,
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-muted);
 }
 
 /* 6. Momentum scroll for iOS WebKit & overscroll safety */
@@ -372,41 +376,13 @@ img, svg {
   }
 }
 
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(14px);
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translateY(14px);
     transform: translateY(14px);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes fadeInDown {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -414,86 +390,41 @@ img, svg {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
   }
   to {
     opacity: 1;
-    -webkit-transform: translateY(0);
     transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes scaleIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale(0.97);
-    transform: scale(0.97);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
   }
 }
 
 @keyframes scaleIn {
   from {
     opacity: 0;
-    -webkit-transform: scale(0.97);
     transform: scale(0.97);
   }
   to {
     opacity: 1;
-    -webkit-transform: scale(1);
     transform: scale(1);
-  }
-}
-
-@-webkit-keyframes floatGentle {
-  0%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  50% {
-    -webkit-transform: translateY(-4px);
-    transform: translateY(-4px);
   }
 }
 
 @keyframes floatGentle {
   0%, 100% {
-    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
   50% {
-    -webkit-transform: translateY(-4px);
     transform: translateY(-4px);
-  }
-}
-
-@-webkit-keyframes pulseSubtle {
-  0%, 100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    -webkit-transform: scale(0.98);
-    transform: scale(0.98);
   }
 }
 
 @keyframes pulseSubtle {
   0%, 100% {
     opacity: 1;
-    -webkit-transform: scale(1);
     transform: scale(1);
   }
   50% {
     opacity: 0.8;
-    -webkit-transform: scale(0.98);
     transform: scale(0.98);
   }
 }
@@ -517,6 +448,23 @@ img, svg {
 
 .animate-progress {
   animation: progressBar 5.5s linear forwards;
+}
+
+@keyframes cursorBlink {
+  0%, 48% {
+    opacity: 1;
+  }
+  50%, 98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-cursor-blink {
+  -webkit-animation: cursorBlink 0.85s infinite;
+  animation: cursorBlink 0.85s infinite;
 }
 
 .animate-fade-in-up {
@@ -644,112 +592,122 @@ img, svg {
 }
 
 /* ==========================================================================
-   10. Scroll-Driven Reveal Animations (Smooth & Slow Content Appearance)
+   10. Scroll-Driven Popup Animations (Smooth & Tactile Across Every Page)
    ========================================================================== */
 
-/* Standard smooth reveal: glides up 30px and fades in slowly */
+/* 1. Full-Section Popup: Smooth elevation and expansion as you scroll */
+html.has-scroll-reveal .scroll-section:not([data-revealed="true"]):not(.revealed),
+html.has-scroll-reveal main > section:not(#hero):not([data-revealed="true"]):not(.revealed) {
+  opacity: 0;
+  transform: scale(0.97) translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.18, 1.08, 0.32, 1);
+  will-change: opacity, transform;
+}
+
+html.has-scroll-reveal .scroll-section[data-revealed="true"],
+html.has-scroll-reveal .scroll-section.revealed,
+html.has-scroll-reveal main > section:not(#hero)[data-revealed="true"],
+html.has-scroll-reveal main > section:not(#hero).revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 2. Standard Header & Block Popup */
 html.has-scroll-reveal .scroll-reveal:not([data-revealed="true"]):not(.revealed) {
   opacity: 0;
-  -webkit-transform: translateY(30px);
-  transform: translateY(30px);
-  -webkit-transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  transform: scale(0.94) translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.2, 1.12, 0.35, 1);
   will-change: opacity, transform;
 }
 
 html.has-scroll-reveal .scroll-reveal[data-revealed="true"],
 html.has-scroll-reveal .scroll-reveal.revealed {
   opacity: 1 !important;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
+  transform: none !important;
 }
 
-/* Extra slow smooth reveal for prominent hero elements or major headers */
+/* 3. The Signature Card / Tile / Article Popup: High-tactile pop from 0.91 with spring overshoot */
+html.has-scroll-reveal .scroll-popup:not([data-revealed="true"]):not(.revealed),
+html.has-scroll-reveal .scroll-reveal-card:not([data-revealed="true"]):not(.revealed),
+html.has-scroll-reveal .scroll-reveal-scale:not([data-revealed="true"]):not(.revealed) {
+  opacity: 0;
+  transform: scale(0.91) translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.2, 1.15, 0.35, 1);
+  will-change: opacity, transform;
+}
+
+html.has-scroll-reveal .scroll-popup[data-revealed="true"],
+html.has-scroll-reveal .scroll-popup.revealed,
+html.has-scroll-reveal .scroll-reveal-card[data-revealed="true"],
+html.has-scroll-reveal .scroll-reveal-card.revealed,
+html.has-scroll-reveal .scroll-reveal-scale[data-revealed="true"],
+html.has-scroll-reveal .scroll-reveal-scale.revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 4. Smooth Slow Popup for Banners & Prominent Showcases */
 html.has-scroll-reveal .scroll-reveal-slow:not([data-revealed="true"]):not(.revealed) {
   opacity: 0;
-  -webkit-transform: translateY(36px);
-  transform: translateY(36px);
-  -webkit-transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
-  transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1), transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  transform: scale(0.94) translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.18, 1.1, 0.32, 1);
   will-change: opacity, transform;
 }
 
 html.has-scroll-reveal .scroll-reveal-slow[data-revealed="true"],
 html.has-scroll-reveal .scroll-reveal-slow.revealed {
   opacity: 1 !important;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
+  transform: none !important;
 }
 
-/* Subtle scale-in reveal for featured bento tiles and banners */
-html.has-scroll-reveal .scroll-reveal-scale:not([data-revealed="true"]):not(.revealed) {
-  opacity: 0;
-  -webkit-transform: scale(0.96) translateY(24px);
-  transform: scale(0.96) translateY(24px);
-  -webkit-transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: opacity, transform;
+/* Stagger delay classes for cascading popup waves */
+html.has-scroll-reveal .delay-75 {
+  transition-delay: 75ms;
 }
 
-html.has-scroll-reveal .scroll-reveal-scale[data-revealed="true"],
-html.has-scroll-reveal .scroll-reveal-scale.revealed {
-  opacity: 1 !important;
-  -webkit-transform: scale(1) translateY(0);
-  transform: scale(1) translateY(0);
-}
-
-/* Stagger delay classes for multi-card rows */
-html.has-scroll-reveal .scroll-reveal.delay-100,
-html.has-scroll-reveal .scroll-reveal-scale.delay-100 {
-  -webkit-transition-delay: 100ms;
+html.has-scroll-reveal .delay-100 {
   transition-delay: 100ms;
 }
 
-html.has-scroll-reveal .scroll-reveal.delay-150,
-html.has-scroll-reveal .scroll-reveal-scale.delay-150 {
-  -webkit-transition-delay: 150ms;
+html.has-scroll-reveal .delay-150 {
   transition-delay: 150ms;
 }
 
-html.has-scroll-reveal .scroll-reveal.delay-200,
-html.has-scroll-reveal .scroll-reveal-scale.delay-200 {
-  -webkit-transition-delay: 200ms;
+html.has-scroll-reveal .delay-200 {
   transition-delay: 200ms;
 }
 
-html.has-scroll-reveal .scroll-reveal.delay-300,
-html.has-scroll-reveal .scroll-reveal-scale.delay-300 {
-  -webkit-transition-delay: 300ms;
+html.has-scroll-reveal .delay-250 {
+  transition-delay: 250ms;
+}
+
+html.has-scroll-reveal .delay-300 {
   transition-delay: 300ms;
 }
 
-html.has-scroll-reveal .scroll-reveal.delay-400,
-html.has-scroll-reveal .scroll-reveal-scale.delay-400 {
-  -webkit-transition-delay: 400ms;
+html.has-scroll-reveal .delay-350 {
+  transition-delay: 350ms;
+}
+
+html.has-scroll-reveal .delay-400 {
   transition-delay: 400ms;
 }
 
-html.has-scroll-reveal .scroll-reveal.delay-500,
-html.has-scroll-reveal .scroll-reveal-scale.delay-500 {
-  -webkit-transition-delay: 500ms;
+html.has-scroll-reveal .delay-500 {
   transition-delay: 500ms;
 }
 
 /* Accessibility: Immediately reveal with no transition if user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html.has-scroll-reveal .scroll-section,
   html.has-scroll-reveal .scroll-reveal,
   html.has-scroll-reveal .scroll-reveal-slow,
-  html.has-scroll-reveal .scroll-reveal-scale {
+  html.has-scroll-reveal .scroll-reveal-scale,
+  html.has-scroll-reveal .scroll-reveal-card,
+  html.has-scroll-reveal .scroll-popup,
+  html.has-scroll-reveal main > section:not(#hero) {
     opacity: 1 !important;
-    -webkit-transform: none !important;
     transform: none !important;
-    -webkit-transition: none !important;
     transition: none !important;
   }
 }

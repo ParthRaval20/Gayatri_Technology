@@ -10,14 +10,12 @@ import {
   Mail,
   Eye,
   Terminal,
-  ShieldCheck,
-  Building2,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
 import { siteConfig, getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
-import { InstagramIcon, LinkedinIcon } from "@/components/SocialIcons";
+import { LinkedinIcon } from "@/components/SocialIcons";
 import FounderPhoto from "@/components/FounderPhoto";
 
 export const metadata: Metadata = createPageMetadata({
@@ -71,11 +69,11 @@ export default function AboutPage() {
 
       <main className="flex-1">
         {/* Split Founder & Studio Introduction Header */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E2E8F0]">
+        <section className="scroll-section py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E2E8F0]">
           <div className="screen-container">
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left Column: Mission Story & Single H1 */}
-              <div className="lg:col-span-7 space-y-5">
+              <div className="lg:col-span-7 space-y-5 scroll-reveal">
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#00875A] block">
                   FOUNDER-LED SOFTWARE STUDIO &bull; RAJKOT, GUJARAT
                 </span>
@@ -135,7 +133,7 @@ export default function AboutPage() {
               </div>
 
               {/* Right Column: High-Resolution Founder Card */}
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-5 scroll-popup delay-100">
                 <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl sm:rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
                   <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-4">
                     <span className="text-xs font-bold text-[#00875A] uppercase tracking-wider font-mono">
@@ -219,9 +217,9 @@ export default function AboutPage() {
         </section>
 
         {/* Four Principles That Guide Our Work */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <section className="scroll-section py-12 sm:py-16 lg:py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
           <div className="screen-container">
-            <div className="max-w-3xl mb-10 sm:mb-14">
+            <div className="max-w-3xl mb-10 sm:mb-14 scroll-reveal">
               <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
                 OUR PHILOSOPHY
               </span>
@@ -234,29 +232,32 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              {principles.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs hover:border-[#47C56E]/60 transition-all space-y-3"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-[#00875A] bg-[#47C56E]/12 px-2.5 py-1 rounded-md border border-[#47C56E]/20">
-                      {item.num}
-                    </span>
-                    <CheckCircle2 className="w-4 h-4 text-[#47C56E]" />
+              {principles.map((item, idx) => {
+                const delayClass = (idx % 2 === 1) ? "delay-100" : "";
+                return (
+                  <div
+                    key={idx}
+                    className={`scroll-popup ${delayClass} p-6 sm:p-7 rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs hover:border-[#47C56E]/60 transition-all space-y-3`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold text-[#00875A] bg-[#47C56E]/12 px-2.5 py-1 rounded-md border border-[#47C56E]/20">
+                        {item.num}
+                      </span>
+                      <CheckCircle2 className="w-4 h-4 text-[#47C56E]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-[#091C0F] font-display">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-[#091C0F] font-display">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Seamless Cross-Link to 8-Week Delivery Lifecycle replacing duplicate process section */}
-            <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="scroll-popup delay-150 mt-8 p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <span className="text-xs font-bold text-[#091C0F] block">
                   Looking for our 8-week engineering sprint lifecycle &amp; 30-day floor warranty?
@@ -277,9 +278,9 @@ export default function AboutPage() {
         </section>
 
         {/* Real Evidence Highlight */}
-        <section className="py-12 sm:py-16 bg-white border-b border-[#E2E8F0]">
+        <section className="scroll-section py-12 sm:py-16 bg-white border-b border-[#E2E8F0]">
           <div className="screen-container">
-            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#FAFCFF] border border-[#E2E8F0] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="scroll-reveal-scale p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#FAFCFF] border border-[#E2E8F0] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-2">
                 <span className="text-xs font-mono font-bold text-[#00875A] uppercase tracking-wider block">
                   REAL PRODUCTION EVIDENCE

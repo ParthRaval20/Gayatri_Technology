@@ -194,7 +194,7 @@ export default function ServicesPage() {
   ]);
 
   return (
-    <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
+    <div className="flex min-h-screen min-h-[100dvh] flex-col bg-paper overflow-x-hidden md:overflow-x-clip w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -204,72 +204,95 @@ export default function ServicesPage() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Compact Architectural Header (No pill badge, no duplicated buttons, left-aligned) */}
-        <section className="pt-8 pb-10 sm:pt-14 sm:pb-16 bg-white border-b border-[#E2E8F0]">
+        {/* Architectural Header - Centered, Fluid Typography, Linear/Stripe caliber */}
+        <section className="scroll-section pt-10 pb-12 sm:pt-16 sm:pb-20 bg-paper border-b border-rule">
           <div className="screen-container">
-            <div className="max-w-4xl space-y-3">
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#00875A]">
-                ENGINEERING CAPABILITIES &amp; DELIVERY LIFECYCLE
-              </span>
-              <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display leading-[1.14]">
+            <div className="max-w-3xl mx-auto text-center space-y-4 scroll-reveal">
+              {/* Eyebrow Pill */}
+              <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold tracking-wider uppercase text-accent bg-accent/10 border border-accent/25 px-3 py-1 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                <span>ENGINEERING CAPABILITIES &bull; 6 CORE DISCIPLINES</span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-ink tracking-tight font-display leading-[1.1] text-balance">
                 Custom software systems engineered for factory floors, godowns, and growing teams.
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-[#475569] max-w-2xl leading-relaxed pt-1">
+
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg md:text-xl text-ink-2 max-w-2xl mx-auto leading-relaxed text-balance">
                 We build custom applications, industrial ERP systems, and web platforms designed to
                 replace scattered spreadsheets and save hours of manual work every day.
               </p>
+
+              {/* Micro Trust Indicators */}
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-muted font-medium">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <span>Direct lead engineer access</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <span>100% source code ownership</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <span>Zero monthly per-seat licensing fees</span>
+                </span>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Detailed Services Grid (With Buyer-Relevant Delivery Specs) */}
-        <section className="py-10 sm:py-14 lg:py-18 bg-[#F8FAFC] border-b border-[#E2E8F0] overflow-hidden">
+        <section className="scroll-section py-10 sm:py-14 lg:py-18 bg-paper-2 border-b border-rule overflow-hidden">
           <div className="screen-container">
             {/* Mobile swipe helper */}
-            <div className="mb-4 flex items-center justify-between text-xs font-semibold text-[#00875A] md:hidden px-1">
+            <div className="mb-4 flex items-center justify-between text-xs font-semibold text-accent md:hidden px-1">
               <span>← Swipe to inspect all 6 solutions →</span>
-              <span className="font-mono text-slate-400 text-[11px]">6 Services</span>
+              <span className="font-mono text-muted text-[11px]">6 Services</span>
             </div>
 
             <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-4 md:pb-0 items-stretch">
-              {detailedServices.map((service) => {
+              {detailedServices.map((service, idx) => {
                 const Icon = service.icon;
+                const delayClass = (idx % 3) === 1 ? "delay-100" : (idx % 3) === 2 ? "delay-200" : "";
                 return (
                   <div
                     key={service.id}
                     id={service.id}
-                    className="w-[88vw] max-w-[360px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-white rounded-2xl p-5 sm:p-7 sm:p-8 border border-[#E2E8F0] hover:border-[#47C56E]/70 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group"
+                    className={`scroll-popup ${delayClass} w-[88vw] max-w-[360px] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none bg-paper rounded-2xl p-5 sm:p-7 sm:p-8 border border-rule hover:border-accent-light/70 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between group`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-5">
-                        <div className="w-12 h-12 rounded-xl bg-[#091C0F] text-[#86EFAC] flex items-center justify-center transition-colors duration-200">
+                        <div className="w-12 h-12 rounded-xl bg-ink text-accent-mint flex items-center justify-center transition-colors duration-200">
                           <Icon className="w-6 h-6" />
                         </div>
-                        <span className="text-[11px] font-bold text-[#00875A] bg-[#47C56E]/10 border border-[#47C56E]/20 px-2.5 py-1 rounded-full">
+                        <span className="text-[11px] font-bold text-accent bg-accent/10 border border-accent/20 px-2.5 py-1 rounded-full font-mono">
                           {service.badge}
                         </span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-[#091C0F] mb-1 font-display">
+                      <h3 className="text-xl font-bold text-ink mb-1 font-display">
                         {service.title}
                       </h3>
 
-                      <p className="text-[#00875A] text-xs font-semibold mb-2">
+                      <p className="text-accent text-xs font-semibold mb-2">
                         {service.whoNeedsIt}
                       </p>
 
-                      <p className="text-[#475569] text-xs leading-relaxed mb-4">
-                        <strong className="text-[#091C0F]">Problem:</strong> {service.problem}
+                      <p className="text-muted text-xs leading-relaxed mb-4">
+                        <strong className="text-ink font-semibold">Problem:</strong> {service.problem}
                       </p>
 
-                      <div className="border-t border-[#E2E8F0] pt-4 mb-5">
-                        <p className="text-xs font-bold text-[#091C0F] uppercase tracking-wider mb-2.5 font-mono">
+                      <div className="border-t border-rule pt-4 mb-5">
+                        <p className="text-xs font-bold text-ink uppercase tracking-wider mb-2.5 font-mono">
                           Key Deliverables:
                         </p>
-                        <ul className="space-y-2 text-xs text-[#475569]">
+                        <ul className="space-y-2 text-xs text-ink-2">
                           {service.deliverables.map((item, i) => (
                             <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-[#00875A] shrink-0 mt-0.5" />
+                              <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -277,25 +300,25 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <div className="pt-3 border-t border-[#E2E8F0] space-y-3">
+                    <div className="pt-3 border-t border-rule space-y-3">
                       {/* Buyer-Relevant Delivery Specs on single compact 2-column row */}
-                      <div className="grid grid-cols-2 gap-2 text-xs p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] font-mono text-[#334155]">
-                        <div className="font-semibold text-[#091C0F] flex items-center gap-1.5 min-w-0">
-                          <Clock className="w-3.5 h-3.5 text-[#00875A] shrink-0" />
+                      <div className="grid grid-cols-2 gap-2 text-xs p-2.5 rounded-lg bg-paper-2 border border-rule text-[11px] font-mono text-ink-2">
+                        <div className="font-semibold text-ink flex items-center gap-1.5 min-w-0">
+                          <Clock className="w-3.5 h-3.5 text-accent shrink-0" />
                           <span className="truncate">{service.deliverySpec.replace("Typical Delivery: ", "")}</span>
                         </div>
-                        <div className="text-slate-500 flex items-center gap-1.5 min-w-0 justify-end">
-                          <Layers className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        <div className="text-muted flex items-center gap-1.5 min-w-0 justify-end">
+                          <Layers className="w-3.5 h-3.5 text-muted shrink-0" />
                           <span className="truncate">{service.platform.replace("Platform: ", "")}</span>
                         </div>
                       </div>
 
                       <Link
                         href="/contact"
-                        className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs min-h-[44px]"
+                        className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-ink hover:bg-ink-2 text-white text-xs font-bold transition-all shadow-xs min-h-[44px]"
                       >
                         <span>Discuss This Solution</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#47C56E]" />
+                        <ArrowRight className="w-3.5 h-3.5 text-accent-mint" />
                       </Link>
                     </div>
                   </div>
@@ -317,13 +340,13 @@ export default function ServicesPage() {
         <TechStackSection />
 
         {/* FAQ Section */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-white border-y border-[#E2E8F0]">
+        <section className="scroll-section py-12 sm:py-16 lg:py-20 bg-paper border-y border-rule">
           <div className="screen-container max-w-4xl mx-auto">
             <div className="mb-10">
-              <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+              <span className="text-accent font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
                 CLARITY &amp; STANDARDS
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#091C0F] tracking-tight font-display">
+              <h2 className="text-2xl sm:text-3xl font-bold text-ink tracking-tight font-display">
                 Frequently Asked Technical Questions
               </h2>
             </div>

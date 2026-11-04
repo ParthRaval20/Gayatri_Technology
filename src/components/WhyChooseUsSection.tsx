@@ -6,9 +6,7 @@ import {
   ArrowRight,
   Phone,
   MessageCircle,
-  MapPin,
   CheckCircle2,
-  Mail,
 } from "lucide-react";
 import { siteConfig } from "@/lib/seo";
 import FounderPhoto from "./FounderPhoto";
@@ -38,17 +36,17 @@ const compactPrinciples = [
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-paper border-b border-rule">
+    <section className="scroll-section py-16 sm:py-20 lg:py-24 bg-paper border-b border-rule">
       <div className="screen-container space-y-12 sm:space-y-16">
         {/* Founder Commitment: Signed Personal Letter on the Left + Direct Access */}
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Founder Letter */}
-          <div className="lg:col-span-7 bg-paper-2 p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-rule shadow-xs space-y-6">
+          <div className="lg:col-span-7 bg-paper-2 p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-rule shadow-xs space-y-6 scroll-reveal">
             <div className="flex items-center justify-between border-b border-rule pb-4">
-              <span className="text-xs font-semibold text-accent">
-                Founder commitment: direct responsibility
+              <span className="text-xs font-mono font-bold text-accent uppercase tracking-wider">
+                FOUNDER COMMITMENT &bull; DIRECT RESPONSIBILITY
               </span>
-              <span className="text-[11px] font-medium text-muted bg-paper px-2.5 py-0.5 rounded-full border border-rule">
+              <span className="text-[11px] font-semibold text-muted bg-paper px-2.5 py-0.5 rounded-full border border-rule">
                 Rajkot, Gujarat
               </span>
             </div>
@@ -99,11 +97,11 @@ export default function WhyChooseUsSection() {
           </div>
 
           {/* Right Column: High-Impact Reassurances */}
-          <div className="lg:col-span-5 space-y-4">
-            <span className="text-accent font-semibold text-xs block">
-              Direct accountability
+          <div className="lg:col-span-5 space-y-4 scroll-reveal delay-150">
+            <span className="text-xs font-mono font-bold text-accent uppercase tracking-wider block">
+              DIRECT ACCOUNTABILITY &bull; ZERO AGENCY FLUFF
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-ink font-display leading-tight">
+            <h3 className="text-[length:var(--text-title)] sm:text-3xl font-extrabold text-ink font-display leading-tight">
               Engineers who care about your balance sheet, not billable hours.
             </h3>
             <p className="text-xs sm:text-sm text-muted leading-relaxed">
@@ -129,11 +127,11 @@ export default function WhyChooseUsSection() {
         </div>
 
         {/* Four Principles Condensed: Compact 4-Column Horizontal Strip */}
-        <div className="pt-6 border-t border-rule">
+        <div className="pt-6 border-t border-rule scroll-reveal delay-100">
           <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-              <span className="text-xs font-semibold text-accent block">
-                Our engineering principles
+              <span className="text-xs font-mono font-bold text-accent uppercase tracking-wider">
+                OUR ENGINEERING PRINCIPLES
               </span>
               <h3 className="text-lg sm:text-xl font-bold text-ink font-display mt-0.5">
                 Four rules behind every system we ship

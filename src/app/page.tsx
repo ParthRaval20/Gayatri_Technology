@@ -38,9 +38,9 @@ export default function Home() {
         <HeroSection />
         <TrustValueStrip />
         <RealProblemsSection />
-        <ServicesSection />
-        <SolutionsBento />
         <PortfolioSection />
+        <SolutionsBento />
+        <ServicesSection />
         <TestimonialsSection />
         <WhyChooseUsSection />
         <KnowledgePreviewSection />

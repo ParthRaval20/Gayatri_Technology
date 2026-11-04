@@ -6,7 +6,6 @@ import {
   Clock,
   ArrowRight,
   MessageSquare,
-  Terminal,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -45,9 +44,9 @@ export default function KnowledgePage() {
 
       <main className="flex-1">
         {/* Compact Left-Aligned Architectural Header (No pill badge, no faint grid background) */}
-        <section className="pt-8 pb-10 sm:pt-14 sm:pb-16 bg-white border-b border-[#E2E8F0]">
+        <section className="scroll-section pt-8 pb-10 sm:pt-14 sm:pb-16 bg-white border-b border-[#E2E8F0]">
           <div className="screen-container">
-            <div className="max-w-4xl space-y-3">
+            <div className="max-w-4xl space-y-3 scroll-reveal">
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#00875A]">
                 FIELD NOTES ON ERP, EXCEL &amp; OPERATIONS
               </span>
@@ -62,7 +61,7 @@ export default function KnowledgePage() {
         </section>
 
         {/* Founder Context Bar */}
-        <section className="bg-white py-4 sm:py-5 border-b border-[#E2E8F0]">
+        <section className="scroll-section bg-white py-4 sm:py-5 border-b border-[#E2E8F0]">
           <div className="screen-container flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-[#475569]">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-[#091C0F] text-[#86EFAC] font-bold flex items-center justify-center font-mono text-xs shrink-0">
@@ -81,10 +80,10 @@ export default function KnowledgePage() {
         </section>
 
         {/* Articles Section: Full-Width Featured Guide + 2x2 Grid */}
-        <section className="py-12 sm:py-16 lg:py-20 bg-[#F8FAFC]">
+        <section className="scroll-section py-12 sm:py-16 lg:py-20 bg-[#F8FAFC]">
           <div className="screen-container space-y-8 sm:space-y-10">
             {/* 1. Full-Width 2-Column Featured Article */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] p-6 sm:p-10 hover:border-[#47C56E]/70 shadow-sm hover:shadow-md transition-all group">
+            <div className="scroll-popup bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] p-6 sm:p-10 hover:border-[#47C56E]/70 shadow-sm hover:shadow-md transition-all group">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-3.5">
                   <div className="flex items-center gap-3 flex-wrap">
@@ -150,10 +149,10 @@ export default function KnowledgePage() {
 
             {/* 2. 2x2 Grid Below for Remaining 4 Guides */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              {gridArticles.map((article) => (
+              {gridArticles.map((article, idx) => (
                 <article
                   key={article.slug}
-                  className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 hover:border-[#47C56E]/60 hover:shadow-md transition-all group flex flex-col justify-between"
+                  className={`scroll-popup ${idx % 2 === 1 ? "delay-100" : ""} bg-white rounded-2xl sm:rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 hover:border-[#47C56E]/60 hover:shadow-md transition-all group flex flex-col justify-between`}
                 >
                   <div className="space-y-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
@@ -195,7 +194,7 @@ export default function KnowledgePage() {
             </div>
 
             {/* Direct WhatsApp Ask CTA */}
-            <div className="bg-[#091C0F] text-white p-8 sm:p-10 rounded-2xl sm:rounded-3xl shadow-lg border border-[#163820] text-center space-y-4">
+            <div className="scroll-reveal-scale delay-150 bg-[#091C0F] text-white p-8 sm:p-10 rounded-2xl sm:rounded-3xl shadow-lg border border-[#163820] text-center space-y-4">
               <span className="px-3 py-1 rounded-full text-xs font-bold font-mono bg-[#163820] text-[#86EFAC] border border-[#225430] inline-block">
                 FOUNDER-TO-FOUNDER CONVERSATION
               </span>

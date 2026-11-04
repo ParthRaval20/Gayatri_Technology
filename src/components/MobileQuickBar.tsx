@@ -17,15 +17,15 @@ export default function MobileQuickBar() {
   return (
     <aside
       aria-label="Mobile quick action bar"
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E2E8F0] shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-2.5 pt-2 pb-[max(8px,calc(var(--sab)+8px))] flex items-center justify-between gap-1.5 transition-all duration-300"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-paper/95 backdrop-blur-md border-t border-rule shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-2.5 pt-2 pb-[max(8px,calc(var(--sab)+8px))] flex items-center justify-between gap-1.5 transition-all duration-300"
     >
       {/* 1. Phone Call Action */}
       <a
         href={`tel:${siteConfig.contact.telephone.replace(/\s+/g, "")}`}
-        className="flex items-center justify-center gap-1.5 h-11 px-3 rounded-full border border-slate-200 bg-white text-[#091C0F] text-xs font-bold hover:bg-[#F0FDF4] hover:border-[#47C56E]/60 transition-all shrink-0 active:scale-95 shadow-2xs group"
+        className="flex items-center justify-center gap-1.5 h-11 px-3 rounded-full border border-rule bg-paper text-ink text-xs font-bold hover:bg-paper-2 hover:border-accent/60 transition-all shrink-0 active:scale-95 shadow-2xs group"
         aria-label={`Call Gayatri Technology at ${siteConfig.contact.telephone}`}
       >
-        <Phone className="w-3.5 h-3.5 text-[#00875A] shrink-0 group-hover:rotate-12 transition-transform duration-200" />
+        <Phone className="w-3.5 h-3.5 text-accent shrink-0 group-hover:rotate-12 transition-transform duration-200" />
         <span className="shrink-0">Call</span>
       </a>
 
@@ -44,12 +44,12 @@ export default function MobileQuickBar() {
       {/* 3. Primary Requirement Intake CTA */}
       <Link
         href="/contact"
-        className="flex-1 flex items-center justify-center gap-1.5 h-11 min-w-0 px-3 rounded-full bg-[#47C56E] text-[#091C0F] text-xs font-bold shadow-md shadow-[#47C56E]/20 hover:bg-[#3db863] transition-all active:scale-95 text-center group truncate"
+        className="flex-1 flex items-center justify-center gap-1.5 h-11 min-w-0 px-3 rounded-full bg-accent hover:bg-accent-light text-white text-xs font-bold shadow-md shadow-accent/20 transition-all active:scale-95 text-center group truncate"
       >
-        <Calendar className="w-3.5 h-3.5 text-[#091C0F] shrink-0" />
+        <Calendar className="w-3.5 h-3.5 text-white shrink-0" />
         <span className="hidden xs:inline truncate">Tell Us What You Need</span>
         <span className="xs:hidden">Let&apos;s Talk</span>
-        <ArrowRight className="w-3.5 h-3.5 text-[#091C0F] shrink-0 group-hover:translate-x-1 transition-transform" />
+        <ArrowRight className="w-3.5 h-3.5 text-white shrink-0 group-hover:translate-x-1 transition-transform" />
       </Link>
     </aside>
   );

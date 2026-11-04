@@ -29,7 +29,7 @@
 
   --color-ink: #091C0F;
   --color-ink-2: #334155;
-  --color-muted: #64748B;
+  --color-muted: #475569;
   --color-rule: #E2E8F0;
   --color-rule-dark: #163820;
 
@@ -43,6 +43,7 @@
   --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Geist Mono", monospace;
+  --font-montserrat: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-outlier: var(--font-mono);
 
   --radius-sm: 6px;

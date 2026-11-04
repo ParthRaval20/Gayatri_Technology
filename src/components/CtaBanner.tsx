@@ -7,22 +7,22 @@ import { siteConfig } from "@/lib/seo";
 
 export default function CtaBanner() {
   return (
-    <section className="py-12 sm:py-16 bg-paper-2">
+    <section className="scroll-section py-12 sm:py-16 bg-paper-2">
       <div className="screen-container">
         <div className="bg-ink text-rule rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-14 shadow-lg relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 border border-rule-dark scroll-reveal-scale">
           <div className="max-w-2xl space-y-2">
-            <span className="text-accent-mint font-semibold text-xs block">
-              Let&apos;s talk
+            <span className="text-accent-mint font-bold text-xs uppercase tracking-wider block font-mono">
+              LET&apos;S TALK
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-display">
+            <h2 className="text-[length:var(--text-section)] tracking-[var(--tracking-display)] leading-[1.12] font-extrabold text-white tracking-tight font-display">
               Have a business problem that software could solve?
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-paper-2 leading-relaxed">
               Tell us what you&apos;re trying to build or what isn&apos;t working today. We&apos;ll help
               you figure out what makes sense.
             </p>
 
-            <div className="flex flex-col min-[480px]:flex-row min-[480px]:items-center gap-2 min-[480px]:gap-4 pt-2 text-xs text-slate-300">
+            <div className="flex flex-col min-[480px]:flex-row min-[480px]:items-center gap-2 min-[480px]:gap-4 pt-2 text-xs text-paper-2">
               <a
                 href={`tel:${siteConfig.contact.telephone.replace(/\s+/g, "")}`}
                 className="hover:text-accent-light transition-colors flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-accent"

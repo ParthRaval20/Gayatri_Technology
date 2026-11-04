@@ -179,17 +179,16 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
   }, [activeScreenshotIdx]);
 
   return (
-    <section id="portfolio" className="py-16 sm:py-20 lg:py-24 bg-paper border-y border-rule relative overflow-hidden">
+    <section id="portfolio" className="scroll-section py-16 sm:py-20 lg:py-24 bg-paper border-y border-rule relative overflow-hidden">
       <div className="screen-container">
         {/* Section Header */}
         {!hideHeader && (
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 scroll-reveal">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ink text-white text-xs font-semibold shadow-2xs mb-2">
-                <Terminal className="w-3.5 h-3.5 text-accent-mint" />
-                <span className="text-[11px] font-medium">Production systems</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ink tracking-tight font-display">
+              <span className="text-accent font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+                PRODUCTION DEPLOYMENTS &bull; 4 REAL-WORLD INDUSTRIAL CASE STUDIES
+              </span>
+              <h2 className="text-[length:var(--text-section)] tracking-[var(--tracking-display)] leading-[1.12] font-bold text-ink tracking-tight font-display">
                 Real Work That Solves Business Problems
               </h2>
               <p className="text-muted text-xs sm:text-sm md:text-base mt-2 max-w-xl">
@@ -208,14 +207,14 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
         )}
 
         {/* Sticky Filter Tabs & Category Bar */}
-        <div className="sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur-md py-3 -mx-4 px-4 sm:mx-0 sm:px-0 mb-8 border-b border-rule shadow-xs flex flex-wrap items-center justify-between gap-3 transition-colors">
+        <div className="sticky top-16 md:top-20 z-30 bg-paper/95 backdrop-blur-md py-3 -mx-4 px-4 sm:mx-0 sm:px-0 mb-8 border-b border-rule shadow-xs flex flex-wrap items-center justify-between gap-3 transition-colors">
           <div className="flex overflow-x-auto sm:flex-wrap items-center gap-1.5 sm:gap-2 p-1 bg-paper-2 rounded-xl border border-rule no-scrollbar max-w-full">
             <button
               onClick={() => setSelectedCategory("all")}
               className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer shrink-0 min-h-[36px] focus-visible:outline-2 focus-visible:outline-accent ${
                 selectedCategory === "all"
                   ? "bg-ink text-white shadow-xs"
-                  : "text-slate-600 hover:text-ink"
+                  : "text-ink-2 hover:text-ink"
               }`}
             >
               All Projects ({caseStudies.length})
@@ -225,7 +224,7 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
               className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer shrink-0 min-h-[36px] focus-visible:outline-2 focus-visible:outline-accent ${
                 selectedCategory === "erp"
                   ? "bg-ink text-white shadow-xs"
-                  : "text-slate-600 hover:text-ink"
+                  : "text-ink-2 hover:text-ink"
               }`}
             >
               Enterprise ERP ({caseStudies.filter((c) => c.type === "erp").length})
@@ -235,14 +234,14 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
               className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer shrink-0 min-h-[36px] focus-visible:outline-2 focus-visible:outline-accent ${
                 selectedCategory === "web"
                   ? "bg-ink text-white shadow-xs"
-                  : "text-slate-600 hover:text-ink"
+                  : "text-ink-2 hover:text-ink"
               }`}
             >
               Commercial Web ({caseStudies.filter((c) => c.type === "web").length})
             </button>
           </div>
 
-          <div className="hidden sm:flex items-center gap-2 text-xs text-slate-500">
+          <div className="hidden sm:flex items-center gap-2 text-xs text-muted">
             <span className="w-2 h-2 rounded-full bg-accent-light motion-safe:animate-pulse motion-reduce:animate-none" />
             <span>4 production systems documented</span>
           </div>
@@ -251,7 +250,7 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
         {/* Mobile Swipe Hint */}
         <div className="flex md:hidden items-center justify-between text-xs text-accent font-semibold mb-3 px-1 scroll-reveal">
           <span>&larr; Swipe horizontally to view case studies &rarr;</span>
-          <span className="text-slate-400 text-[11px]">{filteredCaseStudies.length} deployments</span>
+          <span className="text-muted font-mono text-[11px]">{filteredCaseStudies.length} deployments</span>
         </div>
 
         {/* Case Studies Card Grid */}
@@ -272,16 +271,16 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                 role="button"
                 tabIndex={0}
                 aria-expanded={isExpanded}
-                className={`w-[88vw] max-w-[360px] sm:w-[380px] md:w-auto md:min-w-0 snap-center rounded-2xl border overflow-hidden flex flex-col justify-between transition-colors motion-safe:transition-transform duration-300 group shrink-0 md:shrink cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-accent ${
+                className={`w-[88vw] max-w-[360px] sm:w-[380px] md:w-auto md:min-w-0 snap-center rounded-2xl border overflow-hidden flex flex-col justify-between transition-colors duration-200 group shrink-0 md:shrink cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-accent ${
                   isExpanded
-                    ? "border-accent-light shadow-xl ring-1 ring-accent-light/40 bg-paper min-h-[500px] sm:min-h-[515px]"
-                    : "bg-paper-2 border-rule shadow-xs hover:border-accent-light/60 hover:shadow-md hover:-translate-y-1 h-[500px] sm:h-[515px]"
+                    ? "border-accent shadow-lg ring-1 ring-accent/30 bg-paper h-auto min-h-[515px] sm:min-h-[520px]"
+                    : "bg-paper-2 border-rule shadow-xs hover:border-accent hover:shadow-md hover:bg-paper h-[515px] sm:h-[520px]"
                 }`}
               >
                 {/* Card Top Section */}
                 <div className="flex flex-col flex-1">
                   {/* 1. Header Bar with Strict Fixed Height */}
-                  <div className="h-13 sm:h-14 bg-ink px-4 sm:px-5 border-b border-rule-dark flex items-center justify-between text-rule shrink-0">
+                  <div className="h-14 bg-ink px-4 sm:px-5 border-b border-rule-dark flex items-center justify-between text-rule shrink-0">
                     <div className="flex items-center gap-2">
                       {item.type === "web" ? (
                         <Globe className="w-3.5 h-3.5 text-accent-mint" />
@@ -290,8 +289,8 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                       ) : (
                         <Smartphone className="w-3.5 h-3.5 text-accent-mint" />
                       )}
-                      <span className="text-xs text-accent-mint font-medium">
-                        {item.shortLabel || item.title.split(" ")[0]} {item.type === "web" ? "Web" : item.type === "erp" ? "ERP" : "Mobile"}
+                      <span className="text-xs font-mono text-accent-mint tracking-wider font-semibold">
+                        {item.shortLabel || item.title.split(" ")[0]} {item.type.toUpperCase()}
                       </span>
                     </div>
 
@@ -309,7 +308,7 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                           rel="noopener noreferrer"
                           aria-label="Visit live website"
                           onClick={(e) => e.stopPropagation()}
-                          className="text-slate-400 hover:text-accent-light transition-colors p-1 focus-visible:outline-2 focus-visible:outline-accent"
+                          className="text-rule hover:text-accent-light transition-colors p-1 focus-visible:outline-2 focus-visible:outline-accent"
                         >
                           <ExternalLink className="w-4 h-4" />
                         </a>
@@ -326,7 +325,7 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                               0
                             );
                           }}
-                          className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 hover:bg-emerald-900 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-accent"
+                          className="flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-paper-dark text-accent-mint border border-rule-dark hover:bg-ink-2 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-accent"
                         >
                           <Eye className="w-3 h-3" />
                           <span>{item.screenshots.length} Screens</span>
@@ -340,17 +339,17 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                     <div>
                       {/* Sector Tag */}
                       <div className="flex items-center justify-between gap-2 h-5 shrink-0 mb-1.5">
-                        <span className="text-[10px] font-semibold text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-full shrink-0">
+                        <span className="text-[10px] font-semibold text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-full shrink-0 font-mono">
                           {item.sector}
                         </span>
                       </div>
 
-                      {/* Title & Tagline Container */}
-                      <div className="min-h-[64px] sm:min-h-[68px] shrink-0 mb-2 flex flex-col justify-start">
-                        <h3 className="text-base sm:text-lg font-bold text-ink font-display group-hover:text-accent transition-colors leading-snug line-clamp-1">
+                      {/* Title & Tagline Container with Fixed Height */}
+                      <div className="h-[68px] sm:h-[72px] shrink-0 mb-2 flex flex-col justify-start overflow-hidden">
+                        <h3 className="text-[length:var(--text-title)] font-bold text-ink font-display group-hover:text-accent transition-colors leading-snug line-clamp-1">
                           {item.title}
                         </h3>
-                        <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed line-clamp-2">
+                        <p className="text-xs text-muted font-medium mt-1 leading-relaxed line-clamp-2">
                           {item.tagline}
                         </p>
                       </div>
@@ -361,16 +360,16 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                       <div className="space-y-3 pt-1 flex flex-col justify-between flex-1">
                         {/* 2 Quick Highlight Metrics */}
                         {item.highlightMetrics && item.highlightMetrics.length > 0 && (
-                          <div className="grid grid-cols-2 gap-2 shrink-0">
+                          <div className="grid grid-cols-2 gap-2 h-[56px] shrink-0">
                             {item.highlightMetrics.slice(0, 2).map((m, mIdx) => (
                               <div
                                 key={mIdx}
-                                className="bg-paper rounded-lg p-2.5 border border-rule text-center shadow-2xs flex flex-col justify-center"
+                                className="bg-paper rounded-lg p-2 border border-rule text-center shadow-2xs flex flex-col justify-center h-full"
                               >
-                                <span className="block text-xs sm:text-sm font-extrabold text-ink font-mono leading-tight">
+                                <span className="block text-xs sm:text-sm font-extrabold text-ink font-mono tabular-nums leading-tight">
                                   {m.value}
                                 </span>
-                                <span className="block text-[9px] text-slate-500 font-medium leading-tight mt-1 truncate">
+                                <span className="block text-[10px] text-muted font-medium leading-tight mt-0.5 truncate">
                                   {m.label}
                                 </span>
                               </div>
@@ -378,9 +377,9 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                           </div>
                         )}
 
-                        {/* Delivered Functionality Box */}
-                        <div className="bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-xs min-h-[76px] flex flex-col justify-center shrink-0">
-                          <span className="text-[10px] font-semibold text-accent block mb-0.5">
+                        {/* Delivered Functionality Box with Fixed Height */}
+                        <div className="bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-xs h-[78px] sm:h-[80px] flex flex-col justify-center shrink-0 overflow-hidden">
+                          <span className="text-[10px] font-semibold text-accent block mb-0.5 font-mono uppercase">
                             Key outcome:
                           </span>
                           <p className="text-ink font-medium leading-relaxed line-clamp-2 text-[11px] sm:text-xs">
@@ -389,17 +388,17 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                         </div>
 
                         {/* Tech Badges Preview */}
-                        <div className="flex flex-wrap gap-1.5 min-h-[26px] items-center shrink-0">
+                        <div className="flex flex-wrap gap-1.5 h-[26px] items-center shrink-0 overflow-hidden">
                           {item.techBadges.slice(0, 3).map((badge, bIdx) => (
                             <span
                               key={bIdx}
-                              className="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-rule/70 text-ink-2"
+                              className="text-[10px] sm:text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-paper-3 text-ink-2 shrink-0"
                             >
                               {badge}
                             </span>
                           ))}
                           {item.techBadges.length > 3 && (
-                            <span className="text-[10px] font-sans font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">
+                            <span className="text-[10px] sm:text-[11px] font-sans font-medium px-1.5 py-0.5 rounded bg-paper-2 text-muted shrink-0">
                               +{item.techBadges.length - 3} more
                             </span>
                           )}
@@ -673,18 +672,18 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                           </div>
                         )}
 
-                        {/* All 4 Highlight Metrics */}
+                        {/* All 4 Highlight Metrics in balanced 2x2 grid */}
                         {item.highlightMetrics && (
-                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-1">
+                          <div className="grid grid-cols-2 gap-2 pt-1">
                             {item.highlightMetrics.map((m, mIdx) => (
                               <div
                                 key={mIdx}
-                                className="bg-paper rounded-lg p-2 border border-rule text-center shadow-2xs"
+                                className="bg-paper rounded-xl p-2.5 border border-rule text-center shadow-2xs flex flex-col justify-center min-h-[58px]"
                               >
-                                <span className="block text-xs sm:text-sm font-extrabold text-ink font-mono leading-tight">
+                                <span className="block text-xs sm:text-sm font-extrabold text-ink font-mono tabular-nums leading-tight whitespace-nowrap">
                                   {m.value}
                                 </span>
-                                <span className="block text-[9px] text-slate-500 font-medium leading-tight mt-0.5">
+                                <span className="block text-[11px] text-muted font-medium leading-tight mt-1">
                                   {m.label}
                                 </span>
                               </div>
@@ -698,7 +697,7 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                             <div className="flex items-center justify-between mb-1.5">
                               <div className="flex items-center gap-1.5">
                                 <span className="font-bold text-ink text-xs">{item.testimonial.name}</span>
-                                <span className="text-[10px] text-emerald-700 font-medium bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">
+                                <span className="text-[10px] text-accent font-medium bg-accent/10 px-1.5 py-0.2 rounded border border-accent/20">
                                   Verified Client
                                 </span>
                               </div>
@@ -719,7 +718,7 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                           {item.techBadges.map((badge, bIdx) => (
                             <span
                               key={bIdx}
-                              className="text-[9px] font-mono font-medium px-2 py-0.5 rounded bg-rule/70 text-ink-2"
+                              className="text-[10px] sm:text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-paper-3 text-ink-2"
                             >
                               {badge}
                             </span>
@@ -730,9 +729,9 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                   </div>
                 </div>
 
-                {/* 3. Bottom Footer & Toggle Strip */}
-                <div className="px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 border-t border-rule/80 flex flex-col justify-between shrink-0 bg-paper-2/90">
-                  <div className="flex items-center justify-between text-[11px] text-muted leading-tight mb-3">
+                {/* 3. Bottom Footer & Toggle Strip - Pinned cleanly to the bottom */}
+                <div className="mt-auto px-4 sm:px-5 pt-3.5 pb-4 sm:pb-5 border-t border-rule flex flex-col justify-end shrink-0 bg-paper-2 group-hover:bg-paper transition-colors">
+                  <div className="flex items-center justify-between text-[11px] text-muted leading-tight mb-3 h-5 shrink-0">
                     <span className="text-[11px] font-sans text-muted font-medium">
                       {item.relationship}
                     </span>
@@ -751,17 +750,18 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                     </span>
                   </div>
 
-                  {/* Primary CTA */}
-                  <div onClick={(e) => e.stopPropagation()}>
+                  {/* Primary CTA - Guaranteed same height, padding, margin across all 4 cards */}
+                  <div onClick={(e) => e.stopPropagation()} className="w-full">
                     {item.url ? (
                       <a
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="h-10 sm:h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-ink hover:bg-accent text-white text-xs font-semibold tracking-wide transition-colors group/btn shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        className="h-11 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-ink hover:bg-accent text-white text-xs font-bold tracking-wide transition-colors group/btn shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                       >
+                        <Globe className="w-3.5 h-3.5 text-accent-mint shrink-0" />
                         <span>Visit Live Website</span>
-                        <ExternalLink className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                        <ExternalLink className="w-3.5 h-3.5 text-accent-mint/80 group-hover/btn:translate-x-0.5 transition-transform shrink-0" />
                       </a>
                     ) : (
                       <button
@@ -774,12 +774,12 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
                             0
                           )
                         }
-                        className="h-10 sm:h-11 inline-flex items-center justify-center gap-1.5 w-full rounded-xl bg-ink hover:bg-accent text-white text-xs font-semibold tracking-wide transition-colors shadow-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        className="h-11 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-ink hover:bg-accent text-white text-xs font-bold tracking-wide transition-colors shadow-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                       >
                         {item.type === "erp" ? (
-                          <Monitor className="w-3.5 h-3.5 text-amber-300" />
+                          <Monitor className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                         ) : (
-                          <Smartphone className="w-3.5 h-3.5 text-accent-mint" />
+                          <Smartphone className="w-3.5 h-3.5 text-accent-mint shrink-0" />
                         )}
                         <span>
                           {item.type === "erp"

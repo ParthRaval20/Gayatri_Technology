@@ -85,7 +85,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
     .slice(0, 2);
 
   return (
-    <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
+    <div className="flex min-h-screen min-h-[100dvh] flex-col bg-paper overflow-x-hidden md:overflow-x-clip w-full">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -101,45 +101,45 @@ export default async function ArticleDetailPage({ params }: PageProps) {
       <Navbar />
 
       <main className="flex-1 py-10 sm:py-16">
-        <article className="screen-container max-w-4xl mx-auto">
+        <article className="no-popup screen-container max-w-[65ch] mx-auto">
           {/* Breadcrumb Back Button */}
           <Link
             href="/knowledge"
-            className="inline-flex items-center gap-2 text-xs font-bold text-[#00875A] hover:text-[#47C56E] uppercase tracking-wider mb-6 sm:mb-8 group transition-colors min-h-[44px]"
+            className="inline-flex items-center gap-2 text-xs font-bold text-accent hover:text-ink uppercase tracking-wider mb-6 sm:mb-8 group transition-colors min-h-[44px] font-mono"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to All Practical Guides</span>
           </Link>
 
           {/* Article Header */}
-          <header className="border-b border-[#E2E8F0] pb-8 mb-8 sm:mb-12">
+          <header className="border-b border-rule pb-8 mb-8 sm:mb-12">
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="px-3.5 py-1 rounded-full text-xs font-bold font-mono bg-[#47C56E]/12 text-[#00875A]">
+              <span className="px-3.5 py-1 rounded-full text-xs font-bold font-mono bg-accent/10 border border-accent/25 text-accent">
                 {article.category}
               </span>
-              <span className="flex items-center gap-1.5 text-xs text-[#64748B]">
+              <span className="flex items-center gap-1.5 text-xs text-muted font-mono">
                 <Clock className="w-3.5 h-3.5" />
                 {article.readingTime}
               </span>
-              <span className="text-xs text-[#64748B]">•</span>
-              <span className="text-xs text-[#64748B]">{article.publishedDate}</span>
+              <span className="text-xs text-muted">•</span>
+              <span className="text-xs text-muted font-mono">{article.publishedDate}</span>
             </div>
 
-            <h1 className="text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#091C0F] tracking-tight font-display mb-4 leading-tight">
+            <h1 className="text-[length:var(--text-section)] sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight font-display mb-4 leading-tight">
               {article.title}
             </h1>
 
-            <p className="text-sm sm:text-lg text-[#00875A] font-medium leading-relaxed mb-6 font-display">
+            <p className="text-base sm:text-lg text-ink-2 font-medium leading-relaxed mb-6 font-display">
               {article.subtitle}
             </p>
 
-            <div className="flex items-center justify-between pt-4 border-t border-[#F1F5F9] text-xs text-[#64748B]">
+            <div className="flex items-center justify-between pt-4 border-t border-rule text-xs text-muted">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#091C0F] text-[#47C56E] font-bold flex items-center justify-center font-mono shrink-0">
+                <div className="w-10 h-10 rounded-full bg-ink text-accent-mint font-bold flex items-center justify-center font-mono shrink-0">
                   PR
                 </div>
                 <div>
-                  <span className="font-bold text-[#091C0F] block text-sm">
+                  <span className="font-bold text-ink block text-sm">
                     {article.author.name}
                   </span>
                   <span>{article.author.role}</span>
@@ -161,17 +161,17 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           </header>
 
           {/* Key Takeaways Callout Box */}
-          <div className="bg-[#F0FDF4] border-2 border-[#86EFAC] rounded-2xl p-4 sm:p-6 sm:p-8 mb-8 sm:mb-12 shadow-xs">
+          <div className="scroll-popup bg-accent/10 border-2 border-accent/25 rounded-2xl p-4 sm:p-6 sm:p-8 mb-8 sm:mb-12 shadow-xs">
             <div className="flex items-center gap-2.5 mb-3">
-              <Terminal className="w-5 h-5 text-[#00875A]" />
-              <h2 className="text-sm font-bold uppercase tracking-wider text-[#00875A] font-mono">
+              <Terminal className="w-5 h-5 text-accent" />
+              <h2 className="text-sm font-bold uppercase tracking-wider text-accent font-mono">
                 Key Takeaways for Business Owners
               </h2>
             </div>
             <ul className="space-y-2.5">
               {article.keyTakeaways.map((takeaway, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-sm text-[#14532D]">
-                  <CheckCircle2 className="w-4 h-4 text-[#00875A] shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-2.5 text-sm text-ink">
+                  <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                   <span className="font-medium leading-relaxed">{takeaway}</span>
                 </li>
               ))}
@@ -179,27 +179,27 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           </div>
 
           {/* Article Main Body Content */}
-          <div className="prose prose-slate max-w-none text-[#334155] leading-relaxed space-y-10 sm:space-y-12">
+          <div className="text-ink text-[1.0625rem] leading-[1.75] space-y-10 sm:space-y-12">
             {article.content.map((section, sIdx) => (
               <section key={sIdx} className="space-y-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#091C0F] font-display pt-2">
+                <h2 className="text-xl sm:text-2xl font-bold text-ink font-display pt-2">
                   {section.heading}
                 </h2>
                 {section.paragraphs.map((para, pIdx) => (
-                  <p key={pIdx} className="text-base sm:text-lg leading-relaxed text-[#475569]">
+                  <p key={pIdx} className="text-[1.0625rem] leading-[1.75] text-ink-2">
                     {para}
                   </p>
                 ))}
 
                 {section.checklist && (
-                  <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 sm:p-6 my-4 shadow-2xs space-y-3">
-                    <span className="text-xs font-bold text-[#091C0F] uppercase tracking-wider font-mono block">
+                  <div className="bg-paper-2 border border-rule rounded-xl p-5 sm:p-6 my-4 shadow-2xs space-y-3">
+                    <span className="text-xs font-bold text-ink uppercase tracking-wider font-mono block">
                       Operational Realities Checklist:
                     </span>
                     <ul className="space-y-2">
                       {section.checklist.map((item, cIdx) => (
-                        <li key={cIdx} className="flex items-start gap-3 text-sm text-[#334155]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#00875A] shrink-0 mt-2" />
+                        <li key={cIdx} className="flex items-start gap-3 text-sm text-ink-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
                           <span className="leading-relaxed">{item}</span>
                         </li>
                       ))}
@@ -211,15 +211,15 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           </div>
 
           {/* Founder Quote & Reflection */}
-          <div className="mt-10 sm:mt-16 p-4 sm:p-6 sm:p-8 bg-white border border-[#E2E8F0] rounded-2xl shadow-xs space-y-4">
-            <h3 className="text-base sm:text-lg font-bold text-[#091C0F] font-display">
+          <div className="scroll-popup mt-10 sm:mt-16 p-4 sm:p-6 sm:p-8 bg-paper-2 border border-rule rounded-2xl shadow-xs space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-ink font-display">
               A Personal Note from Parth Raval
             </h3>
-            <p className="text-sm sm:text-base text-[#475569] leading-relaxed italic">
+            <p className="text-sm sm:text-base text-ink-2 leading-relaxed italic">
               &quot;We see many business owners in Rajkot and Gujarat get burned by massive software promises that end up gathering dust because they don&apos;t fit the daily routine of the people on the floor. Start small, solve the real operational bottleneck first, and let your software grow with your workflow.&quot;
             </p>
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-[#F1F5F9]">
-              <span className="text-xs text-[#64748B]">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-rule">
+              <span className="text-xs text-muted">
                 Have a unique operational process? We can audit your current workflow.
               </span>
               <a
@@ -236,14 +236,14 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           </div>
 
           {/* Related Articles Strip */}
-          <div className="mt-12 sm:mt-16 pt-8 border-t border-[#E2E8F0] space-y-6">
+          <div className="scroll-popup delay-100 mt-12 sm:mt-16 pt-8 border-t border-rule space-y-6">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold text-[#091C0F] font-display">
+              <h3 className="text-lg font-bold text-ink font-display">
                 More Practical Guides
               </h3>
               <Link
                 href="/knowledge"
-                className="text-xs font-bold text-[#00875A] hover:underline"
+                className="text-xs font-bold text-accent hover:text-ink transition-colors"
               >
                 View all guides &rarr;
               </Link>
@@ -254,20 +254,20 @@ export default async function ArticleDetailPage({ params }: PageProps) {
                 <Link
                   key={rel.slug}
                   href={`/knowledge/${rel.slug}`}
-                  className="p-5 rounded-2xl bg-white border border-[#E2E8F0] hover:border-[#47C56E] transition-all group flex flex-col justify-between"
+                  className="p-5 rounded-2xl bg-paper-2 border border-rule hover:border-accent-light/70 transition-all group flex flex-col justify-between"
                 >
                   <div>
-                    <span className="text-[11px] font-mono font-bold text-[#00875A] block mb-1">
+                    <span className="text-[11px] font-mono font-bold text-accent block mb-1">
                       {rel.category}
                     </span>
-                    <h4 className="text-base font-bold text-[#091C0F] group-hover:text-[#00875A] transition-colors leading-snug">
+                    <h4 className="text-base font-bold text-ink group-hover:text-accent transition-colors leading-snug font-display">
                       {rel.title}
                     </h4>
-                    <p className="text-xs text-[#64748B] mt-2 line-clamp-2">
+                    <p className="text-xs text-muted mt-2 line-clamp-2">
                       {rel.excerpt}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-xs font-bold text-[#00875A]">
+                  <div className="mt-4 pt-3 border-t border-rule flex items-center justify-between text-xs font-bold text-accent">
                     <span>Read Guide</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>

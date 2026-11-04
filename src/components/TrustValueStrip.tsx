@@ -33,12 +33,18 @@ const valueProps = [
 
 export default function TrustValueStrip() {
   return (
-    <section className="bg-paper py-6 sm:py-8 border-b border-rule shadow-xs">
+    <section className="scroll-section bg-paper py-8 sm:py-12 border-b border-rule shadow-xs">
       <div className="screen-container">
-        <div className="text-center mb-5 sm:mb-6 scroll-reveal">
-          <h2 className="text-base sm:text-lg md:text-xl font-bold text-ink tracking-tight font-display">
-            Why growing businesses choose to work with us
+        <div className="text-center mb-6 sm:mb-8 scroll-reveal max-w-2xl mx-auto space-y-1.5">
+          <span className="text-accent font-bold text-xs uppercase tracking-wider block font-mono">
+            THE GAYATRI STANDARD &bull; DIRECT RESPONSIBILITY
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-ink tracking-tight font-display text-balance">
+            Why growing businesses choose to build with us
           </h2>
+          <p className="text-xs sm:text-sm text-muted max-w-lg mx-auto text-balance">
+            Direct lead engineer access, zero subscription lock-in, and software tailored to your shop floor.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 min-[340px]:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4 md:gap-5 text-center">

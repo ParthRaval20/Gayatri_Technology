@@ -16,24 +16,24 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 sm:gap-3.5">
               <BrandLogo className="h-9 w-[62px] sm:h-10 sm:w-[70px] shrink-0" isDarkBackground />
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-bold tracking-tight text-white font-display leading-none">
-                  Gayatri
+                <span className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-white font-montserrat leading-none">
+                  GAYATRI
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-medium text-accent-mint mt-0.5 sm:mt-1 font-display leading-none">
-                  Technology
+                <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.22em] sm:tracking-[0.28em] uppercase text-accent-mint mt-0.5 sm:mt-1 font-montserrat leading-none">
+                  TECHNOLOGY
                 </span>
               </div>
             </div>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-paper-2 max-w-sm leading-relaxed">
               Custom software built around the way your business actually works. We engineer custom ERPs, business web applications, and mobile operational systems for growing companies.
             </p>
-            <address className="not-italic text-xs text-slate-300 space-y-1 pt-0.5 font-sans">
+            <address className="not-italic text-xs text-paper-2 space-y-1 pt-0.5 font-sans">
               <p>102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
                 <a href="tel:+919328437392" className="hover:text-accent-light transition-colors font-medium py-1 focus-visible:outline-2 focus-visible:outline-accent">
                   +91 93284 37392
                 </a>
-                <span className="text-slate-600">|</span>
+                <span className="text-rule-dark">|</span>
                 <a
                   href="https://wa.me/919328437392"
                   target="_blank"
@@ -42,7 +42,7 @@ export default function Footer() {
                 >
                   WhatsApp
                 </a>
-                <span className="text-slate-600">|</span>
+                <span className="text-rule-dark">|</span>
                 <a href="mailto:info@gayatritechnology.in" className="hover:text-accent-light transition-colors font-medium py-1 focus-visible:outline-2 focus-visible:outline-accent">
                   info@gayatritechnology.in
                 </a>
@@ -61,7 +61,7 @@ export default function Footer() {
                 href={siteConfig.social.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950 hover:bg-emerald-900 border border-emerald-800 text-xs font-semibold text-slate-200 hover:text-white transition-colors shadow-2xs group"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-paper-dark hover:bg-ink-2 border border-rule-dark text-xs font-semibold text-paper-2 hover:text-white transition-colors shadow-2xs group"
                 aria-label="Follow Gayatri Technology on Instagram"
               >
                 <InstagramIcon className="w-3.5 h-3.5 text-pink-400 group-hover:scale-105 motion-safe:transition-transform" />
@@ -72,7 +72,7 @@ export default function Footer() {
                 href={siteConfig.social.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950 hover:bg-emerald-900 border border-emerald-800 text-xs font-semibold text-slate-200 hover:text-white transition-colors shadow-2xs group"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-paper-dark hover:bg-ink-2 border border-rule-dark text-xs font-semibold text-paper-2 hover:text-white transition-colors shadow-2xs group"
                 aria-label="Connect with Gayatri Technology on LinkedIn"
               >
                 <LinkedinIcon className="w-3.5 h-3.5 text-sky-400 group-hover:scale-105 motion-safe:transition-transform" />
@@ -86,7 +86,7 @@ export default function Footer() {
             <p className="text-xs font-semibold text-white">
               Services
             </p>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-slate-300">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-paper-2">
               <li>
                 <Link href="/services#custom-software" className="hover:text-accent-light transition-colors">
                   Custom Business Software
@@ -125,7 +125,7 @@ export default function Footer() {
             <p className="text-xs font-semibold text-white">
               Knowledge
             </p>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-slate-300">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-paper-2">
               <li>
                 <Link href="/knowledge/excel-to-erp" className="hover:text-accent-light transition-colors">
                   Excel to ERP Migration
@@ -164,7 +164,7 @@ export default function Footer() {
             <p className="text-xs font-semibold text-white">
               Company
             </p>
-            <ul className="space-y-1.5 text-xs sm:text-sm text-slate-300">
+            <ul className="space-y-1.5 text-xs sm:text-sm text-paper-2">
               <li>
                 <Link href="/about" className="hover:text-accent-light transition-colors">
                   About Us &amp; Founder
@@ -232,7 +232,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-4 sm:pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-slate-400">
+        <div className="pt-4 sm:pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-rule">
           <p>© {new Date().getFullYear()} Gayatri Technology. Custom software built around the way your business works. Rajkot, Gujarat.</p>
 
           <div className="flex items-center gap-4 sm:gap-5">
@@ -256,7 +256,7 @@ export default function Footer() {
               <InstagramIcon className="w-4 h-4 text-pink-400" />
               <span className="sr-only">Instagram</span>
             </a>
-            <span className="text-slate-700">|</span>
+            <span className="text-rule-dark">|</span>
             <Link href="/privacy-policy" className="hover:text-accent-light transition-colors">
               Privacy Policy
             </Link>

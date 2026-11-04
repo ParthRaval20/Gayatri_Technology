@@ -7,18 +7,17 @@ export default function KnowledgePreviewSection() {
   const featuredArticles = articles.slice(0, 3);
 
   return (
-    <section className="py-14 sm:py-20 bg-paper border-t border-rule overflow-hidden">
+    <section className="scroll-section py-14 sm:py-20 bg-paper border-t border-rule overflow-hidden">
       <div className="screen-container">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14 scroll-reveal">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ink text-accent-light text-xs font-semibold shadow-xs">
-              <BookOpen className="w-3.5 h-3.5 text-accent-light" />
-              <span>Engineering playbooks</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-ink tracking-tight font-display">
+            <span className="text-accent font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+              OPERATIONAL PLAYBOOKS &bull; B2B KNOWLEDGE BASE
+            </span>
+            <h2 className="text-[length:var(--text-section)] tracking-[var(--tracking-display)] leading-[1.12] font-extrabold text-ink tracking-tight font-display">
               Knowledge &amp; Guides for Business Owners
             </h2>
-            <p className="text-sm sm:text-base text-muted leading-relaxed">
+            <p className="text-[length:var(--text-lead)] text-ink-2 leading-relaxed">
               Actionable engineering breakdowns of real operational problems, spreadsheet bottlenecks, and software architecture decisions facing growing businesses.
             </p>
           </div>
@@ -35,7 +34,7 @@ export default function KnowledgePreviewSection() {
         {/* Mobile Swipe Hint */}
         <div className="flex md:hidden items-center justify-between text-xs text-accent font-semibold mb-3 px-1 scroll-reveal">
           <span>&larr; Swipe horizontally to browse guides &rarr;</span>
-          <span className="text-slate-400 text-[11px]">3 practical guides</span>
+          <span className="text-muted font-mono text-[11px]">3 practical guides</span>
         </div>
 
         <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
@@ -49,16 +48,16 @@ export default function KnowledgePreviewSection() {
               >
               <div>
                 <div className="flex items-center justify-between text-xs text-muted mb-3">
-                  <span className="font-semibold text-accent bg-accent/10 border border-accent/20 px-2.5 py-0.5 rounded-md">
+                  <span className="font-semibold text-accent bg-accent/10 border border-accent/20 px-2.5 py-0.5 rounded-md font-mono text-[11px]">
                     {article.category}
                   </span>
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center gap-1 font-mono text-[11px]">
                     <Clock className="w-3 h-3" />
                     {article.readingTime}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-ink font-display group-hover:text-accent transition-colors mb-2 leading-snug h-[56px] line-clamp-2">
+                <h3 className="text-[length:var(--text-title)] font-bold text-ink font-display group-hover:text-accent transition-colors mb-2 leading-snug h-[56px] line-clamp-2">
                   <Link href={`/knowledge/${article.slug}`}>
                     {article.title}
                   </Link>
@@ -69,7 +68,7 @@ export default function KnowledgePreviewSection() {
                 </p>
 
                 <div className="pt-3 border-t border-rule mb-4 space-y-1.5 h-[76px] overflow-hidden">
-                  <span className="text-[11px] font-semibold text-slate-700 block">
+                  <span className="text-[11px] font-semibold text-ink-2 font-mono block">
                     Core insight:
                   </span>
                   <p className="text-xs text-ink font-medium leading-relaxed flex items-start gap-1.5 line-clamp-2">

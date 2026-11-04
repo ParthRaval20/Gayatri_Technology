@@ -93,9 +93,9 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-24 bg-white border-t border-[#E2E8F0]">
+    <section id="contact" className="scroll-section py-12 sm:py-16 lg:py-24 bg-white border-t border-[#E2E8F0]">
       <div className="screen-container">
-        <div className="max-w-3xl mb-8 sm:mb-14">
+        <div className="max-w-3xl mb-8 sm:mb-14 scroll-reveal">
           <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
             DIRECT FOUNDER &amp; TEAM ACCESS
           </span>
@@ -115,7 +115,7 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Requirement Form Column */}
-          <div className="lg:col-span-7 bg-[#F8FAFC] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs">
+          <div className="lg:col-span-7 bg-[#F8FAFC] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs scroll-popup">
             {/* Mobile-Only Quick Connect Strip */}
             <div className="grid grid-cols-2 gap-3 lg:hidden mb-6">
               <a
@@ -360,7 +360,7 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
           </div>
 
           {/* Direct Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-5 scroll-popup delay-150">
             <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
               <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
                 <Phone className="w-4 sm:w-5 h-4 sm:h-5" />
@@ -464,36 +464,36 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
               </span>
               <div className="space-y-3.5 text-xs">
                 <div className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-[#163820] text-[#86EFAC] font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-[#225430]">
+                  <span className="w-5 h-5 rounded-full bg-paper-dark text-accent-mint font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-rule-dark">
                     1
                   </span>
                   <div>
                     <h4 className="font-bold text-white text-xs">Same-day engineer response</h4>
-                    <p className="text-slate-300 text-[11px] mt-0.5 leading-relaxed">
+                    <p className="text-paper-2 text-[11px] mt-0.5 leading-relaxed">
                       Directly from Parth Raval, never a commission salesperson or outsourced agent.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-[#163820] text-[#86EFAC] font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-[#225430]">
+                  <span className="w-5 h-5 rounded-full bg-paper-dark text-accent-mint font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-rule-dark">
                     2
                   </span>
                   <div>
                     <h4 className="font-bold text-white text-xs">15-minute workflow review</h4>
-                    <p className="text-slate-300 text-[11px] mt-0.5 leading-relaxed">
+                    <p className="text-paper-2 text-[11px] mt-0.5 leading-relaxed">
                       On WhatsApp, phone, or in-person at your Rajkot/Saurashtra facility to audit sheets and challans.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-[#163820] text-[#86EFAC] font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-[#225430]">
+                  <span className="w-5 h-5 rounded-full bg-paper-dark text-accent-mint font-mono font-bold flex items-center justify-center shrink-0 text-[10px] border border-rule-dark">
                     3
                   </span>
                   <div>
                     <h4 className="font-bold text-white text-xs">Fixed-scope roadmap &amp; quote</h4>
-                    <p className="text-slate-300 text-[11px] mt-0.5 leading-relaxed">
+                    <p className="text-paper-2 text-[11px] mt-0.5 leading-relaxed">
                       Clear milestone schedule, transparent cost breakdown, and 100% source code ownership.
                     </p>
                   </div>
@@ -502,15 +502,15 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
             </div>
 
             {/* Official Social Channels Card */}
-            <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-[#47C56E]/60 transition-colors">
-              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-white flex items-center justify-center text-[#00875A] shrink-0 shadow-xs">
+            <div className="bg-paper-2 p-4 sm:p-6 rounded-2xl border border-rule shadow-xs flex items-start gap-3.5 sm:gap-4 hover:border-accent-light/60 transition-colors">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-paper flex items-center justify-center text-accent shrink-0 shadow-xs border border-rule">
                 <Share2 className="w-4 sm:w-5 h-4 sm:h-5" />
               </div>
               <div className="flex-1">
-                <span className="text-[11px] sm:text-xs font-bold text-[#475569] uppercase tracking-wider block">
+                <span className="text-[11px] sm:text-xs font-bold text-ink uppercase tracking-wider block font-mono">
                   Official Social Channels
                 </span>
-                <p className="text-xs text-[#475569] mt-0.5 sm:mt-1 mb-3">
+                <p className="text-xs text-muted mt-0.5 sm:mt-1 mb-3">
                   Follow our engineering updates, software case studies, and architecture insights
                 </p>
                 <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
