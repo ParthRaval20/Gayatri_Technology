@@ -120,19 +120,19 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
             <div className="grid grid-cols-2 gap-3 lg:hidden mb-6">
               <a
                 href="tel:+919328437392"
-                className="inline-flex items-center justify-center gap-1.5 bg-white text-[#091C0F] border border-[#CBD5E1] p-3 rounded-xl text-xs font-bold shadow-2xs hover:border-[#091C0F] transition-all min-h-[44px] text-center"
+                className="inline-flex items-center justify-center gap-2 bg-white text-[#091C0F] border border-[#CBD5E1] p-3 rounded-xl text-xs font-bold shadow-2xs hover:border-[#091C0F] transition-all min-h-[44px] text-center"
               >
                 <Phone className="w-3.5 h-3.5 text-[#00875A] shrink-0" />
-                <span className="truncate">📞 Call +91 93284 37392</span>
+                <span className="truncate">Call +91 93284 37392</span>
               </a>
               <a
                 href={siteConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 bg-[#25D366] text-white p-3 rounded-xl text-xs font-bold shadow-xs hover:bg-[#20ba59] transition-all min-h-[44px] text-center"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white p-3 rounded-xl text-xs font-bold shadow-xs hover:bg-[#20ba59] transition-all min-h-[44px] text-center"
               >
                 <MessageSquare className="w-3.5 h-3.5 shrink-0" />
-                <span className="truncate">💬 WhatsApp Voice Note</span>
+                <span className="truncate">WhatsApp Voice Note</span>
               </a>
             </div>
 

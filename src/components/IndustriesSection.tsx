@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
+import SwipeNavControls from "./SwipeNavControls";
 
 interface IndustryItem {
   icon: React.ElementType;
@@ -118,7 +119,10 @@ export default function IndustriesSection() {
           <span className="font-mono text-muted text-[11px]">5 Sectors</span>
         </div>
 
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
+        <div
+          id="industries-card-slider"
+          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch"
+        >
           {industries.map((item, idx) => {
             const Icon = item.icon;
             const delayClass = (idx % 3 === 1) ? "delay-100" : (idx % 3 === 2) ? "delay-200" : "";
@@ -169,6 +173,13 @@ export default function IndustriesSection() {
             );
           })}
         </div>
+
+        {/* Mobile Navigation Controls & Indicator at Bottom of Card Swipe */}
+        <SwipeNavControls
+          containerId="industries-card-slider"
+          itemCount={industries.length}
+          label="sector"
+        />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { BookOpen, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 import { articles } from "@/lib/knowledge";
+import SwipeNavControls from "./SwipeNavControls";
 
 export default function KnowledgePreviewSection() {
   const featuredArticles = articles.slice(0, 3);
@@ -37,7 +38,10 @@ export default function KnowledgePreviewSection() {
           <span className="text-muted font-mono text-[11px]">3 practical guides</span>
         </div>
 
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
+        <div
+          id="knowledge-card-slider"
+          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-3 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch"
+        >
           {featuredArticles.map((article, idx) => {
             const delayClass = idx === 0 ? "delay-100" : idx === 1 ? "delay-200" : "delay-300";
 
@@ -89,6 +93,13 @@ export default function KnowledgePreviewSection() {
             );
           })}
         </div>
+
+        {/* Mobile Navigation Controls & Indicator at Bottom of Card Swipe */}
+        <SwipeNavControls
+          containerId="knowledge-card-slider"
+          itemCount={featuredArticles.length}
+          label="guide"
+        />
       </div>
     </section>
   );

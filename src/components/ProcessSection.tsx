@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Clock,
 } from "lucide-react";
+import SwipeNavControls from "./SwipeNavControls";
 
 interface Phase {
   phase: string;
@@ -86,7 +87,10 @@ export default function ProcessSection() {
         </div>
 
         {/* Phase Cards */}
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch">
+        <div
+          id="process-card-slider"
+          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-stretch"
+        >
           {phases.map((item, idx) => {
             const Icon = item.icon;
             const delayClass = idx === 1 ? "delay-75" : idx === 2 ? "delay-150" : idx === 3 ? "delay-225" : idx === 4 ? "delay-300" : "";
@@ -138,6 +142,13 @@ export default function ProcessSection() {
             );
           })}
         </div>
+
+        {/* Mobile Navigation Controls & Indicator at Bottom of Card Swipe */}
+        <SwipeNavControls
+          containerId="process-card-slider"
+          itemCount={phases.length}
+          label="sprint phase"
+        />
 
         {/* Commitment Banner */}
         <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-[#091C0F] text-[#E2E8F0] border border-[#163820] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm">

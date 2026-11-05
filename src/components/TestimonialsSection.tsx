@@ -385,21 +385,25 @@ export default function TestimonialsSection({
 
         {/* Mobile Pagination Dots & Arrow Controls */}
         {filteredTestimonials.length > 1 && (
-          <div className="flex md:hidden items-center justify-between pt-3 px-1">
-            <div className="flex items-center gap-1.5">
+          <div className="flex md:hidden items-center justify-between pt-3.5 px-1 select-none" aria-label="Review navigation controls">
+            <div className="flex items-center gap-1.5" role="tablist" aria-label="Review pagination">
               {filteredTestimonials.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => scrollToIdx(idx)}
-                  className={`transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  className={`transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     activeIdx === idx
                       ? "w-6 h-2 bg-accent rounded-full"
                       : "w-2 h-2 bg-slate-300 hover:bg-slate-400 rounded-full"
                   }`}
                   aria-label={`Go to review ${idx + 1}`}
+                  aria-selected={activeIdx === idx}
                 />
               ))}
+              <span className="text-[11px] font-mono text-muted ml-2 font-medium">
+                {activeIdx + 1} / {filteredTestimonials.length}
+              </span>
             </div>
 
             <div className="flex items-center gap-2">
@@ -407,19 +411,21 @@ export default function TestimonialsSection({
                 type="button"
                 onClick={scrollPrev}
                 disabled={activeIdx === 0}
-                className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 disabled:opacity-30 transition-colors cursor-pointer active:scale-95 shadow-2xs"
+                className="w-10 h-10 rounded-full border border-rule bg-paper flex items-center justify-center text-ink disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer active:scale-90 shadow-2xs hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 aria-label="Previous review"
+                title="Previous"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
               </button>
               <button
                 type="button"
                 onClick={scrollNext}
                 disabled={activeIdx === filteredTestimonials.length - 1}
-                className="w-8 h-8 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 disabled:opacity-30 transition-colors cursor-pointer active:scale-95 shadow-2xs"
+                className="w-10 h-10 rounded-full border border-rule bg-paper flex items-center justify-center text-ink disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer active:scale-90 shadow-2xs hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 aria-label="Next review"
+                title="Next"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 stroke-[2.5]" />
               </button>
             </div>
           </div>

@@ -110,10 +110,10 @@ export default function KnowledgePage() {
                     {featuredArticle.excerpt}
                   </p>
 
-                  <div className="hidden lg:block pt-2">
+                  <div className="pt-2">
                     <Link
                       href={`/knowledge/${featuredArticle.slug}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#091C0F] hover:bg-[#163820] text-white text-xs font-bold transition-all shadow-xs min-h-[44px]"
                     >
                       <span>Read Featured Guide</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#47C56E]" />

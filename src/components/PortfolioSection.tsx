@@ -26,6 +26,7 @@ import {
   brahmSamajScreenshots,
   ProjectScreenshot,
 } from "@/lib/portfolio";
+import SwipeNavControls from "./SwipeNavControls";
 
 interface PortfolioSectionProps {
   hideHeader?: boolean;
@@ -254,7 +255,10 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
         </div>
 
         {/* Case Studies Card Grid */}
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-start scroll-reveal delay-150">
+        <div
+          id="portfolio-card-slider"
+          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar pb-3 md:pb-0 items-start scroll-reveal delay-150"
+        >
           {filteredCaseStudies.map((item, idx) => {
             const isExpanded = expandedCode === item.sysCode;
 
@@ -794,6 +798,13 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
             );
           })}
         </div>
+
+        {/* Mobile Navigation Controls & Indicator at Bottom of Card Swipe */}
+        <SwipeNavControls
+          containerId="portfolio-card-slider"
+          itemCount={filteredCaseStudies.length}
+          label="case study"
+        />
       </div>
 
       {/* Dynamic Screen Showcase Modal (Supports Phone Bezel AND Desktop ERP Window) */}
