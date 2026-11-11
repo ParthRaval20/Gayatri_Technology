@@ -17,11 +17,12 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Privacy Policy | Gayatri Technology",
+  title: "Privacy Policy & Data Security | Gayatri Technology",
   description:
-    "Privacy Policy for Gayatri Technology. Learn how we handle client proprietary data, cloud credentials, domain records, and hosting data retention protocols.",
+    "Privacy Policy for Gayatri Technology. Learn how we safeguard client proprietary operational data, cloud credentials, and database records.",
   path: "/privacy-policy",
   type: "article",
 });
@@ -35,12 +36,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema} id="privacy-breadcrumb-schema" />
       <Navbar />
 
       <main className="flex-1 py-12 sm:py-16 lg:py-20 screen-container">

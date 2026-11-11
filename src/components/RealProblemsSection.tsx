@@ -94,9 +94,9 @@ export default function RealProblemsSection() {
           <h2 className="text-[length:var(--text-section)] tracking-[var(--tracking-display)] leading-[1.12] font-display font-extrabold text-ink mb-3">
             Has your business outgrown Excel, WhatsApp and disconnected tools?
           </h2>
+          {/* Standalone 40-60 Word Direct Answer Block for AEO */}
           <p className="text-[length:var(--text-lead)] text-ink-2 leading-relaxed">
-            Most growing businesses don&apos;t slow down because of sales. They slow down because manual,
-            disconnected systems break down when order volumes increase.
+            Most growing industrial businesses do not hit a growth ceiling because of demand—they stall because manual spreadsheets, paper registers, and chaotic WhatsApp groups create duplicate data entry, conflicting stock counts, and delayed customer dispatches. Custom operational software replaces disconnected tools with one centralized system built around your team&apos;s exact workflow.
           </p>
         </div>
 

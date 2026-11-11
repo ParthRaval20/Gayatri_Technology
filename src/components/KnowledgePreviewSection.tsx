@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { BookOpen, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 import { articles } from "@/lib/knowledge";
 import SwipeNavControls from "./SwipeNavControls";
 

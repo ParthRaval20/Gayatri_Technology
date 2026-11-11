@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     telephone: true,
   },
   alternates: {
-    canonical: "/",
+    canonical: siteConfig.url,
   },
   openGraph: {
     title: siteConfig.defaultTitle,
@@ -42,6 +42,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
     googleBot: {
       index: true,
       follow: true,

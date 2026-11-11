@@ -15,13 +15,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
 import { siteConfig, getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import { LinkedinIcon } from "@/components/SocialIcons";
 import FounderPhoto from "@/components/FounderPhoto";
 
 export const metadata: Metadata = createPageMetadata({
   title: "About Us | Founder-Led Software Studio in Rajkot, Gujarat",
   description:
-    "Gayatri Technology was founded by Parth Raval in Rajkot, Gujarat on a simple idea: businesses should not have to change the way they work just because their software doesn't fit them.",
+    "Gayatri Technology is a founder-led software studio in Rajkot founded by Parth Raval. We engineer custom ERP and business tools for Indian manufacturing.",
   path: "/about",
   openGraphTitle: "About Gayatri Technology | Founder-Led Software Studio",
   openGraphDescription:
@@ -57,14 +58,43 @@ export default function AboutPage() {
     { name: "About", path: "/about" },
   ]);
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${siteConfig.url}/about#webpage`,
+        url: `${siteConfig.url}/about`,
+        name: "About Gayatri Technology",
+        description:
+          "Gayatri Technology is an engineering-first custom software and industrial ERP studio founded by Parth Raval in Rajkot, Gujarat.",
+        isPartOf: {
+          "@id": `${siteConfig.url}/#website`,
+        },
+        about: {
+          "@id": `${siteConfig.url}/#organization`,
+        },
+      },
+      {
+        "@type": "Person",
+        "@id": `${siteConfig.url}/about#parth-raval`,
+        name: "Parth Raval",
+        jobTitle: "Founder & Lead Software Engineer",
+        description:
+          "Software architect specializing in shop-floor manufacturing ERPs, shape-aware metallurgy weight calculation engines, and custom operational software in Gujarat.",
+        url: `${siteConfig.url}/about`,
+        sameAs: [siteConfig.social.linkedin.url],
+        worksFor: {
+          "@id": `${siteConfig.url}/#organization`,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema} id="about-breadcrumb-schema" />
+      <JsonLd data={aboutSchema} id="about-page-schema" />
       <Navbar />
 
       <main className="flex-1">

@@ -7,10 +7,10 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://gayatritechnology.in",
   defaultTitle:
-    "Gayatri Technology | Software Built Around How Your Business Works",
+    "Gayatri Technology | Custom Business Software & ERP Rajkot",
   titleTemplate: "%s | Gayatri Technology",
   description:
-    "We build custom websites, ERP systems, business applications and digital products for growing businesses. Instead of forcing your workflow into generic software, we build around the way your team actually works.",
+    "Custom ERP systems, mobile software, and web applications built around your business workflow in Rajkot, Gujarat. 100% owned, zero per-seat fees.",
   keywords: [
     "Gayatri Technology",
     "Custom Software Development Rajkot",
@@ -20,8 +20,10 @@ export const siteConfig = {
     "Manufacturing ERP Software",
     "Inventory & Dispatch Systems",
     "Mobile Business Applications",
-    "Next.js Development Company",
+    "Next.js Development Company Rajkot",
     "Parth Raval Gayatri Technology",
+    "Industrial Software India",
+    "B2B Portal Development",
   ],
   authors: [{ name: "Parth Raval", url: "https://gayatritechnology.in/about" }],
   creator: "Gayatri Technology",
@@ -36,6 +38,10 @@ export const siteConfig = {
     },
     linkedin: {
       handle: "gayatritechnology",
+      url: "https://www.linkedin.com/company/gayatritechnology/",
+    },
+    founderLinkedin: {
+      handle: "parth-raval",
       url: "https://www.linkedin.com/company/gayatritechnology/",
     },
   },
@@ -117,8 +123,8 @@ export interface PageMetadataOptions {
 }
 
 /**
- * Standardized metadata builder ensuring uniform canonical tags, Open Graph tags,
- * and high-resolution logo preview images across all subpages.
+ * Standardized metadata builder ensuring uniform canonical tags (self-referencing absolute URLs),
+ * Open Graph tags, and high-resolution logo preview images across all subpages.
  */
 export function createPageMetadata({
   title,
@@ -139,7 +145,7 @@ export function createPageMetadata({
     title,
     description,
     alternates: {
-      canonical: normalizedPath,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: ogTitle,
@@ -192,8 +198,15 @@ export function getOrganizationSchema() {
         ],
         founder: {
           "@type": "Person",
+          "@id": `${baseUrl}/about#parth-raval`,
           name: "Parth Raval",
           jobTitle: "Founder & Lead Engineer",
+          description:
+            "Software architect specializing in industrial operations ERP, shop-floor automation, and custom web systems in Gujarat.",
+          url: `${baseUrl}/about`,
+          sameAs: [
+            siteConfig.social.linkedin.url,
+          ],
         },
         email: siteConfig.contact.email,
         telephone: siteConfig.contact.telephone,
@@ -275,21 +288,130 @@ export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: `${baseUrl}${item.path}`,
+    itemListElement: items.map((item, index) => {
+      const normalizedPath = item.path.startsWith("/") ? item.path : `/${item.path}`;
+      const itemUrl = normalizedPath === "/" ? baseUrl : `${baseUrl}${normalizedPath}`;
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: itemUrl,
+      };
+    }),
+  };
+}
+
+/**
+ * Builds Schema.org FAQPage structured data for AEO snippet extraction
+ */
+export function getFaqSchema(faqs: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
     })),
   };
 }
 
 /**
+ * Builds Schema.org TechArticle structured data with connected BreadcrumbList & Person author
+ */
+export interface ArticleSchemaInput {
+  slug: string;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  category: string;
+  publishedDate: string;
+  author: {
+    name: string;
+    role: string;
+  };
+  keywords?: string[];
+}
+
+export function getArticleDetailSchema(article: ArticleSchemaInput) {
+  const baseUrl = siteConfig.url;
+  const articleUrl = `${baseUrl}/knowledge/${article.slug}`;
+
+  // Convert "May 18, 2026" or similar to ISO format if possible
+  const parsedDate = new Date(article.publishedDate);
+  const isoDate = !isNaN(parsedDate.getTime())
+    ? parsedDate.toISOString()
+    : "2026-05-18T00:00:00.000Z";
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${articleUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Knowledge",
+            item: `${baseUrl}/knowledge`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: article.title,
+            item: articleUrl,
+          },
+        ],
+      },
+      {
+        "@type": "TechArticle",
+        "@id": `${articleUrl}#article`,
+        isPartOf: {
+          "@id": `${baseUrl}/#website`,
+        },
+        headline: article.title,
+        description: article.excerpt,
+        url: articleUrl,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": articleUrl,
+        },
+        inLanguage: "en-US",
+        articleSection: article.category,
+        datePublished: isoDate,
+        dateModified: isoDate,
+        author: {
+          "@type": "Person",
+          "@id": `${baseUrl}/about#parth-raval`,
+          name: article.author.name,
+          jobTitle: article.author.role,
+          url: `${baseUrl}/about`,
+          worksFor: {
+            "@id": `${baseUrl}/#organization`,
+          },
+        },
+        publisher: {
+          "@id": `${baseUrl}/#organization`,
+        },
+        image: `${baseUrl}/opengraph-image.png`,
+      },
+    ],
+  };
+}
+
+/**
  * Builds Schema.org SoftwareApplication and Review structured data for client testimonials.
- * Follows Google Search Central guidelines for Review Snippets and Software Apps:
- * - Parent object is a supported Schema.org type (SoftwareApplication)
- * - Review and AggregateRating are nested directly within the SoftwareApplication
- * - itemReviewed is omitted inside nested reviews to avoid directional conflicts
+ * Follows Google Search Central guidelines for Review Snippets and Software Apps.
  */
 export function getTestimonialsSchema() {
   const baseUrl = siteConfig.url;
@@ -429,4 +551,3 @@ export function getTestimonialsSchema() {
     ],
   };
 }
-

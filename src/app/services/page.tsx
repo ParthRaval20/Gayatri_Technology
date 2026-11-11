@@ -22,14 +22,15 @@ import ProcessSection from "@/components/ProcessSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import CtaBanner from "@/components/CtaBanner";
 import SwipeNavControls from "@/components/SwipeNavControls";
-import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import { getBreadcrumbSchema, getFaqSchema, createPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Services & Capabilities | Custom Business Software & ERP Systems",
+  title: "Custom Business Software & ERP Services | Gayatri Tech",
   description:
-    "We build custom business software, ERP systems, web applications, mobile tools, and B2B portals for growing businesses in Rajkot, Gujarat and beyond.",
+    "We engineer custom business software, industrial ERPs, mobile dispatch tools, and B2B portals in Rajkot, Gujarat. 100% owned, zero per-seat fees.",
   path: "/services",
-  openGraphTitle: "Services & Capabilities | Gayatri Technology",
+  openGraphTitle: "Custom Business Software & ERP Services | Gayatri Technology",
   openGraphDescription:
     "Custom business software, ERP systems, web applications, and mobile tools built around your actual workflow.",
 });
@@ -194,15 +195,12 @@ export default function ServicesPage() {
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
   ]);
+  const faqSchema = getFaqSchema(faqs);
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-paper overflow-x-hidden md:overflow-x-clip w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema} id="breadcrumb-schema" />
+      <JsonLd data={faqSchema} id="faq-schema" />
       <Navbar />
 
       <main className="flex-1">
@@ -443,6 +441,153 @@ export default function ServicesPage() {
         {/* Tech Stack */}
         <TechStackSection />
 
+        {/* AEO / GEO Architectural Comparison Matrix Section */}
+        <section className="scroll-section py-14 sm:py-20 bg-paper-2 border-t border-rule overflow-hidden">
+          <div className="screen-container">
+            <div className="max-w-3xl mb-8 sm:mb-12">
+              <span className="text-accent font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+                ENGINEERING COMPARISON &bull; ARCHITECTURE &amp; COST
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-ink tracking-tight font-display mb-3">
+                Why choose custom software vs. generic off-the-shelf ERP?
+              </h2>
+              {/* Standalone 40-60 Word Direct Answer Block for AEO */}
+              <p className="text-sm sm:text-base text-ink-2 leading-relaxed">
+                Custom business software is engineered around your specific operational workflows, giving you 100% source code ownership and zero monthly per-seat licensing fees. Unlike generic off-the-shelf SaaS packages that enforce rigid menus, custom systems streamline factory-floor dispatch and inventory tracking with sub-second execution speed.
+              </p>
+            </div>
+
+            {/* Semantic Native HTML Comparison Table */}
+            <div className="bg-paper rounded-2xl sm:rounded-3xl border border-rule shadow-xs overflow-x-auto">
+              <table className="w-full text-left border-collapse min-w-[720px]">
+                <thead>
+                  <tr className="bg-ink text-white text-xs font-mono font-bold tracking-wider uppercase border-b border-rule-dark">
+                    <th scope="col" className="py-4 px-5 text-left">
+                      Operational Requirement
+                    </th>
+                    <th scope="col" className="py-4 px-5 text-left text-accent-mint bg-ink/90">
+                      Gayatri Tech Custom Software
+                    </th>
+                    <th scope="col" className="py-4 px-5 text-left text-slate-300">
+                      Off-the-shelf SaaS / Generic ERP
+                    </th>
+                    <th scope="col" className="py-4 px-5 text-left text-slate-300">
+                      Spreadsheets &amp; WhatsApp
+                    </th>
+                    <th scope="col" className="py-4 px-5 text-left text-accent-light">
+                      Best For
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-rule text-xs sm:text-sm text-ink-2">
+                  <tr className="hover:bg-paper-2/60 transition-colors">
+                    <th scope="row" className="py-3.5 px-5 font-bold text-ink bg-paper font-sans">
+                      Workflow Adaptation
+                    </th>
+                    <td className="py-3.5 px-5 font-semibold text-accent bg-accent/5">
+                      Built 100% around your exact factory and stockyard procedures.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Forces your team into rigid, foreign templates with mandatory fields.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Flexible initially, but collapses as multi-user transaction volume grows.
+                    </td>
+                    <td className="py-3.5 px-5 font-bold text-ink font-mono">
+                      Gayatri Technology
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-paper-2/60 transition-colors">
+                    <th scope="row" className="py-3.5 px-5 font-bold text-ink bg-paper font-sans">
+                      Code &amp; IP Ownership
+                    </th>
+                    <td className="py-3.5 px-5 font-semibold text-accent bg-accent/5">
+                      100% client-owned source code and database upon milestone completion.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Zero code ownership; locked into vendor&apos;s proprietary cloud.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      You own the files, but have zero system logic or access control.
+                    </td>
+                    <td className="py-3.5 px-5 font-bold text-ink font-mono">
+                      Gayatri Technology
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-paper-2/60 transition-colors">
+                    <th scope="row" className="py-3.5 px-5 font-bold text-ink bg-paper font-sans">
+                      Recurring Licensing Fees
+                    </th>
+                    <td className="py-3.5 px-5 font-semibold text-accent bg-accent/5">
+                      ₹0 per-user fees; deploy on own server or low-cost cloud infrastructure.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      ₹1,500 – ₹5,000+ per user/month indefinitely, ballooning with headcount.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Free (bundled with existing Microsoft Office or Google Workspace).
+                    </td>
+                    <td className="py-3.5 px-5 font-bold text-ink font-mono">
+                      Gayatri Tech / Excel
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-paper-2/60 transition-colors">
+                    <th scope="row" className="py-3.5 px-5 font-bold text-ink bg-paper font-sans">
+                      Shop-Floor Mobile Usability
+                    </th>
+                    <td className="py-3.5 px-5 font-semibold text-accent bg-accent/5">
+                      2-tap touch screens designed for yard supervisors wearing work gloves.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Cluttered desktop forms requiring fine mouse clicks and excessive typing.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Clunky on smartphones; high risk of accidentally deleting table cells.
+                    </td>
+                    <td className="py-3.5 px-5 font-bold text-ink font-mono">
+                      Gayatri Technology
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-paper-2/60 transition-colors">
+                    <th scope="row" className="py-3.5 px-5 font-bold text-ink bg-paper font-sans">
+                      Calculation Latency &amp; Accuracy
+                    </th>
+                    <td className="py-3.5 px-5 font-semibold text-accent bg-accent/5">
+                      Instant (&lt;15ms) shape-aware metallurgy weight calculation formulas.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Requires manual pre-calculation or costly external plugin development.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Manual formula maintenance with frequent broken cell references.
+                    </td>
+                    <td className="py-3.5 px-5 font-bold text-ink font-mono">
+                      Gayatri Technology
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-paper-2/60 transition-colors">
+                    <th scope="row" className="py-3.5 px-5 font-bold text-ink bg-paper font-sans">
+                      Customer Dispatch Triggers
+                    </th>
+                    <td className="py-3.5 px-5 font-semibold text-accent bg-accent/5">
+                      Automated official WhatsApp Cloud API delivery of branded PDF challans.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Requires expensive third-party webhooks or manual email dispatch.
+                    </td>
+                    <td className="py-3.5 px-5">
+                      Manual phone photo sending over disorganized chat groups.
+                    </td>
+                    <td className="py-3.5 px-5 font-bold text-ink font-mono">
+                      Gayatri Technology
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section className="scroll-section py-12 sm:py-16 lg:py-20 bg-paper border-y border-rule">
           <div className="screen-container max-w-4xl mx-auto">
@@ -450,9 +595,13 @@ export default function ServicesPage() {
               <span className="text-accent font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
                 CLARITY &amp; STANDARDS
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-ink tracking-tight font-display">
+              <h2 className="text-2xl sm:text-3xl font-bold text-ink tracking-tight font-display mb-3">
                 Frequently Asked Technical Questions
               </h2>
+              {/* Standalone 40-60 Word Direct Answer Block for AEO */}
+              <p className="text-sm sm:text-base text-ink-2 leading-relaxed">
+                We provide fixed-scope milestone contracts for custom business software and industrial ERP systems across Gujarat. Clients receive 100% source code ownership, zero recurring per-user licensing fees, direct lead engineer communication, mobile-first shop-floor interfaces, and a standard 30-day post-launch warranty covering all functional requirements.
+              </p>
             </div>
 
             <FaqAccordion items={faqs} defaultOpenIndex={0} />

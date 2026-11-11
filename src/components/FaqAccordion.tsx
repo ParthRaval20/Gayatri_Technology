@@ -59,16 +59,19 @@ export default function FaqAccordion({
               </div>
             </button>
 
-            {isOpen && (
-              <div
-                id={`faq-answer-${idx}`}
-                role="region"
-                aria-labelledby={`faq-question-${idx}`}
-                className="px-4 pb-5 sm:px-6 sm:pb-6 text-sm text-[#475569] leading-relaxed border-t border-[#F1F5F9] pt-3 animate-in fade-in slide-in-from-top-1 duration-200"
-              >
-                <p>{item.a}</p>
-              </div>
-            )}
+            <div
+              id={`faq-answer-${idx}`}
+              role="region"
+              aria-labelledby={`faq-question-${idx}`}
+              hidden={!isOpen}
+              className={`px-4 pb-5 sm:px-6 sm:pb-6 text-sm text-[#475569] leading-relaxed border-t border-[#F1F5F9] pt-3 ${
+                isOpen
+                  ? "block animate-in fade-in slide-in-from-top-1 duration-200"
+                  : "hidden"
+              }`}
+            >
+              <p>{item.a}</p>
+            </div>
           </div>
         );
       })}

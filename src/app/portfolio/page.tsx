@@ -7,13 +7,14 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import InteractiveArchitecture from "@/components/InteractiveArchitecture";
 import CtaBanner from "@/components/CtaBanner";
 import { getBreadcrumbSchema, getTestimonialsSchema, createPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Production Systems & Architecture Case Studies",
+  title: "Production Systems & ERP Case Studies | Gayatri Tech",
   description:
-    "Explore Gayatri Technology's production software case studies, including the Gujarat Brahm Samaj ERP (v2.4.0) and Gayatri Steel mobile operations ERP suite, with real workflows, UI screens, and delivered features.",
+    "Explore production case studies including Gayatri Steel Mobile ERP and Gujarat Brahm Samaj Portal with live architectures, screens, and metrics.",
   path: "/portfolio",
-  openGraphTitle: "Production Systems & Architecture Case Studies | Gayatri Technology",
+  openGraphTitle: "Production Systems & ERP Case Studies | Gayatri Technology",
   openGraphDescription:
     "Production case studies of custom business software, institutional ERPs, mobile platforms, and operational tools built around how teams actually work.",
 });
@@ -27,18 +28,8 @@ export default function PortfolioPage() {
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(testimonialsSchema),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema} id="portfolio-breadcrumb-schema" />
+      <JsonLd data={testimonialsSchema} id="portfolio-testimonials-schema" />
       <Navbar />
 
       <main className="flex-1">

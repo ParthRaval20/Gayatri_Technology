@@ -1,0 +1,34 @@
+# Gayatri Technology
+
+> Gayatri Technology is an engineering-first custom software and industrial ERP studio founded by Parth Raval in Rajkot, Gujarat. The studio designs and deploys custom-built operational web systems, Android stockyard apps, shape-aware metallurgy weight calculation engines, and B2B portals for Indian manufacturers, fabricators, and growing businesses with 100% client source code ownership and zero monthly per-user licensing fees.
+
+## Core Documentation & Pages
+- [Home](https://gayatritechnology.in/): Software built around how your business works. Overview of custom ERP, case studies, and engineering philosophy.
+- [About Studio & Founder](https://gayatritechnology.in/about): Founder story of Parth Raval, Rajkot engineering studio mission, and core operational principles.
+- [Engineering Capabilities & Services](https://gayatritechnology.in/services): Breakdown of 6 core disciplines: Custom Business Software, ERP & Operations, Web Applications, Mobile Applications, B2B Portals, and WhatsApp Workflow Automation.
+- [Production Systems & Case Studies](https://gayatritechnology.in/portfolio): Live case studies of Gayatri Steel Mobile Operations Suite, Gujarat Brahm Samaj Management Suite, and Gayatri Steel Chemical Spec Web Portal.
+- [Practical Engineering Guides](https://gayatritechnology.in/knowledge): Actionable playbooks on ERP transition, software costs, manufacturing operations, and Excel migration.
+- [Contact & Project Evaluation](https://gayatritechnology.in/contact): Direct access to lead engineer for technical scope evaluation and milestone quotations.
+
+## Practical Engineering Guides
+- [When to Move from Excel to ERP](https://gayatritechnology.in/knowledge/excel-to-erp): Diagnostic framework for growing businesses outgrowing spreadsheets, 5 concrete warning signs, and phased deployment strategy.
+- [Custom ERP vs. Ready-Made SaaS](https://gayatritechnology.in/knowledge/custom-erp-vs-ready-made): 3-year total cost of ownership analysis comparing per-user licensing vs 100% owned custom software for factories.
+- [Shop-Floor Manufacturing ERP Essentials](https://gayatritechnology.in/knowledge/manufacturing-erp-essentials): Blueprint for factory-floor systems featuring shape-aware weight calculation (<15ms latency), alloy chemistry lookup, and 30-second digital challans.
+- [The WhatsApp + Excel + Tally Triad](https://gayatritechnology.in/knowledge/whatsapp-excel-tally-integration): How Indian SMEs bridge sales chats and stock records without throwing out Tally.
+- [Custom Software Development Cost in India](https://gayatritechnology.in/knowledge/custom-software-cost-india): Honest cost drivers, budget tiers (₹25k to ₹5L+), milestone contracts, and 4 questions to ask software vendors.
+
+## Key Facts & Specifications
+- **Entity Type:** Founder-Led Software & Industrial ERP Studio
+- **Founder & Lead Engineer:** Parth Raval
+- **Headquarters:** 102 Dev Palace, Ankur Nagar, Rajkot, Gujarat 360004, India
+- **Telephone / WhatsApp:** +91 93284 37392
+- **Email:** info@gayatritechnology.in
+- **Operating Hours:** Monday–Saturday, 09:00–19:00 IST
+- **Primary Geographies:** Rajkot, Jamnagar, Ahmedabad, Gujarat, India, and Global Remote
+- **Core Technology Stack:** Next.js (App Router), React, TypeScript, Tailwind CSS, Node.js, PostgreSQL, SQLite, Android, WhatsApp Cloud API
+- **Commercial Model:** Fixed-price milestone contracts, 100% source code ownership upon delivery, zero monthly per-seat licensing fees
+- **Delivered Production Highlights:**
+  - Gayatri Steel Mobile ERP: Shape-aware theoretical weight calculator across rounds, flats, and pipes with <15ms latency and 30-second digital delivery challans.
+  - Gujarat Brahm Samaj Management Suite: Census and trust administration running locally with zero monthly cloud rent, offline SQLite autonomy, and instant Gujarati photo ID printing.
+  - Metals B2B Portal: 28+ tool steel grades with DIN, AISI, and chemical composition matrices and 1-tap WhatsApp RFQ triggers.
+

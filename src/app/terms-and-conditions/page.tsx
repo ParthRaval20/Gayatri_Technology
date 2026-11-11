@@ -13,11 +13,12 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Terms and Conditions | Gayatri Technology",
+  title: "Terms and Conditions of Service | Gayatri Technology",
   description:
-    "Official Terms and Conditions of Service for Gayatri Technology. Details on development contracts, domain and hosting policies, payment cycles, and service suspension clauses.",
+    "Official Terms of Service for Gayatri Technology. Development milestones, 100% source code ownership, cloud hosting policies, and payment terms.",
   path: "/terms-and-conditions",
   type: "article",
 });
@@ -31,12 +32,7 @@ export default function TermsAndConditionsPage() {
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema} id="terms-breadcrumb-schema" />
       <Navbar />
 
       <main className="flex-1 py-12 sm:py-16 lg:py-20 screen-container">

@@ -11,13 +11,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articles } from "@/lib/knowledge";
 import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Practical Engineering Guides",
+  title: "Practical Engineering & ERP Guides | Gayatri Technology",
   description:
-    "Practical guides and engineering insights on moving from Excel to ERP, custom vs off-the-shelf software, manufacturing operations, and software costs in India.",
+    "Engineering guides for business owners: Excel to ERP transition, shop-floor operations, WhatsApp automation, and custom software costs in India.",
   path: "/knowledge",
-  openGraphTitle: "Practical Engineering Guides | Gayatri Technology",
+  openGraphTitle: "Practical Engineering & ERP Guides | Gayatri Technology",
   openGraphDescription:
     "Actionable engineering insights for business owners: Excel to ERP migration, custom software costs, shop-floor manufacturing ERP, and WhatsApp workflow automation.",
 });
@@ -34,12 +35,7 @@ export default function KnowledgePage() {
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema} id="knowledge-breadcrumb-schema" />
       <Navbar />
 
       <main className="flex-1">
