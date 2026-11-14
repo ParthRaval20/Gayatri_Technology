@@ -48,7 +48,8 @@ export const siteConfig = {
   contact: {
     telephone: "+91 93284 37392",
     email: "info@gayatritechnology.in",
-    streetAddress: "102 Dev Palace, Ankur Nagar",
+    streetAddress:
+      "1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport",
     addressLocality: "Rajkot",
     addressRegion: "Gujarat",
     postalCode: "360004",

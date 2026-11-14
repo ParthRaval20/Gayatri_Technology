@@ -279,7 +279,7 @@ export default function TermsAndConditionsPage() {
               </p>
               <div className="bg-white p-5 rounded-2xl border border-[#E2E8F0] space-y-1 text-sm font-medium">
                 <p className="text-[#091C0F] font-bold">Gayatri Technology — Legal &amp; Billing Dept.</p>
-                <p className="text-[#475569]">102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
+                <p className="text-[#475569]">1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot 360004, Gujarat, India</p>
                 <p className="text-[#475569]">
                   Phone: <a href="tel:+919328437392" className="text-[#00875A] hover:underline font-bold">+91 93284 37392</a>
                 </p>

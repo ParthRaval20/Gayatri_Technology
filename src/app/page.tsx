@@ -58,7 +58,7 @@ const homepageFaqs = [
   },
   {
     q: "Where is Gayatri Technology located and what areas do you serve?",
-    a: "Our software engineering studio is located at 102 Dev Palace, Ankur Nagar, Rajkot, Gujarat. We serve manufacturing, trading, and industrial clients across Rajkot, Jamnagar, Ahmedabad, Gujarat, India, and internationally.",
+    a: "Our software engineering studio is located at 1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot 360004, Gujarat. We serve manufacturing, trading, and industrial clients across Rajkot, Jamnagar, Ahmedabad, Gujarat, India, and internationally.",
   },
 ];
 

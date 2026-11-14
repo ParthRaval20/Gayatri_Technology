@@ -321,7 +321,7 @@ export default function PrivacyPolicyPage() {
               <div className="bg-white p-6 rounded-xl border border-[#E2E8F0] shadow-2xs space-y-3 text-sm">
                 <p className="font-bold text-[#091C0F]">Gayatri Technology — Compliance &amp; Operations</p>
                 <p className="text-[#64748B]">
-                  102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India
+                  1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot 360004, Gujarat, India
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 pt-2 text-xs">
                   <a

@@ -28,7 +28,7 @@ export default function Footer() {
               Custom software built around the way your business actually works. We engineer custom ERPs, business web applications, and mobile operational systems for growing companies.
             </p>
             <address className="not-italic text-xs text-paper-2 space-y-1 pt-0.5 font-sans">
-              <p>102 Dev Palace, Ankur Nagar, Rajkot 360004, Gujarat, India</p>
+              <p>1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot 360004, Gujarat, India</p>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
                 <a href="tel:+919328437392" className="hover:text-accent-light transition-colors font-medium py-1 focus-visible:outline-2 focus-visible:outline-accent">
                   +91 93284 37392
