@@ -134,7 +134,9 @@ export default function AboutPage() {
                 <div className="pt-3 flex flex-wrap items-center gap-4 text-xs font-semibold text-[#091C0F]">
                   <div className="flex items-center gap-1.5 text-slate-700">
                     <MapPin className="w-4 h-4 text-[#00875A]" />
-                    <span>1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot 360004</span>
+                    <span>
+                      1st Floor, Gayatri Technology, Street No. 7, above Gayatri Industries, Panchsheel Wadi, Samrat Industrial Area, Rajkot 360004
+                    </span>
                   </div>
                   <div className="flex items-center gap-1.5 text-slate-700">
                     <Terminal className="w-4 h-4 text-[#00875A]" />

@@ -49,7 +49,7 @@ export const siteConfig = {
     telephone: "+91 93284 37392",
     email: "info@gayatritechnology.in",
     streetAddress:
-      "1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport",
+      "1st Floor, Gayatri Technology, Street No. 7, above Gayatri Industries, Panchsheel Wadi, Samrat Industrial Area",
     addressLocality: "Rajkot",
     addressRegion: "Gujarat",
     postalCode: "360004",

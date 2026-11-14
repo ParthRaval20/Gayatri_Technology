@@ -432,7 +432,7 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
                   Office Location
                 </span>
                 <p className="text-sm sm:text-base font-bold text-[#091C0F]">
-                  1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot 360004, Gujarat, India
+                  1st Floor, Gayatri Technology, Street No. 7, above Gayatri Industries, Panchsheel Wadi, Samrat Industrial Area, Rajkot, Gujarat 360004
                 </p>
                 <p className="text-xs text-[#475569] mt-0.5 sm:mt-1">
                   Rooted in Rajkot — serving businesses across Gujarat &amp; India

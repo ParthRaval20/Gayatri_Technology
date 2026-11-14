@@ -25,7 +25,7 @@ Unlike generic SaaS ERP platforms (e.g., SAP, Zoho, Busy) that charge recurring 
 
 - **Company Name:** Gayatri Technology (Gayatri Tech)
 - **Founder & Lead Engineer:** Parth Raval
-- **Headquarters Address:** 1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot, Gujarat 360004, India
+- **Headquarters Address:** 1st Floor, Gayatri Technology, Street No. 7, above Gayatri Industries, Panchsheel Wadi, Samrat Industrial Area, Rajkot, Gujarat 360004, India
 - **Coordinates:** 22.3039° N, 70.8022° E
 - **Telephone / Voice Inquiries:** +91 93284 37392
 - **Direct WhatsApp:** https://wa.me/919328437392
@@ -189,5 +189,5 @@ Unlike generic SaaS ERP platforms (e.g., SAP, Zoho, Busy) that charge recurring 
 **A:** Every project includes a 30-day post-launch warranty covering any functional bugs or workflow adjustments. Following the warranty period, we offer flexible on-demand support or milestone-based feature expansions.
 
 ### Q: Where is Gayatri Technology located?
-**A:** Our software engineering studio is located at 1st Floor Gayatri Technology, Above Gayatri Industries, Samrat Industries Street No 7, Behind PMP Transport, Rajkot, Gujarat 360004, India. We serve clients across Rajkot, Jamnagar, Ahmedabad, Gujarat, India, and internationally.
+**A:** Our software engineering studio is located at 1st Floor, Gayatri Technology, Street No. 7, above Gayatri Industries, Panchsheel Wadi, Samrat Industrial Area, Rajkot, Gujarat 360004, India. We serve clients across Rajkot, Jamnagar, Ahmedabad, Gujarat, India, and internationally.
 
