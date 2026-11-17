@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import BrandLogo from "./BrandLogo";
+import BrandLogo, { BrandTypography } from "./BrandLogo";
 import { siteConfig } from "@/lib/seo";
 import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
 
@@ -15,14 +15,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-2 space-y-3.5">
             <div className="flex items-center gap-2.5 sm:gap-3.5">
               <BrandLogo className="h-9 w-[62px] sm:h-10 sm:w-[70px] shrink-0" isDarkBackground />
-              <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-extrabold uppercase tracking-tight text-white font-montserrat leading-none">
-                  GAYATRI
-                </span>
-                <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.22em] sm:tracking-[0.28em] uppercase text-accent-mint mt-0.5 sm:mt-1 font-montserrat leading-none">
-                  TECHNOLOGY
-                </span>
-              </div>
+              <BrandTypography className="h-7 sm:h-8 w-auto shrink-0" isDarkBackground />
             </div>
             <p className="text-xs sm:text-sm text-paper-2 max-w-sm leading-relaxed">
               Custom software built around the way your business actually works. We engineer custom ERPs, business web applications, and mobile operational systems for growing companies.
@@ -175,6 +168,11 @@ export default function Footer() {
               <li>
                 <Link href="/portfolio" className="hover:text-accent-light transition-colors">
                   Our Work &amp; Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/demos" className="hover:text-accent-mint font-semibold transition-colors">
+                  Interactive Demos &amp; Prototypes
                 </Link>
               </li>
               <li>

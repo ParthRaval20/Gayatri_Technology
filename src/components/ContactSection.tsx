@@ -113,7 +113,7 @@ export default function ContactSection({ isPageHeading = true }: ContactSectionP
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Requirement Form Column */}
           <div className="lg:col-span-7 bg-[#F8FAFC] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E2E8F0] shadow-xs scroll-popup">
             {/* Mobile-Only Quick Connect Strip */}

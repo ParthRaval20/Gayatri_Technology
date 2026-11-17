@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Calendar, Menu, X, ArrowRight, Phone } from "lucide-react";
-import BrandLogo from "./BrandLogo";
+import BrandLogo, { BrandTypography } from "./BrandLogo";
 import { siteConfig } from "@/lib/seo";
 
 interface NavLinkItem {
@@ -16,6 +16,7 @@ const navLinks: NavLinkItem[] = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Work", href: "/portfolio" },
+  { name: "Live Demos", href: "/demos" },
   { name: "Knowledge", href: "/knowledge" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
@@ -24,11 +25,13 @@ const navLinks: NavLinkItem[] = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // Auto-close menu when navigating
-  React.useEffect(() => {
+  // Auto-close menu during render when navigating without cascading effect
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Lock background scroll when mobile menu is open
   React.useEffect(() => {
@@ -52,24 +55,23 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-rule shadow-xs transition-colors duration-200 pt-safe">
       <div className="screen-container h-16 sm:h-20 flex justify-between items-center w-full">
-        {/* Brand */}
-        <Link
-          href="/"
-          className="flex items-center gap-1.5 min-[360px]:gap-2 sm:gap-3.5 group cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-accent"
-        >
-          <BrandLogo className="h-8 w-[56px] min-[360px]:h-9 min-[360px]:w-[62px] sm:h-11 sm:w-[76px] transition-transform group-hover:scale-105 duration-200 shrink-0" />
-          <div className="flex flex-col shrink-0">
-            <span className="text-sm min-[360px]:text-base sm:text-xl font-extrabold uppercase tracking-tight text-ink font-montserrat leading-none">
-              GAYATRI
-            </span>
-            <span className="text-[8px] min-[360px]:text-[9px] sm:text-[10px] font-medium tracking-[0.20em] min-[360px]:tracking-[0.22em] sm:tracking-[0.28em] uppercase text-accent mt-0.5 sm:mt-1 font-montserrat leading-none">
-              TECHNOLOGY
-            </span>
-          </div>
-        </Link>
+        {/* Brand (Left aligned) */}
+        <div className="flex items-center justify-start shrink-0">
+          <Link
+            href="/"
+            className="flex items-center gap-2 min-[360px]:gap-2.5 sm:gap-3.5 group cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-accent"
+            aria-label="Gayatri Technology Home"
+          >
+            <BrandLogo className="h-8 w-[56px] min-[360px]:h-9 min-[360px]:w-[62px] sm:h-11 sm:w-[76px] transition-transform group-hover:scale-105 duration-200 shrink-0" />
+            <BrandTypography className="h-5.5 min-[360px]:h-6.5 sm:h-8 w-auto shrink-0 transition-transform group-hover:scale-[1.02] duration-200" />
+          </Link>
+        </div>
 
-        {/* Desktop Navigation */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+        {/* Desktop Navigation (Optically & Geometrically centered in available space) */}
+        <nav
+          aria-label="Main Navigation"
+          className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 mx-auto shrink-0 px-4"
+        >
           {navLinks.map((link) => {
             const isActive = isLinkActive(link.href);
 
@@ -94,20 +96,20 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Trailing Actions (Desktop Only) - One clean phone line + one solid CTA button */}
-        <div className="hidden lg:flex items-center gap-5">
+        {/* Trailing Actions (Right aligned) */}
+        <div className="hidden lg:flex items-center justify-end gap-4 xl:gap-5 shrink-0">
           <a
             href="tel:+919328437392"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-ink-2 hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-accent"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink-2 hover:text-ink transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-accent"
             title="Call +91 93284 37392"
           >
-            <Phone className="w-3.5 h-3.5 text-accent" />
-            <span>+91 93284 37392</span>
+            <Phone className="w-3.5 h-3.5 text-accent shrink-0" />
+            <span className="whitespace-nowrap">+91 93284 37392</span>
           </a>
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-ink hover:bg-ink-2 text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-md shadow-black/10 transition-colors duration-200 active:scale-95 cursor-pointer min-h-[40px] focus-visible:outline-2 focus-visible:outline-accent"
+            className="inline-flex items-center gap-2 bg-ink hover:bg-ink-2 text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-md shadow-black/10 transition-colors duration-200 active:scale-95 cursor-pointer min-h-[40px] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-accent"
           >
             <span>Tell Us What You Need</span>
             <ArrowRight className="w-3.5 h-3.5 text-accent-light" />
