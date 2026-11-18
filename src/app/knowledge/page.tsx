@@ -10,7 +10,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articles } from "@/lib/knowledge";
-import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import { getBreadcrumbSchema, getKnowledgeCollectionSchema, createPageMetadata } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = createPageMetadata({
@@ -28,6 +28,7 @@ export default function KnowledgePage() {
     { name: "Home", path: "/" },
     { name: "Knowledge", path: "/knowledge" },
   ]);
+  const collectionSchema = getKnowledgeCollectionSchema(articles);
 
   const featuredArticle =
     articles.find((a) => a.slug === "whatsapp-excel-tally-integration") || articles[0];
@@ -36,6 +37,7 @@ export default function KnowledgePage() {
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
       <JsonLd data={breadcrumbSchema} id="knowledge-breadcrumb-schema" />
+      <JsonLd data={collectionSchema} id="knowledge-collection-schema" />
       <Navbar />
 
       <main className="flex-1">

@@ -15,7 +15,6 @@ import {
   ChevronRight,
   ChevronDown,
   ChevronUp,
-  Terminal,
   Layers,
   Monitor,
   Star,
@@ -51,25 +50,28 @@ export default function PortfolioSection({ hideHeader = false }: PortfolioSectio
   // Sync category filter & project expand with URL query params if present (e.g. from sector card clicks)
   React.useEffect(() => {
     if (typeof window === "undefined") return;
-    const params = new URLSearchParams(window.location.search);
-    const filterParam = params.get("filter");
-    if (filterParam === "erp" || filterParam === "web" || filterParam === "all") {
-      setSelectedCategory(filterParam);
-    }
-    const projectParam = params.get("project");
-    if (projectParam) {
-      const match = caseStudies.find(
-        (c) =>
-          c.sysCode.toLowerCase() === projectParam.toLowerCase() ||
-          c.sysCode.toLowerCase().includes(projectParam.toLowerCase())
-      );
-      if (match) {
-        setExpandedCode(match.sysCode);
-        if (match.category !== "all") {
-          setSelectedCategory(match.category);
+    const timeout = setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      const filterParam = params.get("filter");
+      if (filterParam === "erp" || filterParam === "web" || filterParam === "all") {
+        setSelectedCategory(filterParam);
+      }
+      const projectParam = params.get("project");
+      if (projectParam) {
+        const match = caseStudies.find(
+          (c) =>
+            c.sysCode.toLowerCase() === projectParam.toLowerCase() ||
+            c.sysCode.toLowerCase().includes(projectParam.toLowerCase())
+        );
+        if (match) {
+          setExpandedCode(match.sysCode);
+          if (match.category !== "all") {
+            setSelectedCategory(match.category);
+          }
         }
       }
-    }
+    }, 0);
+    return () => clearTimeout(timeout);
   }, []);
 
   const filteredCaseStudies = caseStudies.filter((item) => {

@@ -111,6 +111,15 @@ Unlike generic SaaS ERP platforms (e.g., SAP, Zoho, Busy) that charge recurring 
   - Instant Photo ID Card Generation: 1-click generation and printing of standardized official member ID cards with automated QR validation.
   - Financial Ledger & Fee Tracking: Official receipts for ₹500 lifetime memberships with audited numerical sequence controls.
 
+### 4.4 Interactive Next.js Production Prototypes
+- **Overview:** Fully functional web application prototypes engineered on Next.js App Router, demonstrating real conversion workflows, mathematical engines, and zero proprietary builder lock-in.
+- **Key Prototypes:**
+  1. *SHIBUI Modern Edomae Dining (`/demos/restaurant`):* Counter omakase seating reservation engine with micro-seasonal tasting menus, slide-over dining cart, and 140ms WhatsApp booking webhook alerts.
+  2. *BrandSurge B2B Corporate Merchandise (`/demos/b2b`):* Wholesale portal featuring dynamic volume MOQ discount curves, live Pantone & laser-engraving branding previews, and 1-tap WhatsApp quotation triggers.
+  3. *MAISON ÉLAN Hair & Color Studio (`/demos/salon`):* Luxury salon appointment scheduling system with master stylist schedule locking, treatment add-on customization, and automated mobile confirmations.
+  4. *Bloomfield Early Learning Academy (`/demos/preschool`):* Reggio Emilia preschool admissions portal with scheduled parent campus tour reservations, age-tier curriculum breakdown, and instant WhatsApp inquiry routing.
+- **Architecture Highlights:** Compiled React Server Components with sub-400ms loading, zero third-party plugin bloat, 100% source code ownership, and direct API integrations.
+
 ---
 
 ## 5. Architectural Comparison Matrix

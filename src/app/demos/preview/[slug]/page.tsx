@@ -3,7 +3,8 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DEMOS_DATA } from "@/lib/demos-data";
 import DevicePreviewClient from "./DevicePreviewClient";
-import { createPageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { createPageMetadata, getBreadcrumbSchema, getDemoDetailSchema } from "@/lib/seo";
 
 interface PreviewPageProps {
   params: Promise<{
@@ -44,5 +45,30 @@ export default async function DemoPreviewPage({ params }: PreviewPageProps) {
     notFound();
   }
 
-  return <DevicePreviewClient demo={demo} />;
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Live Demos", path: "/demos" },
+    { name: `${demo.title} Preview`, path: `/demos/preview/${slug}` },
+  ]);
+
+  const demoSchema = getDemoDetailSchema({
+    slug: `preview/${slug}`,
+    name: `${demo.title} — Interactive Multi-Device Simulation`,
+    description: demo.description,
+    categoryLabel: demo.categoryLabel,
+    applicationCategory: "BusinessApplication",
+    features: [
+      "Responsive desktop, tablet, and mobile viewport inspection",
+      "Interactive Next.js production prototype simulation",
+      "Direct WhatsApp lead routing triggers",
+    ],
+  });
+
+  return (
+    <>
+      <JsonLd data={breadcrumbs} id="preview-breadcrumb-schema" />
+      <JsonLd data={demoSchema} id="preview-demo-schema" />
+      <DevicePreviewClient demo={demo} />
+    </>
+  );
 }

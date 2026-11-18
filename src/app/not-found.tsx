@@ -50,7 +50,7 @@ export default function NotFound() {
             </Link>
 
             <Link
-              href="/#portfolio"
+              href="/portfolio"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold border border-white/10 transition-all min-h-[44px]"
             >
               <Briefcase className="w-4 h-4" />
@@ -58,7 +58,7 @@ export default function NotFound() {
             </Link>
 
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs sm:text-sm font-medium border border-white/5 transition-all min-h-[44px]"
             >
               <Mail className="w-4 h-4" />

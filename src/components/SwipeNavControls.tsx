@@ -57,10 +57,11 @@ export default function SwipeNavControls({
 
     el.addEventListener("scroll", debouncedScroll, { passive: true });
     window.addEventListener("resize", updateActiveIdx, { passive: true });
-    updateActiveIdx();
+    const initTimer = setTimeout(updateActiveIdx, 0);
 
     return () => {
       clearTimeout(timeoutId);
+      clearTimeout(initTimer);
       el.removeEventListener("scroll", debouncedScroll);
       window.removeEventListener("resize", updateActiveIdx);
     };
@@ -107,6 +108,7 @@ export default function SwipeNavControls({
           <button
             key={idx}
             type="button"
+            role="tab"
             onClick={() => scrollToIdx(idx)}
             className={`transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
               activeIdx === idx

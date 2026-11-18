@@ -5,8 +5,15 @@ import Footer from "@/components/Footer";
 import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import InteractiveArchitecture from "@/components/InteractiveArchitecture";
+import FaqAccordion from "@/components/FaqAccordion";
 import CtaBanner from "@/components/CtaBanner";
-import { getBreadcrumbSchema, getTestimonialsSchema, createPageMetadata } from "@/lib/seo";
+import {
+  getBreadcrumbSchema,
+  getTestimonialsSchema,
+  getFaqSchema,
+  portfolioFaqs,
+  createPageMetadata,
+} from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = createPageMetadata({
@@ -25,11 +32,13 @@ export default function PortfolioPage() {
     { name: "Portfolio", path: "/portfolio" },
   ]);
   const testimonialsSchema = getTestimonialsSchema();
+  const faqSchema = getFaqSchema(portfolioFaqs);
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
       <JsonLd data={breadcrumbSchema} id="portfolio-breadcrumb-schema" />
       <JsonLd data={testimonialsSchema} id="portfolio-testimonials-schema" />
+      <JsonLd data={faqSchema} id="portfolio-faq-schema" />
       <Navbar />
 
       <main className="flex-1">
@@ -89,6 +98,26 @@ export default function PortfolioPage() {
           title="What Our Clients Say About These Systems"
           subtitle="Direct feedback from the operators, commercial executives, and trust administrators who rely on our delivered software every day."
         />
+
+        {/* Synchronized Production Systems FAQ Section (AEO Standard) */}
+        <section className="scroll-section py-14 sm:py-20 bg-white border-t border-[#E2E8F0]">
+          <div className="screen-container max-w-4xl mx-auto">
+            <div className="mb-10 text-left">
+              <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+                ENGINEERING FAQ &bull; AEO STANDARDS
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#091C0F] tracking-tight font-display mb-3">
+                Questions Business Owners Ask About Our Production Systems
+              </h2>
+              {/* Standalone 40-60 Word Direct Answer Block for AEO */}
+              <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+                Gayatri Technology delivers custom operational ERP suites, metallurgy calculation engines, and institutional census databases in Rajkot, Gujarat. All deliverables include 100% source code ownership, zero monthly per-user licensing fees, local offline database autonomy, and seamless accounting bridges for Tally and statutory GST reporting.
+              </p>
+            </div>
+
+            <FaqAccordion items={portfolioFaqs} defaultOpenIndex={0} />
+          </div>
+        </section>
 
         {/* CTA Banner */}
         <CtaBanner />

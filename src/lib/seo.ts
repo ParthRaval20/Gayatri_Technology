@@ -552,3 +552,140 @@ export function getTestimonialsSchema() {
     ],
   };
 }
+
+/**
+ * Builds Schema.org WebApplication & BreadcrumbList for interactive prototype demo pages
+ */
+export interface DemoDetailSchemaInput {
+  slug: string;
+  name: string;
+  description: string;
+  categoryLabel: string;
+  applicationCategory?: string;
+  features?: string[];
+}
+
+export function getDemoDetailSchema({
+  slug,
+  name,
+  description,
+  categoryLabel,
+  applicationCategory = "BusinessApplication",
+  features = [],
+}: DemoDetailSchemaInput) {
+  const baseUrl = siteConfig.url;
+  const demoUrl = `${baseUrl}/demos/${slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${demoUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: baseUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Live Demos",
+            item: `${baseUrl}/demos`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name,
+            item: demoUrl,
+          },
+        ],
+      },
+      {
+        "@type": "WebApplication",
+        "@id": `${demoUrl}#app`,
+        name,
+        description,
+        applicationCategory,
+        applicationSubCategory: categoryLabel,
+        operatingSystem: "Web (Desktop, Tablet, Mobile)",
+        url: demoUrl,
+        browserRequirements: "Requires JavaScript. Requires HTML5.",
+        creator: {
+          "@id": `${baseUrl}/#organization`,
+        },
+        provider: {
+          "@id": `${baseUrl}/#organization`,
+        },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+        },
+        featureList: features,
+        screenshot: `${baseUrl}/opengraph-image.png`,
+      },
+    ],
+  };
+}
+
+/**
+ * Builds CollectionPage & ItemList structured data for the Knowledge library
+ */
+export function getKnowledgeCollectionSchema(
+  articles: { slug: string; title: string; excerpt: string; publishedDate: string }[]
+) {
+  const baseUrl = siteConfig.url;
+  const knowledgeUrl = `${baseUrl}/knowledge`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${knowledgeUrl}#page`,
+        url: knowledgeUrl,
+        name: "Practical Engineering & ERP Guides | Gayatri Technology",
+        description:
+          "Actionable playbooks on ERP transition, software costs, manufacturing operations, and Excel migration for Indian businesses.",
+        isPartOf: {
+          "@id": `${baseUrl}/#website`,
+        },
+        mainEntity: {
+          "@type": "ItemList",
+          numberOfItems: articles.length,
+          itemListElement: articles.map((art, idx) => ({
+            "@type": "ListItem",
+            position: idx + 1,
+            name: art.title,
+            description: art.excerpt,
+            url: `${knowledgeUrl}/${art.slug}`,
+          })),
+        },
+      },
+    ],
+  };
+}
+
+export const portfolioFaqs = [
+  {
+    q: "How does Gayatri Technology guarantee 100% source code ownership?",
+    a: "Every custom ERP and business system we build is transferred with 100% source code and database ownership upon final milestone payment. We deploy directly to your designated cloud (AWS, Hetzner, DigitalOcean) or on-premise hardware with zero proprietary lock-in.",
+  },
+  {
+    q: "Can your custom ERP software operate offline in factory stockyards?",
+    a: "Yes. For clients like Gayatri Steel and Gujarat Brahm Samaj, we architect local SQLite and edge-caching databases. Critical workflows—such as theoretical weight calculations and photo ID generation—operate without internet downtime.",
+  },
+  {
+    q: "How do your custom systems integrate with our existing Tally accounting?",
+    a: "We build tailored operational front-ends that manage floor dispatches, stock allotments, and delivery challans while exporting structured XML or CSV ledgers directly into Tally for GST filing and CA audit.",
+  },
+  {
+    q: "What is the typical deployment timeline for a custom manufacturing ERP?",
+    a: "Standard operational modules deploy in 4 to 8 weeks through agile two-week milestone sprints. High-friction workflows (e.g. digital delivery challans or piece inventory) go live first so your floor sees immediate ROI.",
+  },
+];
+

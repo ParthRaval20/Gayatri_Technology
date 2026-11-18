@@ -7,8 +7,15 @@
 - [About Studio & Founder](https://gayatritechnology.in/about): Founder story of Parth Raval, Rajkot engineering studio mission, and core operational principles.
 - [Engineering Capabilities & Services](https://gayatritechnology.in/services): Breakdown of 6 core disciplines: Custom Business Software, ERP & Operations, Web Applications, Mobile Applications, B2B Portals, and WhatsApp Workflow Automation.
 - [Production Systems & Case Studies](https://gayatritechnology.in/portfolio): Live case studies of Gayatri Steel Mobile Operations Suite, Gujarat Brahm Samaj Management Suite, and Gayatri Steel Chemical Spec Web Portal.
+- [Interactive Website Demos & Prototypes](https://gayatritechnology.in/demos): Hands-on Next.js production prototypes for dining, wholesale, salons, and education.
 - [Practical Engineering Guides](https://gayatritechnology.in/knowledge): Actionable playbooks on ERP transition, software costs, manufacturing operations, and Excel migration.
 - [Contact & Project Evaluation](https://gayatritechnology.in/contact): Direct access to lead engineer for technical scope evaluation and milestone quotations.
+
+## Interactive Production Prototypes
+- [Omakase Restaurant Reservation Prototype](https://gayatritechnology.in/demos/restaurant): Japanese dining reservation engine with live counter seat locks, seasonal tasting menus, and WhatsApp booking webhook alerts.
+- [B2B Corporate Swag & Wholesale Portal](https://gayatritechnology.in/demos/b2b): Dynamic volume MOQ pricing curves, real-time logo branding visualizer, and instant WhatsApp quotation triggers.
+- [Hair Salon Stylist Booking Engine](https://gayatritechnology.in/demos/salon): Luxury hair studio appointment scheduling with master stylist slot locking, service add-ons, and mobile notifications.
+- [Preschool Admissions & Tour Portal](https://gayatritechnology.in/demos/preschool): Reggio Emilia early education tour calendar, age-tier curriculum exploration, and automated parent inquiry routing.
 
 ## Practical Engineering Guides
 - [When to Move from Excel to ERP](https://gayatritechnology.in/knowledge/excel-to-erp): Diagnostic framework for growing businesses outgrowing spreadsheets, 5 concrete warning signs, and phased deployment strategy.

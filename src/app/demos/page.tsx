@@ -3,21 +3,41 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CtaBanner from "@/components/CtaBanner";
+import FaqAccordion from "@/components/FaqAccordion";
 import JsonLd from "@/components/JsonLd";
-import { getBreadcrumbSchema, createPageMetadata } from "@/lib/seo";
+import { getBreadcrumbSchema, getFaqSchema, createPageMetadata } from "@/lib/seo";
 import { DEMOS_DATA } from "@/lib/demos-data";
 import DemosClient from "./DemosClient";
 import { CheckCircle2, ShieldCheck, Cpu } from "lucide-react";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Interactive Website Demos & Production Prototypes | Gayatri Technology",
+  title: "Interactive Website Demos & Prototypes | Gayatri Tech",
   description:
-    "Test live, functional website prototypes built for restaurants, B2B wholesale, hair salons, and preschools. Real booking engines, WhatsApp lead delivery, and zero proprietary builder lock-in.",
+    "Test functional Next.js website prototypes for restaurants, B2B wholesale, salons, and preschools with live booking, WhatsApp leads, and 100% code ownership.",
   path: "/demos",
   openGraphTitle: "Working Website Demos & Prototypes | Gayatri Technology",
   openGraphDescription:
     "Interact with working prototypes: direct table booking, wholesale MOQ calculators, stylist slot locking, and preschool admissions flows. Engineered with Next.js 15.",
 });
+
+const demosFaqs = [
+  {
+    q: "How are these custom Next.js prototypes different from ready-made WordPress or Shopify templates?",
+    a: "Unlike WordPress or Shopify themes that rely on dozens of heavy third-party plugins that slow down mobile devices, our custom Next.js prototypes are compiled React Server Components with sub-400ms loading, zero plugin bloat, and bespoke database workflows.",
+  },
+  {
+    q: "Can we deploy these interactive features (booking, carts, WhatsApp lead delivery) to our own domain?",
+    a: "Yes. Every prototype represents production-ready architecture that we tailor to your exact business workflow, brand identity, and domain, with direct WhatsApp webhook alerts and 100% intellectual property ownership.",
+  },
+  {
+    q: "Can these custom web apps integrate with our existing ERP, POS, or Google Sheets?",
+    a: "Yes. Because every build uses modern TypeScript and API routes, we easily synchronize form submissions, reservations, and inventory with your existing ERP, billing software, CRM, or Google Sheets via webhooks and REST APIs.",
+  },
+  {
+    q: "What is the typical development timeline for a custom Next.js website?",
+    a: "Standard production websites and direct ordering portals typically deploy within 2 to 4 weeks from architecture sign-off, complete with speed optimization, SEO metadata, and staff onboarding.",
+  },
+];
 
 export default function DemosPage() {
   const breadcrumbSchema = getBreadcrumbSchema([
@@ -40,44 +60,7 @@ export default function DemosPage() {
     })),
   };
 
-  const demosFaqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How are these custom Next.js prototypes different from ready-made WordPress or Shopify templates?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Unlike WordPress or Shopify themes that rely on dozens of heavy third-party plugins that slow down mobile devices, our custom Next.js prototypes are compiled React Server Components with sub-400ms loading, zero plugin bloat, and bespoke database workflows.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can we deploy these interactive features (booking, carts, WhatsApp lead delivery) to our own domain?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Every prototype represents production-ready architecture that we tailor to your exact business workflow, brand identity, and domain, with direct WhatsApp webhook alerts and 100% intellectual property ownership.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can these custom web apps integrate with our existing ERP, POS, or Google Sheets?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Because every build uses modern TypeScript and API routes, we easily synchronize form submissions, reservations, and inventory with your existing ERP, billing software, CRM, or Google Sheets via webhooks and REST APIs.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What is the typical development timeline for a custom Next.js website?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Standard production websites and direct ordering portals typically deploy within 2 to 4 weeks from architecture sign-off, complete with speed optimization, SEO metadata, and staff onboarding.",
-        },
-      },
-    ],
-  };
+  const demosFaqSchema = getFaqSchema(demosFaqs);
 
   return (
     <div className="flex min-h-screen min-h-[100dvh] flex-col bg-[#F8FAFC] overflow-x-hidden md:overflow-x-clip w-full">
@@ -296,6 +279,26 @@ export default function DemosPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Synchronized FAQ Section (AEO Standards & Zero-Click Snippets) */}
+        <section className="scroll-section py-12 sm:py-16 lg:py-20 bg-white border-t border-[#E2E8F0]">
+          <div className="screen-container max-w-4xl mx-auto">
+            <div className="mb-10 text-left">
+              <span className="text-[#00875A] font-bold text-xs uppercase tracking-wider block mb-2 font-mono">
+                FREQUENTLY ASKED QUESTIONS &bull; AEO STANDARDS
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#091C0F] tracking-tight font-display mb-3">
+                Questions Businesses Ask About Custom Next.js Web Prototypes
+              </h2>
+              {/* Standalone 40-60 Word Direct Answer Block for AEO */}
+              <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+                Gayatri Technology develops bespoke Next.js web applications, online reservation engines, and wholesale B2B portals across Gujarat. Clients receive 100% intellectual property ownership, sub-400ms edge loading speeds, automated WhatsApp webhook leads, and direct API integrations with existing enterprise databases without recurring builder subscription fees.
+              </p>
+            </div>
+
+            <FaqAccordion items={demosFaqs} defaultOpenIndex={0} />
           </div>
         </section>
 

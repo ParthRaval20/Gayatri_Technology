@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   Star,
-  Quote,
-  ShieldCheck,
   CheckCircle2,
   ArrowRight,
   Smartphone,
@@ -391,6 +389,7 @@ export default function TestimonialsSection({
                 <button
                   key={idx}
                   type="button"
+                  role="tab"
                   onClick={() => scrollToIdx(idx)}
                   className={`transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     activeIdx === idx
